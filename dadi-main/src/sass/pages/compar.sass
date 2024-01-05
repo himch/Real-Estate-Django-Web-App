@@ -1,0 +1,67 @@
+.compar
+  padding-top: 131px
+  padding-bottom: 108px
+  .section
+    &__title
+      text-align: right
+      margin-right: 93px
+      margin-bottom: 63px
+      font-size: 60px
+  &__item
+    gap: 50px
+    padding: 28px 0
+    border-bottom: 1px solid #777
+    &:first-child
+      padding-top: 0
+    &-subtitle
+      margin-top: 36px
+      font-size: 22px
+      margin-bottom: 19px
+    &-area
+      padding-bottom: 20px
+  &__subitem
+    position: relative
+    width: 258px
+    &-title
+      font-weight: 500
+      font-size: 26px
+      color: var(--c5)
+    &-subtitle
+      font-size: 22px
+    &:nth-child(1)
+      width: 232px
+    &-close
+      position: absolute
+      width: 38px
+      height: 48px
+      background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 100%)
+      display: flex
+      align-items: center
+      justify-content: center
+      z-index: 2
+      top: 0
+      right: 0
+      cursor: pointer
+    .swiper
+      &-pagination
+        top: 154px
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 3px
+        height: auto
+        bottom: auto
+        &-bullet
+          width: 11px
+          height: 11px
+          opacity: 1
+          background: transparent
+          border: 1px solid var(--c2)
+          --swiper-pagination-bullet-horizontal-gap: 0
+          &-active
+            background: var(--c2)
+      &-slide
+        border-radius: 6px
+        overflow: hidden
+        img
+          height: 176px

@@ -1,0 +1,37 @@
+.help.help_second
+    .container.margin-center
+        .help__item.relative
+            .help__text.relative
+                .help__title.text-500.text-c5 Получите консультацию от&nbsp;Профессионалов в сфере недвижимости
+                .p-list
+                    ul
+                        li Подберем комфортный вариант под бюджет и пожелания
+                        li Проконсультируем по лучшим районам для жизни
+                        li Организуем трансфер из аэропорта
+                form
+                    .get__item-text.relative
+                        .get__item-inputs.flex.flex-col
+                            .get__item-input.form__input
+                                input(type="text" name="name" placeholder="Ваше имя" required)
+                            .get__item-input.form__input
+                                input(type="tel" name="tel" placeholder="8 999 999 99 99" required)
+                        .get__item-end
+                            button(type="submit").p-btn.flex.flex-ai-center.flex-j-center.text-500 Подобрать квартиру
+                            label.p-check.flex.flex-ai-center
+                                input(type="checkbox" name="check" checked)
+                                span.p-check__square.flex.flex-j-center.flex-ai-center.flex-shrink
+                                    +picture('img/main/get/check.png', 'img/main/get/check', true, '', 13, 13, '', '')
+                                span.p-check__title Отправляя форму, вы даёте согласие на обработку персональных данных
+            .help__img.absolute.bottom-0.right-0
+                +picture('img/rent/help/1.png', 'img/rent/help/1', true, '', 543, 571, '', '')
+                .help__name.absolute.text-c2
+                    .help__name-svg.absolute.p-img
+                        <svg width="216" height="69" viewBox="0 0 216 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.3457 0C3.47971 0 0.345703 3.134 0.345703 7V31.9733C0.345703 33.3831 0.523682 34.8837 0.381642 36.2863C0.357877 36.521 0.345703 36.7591 0.345703 37V62C0.345703 65.866 3.47971 69 7.3457 69H208.346C212.212 69 215.346 65.866 215.346 62V39C215.346 34.0294 211.316 30 206.346 30H197.346C189.061 30 182.346 23.2843 182.346 15V8C182.346 3.58172 178.764 0 174.346 0H7.3457Z" fill="#003B50"/>
+                        </svg>
+                        <svg width="102" height="41" viewBox="0 0 102 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.74419 0C1.67633 0 0 1.67633 0 3.74419V14.0896C0 15.2235 0.304418 17.2519 0.0764874 18.3626C0.0263393 18.6069 0 18.86 0 19.1192V37.2558C0 39.3237 1.67633 41 3.74419 41H79.2558C81.3237 41 83 39.3237 83 37.2558V20.189C83 18.7644 84.1494 16.2292 85.574 16.2292H96.9811C99.753 16.2292 102 13.9821 102 11.2103V4.27907C102 1.9158 100.084 0 97.7209 0H3.74419Z" fill="#003B50"/>
+                        </svg>
+                    .help__name-text.relative
+                        .help__name-title Владислав
+                        .help__name-subtitle консультант по недвижимости

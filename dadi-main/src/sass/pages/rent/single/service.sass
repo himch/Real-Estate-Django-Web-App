@@ -1,0 +1,57 @@
+.rent-single
+  &__service
+    padding-top: 50px
+    padding-bottom: 118px
+    &-title
+      margin-bottom: 46px
+    &-row
+      grid-template-columns: 348px 348px
+      grid-template-rows: 408px 225px 225px
+      gap: 16px 19px
+      grid-template-areas: "a b" "c c" "d d"
+      margin-bottom: 33px
+    &-item
+      border-radius: 16px
+      color: var(--c2)
+      padding: 21px 30px
+      gap: 43px
+      align-items: center
+      &.flex-col
+        gap: 39px
+        align-items: flex-start
+      &:nth-child(1)
+        grid-area: a
+        background: var(--c5)
+        .rent-single
+          &__service
+            &-text
+              padding-left: 22px
+            &-desc
+              max-width: 186px
+      &:nth-child(2)
+        grid-area: b
+        background: var(--c3)
+        .rent-single
+          &__service
+            &-desc
+              max-width: 233px
+      &:nth-child(3)
+        grid-area: c
+        background: var(--c1)
+      &:nth-child(4)
+        grid-area: d
+        background: #ACD4D4
+        color: var(--c1)
+        .rent-single
+          &__service
+            &-desc
+              max-width: 265px
+    &-img
+      width: 287px
+      height: 183px
+      flex-shrink: 0
+    &-subtitle
+      font-size: 24px
+      margin-bottom: 21px
+    &-desc
+      font-size: 16px

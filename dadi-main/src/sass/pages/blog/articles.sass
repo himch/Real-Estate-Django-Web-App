@@ -1,0 +1,140 @@
+.articles
+  padding-top: 67px
+  &__row
+    gap: 23px
+    &-item
+      grid-template-columns: repeat(1, 365px 365px 365px)
+      grid-template-rows: repeat(1, 436px 221px 221px)
+      gap: 23px 32px
+      grid-template-areas: "a b c" "d e e" "d f f"
+      grid-auto-flow: row dense
+  &__item
+    border-radius: 14px
+    background-color: #F5F7F9
+    padding: 12px 16px 16px
+    &_1
+      grid-area: a
+      .articles__item
+        &-title
+          max-width: 234px
+          margin-bottom: 0
+        &-img
+          img
+            height: 206px
+            border-radius: 6px
+        &-desc
+          margin-bottom: 35px
+        &-status
+          margin-top: 1px
+    &_2
+      grid-area: b
+    &_3
+      grid-area: c
+      .articles__item
+        &-img
+          margin-top: 40px
+          margin-bottom: 0
+          img
+            height: 194px
+    &_4
+      grid-area: d
+    &_5
+      grid-area: e
+      gap: 51px
+      background: var(--c5)
+      padding-left: 0
+      color: var(--c2)
+      .articles
+        &__item
+          &-title
+            max-width: 235px
+            color: var(--c2)
+            margin-bottom: 13px
+            font-size: 24px
+            height: auto
+          &-desc
+            margin-bottom: 43px
+          &-text
+            width: 100%
+          &-link
+            color: var(--c2)
+          &-date
+            color: var(--c2)
+          &-img
+            margin-bottom: 0
+            flex-shrink: 0
+            img
+              border-radius: 14px 0px 0px 14px
+    &_6
+      padding-right: 0
+      gap: 14px
+      grid-area: f
+      flex-direction: row-reverse
+      padding-left: 55px
+      .articles
+        &__item
+          &-title
+            font-size: 24px
+            max-width: 290px
+            height: auto
+          &-text
+            width: 100%
+          &-img
+            margin-bottom: 0
+            flex-shrink: 0
+            img
+              border-radius: 0px 14px 14px 0px
+    &_2, &_4
+      padding-bottom: 25px
+      .articles
+        &__item
+          &-tags
+            top: 11px
+            right: 20px
+          &-date, &-status
+            color: #F2F2F2
+          &-status
+            margin-bottom: 2px
+            margin-top: 0
+          &-date
+            font-family: 'Roboto'
+          &-title
+            height: auto
+            margin-bottom: 17px
+          &-desc
+            margin-bottom: 11px
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.42) 100%)
+    &-img
+      margin-bottom: 28px
+    &-title
+      height: 90px
+      margin-bottom: 22px
+      max-width: 257px
+      font-size: 22px
+    &-desc
+      font-size: 16px
+      margin-bottom: 11px
+    &-date
+      border-radius: 26px
+      background: rgba(206, 206, 206, 0.28)
+      color: #6A6A6A
+      font-size: 13.845px
+      padding: 2px 13px 2px 16px
+      height: 23px
+      display: flex
+      align-items: center
+      justify-content: center
+    &-status
+      text-align: right
+      font-size: 10px
+      color: #6A6A6A
+  &__load
+    margin-top: 39px
+    width: max-content

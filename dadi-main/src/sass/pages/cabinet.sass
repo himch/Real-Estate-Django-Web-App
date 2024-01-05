@@ -1,0 +1,130 @@
+@import "../functions/placeholder"
+.cabinet
+  padding: 117px 0
+  &__top
+    border-radius: 5px
+    background: var(--elements-white, #FDFDFD)
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10)
+    padding: 25px 63px
+    margin-bottom: 81px
+    &-title
+      font-size: 20px
+      margin-bottom: 9px
+    &-mail
+      margin-bottom: 9px
+    &-mail, &-tel
+      color: #888
+      font-size: 16px
+    &-right
+      top: 8px
+      right: 24px
+      gap: 16px
+    &-link
+      width: 119px
+      height: 34px
+      font-size: 12px
+  &__items
+    gap: 21px
+    &-title
+      font-size: 24px
+      margin-bottom: 38px
+  &__item
+    width: calc(100% / 2 - 21px / 2)
+    border-radius: 9px
+    background: var(--elements-white, #FDFDFD)
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10)
+    &-top
+      padding: 22px 17px 31px
+      gap: 21px
+      border-bottom: 1px solid #A6A6A6
+    &-img
+      width: 225px
+      img
+        height: 129px
+        border-radius: 6px
+    &-text
+      width: calc(100% - 225px - 21px)
+    &-title
+      margin-bottom: 15px
+    &-contents
+      gap: 11px
+      min-height: 34px
+      margin-bottom: 15px
+    &-content
+      font-size: 14px
+      color: #888
+    &-date
+      color: #000
+    &-bottom
+      padding: 18px 23px 22px 17px
+    &-confirm
+      padding-bottom: 17px
+      font-size: 16px
+      display: block
+      max-width: max-content
+      margin: 0 auto
+  &__price
+    margin-bottom: 28px
+    &-left
+      span
+        margin-right: 13px
+  &__change
+    margin-bottom: 60px
+    padding-bottom: 60px
+    border-bottom: 1px solid #777
+    &-link
+      font-size: 16px
+      margin-bottom: 14px
+    &-title
+      font-size: 20px
+      margin-bottom: 44px
+    &-form
+      width: 379px
+      gap: 33px
+    &-label
+      width: 100%
+      input
+        font-size: 18px
+      .p-btn
+        width: 100%
+        height: 58px
+  &__payment
+    box-shadow: none
+    background: transparent
+    &-title
+      font-size: 20px
+      margin-bottom: 20px
+    &-form
+      width: 379px
+    &-select
+      margin-bottom: 22px
+      .p-select
+        padding-bottom: 0
+        border: none
+        &__current
+          border-radius: 9px
+          border: 1px solid #282828
+          padding: 14px 19px 14px 9px
+  &__card
+    border-radius: 9px
+    border: 1px solid #000
+    margin-bottom: 31px
+    input
+      padding: 14px 10px
+      font-size: 17px
+      border: none
+      outline: none
+      background: transparent
+      width: 100%
+      +placeholder
+        color: var(--c1)
+    &-first
+      input
+        border-bottom: 1px solid #000
+    &-second
+      input
+        &:nth-child(2)
+          border-right: 1px solid #000
+  &__btn
+    width: 100%
+    height: 58px

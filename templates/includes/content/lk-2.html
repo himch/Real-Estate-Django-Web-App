@@ -1,0 +1,117 @@
+
+<main>
+  <div class="cabinet">
+    <div class="container margin-center">
+      <div class="cabinet__change">
+        <div class="cabinet__change-link">Назад</div>
+        <div class="cabinet__change-title text-c3 text-500">Персональные данные</div>
+        <form class="cabinet__change-form flex flex-col">
+          <div class="cabinet__change-label form__input">
+            <input type="text" name="name" placeholder="Ваше имя"/>
+          </div>
+          <div class="cabinet__change-label form__input">
+            <input type="text" name="fname" placeholder="Ваша фамилия"/>
+          </div>
+          <div class="cabinet__change-label form__input cabinet__change-label_date">
+            <input type="text" name="date" placeholder="Дата рождения"/>
+          </div>
+          <div class="cabinet__change-label form__input">
+            <input type="email" name="email" placeholder="Ваш Email"/>
+          </div>
+          <div class="cabinet__change-label form__input">
+            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Сохранить</button>
+          </div>
+        </form>
+      </div>
+      <div class="cabinet__items flex flex-wrap">
+        <div class="cabinet__item cabinet__payment">
+          <div class="cabinet__payment-title text-c3 text-500">Оплатить с помощью</div>
+          <form class="cabinet__payment-form">
+            <div class="cabinet__payment-select">
+              <div class="p-select relative">
+                <div class="p-select__current flex flex-ai-center flex-j-between">
+                  <input type="hidden" name="payment" value="Кредитная или дебетовая карта"/>
+                  <div class="p-select__current-item">Кредитная или дебетовая карта</div>
+                  <div class="p-select__current-arrow">
+                    <picture>
+                      <source type="image/webp" srcset="" data-srcset="img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="img/main/get/arrow.png" alt="" loading="lazy"/>
+                    </picture>
+                  </div>
+                </div>
+                <div class="p-select__abs absolute flex flex-col">
+                  <div class="p-select__abs-item active" data-value="Кредитная или дебетовая карта">Кредитная или дебетовая карта</div>
+                  <div class="p-select__abs-item" data-value="Кредитная или дебетовая карта 2">Кредитная или дебетовая карта 2</div>
+                </div>
+              </div>
+            </div>
+            <div class="cabinet__card">
+              <div class="cabinet__card-first">
+                <input type="text" name="num" placeholder="Номер карты" maxlength="16"/>
+              </div>
+              <div class="cabinet__card-second flex flex-ai-center">
+                <input type="text" name="term" placeholder="Срок действия"/>
+                <input type="text" name="cvv" placeholder="CVV" maxlength="3"/>
+              </div>
+            </div>
+            <button class="cabinet__btn p-btn flex flex-ai-center flex-j-center text-500" type="submit">Оплатить</button>
+          </form>
+        </div>
+        <div class="cabinet__item">
+          <div class="cabinet__item-top flex">
+            <div class="cabinet__item-img">
+              <picture>
+                <source type="image/webp" srcset="" data-srcset="img/lk/1.webp"/><img class="lazy " width="225" height="129" src="" data-src="img/lk/1.png" alt="" loading="lazy"/>
+              </picture>
+            </div>
+            <div class="cabinet__item-text">
+              <div class="cabinet__item-title text-c5">Квартира 50 кв.м с видом на море</div>
+              <div class="cabinet__item-contents flex flex-wrap flex-ai-center">
+                <div class="cabinet__item-content">2 комнаты</div>
+                <div class="cabinet__item-content"><svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="3" height="3" rx="1.5" fill="#888888"/>
+</svg>
+                </div>
+                <div class="cabinet__item-content">1 ванная</div>
+              </div>
+              <div class="cabinet__item-date">17 ноября — 20 декабря</div>
+            </div>
+          </div>
+          <div class="cabinet__item-bottom">
+            <div class="cabinet__price flex flex-ai-center flex-j-between text-500">
+              <div class="cabinet__price-left"><span>Стоимость:</span><span>5 000 руб. х 25 ночей</span></div>
+              <div class="cabinet__price-right text-c3">120 000 руб.</div>
+            </div>
+            <div class="cabinet__item-change p-btn flex flex-ai-center flex-j-center text-500">Изменить бронирование</div>
+          </div>
+        </div>
+        <div class="cabinet__item">
+          <div class="cabinet__item-top flex">
+            <div class="cabinet__item-img">
+              <picture>
+                <source type="image/webp" srcset="" data-srcset="img/lk/1.webp"/><img class="lazy " width="225" height="129" src="" data-src="img/lk/1.png" alt="" loading="lazy"/>
+              </picture>
+            </div>
+            <div class="cabinet__item-text">
+              <div class="cabinet__item-title text-c5">Квартира 50 кв.м с видом на море</div>
+              <div class="cabinet__item-contents flex flex-wrap flex-ai-center">
+                <div class="cabinet__item-content">2 комнаты</div>
+                <div class="cabinet__item-content"><svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="3" height="3" rx="1.5" fill="#888888"/>
+</svg>
+                </div>
+                <div class="cabinet__item-content">1 ванная</div>
+              </div>
+              <div class="cabinet__item-date">17 ноября — 20 декабря</div>
+            </div>
+          </div>
+          <div class="cabinet__item-bottom">
+            <div class="cabinet__price flex flex-ai-center flex-j-between text-500">
+              <div class="cabinet__price-left"><span>Стоимость:</span><span>5 000 руб. х 25 ночей</span></div>
+              <div class="cabinet__price-right text-c3">120 000 руб.</div>
+            </div><a class="cabinet__item-change p-btn flex flex-ai-center flex-j-center text-500" href="#!">Изменить бронирование</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

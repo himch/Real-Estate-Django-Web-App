@@ -1,0 +1,585 @@
+.rent
+  &-single
+    padding-top: 58px
+    padding-bottom: 60px
+    &__link
+      margin-bottom: 13px
+      width: max-content
+    &__title
+      font-size: 35px
+      margin-bottom: 13px
+    &__top
+      margin-bottom: 31px
+      gap: 34px
+      &-lot
+        color: #646464
+      &-svg
+        svg
+          width: 100%
+    &__row
+      gap: 41px
+      &_2
+        gap: 8px
+        .rent-single
+          &__left
+            width: 734px
+          &__right
+            top: 20px
+            width: calc(100% - 8px - 734px)
+      &_3
+        gap: 64px
+        .rent-single
+          &__left
+            width: 679px
+          &__right
+            top: 20px
+            width: calc(100% - 41px - 679px)
+    &__name
+      border-radius: 7px
+      border: 0.5px solid #808080
+      background: var(--c2)
+      box-shadow: 3px 2px 16px 0px rgba(0, 0, 0, 0.09)
+      backdrop-filter: blur(31.5px)
+      padding: 15px 16px 20px
+      gap: 19px
+      &_2
+        .rent-single__name-img
+          img
+            height: 160px
+      &-left
+        width: 136px
+      &-img
+        img
+          height: 137px
+          border-radius: 8px
+      &-link
+        font-size: 15px
+        margin-top: 15px
+        color: var(--c3)
+      &-title
+        font-size: 20px
+        margin-bottom: 9px
+      &-subtitle
+        font-size: 15px
+        margin-bottom: 23px
+      &-btns
+        gap: 4px
+      &-btn
+        width: 148px
+        height: 38px
+        font-size: 11px
+      &-socials
+        gap: 4px
+      &-social
+        width: 33px
+        height: 33px
+        border-radius: 100%
+        &:nth-child(2)
+          img
+            margin-left: 1px
+    &__left
+      width: 720px
+    &__right
+      width: calc(100% - 720px - 41px)
+      &-item
+        border-radius: 14px
+        border: 0.5px solid #808080
+        background: var(--c2)
+        box-shadow: 9px 8px 16px 0px rgba(0, 0, 0, 0.09)
+        padding: 24px 38px 67px
+        margin-bottom: 34px
+      &-date
+        color: #777
+        margin-bottom: 26px
+        font-size: 14px
+      &-input
+        input
+          display: none
+        .flatpickr-calendar
+          box-shadow: none
+    &__subitem
+      border-radius: 24px
+      border: 0.5px solid #808080
+      background: var(--c2)
+      box-shadow: 9px 8px 16px 0px rgba(0, 0, 0, 0.09)
+      padding: 43px 40px 44px 37px
+      top: 20px
+    &__images
+      grid-template-columns: 474px 230px
+      grid-template-rows: 151px 151px
+      gap: 10px 17px
+      grid-template-areas: "a b" "a c"
+      margin-bottom: 35px
+      &_2
+        grid-auto-flow: row dense
+        grid-template-columns: 474px 230px 230px
+        grid-template-rows: 151px 151px
+        gap: 10px 16px
+        margin-bottom: 52px
+        .rent-single
+          &__image
+            img
+              border-radius: 6px
+            &:nth-child(2)
+              grid-area: 1 / 2 / 2 / 3
+            &:nth-child(3)
+              grid-area: 1 / 3 / 2 / 4
+            &:nth-child(4)
+              grid-area: 2 / 2 / 3 / 3
+            &:nth-child(5)
+              grid-area: 2 / 3 / 3 / 4
+    &__image
+      &:nth-child(1)
+        grid-area: a
+      &:nth-child(2)
+        grid-area: b
+      &:nth-child(3)
+        grid-area: c
+    &__price
+      font-size: 20.64px
+      margin-bottom: 16px
+      span
+        font-weight: 500
+      del
+        color: #777
+        text-decoration-thickness: 1px
+      ins
+        text-decoration: none
+        margin-left: 8px
+        color: var(--c5)
+    &__cols
+      margin-bottom: 30px
+      border-radius: 6px
+      border: 1px solid var(--c5)
+    &__col
+      width: 100%
+      &-item
+        width: 50%
+        padding-top: 11px
+        padding-bottom: 12px
+        &:nth-child(1)
+          padding-left: 18px
+        &:nth-child(2)
+          border-left: 0.5px solid var(--c5)
+          padding-left: 27px
+        &_select
+          padding: 0
+          width: 100%
+          border-top: 0.5px solid var(--c5)
+          &:nth-child(n)
+            padding: 0
+          .rent-single__select
+            padding: 26px 21px 12px 18px
+          .rent-single__col-title
+            left: 0
+            top: -15px
+      &-title
+        font-size: 11px
+        margin-bottom: 3px
+      &-date
+        font-size: 14px
+    &__select
+      &.active
+        .rent-single__select-abs
+          display: block
+      &-title
+        font-size: 14px
+        text-transform: uppercase
+      &-abs
+        top: 100%
+        left: 0
+        display: none
+        border-radius: 6px
+        border: 0.5px solid grey
+        background: var(--c2)
+        box-shadow: 9px 8px 16px 0 rgba(0,0,0,.09)
+        padding: 16px
+        cursor: default
+      &-close
+        padding: 10px 0
+        margin-top: 20px
+        user-select: none
+      &-subtitle
+        font-size: 15px
+        margin-bottom: 5px
+      &-subdesc
+        font-size: 13px
+      &-arrow
+        transform: translateY(-5px)
+    &__button
+      margin-bottom: 38px
+      .p-btn
+        width: 100%
+        font-size: 16px
+    &__end
+      &-item
+        padding-top: 18px
+        &_last
+          border-top: 0.5px solid #777
+          padding-top: 30.5px
+          margin-top: 20px
+      &-title, &-subprice
+        font-size: 15.39px
+      &-span
+        color: #6E6E6E
+        margin-left: 5px
+        font-weight: 400
+    &__quantity
+      &-item
+        border: 1px solid #B0B0B0
+        width: 32px
+        height: 32px
+        cursor: pointer
+        border-radius: 100%
+        &:hover
+          border-color: var(--c1)
+        svg
+          width: 10px
+          height: 10px
+      &-input
+        user-select: none
+        input
+          user-select: none
+          width: 30px
+          border: none
+          outline: none
+          text-align: center
+          font-size: 16px
+    &__tabs
+      gap: 19px
+      &_2
+        gap: 35px
+        .rent-single
+          &__day
+            gap: 30px
+            margin-bottom: 29px
+            &-left
+              width: 250px
+            &-right
+              width: calc(100% - 30px - 250px)
+      &-block
+        gap: 163px
+    &__tab
+      &-tops
+        background: #F5F7F9
+        &_second
+          .rent-single
+            &__tab
+              &-top
+                font-size: 16px
+      &-top
+        font-size: 20px
+        color: #CFCFCF
+        padding: 0 13px 1px
+        border: 1px solid #808080
+        cursor: pointer
+        height: 31px
+        align-items: center
+        display: flex
+        justify-content: center
+        &:not(:first-child)
+          margin-left: -1px
+        &:first-child
+          border-radius: 5px 0 0 5px
+        &:last-child
+          border-radius: 0 5px 5px 0
+        &.active, &:hover
+          background: var(--c5)
+          color: var(--c2)
+          border-color: var(--c5)
+      &-content
+        display: none
+        &.active
+          display: block
+    &__day
+      display: none
+      margin-bottom: 15px
+      gap: 34px 69px
+      font-size: 25px
+      &-right
+        color: #777
+      &.active
+        display: flex
+      &-second
+        display: none
+        color: #777
+        &.active
+          display: block
+    &__projects
+      padding-top: 11px
+      padding-bottom: 22px
+      &-title
+        font-size: 60px
+        margin-bottom: 36px
+      &-row
+        gap: 18px
+        .p-card
+          width: calc(100% / 4 - 13.5px)
+      &-link
+        margin-top: 36px
+        font-size: 24px
+    &__dev
+      &-list
+        gap: 32px 60px
+        margin-bottom: 61px
+      &-li
+        width: calc(100% / 3 - 40px)
+      &-num
+        font-size: 35px
+        margin-bottom: 6px
+      &-title
+        font-size: 20px
+      &-img
+        margin-top: 21px
+        margin-bottom: 84px
+        img
+          height: 317px
+          border-radius: 14px
+    &__desc
+      margin-bottom: 35px
+      display: flex
+      flex-direction: column
+      gap: 25px
+      &_2
+        max-width: 627px
+        margin-bottom: 89px
+    &__location
+      padding-top: 18px
+      padding-bottom: 89px
+      &-desc
+        margin-top: 9px
+        font-size: 24px
+      &-title
+        margin-bottom: 28px
+    &__floor
+      margin-bottom: 121px
+      &-title
+        margin-bottom: 19px
+      &-row
+        gap: 40px
+      &-arrows
+        margin-top: 19px
+        gap: 8px
+      &-left
+        width: 444px
+      &-list
+        gap: 18px
+      &-li
+        gap: 8px
+      &-subtitle
+        font-size: 20px
+      &-svg
+        width: 32px
+        height: 32px
+        border-radius: 100%
+      .swiper
+        img
+          border-radius: 6px
+        &-button
+          margin-top: 0
+          position: relative
+          inset: auto
+          width: 43px
+          height: 43px
+          border-radius: 100%
+          border: 1px solid var(--c1)
+          &::before, &::after
+            display: none
+      &-right
+        width: calc(100% - 40px - 444px)
+    &__edges
+      gap: 30px
+      margin-bottom: 34px
+      &_2
+        gap: 25px
+        width: 450px
+        .rent-single__edges-item
+          width: calc(100% / 2 -  25px / 2)
+      &-item
+        width: calc(100% / 3 - 20px )
+        gap: 13px
+      &-img
+        flex-shrink: 0
+        margin-bottom: 5px
+      &-title
+        color: #777
+        font-size: 12px
+      &-subtitle
+        font-size: 20px
+    &__cards
+      gap: 26px
+      padding-top: 50px
+      padding-bottom: 108px
+    &__card
+      width: 357px
+      height: 529px
+      .p-card
+        height: 100%
+      &-inner
+        width: 100%
+        border-radius: 14px
+        height: 100%
+        padding: 0 42px 59px
+      &-subtitle
+        font-size: 16px
+        margin-bottom: 8px
+      &-title
+        font-size: 30px
+        margin-bottom: 8px
+      &-img
+        margin-bottom: 19px
+        img
+          height: 88px
+      &-list
+        gap: 5px
+        margin-bottom: 57px
+      &-li
+        gap: 25px
+        display: flex
+        align-items: center
+      &-num
+        align-items: center
+        gap: 7.5px
+      &-subtitle
+        font-size: 16px
+      &-btn
+        width: 100%
+        height: 58px
+        font-size: 16px
+    &__plan
+      padding-top: 13px
+      padding-bottom: 7px
+      &_second
+        padding-bottom: 60px
+        .rent-single
+          &__plan
+            &-top, &-items
+              max-width: 720px
+      &-top
+        gap: 25px
+        margin-bottom: 55px
+      &-title
+        margin-bottom: 0
+        font-size: 50px
+      &-btn
+        padding: 14px 23px 17px
+        border-radius: 14px
+        background: rgba(21, 107, 127, 0.14)
+        font-size: 20px
+      &-item
+        padding: 18px 0
+        &:not(:last-child)
+          border-bottom: 1px solid #777
+      &-left
+        width: 260px
+        font-size: 24px
+      &-center
+        width: 100px
+        text-align: center
+        font-size: 25px
+      &-right
+        text-align: right
+        font-size: 25px
+        width: 200px
+    &__list
+      margin-bottom: 116px
+      gap: 13px
+      &-li
+        display: none
+        gap: 14px
+        &.active
+          display: flex
+        &_first
+          width: 316px
+        &_second
+          width: 262px
+        &_third
+          width: calc(100% - 316px - 13px - 13px - 262px)
+        &_more
+          font-size: 20px
+          line-height: 1.2
+          cursor: pointer
+          width: max-content
+          display: flex
+    &__rules
+      &-title
+        font-size: 55px
+        margin-bottom: 26px
+      &-tabs
+        gap: 28px
+        margin-bottom: 32px
+      &-tab
+        padding-bottom: 12px
+        font-size: 19px
+        color: #BFBFBF
+        font-weight: 500
+        position: relative
+        cursor: pointer
+        &.active
+          color: var(--c1)
+          svg
+            opacity: 1
+        svg
+          position: absolute
+          top: 100%
+          left: 0
+          width: 100%
+          opacity: 0
+          height: 2px
+      &-content
+        display: none
+        &.active
+          display: block
+      &-btn
+        height: 58px
+    &__advs
+      gap: 14px 20px
+      margin-bottom: 30px
+      &_2
+        gap: 14px
+        margin-bottom: 129px
+        .rent-single
+          &__advs
+            &-item
+              width: calc(100% / 3 - 9.4px)
+      &-subtitle
+        margin-bottom: 31px
+        font-size: 50px
+      &-item
+        width: calc(100% / 2 - 20px / 2)
+        gap: 18px
+        border-radius: 14px
+        padding: 9px 14px
+      &-svg
+        width: 41px
+        height: 41px
+        border-radius: 100%
+        flex-shrink: 0
+      &-title
+        font-size: 16px
+        line-height: 118.6%
+    &__form
+      height: 390px
+      border-radius: 14px
+      padding: 40px 35px
+      background-color: #F5F7F9
+      &-btn
+        width: 296px
+        margin-bottom: 20px
+      &-subtitle
+        font-size: 22px
+        max-width: 333px
+    &__btns
+      gap: 7px
+      top: 34px
+      right: 188px
+    &__btn
+      width: 48px
+      height: 48px
+      border-radius: 100%
+      cursor: pointer
+  &-map
+    padding-top: 50px
+    padding-bottom: 82px
+    &__title
+      margin-bottom: 37px

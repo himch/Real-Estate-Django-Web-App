@@ -1,0 +1,23 @@
+picture, svg
+  display: flex
+
+img, video, svg, picture
+  max-width: 100%
+  height: auto
+  user-select: none
+
+.img
+  &_full
+    :is(img, picture, video)
+      width: 100%
+      height: 100%
+  &_mw
+    &-inherit
+      :is(img, video, svg)
+        max-width: inherit
+  &_cover
+    :is(img, video)
+      object-fit: cover
+  &_br
+    img
+      border-radius: 16px

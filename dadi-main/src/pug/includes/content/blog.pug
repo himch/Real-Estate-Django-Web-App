@@ -1,0 +1,110 @@
+include ../mixins
+main
+    .main.main_blog
+        .container.margin-center.relative
+            .main__item.bg.flex.flex-ai-center.flex-j-end.flex-col.relative.text-c2.text-center.overflow-hidden(style="background-image:url('img/blog/bg.webp')")
+                .main__item-bg.absolute.top-0.left-0.w-full.h-full
+                .main__item-title.font-tenor.relative DADI Блог
+                .main__item-subtitle.relative Полезные статьи о жизни и недвижимости в Дубае
+    .blog
+        .container.margin-center
+            .articles__row.flex.flex-col
+                .articles__row-item.grid
+                    .articles__item.articles__item_1.overflow-hidden
+                        .articles__item-img.img_cover.img_br
+                            +picture('img/blog/items/1.jpg', 'img/blog/items/1', true, '', 333, 206, '', '')
+                        .articles__item-text.relative
+                            .articles__item-title.text-c3 Дубай: лучшие районы для жизни
+                            .articles__item-tags.absolute.top-0.right-0
+                                .articles__item-date 21.10.2023
+                                .articles__item-status обновлено
+                            .articles__item-desc Жизнь в дубае
+                            a(href="/article.html").articles__item-link.text-c3.text-underline Читать
+                    .articles__item.articles__item_2.overflow-hidden.bg.lazy.flex.flex-ai-end.relative.text-c2(data-bg="img/blog/items/2.webp")
+                        .articles__item-tags.absolute.top-0.right-0
+                            .articles__item-status обновлено
+                            .articles__item-date 21.10.2023
+                        .articles__item-text.relative
+                            .articles__item-title 7 шагов для оплаты  криптовалютой
+                            .articles__item-desc Технологии
+                            a(href="/article.html").articles__item-link.text-underline Читать
+                    .articles__item.articles__item_3.overflow-hidden
+                        .articles__item-text.relative
+                            .articles__item-title.text-c3 Изменение в законодательстве ОАЭ: новые возможности
+                            .articles__item-tags.absolute.top-0.right-0
+                                .articles__item-date 21.10.2023
+                            .articles__item-desc Новости  Дубая
+                            a(href="/article.html").articles__item-link.text-c3.text-underline Читать
+                        .articles__item-img.img_cover.img_br
+                            +picture('img/blog/items/3.jpg', 'img/blog/items/3', true, '', 351, 194, '', '')
+                    .articles__item.articles__item_4.overflow-hidden.bg.lazy.flex.flex-ai-end.relative.text-c2(data-bg="img/blog/items/4.webp")
+                        .articles__item-tags.absolute.top-0.right-0
+                            .articles__item-date 21.10.2023
+                        .articles__item-text.relative
+                            .articles__item-title 7 шагов для оплаты  криптовалютой
+                            .articles__item-desc Технологии
+                            a(href="/article.html").articles__item-link.text-underline Читать
+                    .articles__item.articles__item_5.overflow-hidden.flex.flex-ai-center
+                        .articles__item-img.img_cover.img_br
+                            +picture('img/blog/items/5.jpg', 'img/blog/items/5', true, '', 288, 221, '', '')
+                        .articles__item-text.relative
+                            .articles__item-title.text-c3 Дубай: лучшие районы для жизни
+                            .articles__item-tags.absolute.top-0.right-0
+                                .articles__item-date 21.10.2023
+                            .articles__item-desc Жизнь в дубае
+                            a(href="/article.html").articles__item-link.text-c3.text-underline Читать
+                    .articles__item.articles__item_6.overflow-hidden.flex.flex-ai-center
+                        .articles__item-img.img_cover.img_br
+                            +picture('img/blog/items/6.jpg', 'img/blog/items/6', true, '', 308, 221, '', '')
+                        .articles__item-text.relative
+                            .articles__item-title.text-c3 Изменение в законодательстве ОАЭ: новые возможности
+                            .articles__item-tags.absolute.top-0.right-0
+                                .articles__item-date 21.10.2023
+                            .articles__item-desc Новости Дубая
+                            a(href="/article.html").articles__item-link.text-c3.text-underline Читать
+            .articles__load.text-c3.text-underline.margin-center.text-500.cursor-pointer Загрузить <span>12</span> из 103
+    .telegram
+        .container.margin-center
+            .telegram__item.relative
+                .telegram__subtitle.text-center.relative со свежими новостями из мира Дубая
+                .section__title.font-tenor.text-c3.text-center.relative Телеграм канал DADI
+                .telegram__btns.flex.flex-j-between.margin-center.relative.flex-ai-center
+                    a(href="#!").telegram__btns-link.text-c5.text-underline @Название_канала
+                    a(href="#!").p-btn.flex.flex-ai-center.flex-j-center.text-500 Перейти в канал
+                .telegram__img.absolute.bottom-0
+                    +picture('img/blog/telegram/iPhone.jpg', 'img/blog/telegram/iPhone', true, '', 1002, 484, '', '')
+    .help.help_second
+        .container.margin-center
+            .help__item.relative
+                .help__text.relative
+                    .help__title.text-500.text-c5 Получите консультацию от&nbsp;Профессионалов в сфере недвижимости
+                    .p-list
+                        ul
+                            li Подберем комфортный вариант под бюджет и пожелания
+                            li Проконсультируем по лучшим районам для жизни
+                            li Организуем трансфер из аэропорта
+                    form
+                        .get__item-text.relative
+                            .get__item-inputs.flex.flex-col
+                                .get__item-input.form__input
+                                    input(type="text" name="name" placeholder="Ваше имя" required)
+                                .get__item-input.form__input
+                                    input(type="tel" name="tel" placeholder="8 999 999 99 99" required)
+                            .get__item-end
+                                button(type="submit").p-btn.flex.flex-ai-center.flex-j-center.text-500 Подобрать квартиру
+                                label.p-check.flex.flex-ai-center
+                                    input(type="checkbox" name="check" checked)
+                                    span.p-check__square.flex.flex-j-center.flex-ai-center.flex-shrink
+                                        +picture('img/main/get/check.png', 'img/main/get/check', true, '', 13, 13, '', '')
+                                    span.p-check__title Отправляя форму, вы даёте согласие на обработку персональных данных
+                .help__img.absolute.bottom-0.right-0
+                    +picture('img/rent/help/1.png', 'img/rent/help/1', true, '', 543, 571, '', '')
+                    .help__name.absolute.text-c2
+                        .help__name-svg.absolute
+                            <svg width="216" height="69" viewBox="0 0 216 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.3457 0C3.47971 0 0.345703 3.134 0.345703 7V31.9733C0.345703 33.3831 0.523682 34.8837 0.381642 36.2863C0.357877 36.521 0.345703 36.7591 0.345703 37V62C0.345703 65.866 3.47971 69 7.3457 69H208.346C212.212 69 215.346 65.866 215.346 62V39C215.346 34.0294 211.316 30 206.346 30H197.346C189.061 30 182.346 23.2843 182.346 15V8C182.346 3.58172 178.764 0 174.346 0H7.3457Z" fill="#003B50"/>
+                            </svg>
+                        .help__name-text.relative
+                            .help__name-title Владислав
+                            .help__name-subtitle консультант по недвижимости
+    include ../../components/contacts

@@ -1,0 +1,211 @@
+.why
+  padding-top: 64px
+  padding-bottom: 130px
+
+  &__tabs, &__contents
+    gap: 17px
+
+  &__tabs
+    padding-bottom: 57px
+
+  &__blocks
+    display: none
+
+  &__tab
+    width: 50%
+    color: var(--c4)
+    transition: .3s
+
+    &.active
+      color: var(--c1)
+
+      .why
+        &__tab
+          &-svg
+            opacity: 1
+
+    &:nth-child(1)
+      .why
+        &__tab
+          &-subtitle
+            max-width: 272px
+
+    &-svg
+      opacity: 0
+
+    &-title
+      font-size: 40px
+      margin-bottom: 18px
+
+    &-subtitle
+      max-width: 282px
+
+  &__content
+    gap: 17px
+
+    &-left
+      width: 544px
+
+    &-right
+      width: calc(100% - 544px - 17px)
+
+  &__content
+    display: none
+
+    &_1
+      .why__content
+        &-tab
+          &:nth-child(1)
+            .why__content
+              &-text
+                max-width: 266px
+
+          &:nth-child(2)
+            .why__content
+              &-text
+                max-width: 292px
+
+          &:nth-child(3)
+            .why__content
+              &-text
+                max-width: 292px
+
+          &:nth-child(4)
+            .why__content
+              &-text
+                max-width: 406px
+
+          &:nth-child(5)
+            .why__content
+              &-text
+                max-width: 351px
+
+    &_2
+      .why__content
+        &-tab
+          &:nth-child(1)
+            .why__content
+              &-text
+                max-width: 440px
+
+          &:nth-child(2)
+            .why__content
+              &-text
+                max-width: 282px
+
+          &:nth-child(3)
+            .why__content
+              &-text
+                max-width: 314px
+
+          &:nth-child(4)
+            .why__content
+              &-text
+                max-width: 436px
+
+          &:nth-child(5)
+            .why__content
+              &-text
+                max-width: 436px
+
+          &:nth-child(6)
+            .why__content
+              &-text
+                max-width: 344px
+
+    .p-btn
+      height: 74px
+
+    &.active
+      display: flex
+
+    &-tabs
+      gap: 21px
+      margin-bottom: 28px
+
+    &-tab
+      padding: 24px 13px 24px 33px
+      border-radius: 9px
+      background: #F5F7F9
+      width: 100%
+      transition: .3s
+
+      &:hover
+        color: var(--c2)
+        background: var(--c5)
+
+        .why
+          &__content
+            &-arrow
+              picture
+                &:nth-child(1)
+                  display: none
+
+                &:nth-child(2)
+                  display: flex
+
+      &.active
+        color: var(--c2)
+        background: var(--c5)
+
+        .why
+          &__content
+            &-arrow
+              rect
+                fill: var(--c2)
+
+              picture
+                &:nth-child(1)
+                  display: none
+
+                &:nth-child(2)
+                  transform: none
+                  display: flex
+
+    &-arrow
+      transition: .3s
+
+      picture
+        &:nth-child(2)
+          transform: rotate(-90deg)
+          display: none
+
+    &-text
+      height: 0
+      overflow: hidden
+      transition: .3s height
+      color: var(--c2)
+
+      &-inner
+        padding-top: 12px
+        font-size: 14px
+
+    &-image
+      img
+        height: 606px
+        display: none
+        border-radius: var(--br-def)
+
+        &.active
+          display: block
+
+  &__desc
+    font-size: 34.5px
+    margin-top: 81px
+    margin-bottom: 18px
+
+    &-img
+      border-radius: 23.673px
+      width: 135px
+      height: 27px
+      display: inline-block
+
+      &_2
+        width: 89px
+        height: 25px
+
+  &__end
+    font-size: 26px
+
+    &-link
+      text-decoration: underline

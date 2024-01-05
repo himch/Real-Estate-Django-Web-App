@@ -1,0 +1,1 @@
+picture,svg{display:flex}img,picture,svg,video{max-width:100%;height:auto;-webkit-user-select:none;-moz-user-select:none;user-select:none}.img_full :is(img,picture,video){width:100%;height:100%}.img_mw-inherit :is(img,video,svg){max-width:inherit}.img_cover :is(img,video){-o-object-fit:cover;object-fit:cover}.img_br img{border-radius:16px}

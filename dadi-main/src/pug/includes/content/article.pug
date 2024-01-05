@@ -1,0 +1,75 @@
+include ../mixins
+main
+    .article
+        .container.margin-center
+            .article__title.font-tenor.text-c3 Топ-3 новых достопримечательности в октябре
+            .article__img.relative
+                a(href="/blog.html").article__img-link.flex.flex-ai-center.absolute.top-0.left-0
+                    .article__img-svg.flex-shrink
+                        <svg width="30" height="12" viewBox="0 0 30 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.876 6.53033C29.1689 6.23743 29.1689 5.76256 28.876 5.46967L24.1031 0.696697C23.8102 0.403804 23.3353 0.403804 23.0424 0.696697C22.7495 0.989591 22.7495 1.46446 23.0424 1.75736L27.285 6L23.0424 10.2426C22.7495 10.5355 22.7495 11.0104 23.0424 11.3033C23.3353 11.5962 23.8102 11.5962 24.1031 11.3033L28.876 6.53033ZM0.345703 6.75L28.3457 6.75L28.3457 5.25L0.345703 5.25L0.345703 6.75Z" fill="#282828"/>
+                        </svg>
+                    .article__img-title DADI блог
+                .article__img-main
+                    +picture('img/article/1.jpg', 'img/article/1', true, '', 1160, 337, '', '')
+            .article__items.flex.flex-col
+                .article__item.flex
+                    .article__item-text
+                        .article__item-title.font-tenor.text-c3 1. Dubai Miracle Garden
+                        .article__item-desc Парк со 150 млн цветов и 120 видами растений площадью 72 000 м². Здесь представлены огромные цветочные скульптуры: от аэробуса авиакомпании Emirates до 18 м Микки Мауса.
+                        .article__item-list
+                            .article__item-li.flex <span class="text-c5 text-500">Адрес:</span> Al Barsha South
+                            .article__item-li.flex <span class="text-c5 text-500">Открытие:</span> 1 октября
+                            .article__item-li.flex <span class="text-c5 text-500">Билеты:</span> 22 $ для детей, 26 $ для взрослых
+                    .article__item-img.img_cover.img_br.flex-shrink
+                        +picture('img/article/2.jpg', 'img/article/2', true, '', 500, 309, '', '')
+                .article__item.flex
+                    .article__item-text
+                        .article__item-title.font-tenor.text-c3 2. Global Village
+                        .article__item-desc 28 сезон предложит 27 павильонов, посвящённых разным странам, живые выступления, детский театр и гастрономические приключения. Впечатляющие фейерверки по пятницам и субботам.
+                        .article__item-list
+                            .article__item-li.flex <span class="text-c5 text-500">Адрес:</span> Mohamed Bin Zayed Road
+                            .article__item-li.flex <span class="text-c5 text-500">Открытие:</span> 18 октября
+                            .article__item-li.flex <span class="text-c5 text-500">Билеты:</span> 5 $ (у ворот), 7 $ (онлайн)
+                    .article__item-img.img_cover.img_br.flex-shrink
+                        +picture('img/article/3.jpg', 'img/article/3', true, '', 500, 309, '', '')
+                .article__item.flex
+                    .article__item-text
+                        .article__item-title.font-tenor.text-c3 3. Al Wasl Plaza и Surreal
+                        .article__item-desc Al Wasl Plaza – это купол диаметром 130 м и высотой 67 м с иммерсивным проекционным экраном с обзором 360°. Surreal – захватывающий аттракцион, объединяющий воду, свет, огонь и музыку. Летом нет световой части шоу.
+                        .article__item-list
+                            .article__item-li.flex <span class="text-c5 text-500">Адрес:</span> Expo City
+                            .article__item-li.flex <span class="text-c5 text-500">Открытие:</span> октябрь
+                            .article__item-li.flex <span class="text-c5 text-500">Билеты:</span> бесплатно
+                    .article__item-img.img_cover.img_br.flex-shrink
+                        +picture('img/article/4.jpg', 'img/article/4', true, '', 500, 309, '', '')
+    .telegram
+        .container.margin-center
+            .telegram__item.relative
+                .telegram__subtitle.text-center.relative со свежими новостями из мира Дубая
+                .section__title.font-tenor.text-c3.text-center.relative Телеграм канал DADI
+                .telegram__btns.flex.flex-j-between.margin-center.relative.flex-ai-center
+                    a(href="#!").telegram__btns-link.text-c5.text-underline @Название_канала
+                    a(href="#!").p-btn.flex.flex-ai-center.flex-j-center.text-500 Перейти в канал
+                .telegram__img.absolute.bottom-0
+                    +picture('img/blog/telegram/iPhone.jpg', 'img/blog/telegram/iPhone', true, '', 1002, 484, '', '')
+    .article-items.overflow-hidden
+        .container.margin-center
+            .article-items__top.relative
+                .section__title.font-tenor.text-c3 Другие статьи
+                a(href="/blog.html").article-items__link.text-c3.text-underline.absolute.text-500.right-0 Перейти в Блог
+            .swiper
+                .swiper-wrapper
+                    .swiper-slide
+                        include ../../components/articleItems
+                    .swiper-slide
+                        include ../../components/articleItems
+                    .swiper-slide
+                        include ../../components/articleItems
+                    .swiper-slide
+                        include ../../components/articleItems
+                    .swiper-slide
+                        include ../../components/articleItems
+                    .swiper-slide
+                        include ../../components/articleItems
+    include ../../components/contacts

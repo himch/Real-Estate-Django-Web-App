@@ -1,0 +1,144 @@
+include ../mixins
+main
+    .estate.overflow-hidden.estate_fav
+        .container.margin-center
+            .section__title.font-tenor.text-c3.text-center Избранное
+            .estate_fav__tabs.flex-j-center.hidden
+                .estate_fav__tab.active
+                    .estate_fav__tab-title Аренда
+                    <svg width="101" height="2" viewBox="0 0 101 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 1L101 1.00001" stroke="url(#paint0_linear_347_9137)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear_347_9137" x1="0" y1="1" x2="101" y2="1.00001" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4B97A1" stop-opacity="0"/>
+                    <stop offset="0.5" stop-color="#156B7F"/>
+                    <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+                .estate_fav__tab
+                    .estate_fav__tab-title Покупка
+                    <svg width="101" height="2" viewBox="0 0 101 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 1L101 1.00001" stroke="url(#paint0_linear_347_91371)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear_347_91371" x1="0" y1="1" x2="101" y2="1.00001" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4B97A1" stop-opacity="0"/>
+                    <stop offset="0.5" stop-color="#156B7F"/>
+                    <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+            .estate_fav__items.hidden
+                .estate_fav__item.active
+                    .estate_fav__item-cards.flex.flex-wrap
+                        include ../../components/filterCardWithDelete
+                        include ../../components/filterCardWithDelete
+                        include ../../components/filterCardWithDelete
+                    .p-pagination.flex.flex-j-center
+                        .p-pagination__item.p-pagination__item_arrow.p-pagination__item_prev
+                            +picture('img/pagination/down-arrow.png', 'img/pagination/down-arrow', true, '', 13, 13, '', '')
+                        .p-pagination__item.active 1
+                        .p-pagination__item 2
+                        .p-pagination__item 3
+                        .p-pagination__item 4
+                        .p-pagination__item 5
+                        .p-pagination__item.p-pagination__item_arrow.p-pagination__item_next
+                            +picture('img/pagination/down-arrow.png', 'img/pagination/down-arrow', true, '', 13, 13, '', '')
+                .estate_fav__item
+                    .estate_fav__item-cards.flex.flex-wrap
+                        include ../../components/filterCardWithDelete
+                        include ../../components/filterCardWithDelete
+                        include ../../components/filterCardWithDelete
+                    .p-pagination.flex.flex-j-center
+                        .p-pagination__item.p-pagination__item_arrow.p-pagination__item_prev
+                            +picture('img/pagination/down-arrow.png', 'img/pagination/down-arrow', true, '', 13, 13, '', '')
+                        .p-pagination__item.active 1
+                        .p-pagination__item 2
+                        .p-pagination__item 3
+                        .p-pagination__item 4
+                        .p-pagination__item 5
+                        .p-pagination__item.p-pagination__item_arrow.p-pagination__item_next
+                            +picture('img/pagination/down-arrow.png', 'img/pagination/down-arrow', true, '', 13, 13, '', '')
+            .estate__items.flex.flex-col
+                .estate__item.relative.w-full
+                    .estate__item-title Аренда
+                    .estate__swiper.relative
+                        .swiper
+                            .swiper-wrapper
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                .estate__item.relative.w-full
+                    .estate__item-title Покупка
+                    .estate__swiper.relative
+                        .swiper
+                            .swiper-wrapper
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+                                .swiper-slide
+                                    include ../../components/filterCardWithDelete
+    .catalog-cons.catalog-cons_second
+        .container.margin-center
+            .catalog-cons__item.relative
+                .catalog-cons__img-left.absolute.bottom-0.left-0.p-img
+                    +picture('img/catalogs/cons/left2.png', 'img/catalogs/cons/left2', true, '', 574, 586, '', '')
+                    +picture('img/catalogs/cons/left2_mb.png', 'img/catalogs/cons/left2_mb', true, '', 322, 267, '', '')
+                form.relative
+                    .catalog-cons__text.relative
+                        .catalog-cons__title Поможем проанализировать и выбрать лучшее
+                        .catalog-cons__subtitle Оставьте свои данные, <span class="text-c5">наш агент свяжется с вами в течение дня</span>
+                        .catalog-cons__inputs.flex
+                            .form__input
+                                input(type="text" name="name" placeholder="Ваше имя" required)
+                            .form__input
+                                input(type="tel" name="tel" placeholder="8 999 999 99 99" required)
+                            .form__input
+                                .p-select.relative
+                                    .p-select__current.flex.flex-ai-center.flex-j-between
+                                        input(type="hidden" name="request" value="Позвонить мне")
+                                        .p-select__current-item Позвонить мне
+                                        .p-select__current-arrow
+                                            +picture('img/main/get/arrow.png', 'img/main/get/arrow', true, '', 17, 17, '', '')
+                                    .p-select__abs.absolute.flex.flex-col
+                                        .p-select__abs-item.active(data-value="Позвонить мне") Позвонить мне
+                                        .p-select__abs-item(data-value="Написать мне") Написать мне
+                                        .p-select__abs-item(data-value="Написать позже") Написать позже
+                                        .p-select__abs-item(data-value="Позвонить позже") Позвонить позже
+                        .get__item-end
+                            button(type="submit").p-btn.flex.flex-ai-center.flex-j-center.text-500 Получить консультацию
+                            label.p-check.flex.flex-ai-center
+                                input(type="checkbox" name="check" checked)
+                                span.p-check__square.flex.flex-j-center.flex-ai-center.flex-shrink
+                                    +picture('img/main/get/check.png', 'img/main/get/check', true, '', 13, 13, '', '')
+                                span.p-check__title Отправляя форму, вы даёте согласие на обработку персональных данных
+                        .catalog-cons__end
+                            span или напишите нам в
+                            span
+                                a(href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.").catalog-cons__end-link.flex.flex-ai-center
+                                    span.catalog-cons__end-svg.flex-shrink
+                                        +picture('img/catalogs/cons/whatsapp.png', 'img/catalogs/cons/whatsapp', true, '', 18, 18, '', '')
+                                    span.catalog-cons__end-title.text-c3.text-underline Whatsapp
+                            span или
+                            span
+                                a(href="#!").catalog-cons__end-link.flex.flex-ai-center
+                                    span.catalog-cons__end-svg.flex-shrink
+                                        +picture('img/catalogs/cons/telegram.png', 'img/catalogs/cons/telegram', true, '', 17, 17, '', '')
+                                    span.catalog-cons__end-title.text-c3.text-underline Telegram
+    .blog_second
+        include ../../components/blog
+    include ../../components/contacts

@@ -1,0 +1,225 @@
+include ../mixins
+main
+    .catalogs.overflow-hidden
+        .container.margin-center
+            .catalogs__item.relative
+                .catalogs__item-subtitle.text-c5.uppercase.relative.text-center DADI REAL ESTATE
+                .catalogs__item-title.text-c3.font-tenor.relative.text-center Каталоги недвижимости в Дубае
+                .catalogs__item-img.absolute.bottom-0.p-img
+                    +picture('img/catalogs/main/bg.png', 'img/catalogs/main/bg', false, '', 1023, 509, '', '')
+                    +picture('img/catalogs/main/bg_mb.png', 'img/catalogs/main/bg_mb', false, '', 691, 521, '', '')
+    include ../../components/bestBlock
+    .estate.overflow-hidden.catalogs_estate
+        .container.margin-center
+            .section__title.font-tenor.text-c3 Комплексы
+            .estate__items.flex.flex-col
+                .estate__item.relative.w-full
+                    .estate__swiper.relative
+                        .swiper
+                            .swiper-wrapper
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        2,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                        .main_swiper-arrows.flex.absolute
+                            .swiper-button.swiper-button-prev.flex.flex-ai-center.flex-j-center
+                                +picture('img/main/estate/arrow-left.png', 'img/main/estate/arrow-left', true, '', 18, 18, '', '')
+                            .swiper-button.swiper-button-next.flex.flex-ai-center.flex-j-center
+                                +picture('img/main/estate/arrow-right.png', 'img/main/estate/arrow-right', true, '', 18, 18, '', '')
+    .estate.overflow-hidden.catalogs_estate
+        .container.margin-center
+            .section__title.font-tenor.text-c3 Комплексы
+            .estate__items.flex.flex-col
+                .estate__item.relative.w-full
+                    .estate__swiper.relative
+                        .swiper
+                            .swiper-wrapper
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        2,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                                .swiper-slide
+                                    +pCard2(
+                                        'p-card_second',
+                                        1,
+                                        'Название ЖК',
+                                        'Застройщик',
+                                        'от 100.000 р за 50 кв.м',
+                                        '/jk.html'
+                                    )
+                        .main_swiper-arrows.flex.absolute
+                            .swiper-button.swiper-button-prev.flex.flex-ai-center.flex-j-center
+                                +picture('img/main/estate/arrow-left.png', 'img/main/estate/arrow-left', true, '', 18, 18, '', '')
+                            .swiper-button.swiper-button-next.flex.flex-ai-center.flex-j-center
+                                +picture('img/main/estate/arrow-right.png', 'img/main/estate/arrow-right', true, '', 18, 18, '', '')
+    .devs.overflow-hidden
+        .container.margin-center
+            .section__title.font-tenor.text-c3.text-center Застройщики
+        .devs__items.flex.flex-col
+            .devs__item.flex.img_cover.img_br
+                +picture('img/catalogs/devs/1.jpg', 'img/catalogs/devs/1', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/2.jpg', 'img/catalogs/devs/2', true, '', 128, 126, '', '')
+                +picture('img/catalogs/devs/3.jpg', 'img/catalogs/devs/3', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/4.jpg', 'img/catalogs/devs/4', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/5.jpg', 'img/catalogs/devs/5', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/6.jpg', 'img/catalogs/devs/6', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/7.jpg', 'img/catalogs/devs/7', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/1.jpg', 'img/catalogs/devs/1', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/2.jpg', 'img/catalogs/devs/2', true, '', 128, 126, '', '')
+                +picture('img/catalogs/devs/3.jpg', 'img/catalogs/devs/3', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/4.jpg', 'img/catalogs/devs/4', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/5.jpg', 'img/catalogs/devs/5', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/6.jpg', 'img/catalogs/devs/6', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/7.jpg', 'img/catalogs/devs/7', true, '', 300, 126, '', '')
+            .devs__item.devs__item_reverse.flex.img_cover.img_br
+                +picture('img/catalogs/devs/8.jpg', 'img/catalogs/devs/8', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/9.jpg', 'img/catalogs/devs/9', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/10.jpg', 'img/catalogs/devs/10', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/11.jpg', 'img/catalogs/devs/11', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/12.jpg', 'img/catalogs/devs/12', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/13.jpg', 'img/catalogs/devs/13', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/8.jpg', 'img/catalogs/devs/8', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/9.jpg', 'img/catalogs/devs/9', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/10.jpg', 'img/catalogs/devs/10', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/11.jpg', 'img/catalogs/devs/11', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/12.jpg', 'img/catalogs/devs/12', true, '', 300, 126, '', '')
+                +picture('img/catalogs/devs/13.jpg', 'img/catalogs/devs/13', true, '', 300, 126, '', '')
+    .catalog-cons
+        .container.margin-center
+            .catalog-cons__item.relative
+                .catalog-cons__img-left.absolute.bottom-0.left-0.p-img
+                    +picture('img/catalogs/cons/left.png', 'img/catalogs/cons/left', true, '', 991, 653, '', '')
+                    +picture('img/catalogs/cons/left_mb.png', 'img/catalogs/cons/left_mb', true, '', 332, 309, '', '')
+                form.relative
+                    .catalog-cons__text.relative
+                        .catalog-cons__title Получите консультацию по Застройщикам и лучшим проектам
+                        .catalog-cons__subtitle Оставьте свои данные и&nbsp;<span class="text-c5">мы&nbsp;ответим на все вопросы </span>
+                        .catalog-cons__inputs.flex
+                            .form__input
+                                input(type="text" name="name" placeholder="Ваше имя" required)
+                            .form__input
+                                input(type="tel" name="tel" placeholder="8 999 999 99 99" required)
+                            .form__input
+                                .p-select.relative
+                                    .p-select__current.flex.flex-ai-center.flex-j-between
+                                        input(type="hidden" name="request" value="Позвонить мне")
+                                        .p-select__current-item Позвонить мне
+                                        .p-select__current-arrow
+                                            +picture('img/main/get/arrow.png', 'img/main/get/arrow', true, '', 17, 17, '', '')
+                                    .p-select__abs.absolute.flex.flex-col
+                                        .p-select__abs-item.active(data-value="Позвонить мне") Позвонить мне
+                                        .p-select__abs-item(data-value="Написать мне") Написать мне
+                                        .p-select__abs-item(data-value="Написать позже") Написать позже
+                                        .p-select__abs-item(data-value="Позвонить позже") Позвонить позже
+                        .get__item-end
+                            button(type="submit").p-btn.flex.flex-ai-center.flex-j-center.text-500 Получить консультацию
+                            label.p-check.flex.flex-ai-center
+                                input(type="checkbox" name="check" checked)
+                                span.p-check__square.flex.flex-j-center.flex-ai-center.flex-shrink
+                                    +picture('img/main/get/check.png', 'img/main/get/check', true, '', 13, 13, '', '')
+                                span.p-check__title Отправляя форму, вы даёте согласие на обработку персональных данных
+                        .modal__socials.flex.flex-wrap.flex-j-end
+                            a(href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.").modal__socials-item.flex.flex-ai-center
+                                .modal__socials-title Написать в <span class="text-underline">WhatsApp</span>
+                                .modal__socials-svg
+                                    +picture('img/modal/type/what.png', 'img/modal/type/what', true, '', 18, 18, '', '')
+                            a(href="#!").modal__socials-item.flex.flex-ai-center
+                                .modal__socials-title +7 (999)-999-99-99
+                                .modal__socials-svg
+                                    +picture('img/modal/type/call.png', 'img/modal/type/call', true, '', 21, 21, '', '')
+                            a(href="#!").modal__socials-item.flex.flex-ai-center
+                                .modal__socials-title Написать в <span class="text-underline">Telegram</span>
+                                .modal__socials-svg
+                                    +picture('img/modal/type/tel.png', 'img/modal/type/tel', true, '', 17, 17, '', '')
+    include ../../components/contacts

@@ -1,0 +1,632 @@
+@media screen and (max-width: 1160px)
+  .main
+    padding-top: 21px
+
+    &__cards
+      flex-wrap: wrap
+      justify-content: center
+  .why
+    &__contents
+      display: none
+
+    &__blocks
+      display: block
+
+
+    &__block
+      display: none
+      flex-direction: column
+      gap: 10px
+
+      &.active
+        display: flex
+
+      &-item
+        display: flex
+        flex-direction: column
+        gap: 5px
+
+        &.active
+          .why
+            &__block
+              &-bottom
+                display: block
+
+    &__block
+      &-bottom
+        display: none
+
+        img
+          object-fit: cover
+          width: 100%
+          height: 406px
+          border-radius: 9px
+  .service
+    &__item
+      &-bg
+        bottom: -19px
+
+        img
+          width: 507px
+          object-fit: cover
+  .type
+    &__row
+      display: flex
+      flex-direction: column
+    &__item
+      &:nth-child(n)
+        grid-area: none
+      &:nth-child(3)
+        order: 1
+      &:nth-child(2)
+        order: 2
+      &:nth-child(1)
+        order: 3
+  .principle
+    padding-top: 79px
+    padding-bottom: 150px
+
+    &__img
+      img
+        object-fit: cover
+
+      &_1
+        right: auto
+        bottom: -136px
+        left: 50%
+        transform: translateX(-50%)
+        top: auto
+
+        img
+          height: 125px
+          width: 394px
+
+      &_2
+        left: auto
+        right: -35px
+
+        img
+          width: 186px
+          height: 58px
+
+      &_3
+        left: -40px
+        bottom: auto
+
+        img
+          width: 158px
+          height: 58px
+
+      &_2, &_3
+        top: -79px
+
+    &__block
+      margin-left: 0
+      max-width: 100%
+
+  .get
+    &__item
+      &-img
+        bottom: -9px
+        left: -85px
+
+        img
+          width: 475px
+
+  .team
+    &__row
+      gap: 22px
+      flex-direction: column
+
+    &__left, &__right
+      width: 100%
+
+  .blog
+    overflow: hidden
+
+    .container
+      padding-left: 0
+      padding-right: 0
+
+    &__items
+      overflow: hidden
+      overflow-x: scroll
+      padding: 0 10px
+      -ms-overflow-style: none
+      scrollbar-width: none
+
+      &::-webkit-scrollbar
+        display: none
+
+    &__item
+      flex-shrink: 0
+      width: 341px
+
+  .criterion
+    &__item
+      background-size: 100% 65%
+
+  .contacts
+    &__block
+      flex-wrap: wrap
+      gap: 52px
+
+    &__left, &__right
+      width: 100%
+
+    &__item
+      &_socials
+        display: none
+      &-iframe
+        iframe
+          width: 100%
+
+      &_hidden
+        display: flex
+        margin-top: 20px
+        gap: 7px
+  .team
+    padding-bottom: 400px
+
+@media screen and (max-width: 768px)
+  html
+    --padding: calc((100% - 320px) / 2)
+  .main
+    padding-bottom: 25px
+    &__item
+      height: 386px
+      border-radius: 14px
+      margin-bottom: 21px
+      justify-content: flex-end
+      padding-bottom: 44px
+      &-title
+        font-size: 80px
+      &-subtitle
+        font-size: 18px
+        max-width: 207px
+        margin: 0 auto
+    &__cards
+      gap: 13px
+    &__card
+      width: 100%
+      border-radius: 14px
+      height: 252px
+      &-left
+        width: 182px
+      &-right
+        width: calc(100% - 182px)
+        padding: 32px 8px 0
+      &-title
+        font-size: 25px
+        margin-bottom: 12px
+      &-subtitle
+        font-size: 11px
+        margin-bottom: 19px
+      &-imgs
+        margin-top: 0
+        margin-bottom: 15px
+        gap: 8px
+        img
+          width: 50px
+          height: 49px
+          border-radius: 3.442px
+      &-link
+        font-size: 13px
+        margin-top: 0
+      &_2
+        padding: 17px 13px 10px
+        height: 303px
+        .main
+          &__card
+            &-subtitle
+              max-width: 180px
+              margin-bottom: 14px
+      &-image
+        img
+          height: 157px
+      &-text
+        padding-left: 24px
+      &_3
+        height: 294px
+        padding: 14px 35px
+        .main
+          &__card
+            &-title
+              margin-bottom: 6px
+            &-subtitle
+              margin-bottom: 13px
+              max-width: 171px
+  .why
+    padding-top: 25px
+    padding-bottom: 41px
+    .section
+      &__title
+        text-align: left
+        max-width: 257px
+        margin-bottom: 21px
+    &__tabs
+      gap: 0
+      padding-bottom: 15px
+    &__tab
+      &.active
+        .why
+          &__tab
+            &-subtitle
+              display: block
+      &-title
+        font-size: 22px
+        margin-bottom: 12px
+      &-svg
+        margin-left: -20px
+        svg
+          width: 125px
+      &-subtitle
+        font-size: 11px
+        display: none
+    &__content
+      &-tab
+        padding: 18px 8px 18px 15px
+      &-title
+        font-size: 13px
+      &-arrow
+        img
+          width: 16px
+          height: 16px
+      &-text
+        &-inner
+          padding-top: 11px
+          font-size: 11px
+    &__block
+      &-bottom
+        img
+          height: 147px
+    &__desc
+      margin-top: 38px
+      font-size: 13px
+      margin-bottom: 17px
+      &-img
+        height: 8px
+        width: 34px
+    &__end
+      font-size: 14px
+      max-width: 235px
+  .estate
+    padding-bottom: 30px
+    padding-top: 17px
+    .section
+      &__title
+        margin-bottom: 30px
+    &__item
+      &-title
+        font-size: 22px
+        margin-bottom: 15px
+    &__items
+      gap: 20px
+  .service
+    padding-bottom: 20px
+    &__item
+      border-radius: 14px
+      padding: 35px 19px 261px
+      overflow: hidden
+      &-bg
+        width: max-content
+        right: -10px
+        img
+          width: 340px
+      &-subtitle
+        font-size: 18px
+        &_2
+          font-size: 14px
+          max-width: 204px
+          margin-bottom: 18px
+    &__form
+      .p-btn
+        height: 41px
+  .type
+    padding-top: 33px
+    padding-bottom: 52px
+    .section
+      &__title
+        font-size: 30px
+        margin-bottom: 20px
+    &__title
+      margin-left: 0
+      font-size: 19px
+      margin-bottom: 15px
+    &__desc
+      font-size: 15px
+      margin-bottom: 15px
+    &__link
+      font-size: 15px
+    &__list
+      margin-bottom: 15px
+    &__item
+      padding: 21px 27px 30px
+      flex-direction: column
+      gap: 11px
+      text-align: left
+      &-left, &-right
+        width: 100%
+      &-img
+        img
+          height: 169px
+      &:nth-child(n)
+        grid-area: none
+        padding: 21px 27px 30px
+      &:nth-child(2)
+        .type
+          &__title
+            max-width: 220px
+          &__desc
+            margin-bottom: 15px
+          &__item
+            &-left
+              img
+                height: 169px
+    .p-btn
+      margin-top: 20px
+      height: 41px
+  .buy
+    padding-top: 5px
+    padding-bottom: 72px
+    .section
+      &__title
+        margin-bottom: 20px
+    .p-btn
+      margin-top: 20px
+      height: 41px
+    &__row
+      gap: 10px
+    &__item
+      padding: 21px 15px 17px
+      width: 271px
+      height: auto
+      &:last-child
+        margin-right: 10px
+      &-img
+        margin-bottom: 15px
+        img
+          height: 116px
+      &-title
+        font-size: 18px
+        margin-bottom: 9px
+      &-list
+        font-size: 13px
+        margin-bottom: 13px
+      &-link, &-subtitle
+        font-size: 13px
+      &-subtitle
+        margin-bottom: 15px
+      &-desc
+        font-size: 13px
+        margin-top: 15px
+  .principle
+    padding-bottom: 186px
+    &__img
+      border-radius: 12px
+      &_1
+        bottom: -150px
+    .section
+      &__title
+        margin-bottom: 20px
+    &__items
+      gap: 15px
+    &__item
+      gap: 8px
+      &-left
+        width: 29px
+        svg
+          width: 12px
+      &-arrow
+        width: 29px
+        height: 29px
+      &-right
+        width: calc(100% - 29px - 12px)
+      &-title
+        font-size: 16px
+        margin-bottom: 5px
+      &-desc
+        font-size: 12px
+  .get
+    padding-top: 9px
+    &__item
+      overflow: hidden
+      text-align: left
+      padding: 16px 30px 312px 27px
+      border-radius: 14px
+      &-title, &-subtitle
+        text-align: left
+      &-title
+        font-size: 20px
+        margin-bottom: 8px
+      &-subtitle
+        font-size: 16px
+        margin-bottom: 28px
+        max-width: 217px
+      &-inputs
+        flex-wrap: wrap
+        gap: 29px
+        margin-bottom: 23px
+      &-input
+        width: 100%
+      &-end
+        .p-btn
+          height: 41px
+      &-img
+        width: max-content
+        bottom: -36px
+        left: -13px
+        img
+          width: 340px
+  .best
+    padding-top: 25px
+    padding-bottom: 56px
+    .section
+      &__title
+        font-size: 30px
+        margin-bottom: 62px
+    &__swiper
+      .main
+        &_swiper
+          &-arrows
+            top: -50px
+    .swiper
+      &-slide
+        width: 236px
+    &__item
+      &-link
+        width: 64px
+        height: 64px
+        border-width: 3px
+        top: -13px
+        right: -24px
+      &-img
+        height: 223px
+        margin-bottom: 7px
+      &-title
+        font-size: 18px
+        margin-bottom: 8px
+      &-subtitle
+        font-size: 15px
+  .team
+    padding-top: 20px
+    .section
+      &__title
+        text-align: center
+        margin-bottom: 20px
+    &__img
+      img
+        height: 182px
+        border-radius: 12px
+    &__text
+      &-items
+        gap: 15px
+      &-item
+        font-size: 13px
+      &-line
+        height: 265px
+        svg
+          max-width: max-content
+          height: 345px
+  .blog
+    padding-top: 60px
+    padding-bottom: 25px
+    .container
+      max-width: 100%
+    .section
+      &__title
+        max-width: 340px
+        margin: 0 auto 50px
+        font-size: 28px
+        padding-left: 10px
+        padding-right: 10px
+    &__link
+      font-size: 16px
+      top: -40px
+      right: var(--padding)
+    &__items
+      padding-left: var(--padding)
+      padding-right: var(--padding)
+      gap: 19px
+    &__item
+      width: 220px
+      &-img
+        margin-bottom: 12px
+        img
+          height: 207px
+      &-title
+        font-size: 15px
+        max-width: 212px
+        margin-bottom: 10px
+      &-link
+        font-size: 18px
+  .criterion
+    padding-top: 60px
+    padding-bottom: 60px
+    &__item
+      border-radius: 14px
+      padding: 30px 29px 188px 28px
+      align-items: flex-start
+    &__title, &__subtitle
+      text-align: left
+    &__title
+      font-size: 20px
+      margin-bottom: 8px
+      max-width: 236px
+    &__subtitle
+      max-width: 217px
+      font-size: 16px
+      margin-bottom: 28px
+    form
+      width: 100%
+    &__form
+      width: 100%
+      &-inputs, &-end
+        max-width: 100%
+      &-inputs
+        flex-wrap: wrap
+        gap: 29px
+      &-input
+        width: 100%
+      &-end
+        .p-btn
+          height: 41px
+  .contacts
+    padding-top: 42px
+    padding-bottom: 43px
+    .container
+      padding-left: 0
+      padding-right: 0
+      max-width: 100%
+    .section
+      &__title
+        font-size: 30px
+        margin-bottom: 25px
+        padding: 0 var(--padding)
+    &__items, &__block
+      gap: 20px
+    &__items
+      padding: 0 var(--padding)
+    &__item
+      &_hidden
+        padding: 0 var(--padding)
+      &-title
+        font-size: 14px
+        margin-bottom: 8px
+      &-subtitle
+        font-size: 15px
+      &-iframe
+        margin-top: 23px
+    &__right
+      .contacts
+        &__item
+          &-title, &-subtitle
+            padding: 0 var(--padding)
+          &-iframe
+            iframe
+              border-radius: 0
+    &__socials
+      margin-bottom: 0
+@media screen and (max-width: 340px)
+  .blog
+    &__item
+      &:first-child
+        margin-left: 10px
+      &:last-child
+        margin-right: 10px
+  .contacts
+    .section
+      &__title
+        margin-left: 10px
+        margin-right: 10px
+        padding-left: 0
+        padding-right: 0
+    &__left
+      padding-left: 10px
+      padding-right: 10px
+    &__right
+      .contacts
+        &__item
+          &-title, &-subtitle
+            padding-left: 10px
+            padding-right: 10px

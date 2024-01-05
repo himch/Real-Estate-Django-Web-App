@@ -1,0 +1,9 @@
+mixin whyContentTab(title, text, classes)
+    .why__content-tab.cursor-pointer(class=classes)
+        .why__content-top.flex.flex.flex-j-between
+            .why__content-title=title
+            .why__content-arrow
+                +picture('img/main/why/arrow.png','img/main/why/arrow', true, '', 24, 24, '', '')
+                +picture('img/main/why/arrow-white.png','img/main/why/arrow-white', true, '', 24, 24, '', '')
+        .why__content-text
+            .why__content-text-inner=text

@@ -1,0 +1,1758 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | Buy {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
+<main>
+  <div class="rent rent_second">
+    <div class="container margin-center">
+      <div class="rent__subtitle uppercase text-c5">Dadi Properties</div>
+      <div class="rent__title text-c3 font-tenor">Покупка недвижимости в Дубае</div>
+      <div class="rent__item-block relative">
+        <div class="rent__item-top absolute">для жизни и инвестиций</div>
+        <div class="rent__item relative bg" style="background-image:url('img/rent/main/2.webp')">
+          <form class="rent__form flex">
+            <div class="rent__input relative">
+              <div class="rent__form-item">
+                <div class="rent__form-title">Тип недвижимости</div>
+                <div class="rent__select">
+                  <div class="p-select relative" data-text-default="Выберите тип">
+                    <div class="p-select__current flex flex-ai-center flex-j-between">
+                      <div class="p-select__current-item">Любая</div>
+                      <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+</svg>
+                      </div>
+                    </div>
+                    <div class="p-select__abs absolute flex flex-col">
+                      <div class="p-checkboxes flex flex-wrap">
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Любая" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Любая</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Апартаменты"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Апартаменты</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Пентхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Пентхаусы</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Таунхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Таунхаусы</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Дуплексы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Дуплексы</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Квартиры в отелях"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Квартиры в отелях</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Виллы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Виллы</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Пол этажа"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Пол этажа</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Целые этажи"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Целые этажи</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Целые здания"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Целые здания</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Коммерческие помещения"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Коммерческие помещения</span>
+                        </label>
+                        <label class="p-checkboxes__item flex">
+                          <input type="checkbox" name="type[]" value="Земельные участки"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Земельные участки</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rent__input relative">
+              <div class="rent__form-item">
+                <div class="rent__form-title">Цена</div>
+                <div class="rent__price flex">
+                  <div class="rent__price-left"><span>от</span>
+                    <input type="number" name="price_min"/>
+                  </div>
+                  <div class="rent__price-right"><span>до</span>
+                    <input type="number" name="price_min"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rent__input relative">
+              <button class="text-500" type="submit">Посмотреть х вариантов</button>
+            </div>
+          </form>
+          <div class="rent__item-end text-underline text-c3 text-600 modal__show" data-modal="type-first">Подобрать с менеджером</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="filters">
+    <div class="container margin-center">
+      <form class="filters__top flex flex-ai-center flex-j-between">
+        <div class="filters__top-left flex flex-ai-center">
+          <div class="filters__main cursor-pointer flex flex-ai-center modal__show" data-modal="filter">
+            <div class="filters__main-svg"><svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.02209C0 1.68367 0.135459 1.35912 0.376577 1.11982C0.617695 0.880528 0.944722 0.746094 1.28571 0.746094H28.7143C29.0553 0.746094 29.3823 0.880528 29.6234 1.11982C29.8645 1.35912 30 1.68367 30 2.02209C30 2.3605 29.8645 2.68505 29.6234 2.92435C29.3823 3.16364 29.0553 3.29808 28.7143 3.29808H1.28571C0.944722 3.29808 0.617695 3.16364 0.376577 2.92435C0.135459 2.68505 0 2.3605 0 2.02209ZM0 10.5287C0 10.1903 0.135459 9.86574 0.376577 9.62644C0.617695 9.38715 0.944722 9.25271 1.28571 9.25271H20.1429C20.4839 9.25271 20.8109 9.38715 21.052 9.62644C21.2931 9.86574 21.4286 10.1903 21.4286 10.5287C21.4286 10.8671 21.2931 11.1917 21.052 11.431C20.8109 11.6703 20.4839 11.8047 20.1429 11.8047H1.28571C0.944722 11.8047 0.617695 11.6703 0.376577 11.431C0.135459 11.1917 0 10.8671 0 10.5287ZM0 19.0353C0 18.6969 0.135459 18.3724 0.376577 18.1331C0.617695 17.8938 0.944722 17.7593 1.28571 17.7593H9.85714C10.1981 17.7593 10.5252 17.8938 10.7663 18.1331C11.0074 18.3724 11.1429 18.6969 11.1429 19.0353C11.1429 19.3737 11.0074 19.6983 10.7663 19.9376C10.5252 20.1769 10.1981 20.3113 9.85714 20.3113H1.28571C0.944722 20.3113 0.617695 20.1769 0.376577 19.9376C0.135459 19.6983 0 19.3737 0 19.0353Z" fill="#003B50"/>
+</svg>
+            </div>
+            <div class="filters__main-title">Фильтры</div>
+          </div>
+          <div class="modal modal_filter">
+            <div class="modal__content relative">
+              <div class="modal__close absolute">
+                <picture>
+                  <source type="image/webp" srcset="img/rent/filters/close.webp"/><img width="21" height="21" src="img/rent/filters/close.png" alt="" loading="lazy"/>
+                </picture>
+              </div>
+              <div class="modal_filter__reset absolute text-underline cursor-pointer">Сбросить фильтры</div>
+              <div class="modal_filter__items flex relative flex-col">
+                <div class="modal_filter__item">
+                  <div class="modal_filter__price-row flex">
+                    <div class="modal_filter__price-item modal_filter__item_change">
+                      <div class="modal_filter__price-top flex">
+                        <div class="modal_filter__price-title text-500 text-c5">Стоимость в месяц</div>
+                        <div class="modal_filter__price-currency flex">
+                          <div class="p-checkboxes p-checkboxes_second flex">
+                            <label class="p-checkboxes__item flex">
+                              <input type="radio" name="currency" value="₽" checked="checked"/><span class="p-checkboxes__item-title">₽</span>
+                            </label>
+                            <label class="p-checkboxes__item flex">
+                              <input type="radio" name="currency" value="$"/><span class="p-checkboxes__item-title">$</span>
+                            </label>
+                            <label class="p-checkboxes__item flex">
+                              <input type="radio" name="currency" value="€"/><span class="p-checkboxes__item-title">€</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal_filter__range-contents">
+                        <div class="modal_filter__range-content active">
+                          <div class="modal_filter__range modal_filter__price-input" data-min="6.419" data-max="78.251">
+                            <div class="modal_filter__range-main"></div>
+                            <input type="hidden" name="price_rub_min"/>
+                            <input type="hidden" name="price_rub_max"/>
+                          </div>
+                        </div>
+                        <div class="modal_filter__range-content">
+                          <div class="modal_filter__range modal_filter__price-input" data-min="8.419" data-max="100.251">
+                            <div class="modal_filter__range-main"></div>
+                            <input type="hidden" name="price_dollar_min"/>
+                            <input type="hidden" name="price_dollar_max"/>
+                          </div>
+                        </div>
+                        <div class="modal_filter__range-content">
+                          <div class="modal_filter__range modal_filter__price-input" data-min="3.419" data-max="67.251">
+                            <div class="modal_filter__range-main"></div>
+                            <input type="hidden" name="price_euro_min"/>
+                            <input type="hidden" name="price_euro_max"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal_filter__price-item modal_filter__price-item_area">
+                      <div class="modal_filter__price-top flex">
+                        <div class="modal_filter__price-title text-500 text-c5">Общая площадь</div>
+                        <div class="modal_filter__price-currency flex">
+                          <div class="p-checkboxes p-checkboxes_second flex">
+                            <label class="p-checkboxes__item flex">
+                              <input type="radio" name="area" value="м2" checked="checked"/><span class="p-checkboxes__item-title">м2</span>
+                            </label>
+                            <label class="p-checkboxes__item flex">
+                              <input type="radio" name="area" value="фут2"/><span class="p-checkboxes__item-title">фут2</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal_filter__area">
+                        <div class="modal_filter__area-item active">
+                          <div class="modal_filter__area-subitems flex">
+                            <div class="modal_filter__area-subitem flex">
+                              <div class="modal_filter__area-left">От</div>
+                              <div class="modal_filter__area-input">
+                                <input type="text" name="area_min"/>
+                              </div>
+                              <div class="modal_filter__area-right">м2</div>
+                            </div>
+                            <div class="modal_filter__area-subitem flex">
+                              <div class="modal_filter__area-left">До</div>
+                              <div class="modal_filter__area-input">
+                                <input type="text" name="area_max"/>
+                              </div>
+                              <div class="modal_filter__area-right">м2</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal_filter__area-item">
+                          <div class="modal_filter__area-subitems flex">
+                            <div class="modal_filter__area-subitem flex">
+                              <div class="modal_filter__area-left">От</div>
+                              <div class="modal_filter__area-input">
+                                <input type="text" name="fut_min"/>
+                              </div>
+                              <div class="modal_filter__area-right">фут2</div>
+                            </div>
+                            <div class="modal_filter__area-subitem flex">
+                              <div class="modal_filter__area-left">До</div>
+                              <div class="modal_filter__area-input">
+                                <input type="text" name="fut_max"/>
+                              </div>
+                              <div class="modal_filter__area-right">фут2</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal_filter__item">
+                  <div class="modal_filter__price-row flex">
+                    <div class="modal_filter__price-item">
+                      <div class="modal_filter__price-top flex">
+                        <div class="modal_filter__price-title text-500 text-c5">Количество комнат</div>
+                      </div>
+                      <div class="modal_filter__range modal_filter__bedrooms" data-min="1" data-max="10" data-type="int">
+                        <div class="modal_filter__range-main"></div>
+                        <input type="hidden" name="bedrooms_min"/>
+                        <input type="hidden" name="bedrooms_max"/>
+                      </div>
+                    </div>
+                    <div class="modal_filter__price-item">
+                      <div class="modal_filter__price-top flex">
+                        <div class="modal_filter__price-title text-500 text-c5">Срок сдачи</div>
+                      </div>
+                      <div class="modal_filter__range modal_filter__due_date" data-string="[&quot;Сдан&quot;,&quot;5&quot;,&quot;15&quot;, &quot;235&quot;]" data-start="Сдан" data-end="235" data-type="int">
+                        <div class="modal_filter__range-main"></div>
+                        <input type="hidden" name="due_date_min"/>
+                        <input type="hidden" name="due_date_max"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal_filter__item">
+                  <div class="modal_filter__item-title text-500 text-c5">Районы</div>
+                  <div class="p-checkboxes flex flex-wrap">
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Palm Jumeriah"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Palm Jumeriah</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Yas Island"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Yas Island</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Town Square"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Town Square</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="JVC"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">JVC</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Arjan"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Arjan</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Business Bay"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Business Bay</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Downtown"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Downtown</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Jebel Ali"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Jebel Ali</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Dubailand"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubailand</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Production City"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Production City</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Damac Lagoons"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Damac Lagoons</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Beachfront"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Beachfront</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="JLT"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">JLT</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Dubai Hils"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubai Hils</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="MBR"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">MBR</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="raioni[]" value="Dubai Marina"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubai Marina</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="modal_filter__item">
+                  <div class="modal_filter__item-title text-500 text-c5">Удобства</div>
+                  <div class="p-checkboxes flex flex-wrap">
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Вид на море"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на море</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Вид на парк"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на парк</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Вид на канал"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на канал</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Вид на Бурдж-Халифа"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на Бурдж-Халифа</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Близко к пляжу"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Близко к пляжу</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Детская площадка"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Детская площадка</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Вид на город"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на город</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Близко к метро"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Близко к метро</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Вид на канал"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на канал</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="ydobstva[]" value="Бассейн"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Бассейн</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="modal_filter__item modal_filter__item_finishing">
+                  <div class="modal_filter__item-title text-500 text-c5">Отделка</div>
+                  <div class="p-checkboxes flex flex-wrap">
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="finishing[]" value="Полностью меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Полностью меблированная</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="finishing[]" value="Частично меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Частично меблированная</span>
+                    </label>
+                    <label class="p-checkboxes__item flex">
+                      <input type="checkbox" name="finishing[]" value="Не меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Не меблированная</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="modal_filter__item">
+                  <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Применить фильтры</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="filters__currency">
+            <div class="p-select relative">
+              <div class="p-select__current flex flex-ai-center flex-j-between">
+                <input type="hidden" name="currency" value="RUB"/>
+                <div class="p-select__current-item">RUB</div>
+                <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+</svg>
+                </div>
+              </div>
+              <div class="p-select__abs absolute flex flex-col">
+                <div class="p-select__abs-item active" data-value="RUB">RUB</div>
+                <div class="p-select__abs-item" data-value="$">$</div>
+                <div class="p-select__abs-item" data-value="€">€</div>
+              </div>
+            </div>
+          </div>
+          <div class="filters__m">
+            <div class="p-select relative">
+              <div class="p-select__current flex flex-ai-center flex-j-between">
+                <input type="hidden" name="type" value="кв. м"/>
+                <div class="p-select__current-item">кв. м</div>
+                <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+</svg>
+                </div>
+              </div>
+              <div class="p-select__abs absolute flex flex-col">
+                <div class="p-select__abs-item active" data-value="кв. м">кв. м</div>
+                <div class="p-select__abs-item" data-value="км. фут">км. фут</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="filters__top-right flex flex-ai-center">
+          <div class="filters__sort">
+            <div class="p-select relative">
+              <div class="p-select__current flex flex-ai-center flex-j-between">
+                <input type="hidden" name="sort" value="Cначала новые"/>
+                <div class="p-select__current-item">Cначала новые</div>
+                <div class="p-select__current-arrow"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.8536 0.146447C15.6583 -0.0488155 15.3417 -0.0488155 15.1464 0.146447L11.9645 3.32843C11.7692 3.52369 11.7692 3.84027 11.9645 4.03553C12.1597 4.2308 12.4763 4.2308 12.6716 4.03553L15.5 1.20711L18.3284 4.03553C18.5237 4.2308 18.8403 4.2308 19.0355 4.03553C19.2308 3.84027 19.2308 3.52369 19.0355 3.32843L15.8536 0.146447ZM16 21.5V0.5H15V21.5H16Z" fill="black"/>
+<path d="M3.64645 22.3536C3.84171 22.5488 4.15829 22.5488 4.35355 22.3536L7.53553 19.1716C7.7308 18.9763 7.7308 18.6597 7.53553 18.4645C7.34027 18.2692 7.02369 18.2692 6.82843 18.4645L4 21.2929L1.17157 18.4645C0.976311 18.2692 0.659728 18.2692 0.464466 18.4645C0.269204 18.6597 0.269204 18.9763 0.464466 19.1716L3.64645 22.3536ZM4.5 22V1H3.5V22H4.5Z" fill="black"/>
+</svg>
+                </div>
+              </div>
+              <div class="p-select__abs absolute flex flex-col">
+                <div class="p-select__abs-item active" data-value="Cначала новые">Cначала новые</div>
+                <div class="p-select__abs-item" data-value="Сначала дешевле">Сначала дешевле</div>
+                <div class="p-select__abs-item" data-value="Сначала дороже">Сначала дороже</div>
+              </div>
+            </div>
+          </div>
+          <div class="filters__coub active cursor-pointer"><svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="15.4708" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+<rect x="15.4708" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+<rect x="0.65332" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+<rect x="0.65332" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+</svg>
+          </div>
+          <div class="filters__map cursor-pointer">
+            <picture>
+              <source type="image/webp" srcset="img/rent/filters/map.webp"/><img width="38" height="38" src="img/rent/filters/map.png" alt="" loading="lazy"/>
+            </picture>
+            <picture>
+              <source type="image/webp" srcset="img/rent/filters/map_active.webp"/><img width="38" height="38" src="img/rent/filters/map_active.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+        </div>
+      </form>
+      <div class="filters__content active">
+        <div class="filters__content-block flex flex-wrap active">
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+          <div class="p-card p-card_filter relative">
+            <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/buy-single.html">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div></a>
+              <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
+</svg>
+              </div>
+            </div><a class="p-card_filter__text" href="/buy-single.html">
+              <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+              <div class="p-card_filter__content flex flex-wrap flex-ai-center">
+                <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
+                <div class="p-card_filter__content-item">Дубай Марина</div>
+                <div class="p-card_filter__content-subitem">Лот 123456789</div>
+              </div>
+              <div class="p-card_filter__list flex flex-wrap">
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">2 комнаты</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">50м2</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card_filter__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">Высокий этаж</div>
+                </div>
+                <div class="p-card_filter__list-item flex flex-ai-center">
+                  <div class="p-card__second__list-img">
+                    <picture>
+                      <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
+                    </picture>
+                  </div>
+                  <div class="p-card_filter__list-title">1 ванна</div>
+                </div>
+              </div>
+              <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
+                <div class="p-card_filter__price-left">100.000 р в месяц</div>
+                <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+              </div></a>
+          </div>
+        </div>
+        <div class="filters__content-load margin-center text-c3 text-underline text-500">Загрузить <span>18</span> из 103</div>
+      </div>
+      <div class="filters__content-map">
+        <div class="filters__content-map-item" id="map"></div>
+      </div>
+    </div>
+  </div>
+  <div class="estate overflow-hidden estate_buy">
+    <div class="container margin-center">
+      <div class="section__title font-tenor text-c3">Новые проекты партнеров DADI</div>
+      <div class="estate__items flex flex-col">
+        <div class="estate__item relative w-full">
+          <div class="estate__swiper relative">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
+                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
+                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
+</svg>
+                      </div>
+                      <div class="p-card__sale-title text-500">Спец. цена</div>
+                    </div>
+                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
+                      <div class="swiper-pagination p-card__swiper-pagination"></div>
+                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
+                      <div class="p-card__top flex">
+                        <div class="p-card__top-left text-c5">Застройщик</div>
+                      </div>
+                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
+                    </div></a>
+                </div>
+                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
+                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
+                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
+</svg>
+                      </div>
+                      <div class="p-card__sale-title text-500">Спец. цена</div>
+                    </div>
+                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
+                      <div class="swiper-pagination p-card__swiper-pagination"></div>
+                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
+                      <div class="p-card__top flex">
+                        <div class="p-card__top-left text-c5">Застройщик</div>
+                      </div>
+                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
+                    </div></a>
+                </div>
+                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
+                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
+                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
+</svg>
+                      </div>
+                      <div class="p-card__sale-title text-500">Спец. цена</div>
+                    </div>
+                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
+                      <div class="swiper-pagination p-card__swiper-pagination"></div>
+                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
+                      <div class="p-card__top flex">
+                        <div class="p-card__top-left text-c5">Застройщик</div>
+                      </div>
+                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
+                    </div></a>
+                </div>
+                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
+                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
+                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
+</svg>
+                      </div>
+                      <div class="p-card__sale-title text-500">Спец. цена</div>
+                    </div>
+                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
+                      <div class="swiper-pagination p-card__swiper-pagination"></div>
+                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
+                      <div class="p-card__top flex">
+                        <div class="p-card__top-left text-c5">Застройщик</div>
+                      </div>
+                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
+                    </div></a>
+                </div>
+                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
+                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
+                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
+</svg>
+                      </div>
+                      <div class="p-card__sale-title text-500">Спец. цена</div>
+                    </div>
+                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
+                      <div class="swiper-pagination p-card__swiper-pagination"></div>
+                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
+                      <div class="p-card__top flex">
+                        <div class="p-card__top-left text-c5">Застройщик</div>
+                      </div>
+                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
+                    </div></a>
+                </div>
+                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
+                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
+                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
+</svg>
+                      </div>
+                      <div class="p-card__sale-title text-500">Спец. цена</div>
+                    </div>
+                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
+                      <div class="swiper-pagination p-card__swiper-pagination"></div>
+                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
+                      <div class="p-card__top flex">
+                        <div class="p-card__top-left text-c5">Застройщик</div>
+                      </div>
+                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
+                    </div></a>
+                </div>
+              </div>
+            </div>
+            <div class="main_swiper-arrows flex absolute">
+              <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-left.png" alt="" loading="lazy"/>
+                </picture>
+              </div>
+              <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-right.png" alt="" loading="lazy"/>
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buy-form">
+    <div class="container margin-center">
+      <div class="buy-form__item relative">
+        <div class="buy-form__item-subtitle uppercase">Dadi Properties</div>
+        <div class="buy-form__item-title text-c3 text-500">Каталог надёжных застройщиков Дубая</div>
+        <div class="buy-form__item-desc font-roboto">
+          <p>Внутри:</p>
+          <p>- новые объекты с подробным описанием характеристик</p>
+          <p>- апартаменты по специальной цене</p>
+          <p>- идеи по обустройству</p>
+          <p>- советы экспертов</p>
+        </div>
+        <form>
+          <div class="buy-form__inner relative">
+            <div class="buy-form__inputs flex">
+              <div class="form__input">
+                <input type="text" name="name" placeholder="Ваше имя" required="required"/>
+              </div>
+              <div class="form__input">
+                <input type="email" name="email" placeholder="Email" required="required"/>
+              </div>
+            </div>
+            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Скачать</button>
+            <label class="p-check flex flex-ai-center">
+              <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="img/main/get/check.png" alt="" loading="lazy"/>
+                </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
+            </label>
+          </div>
+        </form>
+        <div class="buy-form__img absolute bottom-0 right-0">
+          <picture>
+            <source type="image/webp" srcset="" data-srcset="img/buy/form/1.webp"/><img class="lazy " width="776" height="554" src="" data-src="img/buy/form/1.png" alt="" loading="lazy"/>
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buy-advs">
+    <div class="container margin-center">
+      <div class="buy-advs__circle sticky flex flex-j-center flex-ai-center flex-col">
+        <div class="buy-advs__circle-svg absolute"><svg width="1440" height="1149" viewBox="0 0 1440 1149" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="720.5" cy="326.5" r="305" stroke="#BCBCBC"/>
+<path d="M-34 755.5L1474.5 0" stroke="#BCBCBC" stroke-opacity="0.3"/>
+<path d="M721.832 20.9147L716.508 1221.3" stroke="#BCBCBC" stroke-opacity="0.3"/>
+</svg>
+        </div>
+        <div class="buy-advs__circle-title font-tenor text-c3 text-center relative"><span>В чем</span><span>преимущества</span></div>
+        <div class="buy-advs__circle-left img_cover absolute">
+          <picture>
+            <source type="image/webp" srcset="" data-srcset="img/buy/advs/1.webp"/><img class="lazy " width="145" height="64" src="" data-src="img/buy/advs/1.jpg" alt="" loading="lazy"/>
+          </picture>
+        </div>
+        <div class="buy-advs__circle-right img_cover absolute">
+          <picture>
+            <source type="image/webp" srcset="" data-srcset="img/buy/advs/2.webp"/><img class="lazy " width="145" height="64" src="" data-src="img/buy/advs/2.jpg" alt="" loading="lazy"/>
+          </picture>
+        </div>
+        <div class="buy-advs__circle-subtitle text-center relative"> покупки недвижимости в Дубае в 2023</div>
+      </div>
+      <div class="buy-advs__items relative flex-wrap flex">
+        <div class="buy-advs__item">
+          <div class="buy-advs__item-icon flex flex-ai-center flex-j-center bg-c5">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/buy/advs/refund.webp"/><img class="lazy " width="19" height="19" src="" data-src="img/buy/advs/refund.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy-advs__item-title text-500">Высокая окупаемость инвестиций</div>
+          <div class="buy-advs__item-desc flex flex-col">
+            <p>В 2022 году Дубай принял 14 млн туристов - сдавая жилье краткосрочно можно получать <strong>доход до 12% годовых.</strong></p>
+            <p>Также ежегодно растет количество экспатов, которые уже сейчас составляют 89% населения ОАЭ. При долгосрочной аренде доход составит <strong>6-9% годовых.</strong> И это без учёта роста стоимости самого объекта.</p>
+          </div>
+        </div>
+        <div class="buy-advs__item buy-advs__item_second">
+          <div class="buy-advs__item-icon flex flex-ai-center flex-j-center bg-c2">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/buy/advs/like.webp"/><img class="lazy " width="21" height="21" src="" data-src="img/buy/advs/like.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy-advs__item-title text-500">Прозрачность законодательства в сфере недвижимости</div>
+          <div class="buy-advs__item-desc flex flex-col">
+            <p>Из всех 7 эмиратов в составе ОАЭ, Дубай обладает самой развитой законодательной базой в сфере недвижимости. Сектор строительства внимательно <strong>контролируется государством</strong>, все сделки купли-продажи проходят государственную проверку.</p>
+            <p>Граждане иностранных государств имеют право напрямую приобретать недвижимость в Дубае в <strong>полную собственность</strong> в специально оговоренных Freehold-районах.</p>
+          </div>
+        </div>
+        <div class="buy-advs__item buy-advs__item_third">
+          <div class="buy-advs__item-icon flex flex-ai-center flex-j-center bg-c2">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/buy/advs/identity-card.webp"/><img class="lazy " width="20" height="20" src="" data-src="img/buy/advs/identity-card.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy-advs__item-title text-500">Получение ВНЖ</div>
+          <div class="buy-advs__item-desc flex flex-col">
+            <p>Купив недвижимость в Дубае ценой от 750.000 дирхам (около 205.000$), инвестор и его семья получают <strong>вид на жительство со статусом резидента</strong>. Она выдается на 2 года, может быть многократно продлена, пока вы остаётесь собственником недвижимости.</p>
+            <p>Покупка недвижимости суммой от 2.000.000 дирхам (около 545.000$) дает возможность получить <strong>“Золотую визу в ОАЭ”</strong> сроком на 10 лет и перспективой стать гражданином Эмиратов.</p>
+          </div>
+        </div>
+        <div class="buy-advs__item">
+          <div class="buy-advs__item-icon flex flex-ai-center flex-j-center bg-c5">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/buy/advs/security.webp"/><img class="lazy " width="23" height="23" src="" data-src="img/buy/advs/security.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy-advs__item-title text-500">Стабильность экономики и безопасность</div>
+          <div class="buy-advs__item-desc flex flex-col">
+            <p>В 2021 году Эмираты заняли 2-ое место из 134 <strong>самых безопасных стран</strong> на планете по версии журнала Global Finance.</p>
+            <p>Курс дирхама жёстко привязан к доллару и остаётся <strong>неизменным более 20 лет</strong>.</p>
+            <p>Нейтральный статус ОАЭ в мировых конфликтах, отсутствие санкций и не вмешательство в мировую политику подтверждает <strong>политическую стабильность</strong>.</p>
+          </div>
+        </div>
+        <div class="buy-advs__item buy-advs__item_four">
+          <div class="buy-advs__item-icon flex flex-ai-center flex-j-center bg-c2">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/buy/advs/taxes.webp"/><img class="lazy " width="20" height="20" src="" data-src="img/buy/advs/taxes.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy-advs__item-title text-500">Отсутствие налога на&nbsp;недвижимость</div>
+          <div class="buy-advs__item-desc flex flex-col">
+            <p>При покупке необходимо оплатить пошлину в размере 4% от стоимости жилья в Земельный департамент.</p>
+            <p>Владение, сдача в аренду, продажа и все другие операции <strong>налогом не облагаются</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buy overflow-hidden buy_second bg-c2 relative">
+    <div class="container margin-center">
+      <div class="section__title font-tenor text-c3 text-center">Услуги DADI</div>
+      <div class="buy__subtitle text-center">покупка недвижимости в Дубае</div>
+      <div class="buy__row flex hidden">
+        <div class="buy__item flex-shrink">
+          <div class="buy__item-img img_br img_cover buy__item-img_1">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/buy/1.webp"/><img class="lazy " width="325" height="162" src="" data-src="img/main/buy/1.jpg" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy__item-text">
+            <div class="buy__item-title text-500">Дистанционная покупка недвижимости</div>
+            <div class="buy__item-list p-list">
+              <ul>
+                <li>организуем онлайн просмотр</li>
+                <li>подготовим и переведем все необходимые документы для покупки недвижимости из любой точки мира</li>
+              </ul>
+            </div>
+            <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">Заявка на подбор недвижимости</div>
+          </div>
+        </div>
+        <div class="buy__item flex-shrink">
+          <div class="buy__item-img img_br img_cover buy__item-img_2">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/buy/2.webp"/><img class="lazy " width="325" height="125" src="" data-src="img/main/buy/2.jpg" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy__item-text">
+            <div class="buy__item-title text-500">Арендное управление</div>
+            <div class="buy__item-subtitle text-500">Берем на себя все обязанности:</div>
+            <div class="buy__item-list p-list">
+              <ul>
+                <li>поиск арендаторов</li>
+                <li>заключение договоров аренды</li>
+                <li>взимание арендных платежей</li>
+                <li>урегулирование споров с арендаторами</li>
+                <li>общее управление недвижимостью в интересах собственника</li>
+              </ul>
+            </div>
+            <div class="buy__item-desc text-500">Обеспечим максимальную доходность и&nbsp;защиту ваших интересов.</div>
+          </div>
+        </div>
+        <div class="buy__item flex-shrink">
+          <div class="buy__item-img img_br img_cover buy__item-img_3">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/buy/3.webp"/><img class="lazy " width="325" height="215" src="" data-src="img/main/buy/3.jpg" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy__item-text">
+            <div class="buy__item-title text-500">Юридические гарантии</div>
+            <div class="buy__item-desc text-500">Берем на себя всю ответственность по работе с документами, получении ВНЖ, коммуникации и оформлении договоров</div>
+          </div>
+        </div>
+        <div class="buy__item flex-shrink">
+          <div class="buy__item-img img_br img_cover buy__item-img_4">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/buy/4.webp"/><img class="lazy " width="325" height="152" src="" data-src="img/main/buy/4.jpg" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy__item-text">
+            <div class="buy__item-title text-500">Инвестирование вместе&nbsp;с&nbsp;DADI</div>
+            <div class="buy__item-desc text-500">Мы являемся действующими инвесторами и предлагаем нашим преданным клиентам выгодные оптовые покупки недвижимости у застройщиков. Инвестируйте в проверенные проекты вместе с нами</div>
+            <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">Заявка на подбор недвижимости</div>
+          </div>
+        </div>
+        <div class="buy__item flex-shrink">
+          <div class="buy__item-img img_br img_cover buy__item-img_5">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/buy/5.webp"/><img class="lazy " width="325" height="188" src="" data-src="img/main/buy/5.jpg" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy__item-text">
+            <div class="buy__item-title text-500">Оценка недвижимости</div>
+            <div class="buy__item-desc text-500">Профессионально оценим вашу недвижимость для продажи, проконсультируем по нюансам и поможем сформировать предложение для покупателя.</div>
+            <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">Заявка на оценку недвижимости</div>
+          </div>
+        </div>
+        <div class="buy__item flex-shrink">
+          <div class="buy__item-img img_br img_cover buy__item-img_6">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/buy/6.webp"/><img class="lazy " width="325" height="204" src="" data-src="img/main/buy/6.jpg" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="buy__item-text">
+            <div class="buy__item-title text-500">Срочный выкуп недвижимости</div>
+            <div class="buy__item-desc text-500">Выкупим вашу недвижимость за 24 часа с момента просмотра или добавим проект в нашу базу.</div>
+            <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">Заявка на оценку недвижимости</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="best overflow-hidden">
+    <div class="container margin-center">
+      <div class="section__title font-tenor text-c3">Каталоги лучшей недвижимости Дубая 2023-2024</div>
+      <div class="best__swiper relative">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="best__item relative">
+                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
+                <div class="best__item-img img_br img_cover">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="img/main/best/1.jpg" alt="" loading="lazy"/>
+                  </picture>
+                </div>
+                <div class="best__item-title text-c5 text-500">Название каталога</div>
+                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="best__item relative">
+                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
+                <div class="best__item-img img_br img_cover">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="img/main/best/1.jpg" alt="" loading="lazy"/>
+                  </picture>
+                </div>
+                <div class="best__item-title text-c5 text-500">Название каталога</div>
+                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="best__item relative">
+                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
+                <div class="best__item-img img_br img_cover">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="img/main/best/1.jpg" alt="" loading="lazy"/>
+                  </picture>
+                </div>
+                <div class="best__item-title text-c5 text-500">Название каталога</div>
+                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="best__item relative">
+                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
+                <div class="best__item-img img_br img_cover">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="img/main/best/1.jpg" alt="" loading="lazy"/>
+                  </picture>
+                </div>
+                <div class="best__item-title text-c5 text-500">Название каталога</div>
+                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="best__item relative">
+                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
+                <div class="best__item-img img_br img_cover">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="img/main/best/1.jpg" alt="" loading="lazy"/>
+                  </picture>
+                </div>
+                <div class="best__item-title text-c5 text-500">Название каталога</div>
+                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="best__item relative">
+                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
+                <div class="best__item-img img_br img_cover">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="img/main/best/1.jpg" alt="" loading="lazy"/>
+                  </picture>
+                </div>
+                <div class="best__item-title text-c5 text-500">Название каталога</div>
+                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="best__item relative">
+                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
+                <div class="best__item-img img_br img_cover">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="img/main/best/1.jpg" alt="" loading="lazy"/>
+                  </picture>
+                </div>
+                <div class="best__item-title text-c5 text-500">Название каталога</div>
+                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main_swiper-arrows flex absolute">
+          <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-left.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-right.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blog_second">
+    <div class="blog">
+      <div class="container margin-center">
+        <div class="section__title font-tenor text-c3">Блог о недвижимости и новостях Дубая</div>
+        <div class="blog__block relative"><a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="/blog.html">Перейти в Блог</a>
+          <div class="blog__items relative flex">
+            <div class="blog__item">
+              <div class="blog__item-img img_cover img_br">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="img/main/blog/1.webp"/><img class="lazy " width="343" height="324" src="" data-src="img/main/blog/1.jpg" alt="" loading="lazy"/>
+                </picture>
+              </div>
+              <div class="blog__item-title">Где лучше жить: в чем отличие районов Дубая</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
+            </div>
+            <div class="blog__item">
+              <div class="blog__item-img img_cover img_br">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="img/main/blog/2.webp"/><img class="lazy " width="343" height="324" src="" data-src="img/main/blog/2.jpg" alt="" loading="lazy"/>
+                </picture>
+              </div>
+              <div class="blog__item-title">Старт строительства комплекса “Название”</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
+            </div>
+            <div class="blog__item">
+              <div class="blog__item-img img_cover img_br">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="img/main/blog/1.webp"/><img class="lazy " width="343" height="324" src="" data-src="img/main/blog/1.jpg" alt="" loading="lazy"/>
+                </picture>
+              </div>
+              <div class="blog__item-title">Где лучше жить: в чем отличие районов Дубая</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contacts bg-c3 text-c2">
+    <div class="container margin-center">
+      <div class="section__title font-tenor">Контакты</div>
+      <div class="contacts__block flex">
+        <div class="contacts__left">
+          <div class="contacts__items flex flex-col">
+            <div class="contacts__item">
+              <div class="contacts__item-title">Отдел клиентского сервиса</div><a class="contacts__item-subtitle" href="tel:+97145859538 ">+971 4 585 9538</a>
+            </div>
+            <div class="contacts__item">
+              <div class="contacts__item-title">Эл.почта</div><a class="contacts__item-subtitle" href="mailto:Info@dadiproperties.com">Info@dadiproperties.com</a>
+            </div>
+            <div class="contacts__item contacts__item_socials">
+              <div class="contacts__socials flex"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/whatsapp.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/contacts/whatsapp.png" alt="" loading="lazy"/>
+                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/telegram.webp"/><img class="lazy " width="17" height="17" src="" data-src="img/main/contacts/telegram.png" alt="" loading="lazy"/>
+                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/instagram.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/main/contacts/instagram.png" alt="" loading="lazy"/>
+                  </picture></a></div>
+              <div class="contacts__socials flex contacts__socials_second"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/youtube.webp"/><img class="lazy " width="21" height="21" src="" data-src="img/main/contacts/youtube.png" alt="" loading="lazy"/>
+                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/vk.webp"/><img class="lazy " width="19" height="19" src="" data-src="img/main/contacts/vk.png" alt="" loading="lazy"/>
+                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/yandex.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/main/contacts/yandex.png" alt="" loading="lazy"/>
+                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/facebook.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/contacts/facebook.png" alt="" loading="lazy"/>
+                  </picture></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="contacts__right">
+          <div class="contacts__item">
+            <div class="contacts__item-title">Офис</div>
+            <div class="contacts__item-subtitle">Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ</div>
+            <div class="contacts__item-iframe">
+              <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contacts__item contacts__item_socials contacts__item_hidden">
+        <div class="contacts__socials flex"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/contacts/whatsapp.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/contacts/whatsapp.png" alt="" loading="lazy"/>
+            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/contacts/telegram.webp"/><img class="lazy " width="17" height="17" src="" data-src="img/main/contacts/telegram.png" alt="" loading="lazy"/>
+            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/contacts/instagram.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/main/contacts/instagram.png" alt="" loading="lazy"/>
+            </picture></a></div>
+        <div class="contacts__socials flex contacts__socials_second"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/contacts/youtube.webp"/><img class="lazy " width="21" height="21" src="" data-src="img/main/contacts/youtube.png" alt="" loading="lazy"/>
+            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/contacts/vk.webp"/><img class="lazy " width="19" height="19" src="" data-src="img/main/contacts/vk.png" alt="" loading="lazy"/>
+            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/contacts/yandex.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/main/contacts/yandex.png" alt="" loading="lazy"/>
+            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="img/main/contacts/facebook.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/contacts/facebook.png" alt="" loading="lazy"/>
+            </picture></a></div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}

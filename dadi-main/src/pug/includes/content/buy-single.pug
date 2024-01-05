@@ -1,0 +1,329 @@
+include ../mixins
+main
+    .rent-single
+        .container.margin-center.relative
+            a(href="/buy.html").rent-single__link.text-underline.flex Каталог покупки
+            .rent-single__title.font-tenor.text-c3 Квартира 50 кв.м в Название ЖК
+            .rent-single__btns.flex.absolute.top-0.right-0
+                .rent-single__compar.rent-single__btn.flex.flex-ai-center.flex-j-center.bg-c3
+                    <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.8598 4.31562V1.38918C2.8598 1.20827 2.78811 1.03476 2.66049 0.906829C2.53287 0.778901 2.35978 0.707031 2.1793 0.707031C1.99882 0.707031 1.82573 0.778901 1.69811 0.906829C1.57049 1.03476 1.49879 1.20827 1.49879 1.38918V4.32244C1.06237 4.46815 0.682767 4.74784 0.413763 5.12187C0.144758 5.49591 0 5.94532 0 6.40642C0 6.86752 0.144758 7.31693 0.413763 7.69097C0.682767 8.065 1.06237 8.34469 1.49879 8.4904V19.1252C1.49879 19.3061 1.57049 19.4796 1.69811 19.6075C1.82573 19.7354 1.99882 19.8073 2.1793 19.8073C2.35978 19.8073 2.53287 19.7354 2.66049 19.6075C2.78811 19.4796 2.8598 19.3061 2.8598 19.1252V8.50404C3.30375 8.36324 3.69141 8.08433 3.96655 7.70778C4.2417 7.33122 4.39003 6.87659 4.39003 6.40983C4.39003 5.94307 4.2417 5.48844 3.96655 5.11189C3.69141 4.73533 3.30375 4.45642 2.8598 4.31562Z" fill="white"/>
+                    <path d="M9.66449 12.6106V1.38918C9.66449 1.20827 9.5928 1.03476 9.46518 0.906829C9.33756 0.778901 9.16447 0.707031 8.98399 0.707031C8.8035 0.707031 8.63041 0.778901 8.50279 0.906829C8.37517 1.03476 8.30348 1.20827 8.30348 1.38918V12.6242C7.86706 12.77 7.48745 13.0496 7.21845 13.4237C6.94945 13.7977 6.80469 14.2471 6.80469 14.7082C6.80469 15.1693 6.94945 15.6187 7.21845 15.9928C7.48745 16.3668 7.86706 16.6465 8.30348 16.7922V19.1252C8.30348 19.3061 8.37517 19.4796 8.50279 19.6075C8.63041 19.7354 8.8035 19.8073 8.98399 19.8073C9.16447 19.8073 9.33756 19.7354 9.46518 19.6075C9.5928 19.4796 9.66449 19.3061 9.66449 19.1252V16.8058C10.1084 16.665 10.4961 16.3861 10.7712 16.0096C11.0464 15.633 11.1947 15.1784 11.1947 14.7116C11.1947 14.2449 11.0464 13.7902 10.7712 13.4137C10.4961 13.0371 10.1084 12.7582 9.66449 12.6174V12.6106Z" fill="white"/>
+                    <path d="M16.4702 6.67587V1.38918C16.4702 1.20827 16.3985 1.03476 16.2708 0.906829C16.1432 0.778901 15.9701 0.707031 15.7897 0.707031C15.6092 0.707031 15.4361 0.778901 15.3085 0.906829C15.1808 1.03476 15.1091 1.20827 15.1091 1.38918V6.68269C14.6727 6.8284 14.2931 7.10809 14.0241 7.48212C13.7551 7.85616 13.6104 8.30557 13.6104 8.76667C13.6104 9.22777 13.7551 9.67718 14.0241 10.0512C14.2931 10.4252 14.6727 10.7049 15.1091 10.8506V19.1252C15.1091 19.3061 15.1808 19.4796 15.3085 19.6075C15.4361 19.7354 15.6092 19.8073 15.7897 19.8073C15.9701 19.8073 16.1432 19.7354 16.2708 19.6075C16.3985 19.4796 16.4702 19.3061 16.4702 19.1252V10.8643C16.9141 10.7235 17.3018 10.4446 17.5769 10.068C17.8521 9.69147 18.0004 9.23684 18.0004 8.77008C18.0004 8.30332 17.8521 7.84869 17.5769 7.47213C17.3018 7.09558 16.9141 6.81667 16.4702 6.67587Z" fill="white"/>
+                    </svg>
+                .rent-single__fav.rent-single__btn.flex.flex-ai-center.flex-j-center.bg-c3
+                    <svg width="15" height="23" viewBox="0 0 15 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.807292 19.9773V1.6063C0.807292 1.54319 0.83079 1.49675 0.856472 1.46934C0.881653 1.44245 0.900967 1.4401 0.909179 1.4401H13.6221C13.6334 1.4401 13.6519 1.4433 13.6754 1.46846C13.6999 1.49469 13.724 1.54102 13.724 1.6063V19.9773L7.85562 13.6939L7.26562 13.0622L6.67563 13.6939L0.807292 19.9773Z" stroke="white" stroke-width="1.61458"/>
+                    </svg>
+            .rent-single__top.flex.flex-wrap.rent-single__top_2
+                .rent-single__top-title Застройщик
+                .rent-single__top-title ЖК
+                .rent-single__top-area.text-c3.text-500.relative
+                    span Район
+                    .rent-single__top-svg.absolute.w-full
+                        <svg width="61" height="2" viewBox="0 0 61 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 1H61" stroke="url(#paint0_linear_347_3834)"/>
+                        <defs>
+                        <linearGradient id="paint0_linear_347_3834" x1="0" y1="1" x2="61" y2="1" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#4B97A1" stop-opacity="0"/>
+                        <stop offset="0.5" stop-color="#156B7F"/>
+                        <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+                .rent-single__top-lot Лот 1111111
+            .rent-single__images.grid.rent-single__images_2
+                .rent-single__image.img_cover.img_full.img_br
+                    +picture('img/rent/single/main/3.jpg', 'img/rent/single/main/3', false, '', 474, 317, '', '')
+                .rent-single__image.img_cover.img_full.img_br
+                    +picture('img/rent/single/main/2.jpg', 'img/rent/single/main/2', false, '', 230, 151, '', '')
+                .rent-single__image.img_cover.img_full.img_br
+                    +picture('img/rent/single/main/2.jpg', 'img/rent/single/main/2', false, '', 230, 151, '', '')
+                .rent-single__image.img_cover.img_full.img_br
+                    +picture('img/rent/single/main/2.jpg', 'img/rent/single/main/2', false, '', 230, 151, '', '')
+                .rent-single__image.img_cover.img_full.img_br
+                    +picture('img/rent/single/main/2.jpg', 'img/rent/single/main/2', false, '', 230, 151, '', '')
+            .rent-single__row.flex.rent-single__row_2
+                .rent-single__left
+                    .rent-single__tabs.flex.flex-col.rent-single__tabs_2
+                        .rent-single__tabs-block.flex
+                            .rent-single__tab-tops.flex.overflow-hidden.rent-single__tab-tops_price
+                                .rent-single__tab-top.active ₽
+                                .rent-single__tab-top $
+                                .rent-single__tab-top €
+                            .rent-single__tab-tops.flex.overflow-hidden.rent-single__tab-tops_second
+                                .rent-single__tab-top.active кв. м
+                                .rent-single__tab-top км. фут
+                        .rent-single__tab-contents
+                            .rent-single__tab-content.active
+                                .rent-single__days
+                                    .rent-single__day.flex.flex-wrap.active
+                                        .rent-single__day-left 100.000 р в месяц
+                                        .rent-single__day-right
+                                            .rent-single__day-seconds
+                                                .rent-single__day-second.active 20.000 р за кв.м
+                                                .rent-single__day-second 20.000 р за км. фут
+                                    .rent-single__day.flex.flex-wrap
+                                        .rent-single__day-left 1090$
+                                        .rent-single__day-right
+                                            .rent-single__day-seconds
+                                                .rent-single__day-second.active 1090$ р за кв.м
+                                                .rent-single__day-second 1050$ р за км. фут
+                                    .rent-single__day.flex.flex-wrap
+                                        .rent-single__day-left 987€
+                                        .rent-single__day-right
+                                            .rent-single__day-seconds
+                                                .rent-single__day-second.active 987€ р за кв.м
+                                                .rent-single__day-second 543€ р за км. фут
+                                .rent-single__edges.flex.flex-wrap
+                                    .rent-single__edges-item.flex.flex-ai-end
+                                        .rent-single__edges-img
+                                            +picture('img/rent/single/edges/1.png', 'img/rent/single/edges/1', true, '', 28, 28, '', '')
+                                        .rent-single__edges-text
+                                            .rent-single__edges-title Общая площадь
+                                            .rent-single__edges-subtitle 50 м2
+                                    .rent-single__edges-item.flex.flex-ai-end
+                                        .rent-single__edges-img
+                                            +picture('img/rent/single/edges/2.png', 'img/rent/single/edges/2', true, '', 27, 27, '', '')
+                                        .rent-single__edges-text
+                                            .rent-single__edges-title Этаж
+                                            .rent-single__edges-subtitle 5 из 40
+                                    .rent-single__edges-item.flex.flex-ai-end
+                                        .rent-single__edges-img
+                                            +picture('img/rent/single/edges/3.png', 'img/rent/single/edges/3', true, '', 32, 32, '', '')
+                                        .rent-single__edges-text
+                                            .rent-single__edges-title Сдача
+                                            .rent-single__edges-subtitle 2 кв. 2025
+                                    .rent-single__edges-item.flex.flex-ai-end
+                                        .rent-single__edges-img
+                                            +picture('img/rent/single/edges/4.png', 'img/rent/single/edges/4', true, '', 28, 28, '', '')
+                                        .rent-single__edges-text
+                                            .rent-single__edges-title Комнат
+                                            .rent-single__edges-subtitle 2
+                                    .rent-single__edges-item.flex.flex-ai-end
+                                        .rent-single__edges-img
+                                            +picture('img/rent/single/edges/5.png', 'img/rent/single/edges/5', true, '', 24, 24, '', '')
+                                        .rent-single__edges-text
+                                            .rent-single__edges-title Отделка
+                                            .rent-single__edges-subtitle Меблированная
+                                .rent-single__desc.rent-single__desc_2 Furnished room next to Festival Plaza Mall. You can also easily get around the city as the Energy Metro Station is a few steps to the building. There are a lot of cafes, restaurants nearby. We prefer ladies only. You will have your own private room and private bathroom, with a shared kitchen and small balcony too. The room furniture includes: 1 queen bed, nightstands, chair and mirrors. A huge private bathroom with a shower.
+                                .rent-single__advs-subtitle.section__title.font-tenor.text-c3 Удобства
+                                .rent-single__advs.flex.flex-wrap.rent-single__advs_2
+                                    +singleAdv(
+                                        'clothes-hanger',
+                                        'Гардероб',
+                                        21,
+                                        21
+                                    )
+                                    +singleAdv(
+                                        'slider',
+                                        'Детская  площадка',
+                                        22,
+                                        22
+                                    )
+                                    +singleAdv(
+                                        'wardrobe',
+                                        'Встроенные шкафы',
+                                        21,
+                                        21
+                                    )
+                                    +singleAdv(
+                                        'air-conditioner2',
+                                        'Кондиционеры',
+                                        24,
+                                        24
+                                    )
+                                    +singleAdv(
+                                        'parking',
+                                        'Закрытая парковка',
+                                        23,
+                                        23
+                                    )
+                                    +singleAdv(
+                                        'guard',
+                                        'Охрана',
+                                        21,
+                                        21
+                                    )
+                                    +singleAdv(
+                                        'balcony2',
+                                        'Балкон',
+                                        20,
+                                        20
+                                    )
+                                    +singleAdv(
+                                        'key-chain',
+                                        'Услуги консьержа',
+                                        19,
+                                        19
+                                    )
+                                    +singleAdv(
+                                        'farming',
+                                        'Частный сад',
+                                        20,
+                                        20
+                                    )
+                    .rent-single__location
+                        .rent-single__location-title.font-tenor.section__title.text-c3 Местоположение
+                        .rent-single__location-item#rent-single__map-item
+                        .rent-single__location-desc
+                            p 15 мин до аэропорта Название
+                            p 10 мин до метро Название
+                            p Достопримечательности рядом: Перечисление
+                    .rent-single__cards.flex
+                        .rent-single__card
+                            +pCard2(
+                                'p-card_second',
+                                1,
+                                'Название ЖК',
+                                'Застройщик',
+                                'от 100.000 р за 50 кв.м',
+                                '/jk.html'
+                            )
+                        .rent-single__card
+                            .rent-single__card-inner.flex.flex-j-end.flex-col.bg-c5.text-c2
+                                .rent-single__card-subtitle Застройщик
+                                .rent-single__card-title Название заст.
+                                .rent-single__card-img
+                                    +picture('img/rent/single/cards/emaar.png', 'img/rent/single/cards/emaar', true, '', 246, 88, '', '')
+                                .rent-single__card-list.flex.flex-col
+                                    .rent-single__card-li
+                                        .rent-single__card-num.flex
+                                            .rent-single__card-before 2001
+                                        .rent-single__card-subtitle год основания
+                                    .rent-single__card-li
+                                        .rent-single__card-num.flex
+                                            .rent-single__card-svg
+                                                <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.79363 0.292786C6.98116 0.105315 7.23547 0 7.50063 0C7.7658 0 8.0201 0.105315 8.20763 0.292786L10.5006 2.58579V1.29279C10.5006 1.16018 10.5533 1.033 10.6471 0.939233C10.7408 0.845465 10.868 0.792786 11.0006 0.792786H12.0006C12.1332 0.792786 12.2604 0.845465 12.3542 0.939233C12.448 1.033 12.5006 1.16018 12.5006 1.29279V4.58579L14.8546 6.93879C14.9011 6.98527 14.938 7.04046 14.9632 7.1012C14.9883 7.16194 15.0013 7.22704 15.0013 7.29279C15.0013 7.35853 14.9883 7.42363 14.9632 7.48437C14.938 7.54511 14.9011 7.6003 14.8546 7.64679C14.8081 7.69327 14.753 7.73015 14.6922 7.75531C14.6315 7.78047 14.5664 7.79342 14.5006 7.79342C14.4349 7.79342 14.3698 7.78047 14.309 7.75531C14.2483 7.73015 14.1931 7.69327 14.1466 7.64679L7.50063 0.999786L2.50063 5.99979V12.2928C2.50063 12.4254 2.55331 12.5526 2.64708 12.6463C2.74085 12.7401 2.86802 12.7928 3.00063 12.7928H7.00063C7.13324 12.7928 7.26042 12.8455 7.35419 12.9392C7.44795 13.033 7.50063 13.1602 7.50063 13.2928C7.50063 13.4254 7.44795 13.5526 7.35419 13.6463C7.26042 13.7401 7.13324 13.7928 7.00063 13.7928H3.00063C2.60281 13.7928 2.22128 13.6348 1.93997 13.3534C1.65867 13.0721 1.50063 12.6906 1.50063 12.2928V6.99979L0.854632 7.64679C0.808144 7.69327 0.752954 7.73015 0.692215 7.75531C0.631476 7.78047 0.566375 7.79342 0.500632 7.79342C0.434888 7.79342 0.369788 7.78047 0.309048 7.75531C0.248309 7.73015 0.19312 7.69327 0.146632 7.64679C0.100144 7.6003 0.0632674 7.54511 0.0381083 7.48437C0.0129492 7.42363 0 7.35853 0 7.29279C0 7.22704 0.0129492 7.16194 0.0381083 7.1012C0.0632674 7.04046 0.100144 6.98527 0.146632 6.93879L6.79363 0.292786Z" fill="white"/>
+                                                <path d="M12.001 14.793C12.9292 14.793 13.8195 14.4242 14.4759 13.7678C15.1322 13.1115 15.501 12.2212 15.501 11.293C15.501 10.3647 15.1322 9.47447 14.4759 8.8181C13.8195 8.16172 12.9292 7.79297 12.001 7.79297C11.0727 7.79297 10.1825 8.16172 9.5261 8.8181C8.86973 9.47447 8.50098 10.3647 8.50098 11.293C8.50098 12.2212 8.86973 13.1115 9.5261 13.7678C10.1825 14.4242 11.0727 14.793 12.001 14.793ZM13.68 10.3L12.345 12.526C12.2863 12.6238 12.2061 12.7069 12.1105 12.769C12.0149 12.8312 11.9063 12.8707 11.7931 12.8846C11.6799 12.8985 11.5651 12.8863 11.4573 12.8492C11.3494 12.812 11.2515 12.7507 11.171 12.67L10.397 11.897C10.3032 11.8031 10.2506 11.6758 10.2507 11.5431C10.2508 11.4104 10.3036 11.2832 10.3975 11.1895C10.4914 11.0957 10.6186 11.0431 10.7513 11.0432C10.884 11.0433 11.0112 11.0961 11.105 11.19L11.652 11.737L12.822 9.78597C12.8557 9.72963 12.9002 9.68049 12.953 9.64136C13.0057 9.60223 13.0657 9.57387 13.1294 9.55789C13.1931 9.54192 13.2593 9.53865 13.3242 9.54827C13.3892 9.5579 13.4516 9.58022 13.508 9.61397C13.5643 9.64772 13.6135 9.69223 13.6526 9.74497C13.6917 9.79771 13.7201 9.85765 13.7361 9.92135C13.752 9.98505 13.7553 10.0513 13.7457 10.1162C13.736 10.1812 13.7137 10.2436 13.68 10.3Z" fill="white"/>
+                                                </svg>
+                                            .rent-single__card-before 81
+                                        .rent-single__card-subtitle дом сдан в 18 ЖК
+                                    .rent-single__card-li
+                                        .rent-single__card-num.flex
+                                            .rent-single__card-svg
+                                                <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.79363 0.292786C6.98116 0.105315 7.23547 0 7.50063 0C7.7658 0 8.0201 0.105315 8.20763 0.292786L10.5006 2.58579V1.29279C10.5006 1.16018 10.5533 1.033 10.6471 0.939233C10.7408 0.845465 10.868 0.792786 11.0006 0.792786H12.0006C12.1332 0.792786 12.2604 0.845465 12.3542 0.939233C12.448 1.033 12.5006 1.16018 12.5006 1.29279V4.58579L14.8546 6.93879C14.9011 6.98527 14.938 7.04046 14.9632 7.1012C14.9883 7.16194 15.0013 7.22704 15.0013 7.29279C15.0013 7.35853 14.9883 7.42363 14.9632 7.48437C14.938 7.54511 14.9011 7.6003 14.8546 7.64679C14.8081 7.69327 14.753 7.73015 14.6922 7.75531C14.6315 7.78047 14.5664 7.79342 14.5006 7.79342C14.4349 7.79342 14.3698 7.78047 14.309 7.75531C14.2483 7.73015 14.1931 7.69327 14.1466 7.64679L7.50063 0.999786L2.50063 5.99979V12.2928C2.50063 12.4254 2.55331 12.5526 2.64708 12.6463C2.74085 12.7401 2.86802 12.7928 3.00063 12.7928H7.00063C7.13324 12.7928 7.26042 12.8455 7.35419 12.9392C7.44795 13.033 7.50063 13.1602 7.50063 13.2928C7.50063 13.4254 7.44795 13.5526 7.35419 13.6463C7.26042 13.7401 7.13324 13.7928 7.00063 13.7928H3.00063C2.60281 13.7928 2.22128 13.6348 1.93997 13.3534C1.65867 13.0721 1.50063 12.6906 1.50063 12.2928V6.99979L0.854632 7.64679C0.808144 7.69327 0.752954 7.73015 0.692215 7.75531C0.631476 7.78047 0.566375 7.79342 0.500632 7.79342C0.434888 7.79342 0.369788 7.78047 0.309048 7.75531C0.248309 7.73015 0.19312 7.69327 0.146632 7.64679C0.100144 7.6003 0.0632674 7.54511 0.0381083 7.48437C0.0129492 7.42363 0 7.35853 0 7.29279C0 7.22704 0.0129492 7.16194 0.0381083 7.1012C0.0632674 7.04046 0.100144 6.98527 0.146632 6.93879L6.79363 0.292786Z" fill="white"/>
+                                                <path d="M12.001 14.793C12.9292 14.793 13.8195 14.4242 14.4759 13.7678C15.1322 13.1115 15.501 12.2212 15.501 11.293C15.501 10.3647 15.1322 9.47447 14.4759 8.8181C13.8195 8.16172 12.9292 7.79297 12.001 7.79297C11.0727 7.79297 10.1825 8.16172 9.5261 8.8181C8.86973 9.47447 8.50098 10.3647 8.50098 11.293C8.50098 12.2212 8.86973 13.1115 9.5261 13.7678C10.1825 14.4242 11.0727 14.793 12.001 14.793ZM13.68 10.3L12.345 12.526C12.2863 12.6238 12.2061 12.7069 12.1105 12.769C12.0149 12.8312 11.9063 12.8707 11.7931 12.8846C11.6799 12.8985 11.5651 12.8863 11.4573 12.8492C11.3494 12.812 11.2515 12.7507 11.171 12.67L10.397 11.897C10.3032 11.8031 10.2506 11.6758 10.2507 11.5431C10.2508 11.4104 10.3036 11.2832 10.3975 11.1895C10.4914 11.0957 10.6186 11.0431 10.7513 11.0432C10.884 11.0433 11.0112 11.0961 11.105 11.19L11.652 11.737L12.822 9.78597C12.8557 9.72963 12.9002 9.68049 12.953 9.64136C13.0057 9.60223 13.0657 9.57387 13.1294 9.55789C13.1931 9.54192 13.2593 9.53865 13.3242 9.54827C13.3892 9.5579 13.4516 9.58022 13.508 9.61397C13.5643 9.64772 13.6135 9.69223 13.6526 9.74497C13.6917 9.79771 13.7201 9.85765 13.7361 9.92135C13.752 9.98505 13.7553 10.0513 13.7457 10.1162C13.736 10.1812 13.7137 10.2436 13.68 10.3Z" fill="white"/>
+                                                </svg>
+                                            .rent-single__card-before 10
+                                        .rent-single__card-subtitle домов строится в 4 ЖК
+                                a(href="/zastroischik.html").rent-single__card-btn.p-btn.flex.flex-ai-center.flex-j-center.text-500.p-btn_white Подробнее о застройщике
+                    .rent-single__plan
+                        .rent-single__plan-top.flex.flex-ai-center
+                            .rent-single__plan-title.section__title.text-c3.font-tenor План платежей
+                            .rent-single__plan-btn.text-c5.flex.flex-ai-center.flex-j-center Стоимость от 312.300.000 р
+                        .rent-single__plan-items.flex.flex-col.w-full
+                            .rent-single__plan-item.flex.flex-j-between.w-full.flex-ai-center
+                                .rent-single__plan-left Первоначальный взнос
+                                .rent-single__plan-center.text-c5 20%
+                                .rent-single__plan-right 6.246.000 р
+                            .rent-single__plan-item.flex.flex-j-between.w-full.flex-ai-center
+                                .rent-single__plan-left В течение строительства
+                                .rent-single__plan-center.text-c5 60%
+                                .rent-single__plan-right 187.380.000 р
+                            .rent-single__plan-item.flex.flex-j-between.w-full.flex-ai-center
+                                .rent-single__plan-left После завершения строительства
+                                .rent-single__plan-center.text-c5 20%
+                                .rent-single__plan-right 6.246.000 р
+                .rent-single__right.sticky
+                    .rent-single__name.flex.flex-ai-center
+                        .rent-single__name-left.flex-shrink
+                            .rent-single__name-img.img_cover
+                                +picture('img/rent/single/main/name.jpg', 'img/rent/single/main/name', false, '', 136, 137, '', '')
+                        .rent-single__name-right
+                            .rent-single__name-title.text-c3 Имя Фамилия
+                            .rent-single__name-subtitle Консультант по недвижимости
+                            .rent-single__name-btns.flex.flex-ai-center
+                                .rent-single__name-btn.p-btn.flex.flex-ai-center.flex-j-center.text-500 Оставить заявку
+                                .rent-single__name-socials.flex.flex-ai-center
+                                    a(href="#!").rent-single__name-social.flex.flex-ai-center.flex-j-center.bg-c3
+                                        +picture('img/rent/single/main/call.png', 'img/rent/single/main/call', true, '', 16, 16, '', '')
+                                    a(href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.").rent-single__name-social.flex.flex-ai-center.flex-j-center.bg-c3
+                                        +picture('img/rent/single/main/whatsapp.png', 'img/rent/single/main/whatsapp', true, '', 16, 16, '', '')
+    .view
+        .container.margin-center
+            .view__row.flex
+                .view__left
+                    .view__item
+                        .view__item-img.img_cover
+                            +picture('img/rent/single/view/1.jpg', 'img/rent/single/view/1', true, '', 315, 269, '', '')
+                        .view__item-text
+                            .view__item-title Имя Фамилия
+                            .view__item-subtitle Консультант по недвижимости
+                .view__right
+                    .view__subitem
+                        .view__subitem-title.text-c5.text-center Забронируйте просмотр
+                        .view__subitem-subtitle.text-center наш агент продемонстрирует объект и ответит на вопросы
+                        form.view__subitem-form.flex.flex-j-center
+                            .view__subitem-left
+                                .view__subitem-items.flex.flex-col
+                                    .view__subitem-item
+                                        label.view__radio.flex.relative
+                                            input(type="radio" name="type" value="Лично" checked)
+                                            .view__radio-line.absolute
+                                            .view__radio-square.flex.flex-ai-center.flex-j-center
+                                                +picture('img/rent/single/view/tick.png', 'img/rent/single/view/tick', true, '', 14, 14, '', '')
+                                            .view__radio-title Лично
+                                    .view__subitem-item
+                                        .view__date.flex.flex-j-between.flex-ai-center
+                                            .view__date-title Дата
+                                            .view__date-input
+                                                input(type="date" name="date")
+                                    .view__subitem-item
+                                        .view__input
+                                            input(type="tel" name="tel" placeholder="8 999 999 99 99")
+                            .view__subitem-right
+                                .view__subitem-items.flex.flex-col
+                                    .view__subitem-item
+                                        label.view__radio.flex.relative
+                                            input(type="radio" name="type" value="Видеочат")
+                                            .view__radio-line.absolute
+                                            .view__radio-square.flex.flex-ai-center.flex-j-center
+                                                +picture('img/rent/single/view/tick.png', 'img/rent/single/view/tick', true, '', 14, 14, '', '')
+                                            .view__radio-title Видеочат
+                                    .view__subitem-item
+                                        .view__input
+                                            input(type="text" name="name" placeholder="Ваше имя")
+                                    .view__subitem-item
+                                        .view__input
+                                            input(type="email" name="email" placeholder="Ваш Email")
+                        button(type="submit").view__btn.p-btn.flex.flex-ai-center.flex-j-center.text-500 Записаться
+                        .catalog-cons__end
+                            span или напишите нам в
+                            span
+                                a(href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.").catalog-cons__end-link.flex.flex-ai-center
+                                    span.catalog-cons__end-svg.flex-shrink
+                                        +picture('img/catalogs/cons/whatsapp.png', 'img/catalogs/cons/whatsapp', true, '', 18, 18, '', '')
+                                    span.catalog-cons__end-title.text-c3.text-underline Whatsapp
+    .estate.overflow-hidden.estate_second.offers
+        .container.margin-center
+            .section__title.font-tenor.text-c3 Другие проекты
+            .estate__items.flex.flex-col
+                .estate__item.relative.w-full
+                    .estate__swiper.relative
+                        .swiper
+                            .swiper-wrapper
+                                .swiper-slide
+                                    include ../../components/filterCard
+                                .swiper-slide
+                                    include ../../components/filterCard
+                                .swiper-slide
+                                    include ../../components/filterCard
+                                .swiper-slide
+                                    include ../../components/filterCard
+                                .swiper-slide
+                                    include ../../components/filterCard
+                                .swiper-slide
+                                    include ../../components/filterCard
+                                .swiper-slide
+                                    .p-card.p-card_back.relative
+                                        .p-card__abs.absolute.top-0.left-0.w-full.h-full.flex.flex-ai-center.flex-j-center.bg-c3.text-c2
+                                            a(href="/arenda.html").p-card__abs-link.text-underline.text-center.text-500.margin-center Вернуться на страницу Аренды
+                        .main_swiper-arrows.flex.absolute
+                            .swiper-button.swiper-button-prev.flex.flex-ai-center.flex-j-center
+                                +picture('img/main/estate/arrow-left.png', 'img/main/estate/arrow-left', true, '', 18, 18, '', '')
+                            .swiper-button.swiper-button-next.flex.flex-ai-center.flex-j-center
+                                +picture('img/main/estate/arrow-right.png', 'img/main/estate/arrow-right', true, '', 18, 18, '', '')
+    include ../../components/contacts

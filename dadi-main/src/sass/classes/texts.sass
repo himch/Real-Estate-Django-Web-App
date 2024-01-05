@@ -1,0 +1,35 @@
+.uppercase
+  text-transform: uppercase
+
+.section
+  &__title
+    font-size: 55px
+    margin-bottom: 50px
+.text
+  &-center
+    text-align: center
+  &-400
+    font-weight: 400
+  &-500
+    font-weight: 500
+  &-600
+    font-weight: 600
+  &-normal
+    line-height: normal
+  &-1
+    line-height: 1
+  &-underline
+    text-decoration: underline
+    text-decoration-thickness: 1px
+
+$colors: (c1: c1, c2: c2, c3: c3, c4: c4, c5: c5, c6: c6)
+
+@each $state, $colour in $colors
+  .bg-#{$state}
+    background: var(--#{$colour})
+  .text-#{$state}
+    color: var(--#{$colour})
+
+.bg
+  background-size: cover
+  background-repeat: no-repeat

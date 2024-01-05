@@ -1,0 +1,81 @@
+include ../mixins
+main
+    .cabinet
+        .container.margin-center
+            .cabinet__change
+                .cabinet__change-link Назад
+                .cabinet__change-title.text-c3.text-500 Персональные данные
+                form.cabinet__change-form.flex.flex-col
+                    .cabinet__change-label.form__input
+                        input(type="text" name="name" placeholder="Ваше имя")
+                    .cabinet__change-label.form__input
+                        input(type="text" name="fname" placeholder="Ваша фамилия")
+                    .cabinet__change-label.form__input.cabinet__change-label_date
+                        input(type="text" name="date" placeholder="Дата рождения")
+                    .cabinet__change-label.form__input
+                        input(type="email" name="email" placeholder="Ваш Email")
+                    .cabinet__change-label.form__input
+                        button(type="submit").p-btn.flex.flex-ai-center.flex-j-center.text-500 Сохранить
+            .cabinet__items.flex.flex-wrap
+                .cabinet__item.cabinet__payment
+                    .cabinet__payment-title.text-c3.text-500 Оплатить с помощью
+                    form.cabinet__payment-form
+                        .cabinet__payment-select
+                            .p-select.relative
+                                .p-select__current.flex.flex-ai-center.flex-j-between
+                                    input(type="hidden" name="payment" value="Кредитная или дебетовая карта")
+                                    .p-select__current-item Кредитная или дебетовая карта
+                                    .p-select__current-arrow
+                                        +picture('img/main/get/arrow.png', 'img/main/get/arrow', true, '', 17, 17, '', '')
+                                .p-select__abs.absolute.flex.flex-col
+                                    .p-select__abs-item.active(data-value="Кредитная или дебетовая карта") Кредитная или дебетовая карта
+                                    .p-select__abs-item(data-value="Кредитная или дебетовая карта 2") Кредитная или дебетовая карта 2
+                        .cabinet__card
+                            .cabinet__card-first
+                                input(type="text" name="num" placeholder="Номер карты" maxlength="16")
+                            .cabinet__card-second.flex.flex-ai-center
+                                input(type="text" name="term" placeholder="Срок действия")
+                                input(type="text" name="cvv" placeholder="CVV" maxlength="3")
+                        button(type="submit").cabinet__btn.p-btn.flex.flex-ai-center.flex-j-center.text-500 Оплатить
+                .cabinet__item
+                    .cabinet__item-top.flex
+                        .cabinet__item-img
+                            +picture('img/lk/1.png', 'img/lk/1', true, '', 225, 129, '', '')
+                        .cabinet__item-text
+                            .cabinet__item-title.text-c5 Квартира 50 кв.м с видом на море
+                            .cabinet__item-contents.flex.flex-wrap.flex-ai-center
+                                .cabinet__item-content 2 комнаты
+                                .cabinet__item-content
+                                    <svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="3" height="3" rx="1.5" fill="#888888"/>
+                                    </svg>
+                                .cabinet__item-content 1 ванная
+                            .cabinet__item-date 17 ноября — 20 декабря
+                    .cabinet__item-bottom
+                        .cabinet__price.flex.flex-ai-center.flex-j-between.text-500
+                            .cabinet__price-left
+                                span Стоимость:
+                                span 5 000 руб. х 25 ночей
+                            .cabinet__price-right.text-c3 120 000 руб.
+                        .cabinet__item-change.p-btn.flex.flex-ai-center.flex-j-center.text-500 Изменить бронирование
+                .cabinet__item
+                    .cabinet__item-top.flex
+                        .cabinet__item-img
+                            +picture('img/lk/1.png', 'img/lk/1', true, '', 225, 129, '', '')
+                        .cabinet__item-text
+                            .cabinet__item-title.text-c5 Квартира 50 кв.м с видом на море
+                            .cabinet__item-contents.flex.flex-wrap.flex-ai-center
+                                .cabinet__item-content 2 комнаты
+                                .cabinet__item-content
+                                    <svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="3" height="3" rx="1.5" fill="#888888"/>
+                                    </svg>
+                                .cabinet__item-content 1 ванная
+                            .cabinet__item-date 17 ноября — 20 декабря
+                    .cabinet__item-bottom
+                        .cabinet__price.flex.flex-ai-center.flex-j-between.text-500
+                            .cabinet__price-left
+                                span Стоимость:
+                                span 5 000 руб. х 25 ночей
+                            .cabinet__price-right.text-c3 120 000 руб.
+                        a(href="#!").cabinet__item-change.p-btn.flex.flex-ai-center.flex-j-center.text-500 Изменить бронирование

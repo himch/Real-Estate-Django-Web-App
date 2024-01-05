@@ -1,0 +1,68 @@
+include ../mixins
+main
+    .cabinet
+        .container.margin-center
+            .cabinet__top.relative
+                .cabinet__top-title.text-500.text-c5 Имя Фамилия
+                .cabinet__top-mail email@gmail.com
+                .cabinet__top-tel +7 9**-***-**-**
+                .cabinet__top-right.absolute.flex.flex-ai-center
+                    a(href="#!").cabinet__top-link.p-btn.flex.flex-ai-center.flex-j-center.text-500.cursor-pointer Редактировать
+                    .cabinet__top-icon
+                        <svg width="21" height="4" viewBox="0 0 21 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.351562" width="4" height="4" rx="2" fill="#282828"/>
+                        <rect x="8.35156" width="4" height="4" rx="2" fill="#282828"/>
+                        <rect x="16.3516" width="4" height="4" rx="2" fill="#282828"/>
+                        </svg>
+            .cabinet__items-title.text-500.text-c3 Бронирования
+            .cabinet__items.flex.flex-wrap
+                .cabinet__item
+                    .cabinet__item-top.flex
+                        .cabinet__item-img
+                            +picture('img/lk/1.png', 'img/lk/1', true, '', 225, 129, '', '')
+                        .cabinet__item-text
+                            .cabinet__item-title.text-c5 Квартира 50 кв.м с видом на море
+                            .cabinet__item-contents.flex.flex-wrap.flex-ai-center
+                                .cabinet__item-content 2 комнаты
+                                .cabinet__item-content
+                                    <svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="3" height="3" rx="1.5" fill="#888888"/>
+                                    </svg>
+                                .cabinet__item-content 1 ванная
+                            .cabinet__item-date 17 ноября — 20 декабря
+                    .cabinet__item-bottom
+                        .cabinet__price.flex.flex-ai-center.flex-j-between.text-500
+                            .cabinet__price-left
+                                span Стоимость:
+                                span 5 000 руб. х 25 ночей
+                            .cabinet__price-right.text-c3 120 000 руб.
+                        .cabinet__item-confirm.text-underline.text-c3.text-center.text-500 Ожидает подтверждения
+                .cabinet__item
+                    .cabinet__item-top.flex
+                        .cabinet__item-img
+                            +picture('img/lk/1.png', 'img/lk/1', true, '', 225, 129, '', '')
+                        .cabinet__item-text
+                            .cabinet__item-title.text-c5 Квартира 50 кв.м с видом на море
+                            .cabinet__item-contents.flex.flex-wrap.flex-ai-center
+                                .cabinet__item-content 2 комнаты
+                                .cabinet__item-content
+                                    <svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="3" height="3" rx="1.5" fill="#888888"/>
+                                    </svg>
+                                .cabinet__item-content 1 ванная
+                            .cabinet__item-date 17 ноября — 20 декабря
+                    .cabinet__item-bottom
+                        .cabinet__price.flex.flex-ai-center.flex-j-between.text-500
+                            .cabinet__price-left
+                                span Стоимость:
+                                span 5 000 руб. х 25 ночей
+                            .cabinet__price-right.text-c3 120 000 руб.
+                        .cabinet__item-confirm.text-underline.text-c3.text-center.text-500 Ожидает подтверждения
+.modal.modal_change.active
+    .modal__content.relative.margin-center
+        .modal__close.absolute
+            +picture('img/modal/type/close.png', 'img/modal/type/close', true, '', 14, 14, '', '')
+        .modal_change__content.relative
+            .modal_change__title.text-center.text-500.text-c3 Изменение бронирования
+            .modal_change__desc.text-center Вы оставили заявку на изменение бронирования. После подтверждения вы получите уведомление на указанную в профиле почту.
+            .modal_change__btn.p-btn.flex.flex-ai-center.flex-j-center.text-500 К бронированиям

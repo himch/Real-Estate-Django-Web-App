@@ -1,0 +1,325 @@
+.p
+  &-bg, &-img
+    picture, svg
+      &:nth-child(2)
+        display: none
+  &-lang
+    &__abs
+      top: 100%
+      left: 0
+      opacity: 0
+      z-index: -1
+      visibility: hidden
+      transition: .3s
+    &.active
+      .p-lang__abs
+        opacity: 1
+        z-index: 10
+        visibility: visible
+  &-btn
+    border-radius: 53px
+    border: 1px solid var(--c1)
+    transition: .3s
+    height: 53px
+    background: transparent
+    &:hover
+      background: var(--c3)
+      color: var(--c2)
+    &_white
+      border-color: var(--c2)
+      &:hover
+        border-color: var(--c3)
+  &-pagination
+    border-radius: 9px
+    background: #F5F7F9
+    height: 35px
+    width: max-content
+    margin: 28px auto 0
+    &__item
+      height: 100%
+      width: 29px
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 14px
+      border-radius: 6px
+      &.active, &:hover
+        color: var(--c2)
+        background: #156B7F
+      &_prev
+        img
+          transform: rotate(180deg)
+  &-card
+    height: 417px
+    border-radius: 11px
+    overflow: hidden
+    &__swiper
+      &-pagination
+        &.swiper-pagination
+          bottom: calc(100% + 11px)
+          display: flex
+          justify-content: center
+          gap: 3px
+        .swiper
+          &-pagination
+            &-bullet
+              background: transparent
+              opacity: 1
+              border: 1px solid var(--c2)
+              margin: 0!important
+              width: 12px
+              height: 12px
+              &-active
+                background: var(--c2)
+    &_buy
+      .p-card
+        &__title
+          margin-bottom: 15px
+        &__top
+          margin-bottom: 10px
+          &-left
+            margin-right: 0
+    &_back
+      .p-card__abs
+        opacity: 1
+        z-index: 5
+    &__abs
+      &-link
+        font-size: 24px
+        max-width: 230px
+    &_filter
+      background: #F5F7F9
+      border-radius: 14px
+      overflow: hidden
+      height: auto
+      &__image
+        img
+          height: 218px
+      &__like, &__delete
+        width: 62px
+        height: 48px
+        background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)
+        z-index: 2
+        display: flex
+        justify-content: center
+        right: 9px
+        padding-top: 5px
+        cursor: pointer
+        align-items: flex-start
+      &__delete
+        padding-top: 11px
+        img
+          height: 16px
+      .swiper
+        &-pagination
+          display: flex
+          gap: 3px
+          justify-content: center
+          &-bullet
+            width: 12px
+            height: 12px
+            background: transparent
+            border-radius: 100%
+            opacity: 1
+            border: 1.331px solid var(--c2)
+            &-active
+              background: var(--c2)
+      .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+        margin: 0
+      &__text
+        padding: 23px 17px 28px 20px
+        display: block
+      &__title
+        margin-bottom: 7px
+      &__content
+        margin-bottom: 23px
+        gap: 11px 22px
+        font-size: 14px
+        &-subitem
+          font-size: 11px
+      &__list
+        gap: 12px
+        margin-bottom: 17px
+        &-item
+          width: calc(100% / 2 - 6px)
+          gap: 5px
+        &-image
+          flex-shrink: 0
+        &-title
+          font-size: 14px
+      &__price
+        &-right
+          font-size: 15px
+          color: #6A6A6A
+    &_second
+      .p-card
+        &__title
+          max-width: 140px
+    &__sale
+      padding: 5px 13px 6px 9px
+      gap: 7px
+      border-radius: 50px
+      width: max-content
+      left: 16px
+      top: 25px
+      z-index: 2
+      &-title
+        font-size: 12px
+    &__text
+      z-index: 2
+      bottom: 13px
+      left: 16px
+      width: calc(100% - 16px - 16px)
+      border-radius: 6px
+      padding: 14px 13px 15px
+    &__title
+      font-size: 17px
+      line-height: 110.1%
+      margin-bottom: 7px
+    &__top
+      margin-bottom: 10px
+      &-left
+        font-size: 15px
+        margin-right: 10px
+      &-right
+        font-size: 13px
+        margin-top: 1px
+        flex-shrink: 0
+    &__price
+      font-size: 13px
+      margin-bottom: 4px
+      &_old
+        color: #6A6A6A
+        margin-bottom: 0
+    &__abs
+      border-radius: 16px
+      font-size: 24px
+      text-decoration: underline
+      text-decoration-thickness: 1px
+  &-list
+    ul
+      padding-left: 30px
+    li
+      position: relative
+      &::before
+        content: ''
+        width: 3px
+        height: 3px
+        top: 10px
+        left: -15px
+        background: var(--c1)
+        position: absolute
+        border-radius: 100%
+  &-swiper
+    .swiper
+      &-pagination
+        display: flex
+        width: auto
+        gap: 7px
+        &-bullet
+          width: 15px
+          height: 15px
+          margin: 0!important
+          &-active
+            opacity: 1
+            background: var(--c3)
+  &-check
+    gap: 8px
+    cursor: pointer
+    input
+      display: none
+      &:checked
+        ~ .p-check__square
+          picture
+            display: block
+    &__square
+      flex-shrink: 0
+      width: 14px
+      height: 14px
+      border-radius: 1px
+      border: 0.5px solid var(--c1)
+      picture
+        display: none
+        margin-top: -2px
+    &__title
+      font-size: 12px
+  &-checkboxes
+    gap: 14px
+    &__item
+      width: calc(100% / 3 - 10px)
+      cursor: pointer
+      gap: 18px
+      input
+        display: none
+        &:checked
+          ~
+            .p-checkboxes__item-square
+              border-radius: 1.5px
+              background-color: var(--c5)
+              border-color: var(--c5)
+              background-image: url('../../img/rent/filters/true.png')
+      &-square
+        transition: .3s
+        display: block
+        width: 15px
+        height: 15px
+        border-radius: 1.286px
+        border: 0.643px solid var(--c1)
+        flex-shrink: 0
+        background-repeat: no-repeat
+        background-size: 7px 7px
+        background-position: center
+      &-title
+        margin-top: -3px
+        font-size: 14px
+    &_second
+      border-radius: 5px
+      background: #F5F7F9
+      gap: 5px
+      max-width: max-content
+      input
+        &:checked
+          ~ .p-checkboxes__item-title
+            background: var(--c5)
+            color: var(--c2)
+      .p-checkboxes__item
+        width: auto
+        &-title
+          margin-top: 0
+          padding: 11px 38px
+          border-radius: 6px
+  &-select
+    padding-bottom: 3px
+    width: 100%
+    border-bottom: 1px solid rgba(40, 40, 40, 0.46)
+    &.active
+      .p-select__abs
+        opacity: 1
+        visibility: visible
+        z-index: 10
+    &__current
+      cursor: pointer
+      &-item
+        font-size: 16px
+        gap: 5px
+      &-arrow
+        flex-shrink: 0
+    &__abs
+      width: 100%
+      border-radius: 0px 0px 16px 16px
+      border: 1px solid #D1D0D0
+      overflow: hidden
+      opacity: 0
+      z-index: -1
+      transition: .3s
+      visibility: hidden
+      &-item
+        font-size: 14px
+        width: 100%
+        cursor: pointer
+        border-bottom: 1px solid #D1D0D0
+        background: var(--c2)
+        padding: 6px 5px
+        &.active, &:hover
+          background: var(--c5)
+          color: var(--c2)

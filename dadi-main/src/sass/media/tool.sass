@@ -1,0 +1,457 @@
+@media screen and (max-width: 1160px)
+  .container
+    padding-left: 10px
+    padding-right: 10px
+  .modal
+    padding-left: 10px
+    padding-right: 10px
+    &__content
+      transform: none
+      .get
+        &__item
+          &-text, &-subtitle, &-inputs, &-end, &-title
+            max-width: 100%
+            text-align: left
+            width: 100%
+      .catalog
+        &-cons
+          &__title, &__subtitle, &__text, &__inputs, &__end
+            max-width: 100%
+            text-align: left
+            width: 100%
+          &__inputs
+            flex-wrap: wrap
+            gap: 29px
+      .form
+        &__input
+          width: 100%
+    &__close
+      width: 29px
+      height: 29px
+      top: -7px
+      right: -2px
+      img
+        width: 9px
+    &_type
+      .modal
+        &__content
+          padding: 35px 18px 324px
+      &-second
+        .modal
+          &__content
+            padding: 0
+        .catalog
+          &-cons
+            &__item
+              background: transparent
+              padding: 29px 18px 273px
+            &__img
+              &-left
+                width: max-content
+                left: 50%
+                transform: translateX(-50%)
+                img
+                  width: 300px
+      &__img
+        &-left
+          bottom: -324px
+          left: 50%
+          transform: translateX(-50%)
+          width: max-content
+          img
+            width: 313px
+      .p
+        &-chekc
+          margin-top: 24px
+    &_change
+      &__content
+        padding: 24px 26px 43px
+      &__title
+        font-size: 19px
+        margin-bottom: 14px
+      &__desc
+        font-size: 14px
+        margin-bottom: 28px
+        max-width: 267px
+        margin-left: auto
+        margin-right: auto
+    &__socials
+      justify-content: flex-start
+      max-width: 100%
+      &-item
+        width: 100%
+        max-width: 100%
+        flex-direction: row-reverse
+        justify-content: flex-end
+  .header
+    &__block
+      align-items: flex-end
+  .footer
+    padding-bottom: 14px
+    &__logo
+      margin-left: 0
+      display: flex
+      justify-content: center
+
+    &__left, &__right
+      width: 100%
+
+    &__block, &__top
+      flex-direction: column
+      justify-content: center
+      align-items: center
+
+    &__top
+
+      &-left, &-center, &-right
+        width: 100%
+
+      &-left
+        padding-left: 0
+
+    &__bottom
+      align-items: flex-start
+      flex-direction: column-reverse
+
+      &-left
+        padding-left: 0
+
+      &-center
+        display: none
+
+    &__block
+      gap: 24px
+
+    &__cabinet
+      &-title
+        text-align: center
+
+      .p-btn
+        margin: 0 auto
+    &__list
+      ul
+        flex-direction: row
+        gap: 29px
+        justify-content: center
+    &__block
+      padding-bottom: 14px
+    &__top, &__bottom
+      padding-left: 17px
+      padding-right: 17px
+    &__top
+      &-center
+        position: relative
+        padding: 30px 0
+        &::after, &::before
+          content: ''
+          position: absolute
+          width: calc(100% + 20px + 34px)
+          left: -27px
+          height: 1px
+          background: #808080
+        &::after
+          top: 0
+        &::before
+          bottom: 0
+      &-right
+        padding-top: 21px
+    &__link
+      width: 100%
+      display: flex
+      align-items: center
+      justify-content: space-between
+      &:nth-child(1), &:nth-child(3)
+        display: none
+    &__bottom
+      &-right
+        padding-bottom: 29px
+        position: relative
+        &::after
+          content: ''
+          position: absolute
+          width: calc(100% + 20px + 34px)
+          left: -27px
+          height: 1px
+          background: #808080
+          bottom: 0
+      &-left, &-right, &-center
+        width: 100%
+      &-left
+        padding-top: 21px
+    &__copy
+      display: flex
+      flex-direction: column
+      gap: 10px
+      span
+        display: block
+@media screen and (max-width: 768px)
+  .container
+    max-width: 340px
+  .img
+    &_br
+      img
+        border-radius: 14px
+  .p
+    &-btn
+      font-size: 13px
+      height: 41px
+    &-bg, &-img
+      picture, svg
+        &:nth-child(1)
+          display: none
+        &:nth-child(2)
+          display: flex
+    &-card
+      height: 366px
+      border-radius: 14px
+      &__text
+        padding: 12px 11px 18px
+        bottom: 11px
+        left: 14px
+        width: calc(100% - 14px - 14px)
+      &__title
+        font-size: 15px
+        margin-bottom: 12px
+      &__top
+        margin-bottom: 9px
+        &-left
+          font-size: 13px
+          margin-right: 10px
+        &-right
+          font-size: 11px
+      &__price
+        font-size: 13px
+        &_old
+          font-size: 12px
+      &__sale
+        padding: 4px 9px
+        gap: 6px
+        &-svg
+          svg
+            width: 11px
+        &-title
+          font-size: 13px
+      &__abs
+        border-radius: 12px
+        &-link
+          font-size: 16px
+          max-width: 174px
+      &_filter
+        height: auto
+        &__image
+          img
+            height: 197px
+        &__delete
+          width: 56px
+          height: 43px
+          img
+            height: 14px
+            width: 14px
+        &__text
+          padding: 16px 14px
+        &__title
+          font-size: 16px
+          margin-bottom: 7px
+        &__content
+          gap: 11.5px 23px
+          margin-bottom: 17px
+          &-item
+            font-size: 12px
+          &-subitem
+            font-size: 9px
+        &__list
+          gap: 10px
+          &-img
+            img
+              width: 17px
+              height: 17px
+              object-fit: cover
+          &-item
+            gap: 5px
+          &-title
+            font-size: 12px
+        &__price
+          font-size: 16px
+          &-right
+            font-size: 13px
+    &-list
+      font-size: 15px
+      ul
+        padding-left: 20px
+    &-check
+      &__title
+        font-size: 9px
+        max-width: 167px
+  .header
+    &__comparison
+      svg
+        width: 18px
+        height: 19px
+    &__like
+      svg
+        width: 13px
+        height: 17px
+    &__profile
+      svg
+        width: 18px
+        height: 18px
+  .section
+    &__title
+      font-size: 30px
+      margin-bottom: 25px
+  .main
+    &_swiper
+      &-arrows
+        gap: 4px
+        top: -42px
+        .swiper
+          &-button
+            width: 24px
+            height: 24px
+            img
+              width: 10px
+  .footer
+    &__logo
+      margin-bottom: 14px
+    &__cabinet
+      &-title
+        font-size: 16px
+        margin-bottom: 9px
+      .p-btn
+        width: 189px
+        font-size: 13px
+    &__list
+      ul
+        font-size: 16px
+    &__top, &__bottom
+      padding: 0
+    &__top
+      margin-bottom: 38px
+      &-center
+        &::before, &::after
+          width: 100vw
+          left: 50%
+          transform: translateX(-50%)
+    &__link
+      &-title
+        margin-bottom: 0
+    &__form
+      &-title
+        font-size: 20px
+        margin-bottom: 9px
+      &-input
+        margin-bottom: 14px
+        input
+          font-size: 14px
+      .p-btn
+        margin-bottom: 14px
+    &__bottom
+      &-links
+        gap: 9px
+      &-link
+        font-size: 14px
+      &-right
+        &::after
+          width: 100vw
+          left: 50%
+          transform: translateX(-50%)
+    &__web
+      font-size: 10px
+      margin-bottom: 9px
+    &__copy
+      font-size: 9px
+      gap: 5px
+  .modal
+    &__socials
+      gap: 15px
+      &-item
+        gap: 13px
+        font-size: 14px
+    &_pdf
+      .modal
+        &__content
+          padding: 48px 28px 67px
+      .get
+        &__item
+          &-title
+            font-size: 20px
+            margin-bottom: 13px
+      .form
+        &__input
+          input
+            font-size: 14px
+      .p-check
+        &__title
+          font-size: 9px
+    &_register
+      &__content
+        padding: 24px 20px 44px
+      &__input
+        &-title
+          font-size: 15px
+        input
+          font-size: 15px
+      &__acc
+        font-size: 15px
+      &__change
+        &-title
+          font-size: 15px
+    &_conf
+      &__content
+        padding: 24px 14px 44px
+      &__title
+        font-size: 19px
+        margin-bottom: 20px
+      &__item
+        &-title
+          font-size: 11px
+          margin-bottom: 14px
+        &-inputs
+          margin-bottom: 26px
+        &-input
+          width: 46px
+          height: 48px
+      &__end
+        &-link
+          font-size: 14px
+    &_type
+      .get
+        &__item
+          &-title
+            font-size: 18px
+            margin-bottom: 13px
+          &-subtitle
+            font-size: 15px
+            margin-bottom: 30px
+      &-second
+        .p
+          &-check
+            margin-bottom: 24px
+        .catalog
+          &-cons
+            &__title
+              font-size: 18px
+              margin-bottom: 12px
+            &__subtitle
+              font-size: 16px
+              margin-bottom: 29px
+            &__img
+              &-left
+                img
+                  width: 322px
+            &__end
+              font-size: 14px
+              &-link
+                gap: 13px
+@media screen and (max-width: 340px)
+  .modal
+    &_type
+      &-second
+        .catalog
+          &-cons
+            &__img
+              &-left
+                width: 100%
+                img
+                  width: 100%
+                  border-bottom-right-radius: 14px

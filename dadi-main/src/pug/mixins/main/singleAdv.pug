@@ -1,0 +1,5 @@
+mixin singleAdv(img, title, width, height)
+    .rent-single__advs-item.flex.flex-ai-center.bg-c5.text-c2
+        .rent-single__advs-svg.flex.flex-j-center.flex-ai-center.bg-c2
+            +picture('img/rent/single/main/'+ img +'.png', 'img/rent/single/main/' + img, true, '', width, height, '', '')
+        .rent-single__advs-title=title
