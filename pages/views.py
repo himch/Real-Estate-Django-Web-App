@@ -63,6 +63,44 @@ def arenda(request):
     return render(request, 'includes/content/arenda.html', context)
 
 
+def izbrannoe(request):
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    context = {
+        'range': range(9),
+        'listings': paged_listings,
+        'state_choices': state_choices,
+        'bedroom_choices': bedroom_choices,
+        'price_choices': price_choices
+    }
+
+    # return render(request, 'pages/index.html', context)
+    return render(request, 'includes/content/izbrannoe.html', context)
+
+
+def sravnenie(request):
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    context = {
+        'range': range(9),
+        'listings': paged_listings,
+        'state_choices': state_choices,
+        'bedroom_choices': bedroom_choices,
+        'price_choices': price_choices
+    }
+
+    # return render(request, 'pages/index.html', context)
+    return render(request, 'includes/content/sravnenie.html', context)
+
+
 def about(request):
     # Get all realtors
     realtors = Realtor.objects.order_by('-hire_date')

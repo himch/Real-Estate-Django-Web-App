@@ -1,4 +1,11 @@
+{% extends 'base.html' %}
 
+{% load humanize %}
+
+{% block title %} | Сравнение {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
 <main>
   <div class="compar">
     <div class="container margin-center">
@@ -295,7 +302,7 @@
     <div class="blog">
       <div class="container margin-center">
         <div class="section__title font-tenor text-c3">Блог о недвижимости и новостях Дубая</div>
-        <div class="blog__block relative"><a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="/blog.html">Перейти в Блог</a>
+        <div class="blog__block relative"><a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="/blog">Перейти в Блог</a>
           <div class="blog__items relative flex">
             <div class="blog__item">
               <div class="blog__item-img img_cover img_br">
@@ -327,3 +334,7 @@
     </div>
   </div>
 </main>
+{% endblock %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
