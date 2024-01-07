@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import HttpResponse
 from listings.choices import price_choices, bedroom_choices, state_choices
@@ -7,10 +8,14 @@ from realtors.models import Realtor
 
 
 def index(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:25]
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
 
     context = {
-        'listings': listings,
+        'listings': paged_listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices
@@ -21,9 +26,14 @@ def index(request):
 
 
 def buy(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:50]
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
 
     context = {
+        'range': range(9),
         'listings': listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
@@ -35,10 +45,15 @@ def buy(request):
 
 
 def arenda(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
 
     context = {
-        'listings': listings,
+        'range': range(9),
+        'listings': paged_listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices
