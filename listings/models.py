@@ -39,6 +39,12 @@ class Listing(models.Model):
     # photo_6 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(auto_now_add=True, blank=True)
+
+    def _get_planned_completion(self):
+        return self.planned_completion_at[:7]
+
+    planned_completion = property(_get_planned_completion)
+
     # ---------------------------------------------------
     complex_id = models.IntegerField(null=True)
     type = models.TextField(blank=True, null=True)

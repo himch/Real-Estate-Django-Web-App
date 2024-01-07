@@ -9,7 +9,7 @@
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="/buy.html">Каталог ЖК и Застройщиков</a>
+    <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="/buy">Каталог ЖК и Застройщиков</a>
       <div class="rent-single__title font-tenor text-c3">{{ listing.title_a_ru }}</div>
       <div class="rent-single__btns flex absolute top-0 right-0">
         <div class="rent-single__compar rent-single__btn flex flex-ai-center flex-j-center bg-c3"><svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -119,6 +119,7 @@
                       <div class="rent-single__edges-subtitle">50 м2-600 м2</div>
                     </div>
                   </div>
+                  <!--
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
@@ -130,6 +131,7 @@
                       <div class="rent-single__edges-subtitle">40</div>
                     </div>
                   </div>
+                  -->
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
@@ -149,7 +151,7 @@
                     </div>
                     <div class="rent-single__edges-text">
                       <div class="rent-single__edges-title">Сдача</div>
-                      <div class="rent-single__edges-subtitle">2 кв. 2025</div>
+                      <div class="rent-single__edges-subtitle">{% if listing.planned_completion %}{{ listing.planned_completion }}{% else %} {% endif %}</div>
                     </div>
                   </div>
                 </div>
@@ -312,7 +314,7 @@
         <div class="rent-dev__left">
           <div class="rent-dev__img flex-shrink img_cover img_br">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/single/dev/1.webp"/><img class="lazy " width="284" height="289" src="" data-src="/img/rent/single/dev/1.jpg" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="{{ listing.developer_a_logo }}" data-srcset=""/><img class="lazy " width="284" height="289" src="" data-src="{{ listing.developer_a_logo }}" alt="" loading="lazy"/>
             </picture>
           </div>
         </div>
@@ -332,7 +334,7 @@
                 <div class="rent-dev__list-num text-c5 text-500">10 домов</div>
                 <div class="rent-dev__list-title">10 домов</div>
               </div>
-            </div><a class="rent-dev__btn p-btn flex flex-ai-center flex-j-center text-500" href="/zastroischik.html">Подробнее о застройщике</a>
+            </div><a class="rent-dev__btn p-btn flex flex-ai-center flex-j-center text-500" href="/zastroischik">Подробнее о застройщике</a>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
@@ -28,7 +30,10 @@ def listing(request, listing_id):
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
+    amenities = json.loads(listing.listing_amenities)
+
     context = {
+        'amenities': amenities,
         'listing': listing,
         'listings': paged_listings
     }
