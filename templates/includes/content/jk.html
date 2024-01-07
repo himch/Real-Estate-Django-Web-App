@@ -1,8 +1,16 @@
+{% extends 'base.html' %}
 
+{% load static %}
+{% load humanize %}
+
+{% block title %} | {{ listing.title_a_ru }} {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
 <main>
   <div class="rent-single">
     <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="/buy.html">Каталог ЖК и Застройщиков</a>
-      <div class="rent-single__title font-tenor text-c3">Название ЖК</div>
+      <div class="rent-single__title font-tenor text-c3">{{ listing.title_a_ru }}</div>
       <div class="rent-single__btns flex absolute top-0 right-0">
         <div class="rent-single__compar rent-single__btn flex flex-ai-center flex-j-center bg-c3"><svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M2.8598 4.31562V1.38918C2.8598 1.20827 2.78811 1.03476 2.66049 0.906829C2.53287 0.778901 2.35978 0.707031 2.1793 0.707031C1.99882 0.707031 1.82573 0.778901 1.69811 0.906829C1.57049 1.03476 1.49879 1.20827 1.49879 1.38918V4.32244C1.06237 4.46815 0.682767 4.74784 0.413763 5.12187C0.144758 5.49591 0 5.94532 0 6.40642C0 6.86752 0.144758 7.31693 0.413763 7.69097C0.682767 8.065 1.06237 8.34469 1.49879 8.4904V19.1252C1.49879 19.3061 1.57049 19.4796 1.69811 19.6075C1.82573 19.7354 1.99882 19.8073 2.1793 19.8073C2.35978 19.8073 2.53287 19.7354 2.66049 19.6075C2.78811 19.4796 2.8598 19.3061 2.8598 19.1252V8.50404C3.30375 8.36324 3.69141 8.08433 3.96655 7.70778C4.2417 7.33122 4.39003 6.87659 4.39003 6.40983C4.39003 5.94307 4.2417 5.48844 3.96655 5.11189C3.69141 4.73533 3.30375 4.45642 2.8598 4.31562Z" fill="white"/>
@@ -16,34 +24,42 @@
         </div>
       </div>
       <div class="rent-single__top flex flex-wrap rent-single__top_2">
-        <div class="rent-single__top-title text-c5 text-500">Район</div>
-        <div class="rent-single__top-title text-c5 text-500">Застройщик</div>
+        <div class="rent-single__top-title text-c5 text-500">{% if listing.districts %}{{ listing.districts }}{% else %} {% endif %}</div>
+        <div class="rent-single__top-title text-c5 text-500">{% if listing.developer_a_title_a_ru %}{{ listing.developer_a_title_a_ru }}{% else %} {% endif %}</div>
       </div>
       <div class="rent-single__images grid rent-single__images_2">
         <div class="rent-single__image img_cover img_full img_br">
           <picture>
-            <source type="image/webp" srcset="img/rent/single/main/3.webp"/><img width="474" height="317" src="img/rent/single/main/3.jpg" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="media/{{ listing.photo_main }}"/><img width="474" height="317" src="media/{{ listing.photo_main }}" alt="" loading="lazy"/>
           </picture>
         </div>
         <div class="rent-single__image img_cover img_full img_br">
+          {% if listing.photo_1 %}
           <picture>
-            <source type="image/webp" srcset="img/rent/single/main/2.webp"/><img width="230" height="151" src="img/rent/single/main/2.jpg" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="media/{{ listing.photo_1 }}"/><img width="230" height="151" src="media/{{ listing.photo_1 }}" alt="" loading="lazy"/>
           </picture>
+          {% endif %}
         </div>
         <div class="rent-single__image img_cover img_full img_br">
+          {% if listing.photo_2 %}
           <picture>
-            <source type="image/webp" srcset="img/rent/single/main/2.webp"/><img width="230" height="151" src="img/rent/single/main/2.jpg" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="media/{{ listing.photo_2 }}"/><img width="230" height="151" src="media/{{ listing.photo_2 }}" alt="" loading="lazy"/>
           </picture>
+          {% endif %}
         </div>
         <div class="rent-single__image img_cover img_full img_br">
+          {% if listing.photo_3 %}
           <picture>
-            <source type="image/webp" srcset="img/rent/single/main/2.webp"/><img width="230" height="151" src="img/rent/single/main/2.jpg" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="media/{{ listing.photo_3 }}"/><img width="230" height="151" src="media/{{ listing.photo_3 }}g" alt="" loading="lazy"/>
           </picture>
+          {% endif %}
         </div>
         <div class="rent-single__image img_cover img_full img_br">
+          {% if listing.photo_4 %}
           <picture>
-            <source type="image/webp" srcset="img/rent/single/main/2.webp"/><img width="230" height="151" src="img/rent/single/main/2.jpg" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="media/{{ listing.photo_4 }}"/><img width="230" height="151" src="media/{{ listing.photo_4 }}" alt="" loading="lazy"/>
           </picture>
+          {% endif %}
         </div>
       </div>
       <div class="rent-single__row flex rent-single__row_2">
@@ -95,7 +111,7 @@
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/edges/1.webp"/><img class="lazy " width="28" height="28" src="" data-src="img/rent/single/edges/1.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/edges/1.webp"/><img class="lazy " width="28" height="28" src="" data-src="/img/rent/single/edges/1.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
@@ -106,7 +122,7 @@
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/edges/2.webp"/><img class="lazy " width="27" height="27" src="" data-src="img/rent/single/edges/2.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/edges/2.webp"/><img class="lazy " width="27" height="27" src="" data-src="/img/rent/single/edges/2.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
@@ -117,18 +133,18 @@
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/edges/6.webp"/><img class="lazy " width="26" height="26" src="" data-src="img/rent/single/edges/6.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/edges/6.webp"/><img class="lazy " width="26" height="26" src="" data-src="/img/rent/single/edges/6.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
                       <div class="rent-single__edges-title">Застройщик</div>
-                      <div class="rent-single__edges-subtitle">Название</div>
+                      <div class="rent-single__edges-subtitle">{% if listing.developer_a_title_a_ru %}{{ listing.developer_a_title_a_ru }}{% else %} {% endif %}</div>
                     </div>
                   </div>
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/edges/3.webp"/><img class="lazy " width="32" height="32" src="" data-src="img/rent/single/edges/3.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/edges/3.webp"/><img class="lazy " width="32" height="32" src="" data-src="/img/rent/single/edges/3.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
@@ -137,7 +153,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="rent-single__desc rent-single__desc_2">Furnished room next to Festival Plaza Mall. You can also easily get around the city as the Energy Metro Station is a few steps to the building. There are a lot of cafes, restaurants nearby. We prefer ladies only. You will have your own private room and private bathroom, with a shared kitchen and small balcony too. The room furniture includes: 1 queen bed, nightstands, chair and mirrors. A huge private bathroom with a shower.</div>
+                <div class="rent-single__desc rent-single__desc_2">{% if listing.description_a_ru %}{{ listing.description_a_ru|safe }}{% else %} {% endif %}</div>
                 <div class="rent-single__floor">
                   <div class="rent-single__floor-title section__title font-tenor text-c3">План этажа</div>
                   <div class="rent-single__floor-row flex">
@@ -146,17 +162,17 @@
                         <div class="swiper-wrapper">
                           <div class="swiper-slide">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/floor/1.webp"/><img class="lazy " width="444" height="300" src="" data-src="img/rent/single/floor/1.jpg" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/floor/1.webp"/><img class="lazy " width="444" height="300" src="" data-src="/img/rent/single/floor/1.jpg" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="swiper-slide">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/floor/1.webp"/><img class="lazy " width="444" height="300" src="" data-src="img/rent/single/floor/1.jpg" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/floor/1.webp"/><img class="lazy " width="444" height="300" src="" data-src="/img/rent/single/floor/1.jpg" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="swiper-slide">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/floor/1.webp"/><img class="lazy " width="444" height="300" src="" data-src="img/rent/single/floor/1.jpg" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/floor/1.webp"/><img class="lazy " width="444" height="300" src="" data-src="/img/rent/single/floor/1.jpg" alt="" loading="lazy"/>
                             </picture>
                           </div>
                         </div>
@@ -164,12 +180,12 @@
                       <div class="rent-single__floor-arrows flex">
                         <div class="swiper-button swiper-button-prev">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/rent/single/floor/left.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/rent/single/floor/left.png" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/rent/single/floor/left.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/rent/single/floor/left.png" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-button swiper-button-next">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/rent/single/floor/right.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/rent/single/floor/right.png" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/rent/single/floor/right.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/rent/single/floor/right.png" alt="" loading="lazy"/>
                           </picture>
                         </div>
                       </div>
@@ -179,7 +195,7 @@
                         <div class="rent-single__floor-li flex flex-ai-center">
                           <div class="rent-single__floor-svg bg-c5 flex flex-ai-center flex-j-center">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/edges/7.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/rent/single/edges/7.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/edges/7.webp"/><img class="lazy " width="16" height="16" src="" data-src="/img/rent/single/edges/7.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__floor-subtitle">Спальни: 1</div>
@@ -187,7 +203,7 @@
                         <div class="rent-single__floor-li flex flex-ai-center">
                           <div class="rent-single__floor-svg bg-c5 flex flex-ai-center flex-j-center">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/edges/bath.webp"/><img class="lazy " width="17" height="17" src="" data-src="img/rent/single/edges/bath.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/edges/bath.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/rent/single/edges/bath.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__floor-subtitle">Ванная комната: 1</div>
@@ -201,7 +217,7 @@
                   <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                     <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/slider.webp"/><img class="lazy " width="22" height="22" src="" data-src="img/rent/single/main/slider.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/slider.webp"/><img class="lazy " width="22" height="22" src="" data-src="/img/rent/single/main/slider.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__advs-title">Детская  площадка</div>
@@ -209,7 +225,7 @@
                   <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                     <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/weight.webp"/><img class="lazy " width="24" height="24" src="" data-src="img/rent/single/main/weight.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/weight.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/weight.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__advs-title">Тренажерный зал</div>
@@ -217,7 +233,7 @@
                   <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                     <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/swimming-pool.webp"/><img class="lazy " width="20" height="20" src="" data-src="img/rent/single/main/swimming-pool.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/swimming-pool.webp"/><img class="lazy " width="20" height="20" src="" data-src="/img/rent/single/main/swimming-pool.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__advs-title">Outdoor pool</div>
@@ -225,7 +241,7 @@
                   <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                     <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/location-pin.webp"/><img class="lazy " width="21" height="21" src="" data-src="img/rent/single/main/location-pin.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/location-pin.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/rent/single/main/location-pin.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__advs-title">Ближайший Торговый центр</div>
@@ -233,7 +249,7 @@
                   <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                     <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/farming2.webp"/><img class="lazy " width="20" height="20" src="" data-src="img/rent/single/main/farming2.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/farming2.webp"/><img class="lazy " width="20" height="20" src="" data-src="/img/rent/single/main/farming2.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__advs-title">Ландшафтный сад</div>
@@ -241,7 +257,7 @@
                   <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                     <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/tray.webp"/><img class="lazy " width="23" height="23" src="" data-src="img/rent/single/main/tray.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/tray.webp"/><img class="lazy " width="23" height="23" src="" data-src="/img/rent/single/main/tray.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__advs-title">Рестораны</div>
@@ -265,7 +281,7 @@
             <div class="rent-single__name-left flex-shrink">
               <div class="rent-single__name-img img_cover">
                 <picture>
-                  <source type="image/webp" srcset="img/rent/single/main/name.webp"/><img width="136" height="137" src="img/rent/single/main/name.jpg" alt="" loading="lazy"/>
+                  <source type="image/webp" srcset="/img/rent/single/main/name.webp"/><img width="136" height="137" src="/img/rent/single/main/name.jpg" alt="" loading="lazy"/>
                 </picture>
               </div>
             </div>
@@ -276,10 +292,10 @@
                 <div class="rent-single__name-btn p-btn flex flex-ai-center flex-j-center text-500">Оставить заявку</div>
                 <div class="rent-single__name-socials flex flex-ai-center"><a class="rent-single__name-social flex flex-ai-center flex-j-center bg-c3" href="#!">
                     <picture>
-                      <source type="image/webp" srcset="" data-srcset="img/rent/single/main/call.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/rent/single/main/call.png" alt="" loading="lazy"/>
+                      <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/call.webp"/><img class="lazy " width="16" height="16" src="" data-src="/img/rent/single/main/call.png" alt="" loading="lazy"/>
                     </picture></a><a class="rent-single__name-social flex flex-ai-center flex-j-center bg-c3" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
                     <picture>
-                      <source type="image/webp" srcset="" data-srcset="img/rent/single/main/whatsapp.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/rent/single/main/whatsapp.png" alt="" loading="lazy"/>
+                      <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/whatsapp.webp"/><img class="lazy " width="16" height="16" src="" data-src="/img/rent/single/main/whatsapp.png" alt="" loading="lazy"/>
                     </picture></a></div>
               </div>
               <div class="rent-single__name-link text-500 text-underline">Скачать презентацию</div>
@@ -296,7 +312,7 @@
         <div class="rent-dev__left">
           <div class="rent-dev__img flex-shrink img_cover img_br">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="img/rent/single/dev/1.webp"/><img class="lazy " width="284" height="289" src="" data-src="img/rent/single/dev/1.jpg" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/single/dev/1.webp"/><img class="lazy " width="284" height="289" src="" data-src="/img/rent/single/dev/1.jpg" alt="" loading="lazy"/>
             </picture>
           </div>
         </div>
@@ -374,7 +390,7 @@
                 <label class="p-check flex flex-ai-center">
                   <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                     <picture>
-                      <source type="image/webp" srcset="" data-srcset="img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="img/main/get/check.png" alt="" loading="lazy"/>
+                      <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
                     </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
                 </label>
               </div>
@@ -383,7 +399,7 @@
         </div>
         <div class="help__img absolute bottom-0 right-0">
           <picture>
-            <source type="image/webp" srcset="" data-srcset="img/rent/help/1.webp"/><img class="lazy " width="543" height="571" src="" data-src="img/rent/help/1.png" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="" data-srcset="/img/rent/help/1.webp"/><img class="lazy " width="543" height="571" src="" data-src="/img/rent/help/1.png" alt="" loading="lazy"/>
           </picture>
           <div class="help__name absolute text-c2">
             <div class="help__name-svg absolute"><svg width="216" height="69" viewBox="0 0 216 69" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -412,53 +428,17 @@
                       <div class="swiper-wrapper">
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
-                          </picture>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
-                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
-</svg>
-                      </div>
-                      <div class="p-card__sale-title text-500">Спец. цена</div>
-                    </div>
-                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
-                      <div class="swiper-pagination p-card__swiper-pagination"></div>
-                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
-                      <div class="p-card__top flex">
-                        <div class="p-card__top-left text-c5">Dubai Marina</div>
-                      </div>
-                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
-                    </div></a>
-                </div>
-                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
-                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
-                      <div class="swiper-wrapper">
-                        <div class="swiper-slide img_cover img_full">
-                          <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
-                          </picture>
-                        </div>
-                        <div class="swiper-slide img_cover img_full">
-                          <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
-                          </picture>
-                        </div>
-                        <div class="swiper-slide img_cover img_full">
-                          <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                       </div>
@@ -484,53 +464,17 @@
                       <div class="swiper-wrapper">
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
-                          </picture>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
-                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
-</svg>
-                      </div>
-                      <div class="p-card__sale-title text-500">Спец. цена</div>
-                    </div>
-                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
-                      <div class="swiper-pagination p-card__swiper-pagination"></div>
-                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
-                      <div class="p-card__top flex">
-                        <div class="p-card__top-left text-c5">Dubai Marina</div>
-                      </div>
-                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
-                    </div></a>
-                </div>
-                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
-                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
-                      <div class="swiper-wrapper">
-                        <div class="swiper-slide img_cover img_full">
-                          <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
-                          </picture>
-                        </div>
-                        <div class="swiper-slide img_cover img_full">
-                          <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
-                          </picture>
-                        </div>
-                        <div class="swiper-slide img_cover img_full">
-                          <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                       </div>
@@ -556,17 +500,17 @@
                       <div class="swiper-wrapper">
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                       </div>
@@ -592,17 +536,89 @@
                       <div class="swiper-wrapper">
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                         <div class="swiper-slide img_cover img_full">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="img/main/estate/1.jpg" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
+                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
+</svg>
+                      </div>
+                      <div class="p-card__sale-title text-500">Спец. цена</div>
+                    </div>
+                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
+                      <div class="swiper-pagination p-card__swiper-pagination"></div>
+                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
+                      <div class="p-card__top flex">
+                        <div class="p-card__top-left text-c5">Dubai Marina</div>
+                      </div>
+                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
+                    </div></a>
+                </div>
+                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
+                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
+                      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
+</svg>
+                      </div>
+                      <div class="p-card__sale-title text-500">Спец. цена</div>
+                    </div>
+                    <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
+                      <div class="swiper-pagination p-card__swiper-pagination"></div>
+                      <div class="p-card__title text-500">Квартира 50 кв.м с видом на море</div>
+                      <div class="p-card__top flex">
+                        <div class="p-card__top-left text-c5">Dubai Marina</div>
+                      </div>
+                      <div class="p-card__price text-500">от 100.000 р за 50 кв.м</div>
+                    </div></a>
+                </div>
+                <div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/jk.html">
+                    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
+                          </picture>
+                        </div>
+                        <div class="swiper-slide img_cover img_full">
+                          <picture>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/estate/1.webp"/><img class="lazy " width="281" height="417" src="" data-src="/img/main/estate/1.jpg" alt="" loading="lazy"/>
                           </picture>
                         </div>
                       </div>
@@ -630,12 +646,12 @@
             <div class="main_swiper-arrows flex absolute">
               <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
                 <picture>
-                  <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-left.png" alt="" loading="lazy"/>
+                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-left.png" alt="" loading="lazy"/>
                 </picture>
               </div>
               <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
                 <picture>
-                  <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-right.png" alt="" loading="lazy"/>
+                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-right.png" alt="" loading="lazy"/>
                 </picture>
               </div>
             </div>
@@ -644,80 +660,8 @@
       </div>
     </div>
   </div>
-  <div class="contacts bg-c3 text-c2">
-    <div class="container margin-center">
-      <div class="section__title font-tenor">Контакты</div>
-      <div class="contacts__block flex">
-        <div class="contacts__left">
-          <div class="contacts__items flex flex-col">
-            <div class="contacts__item">
-              <div class="contacts__item-title">Отдел клиентского сервиса</div><a class="contacts__item-subtitle" href="tel:+97145859538 ">+971 4 585 9538</a>
-            </div>
-            <div class="contacts__item">
-              <div class="contacts__item-title">Эл.почта</div><a class="contacts__item-subtitle" href="mailto:Info@dadiproperties.com">Info@dadiproperties.com</a>
-            </div>
-            <div class="contacts__item contacts__item_socials">
-              <div class="contacts__socials flex"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/whatsapp.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/contacts/whatsapp.png" alt="" loading="lazy"/>
-                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/telegram.webp"/><img class="lazy " width="17" height="17" src="" data-src="img/main/contacts/telegram.png" alt="" loading="lazy"/>
-                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/instagram.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/main/contacts/instagram.png" alt="" loading="lazy"/>
-                  </picture></a></div>
-              <div class="contacts__socials flex contacts__socials_second"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/youtube.webp"/><img class="lazy " width="21" height="21" src="" data-src="img/main/contacts/youtube.png" alt="" loading="lazy"/>
-                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/vk.webp"/><img class="lazy " width="19" height="19" src="" data-src="img/main/contacts/vk.png" alt="" loading="lazy"/>
-                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/yandex.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/main/contacts/yandex.png" alt="" loading="lazy"/>
-                  </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/main/contacts/facebook.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/contacts/facebook.png" alt="" loading="lazy"/>
-                  </picture></a></div>
-            </div>
-          </div>
-        </div>
-        <div class="contacts__right">
-          <div class="contacts__item">
-            <div class="contacts__item-title">Офис</div>
-            <div class="contacts__item-subtitle">Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ</div>
-            <div class="contacts__item-iframe">
-              <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contacts__item contacts__item_socials contacts__item_hidden">
-        <div class="contacts__socials flex"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="img/main/contacts/whatsapp.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/contacts/whatsapp.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="img/main/contacts/telegram.webp"/><img class="lazy " width="17" height="17" src="" data-src="img/main/contacts/telegram.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="img/main/contacts/instagram.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/main/contacts/instagram.png" alt="" loading="lazy"/>
-            </picture></a></div>
-        <div class="contacts__socials flex contacts__socials_second"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="img/main/contacts/youtube.webp"/><img class="lazy " width="21" height="21" src="" data-src="img/main/contacts/youtube.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="img/main/contacts/vk.webp"/><img class="lazy " width="19" height="19" src="" data-src="img/main/contacts/vk.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="img/main/contacts/yandex.webp"/><img class="lazy " width="16" height="16" src="" data-src="img/main/contacts/yandex.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="img/main/contacts/facebook.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/contacts/facebook.png" alt="" loading="lazy"/>
-            </picture></a></div>
-      </div>
-    </div>
-  </div>
 </main>
+{% endblock %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}

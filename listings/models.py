@@ -1,4 +1,13 @@
+import json
+import os
+from urllib.request import urlopen
+from urllib.parse import urlparse
+
+from django.core.files import File
+from django.core.files.temp import NamedTemporaryFile
 from django.db import models
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 from datetime import datetime
 from realtors.models import Realtor
 
@@ -17,11 +26,15 @@ class Listing(models.Model):
     # garage = models.IntegerField(default=0)
     # sqft = models.IntegerField()
     # lot_size = models.DecimalField(max_digits=5, decimal_places=1)
-    # photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')
-    # photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    # photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    # photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    # photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo_main_thumbnail_width_750 = ImageSpecField(source='photo_main',
+                                                    processors=[ResizeToFill(width=750, height=450, upscale=False)],
+                                                    format='WEBP',
+                                                    options={'quality': 100})
+    photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     # photo_5 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     # photo_6 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     is_published = models.BooleanField(default=True)
@@ -30,7 +43,7 @@ class Listing(models.Model):
     complex_id = models.IntegerField(null=True)
     type = models.TextField(blank=True, null=True)
     logo = models.TextField(blank=True, null=True)
-    photo = models.TextField(blank=True, null=True)
+    photo = models.URLField(blank=True, null=True)
     title_a_ru = models.TextField(blank=True, null=True)
     title_a_en = models.TextField(blank=True, null=True)
     title_a_ar = models.TextField(blank=True, null=True)
@@ -107,6 +120,42 @@ class Listing(models.Model):
     service_charge = models.TextField(blank=True, null=True)
     assignment = models.TextField(blank=True, null=True)
 
+    def save_image_from_url(self, url, image_field):
+        path = urlparse(url).path
+        ext = os.path.splitext(path)[1]
+        img_temp = NamedTemporaryFile(delete=True)
+        img_temp.write(urlopen(url).read())
+        img_temp.flush()
+        image_field.save(f"image_{self.complex_id}" + ext, File(img_temp))
+
+    def get_image_from_url(self):
+        if self.photo and not self.photo_main:
+            self.save_image_from_url(self.photo, self.photo_main)
+            # path = urlparse(self.photo).path
+            # ext = os.path.splitext(path)[1]
+            # img_temp = NamedTemporaryFile(delete=True)
+            # img_temp.write(urlopen(self.photo).read())
+            # img_temp.flush()
+            # self.photo_main.save(f"image_{self.complex_id}" + ext, File(img_temp))
+        photos = json.loads(self.listing_album)
+        if len(photos) >= 1:
+            if not self.photo_1:
+                self.save_image_from_url(photos[0], self.photo_1)
+        if len(photos) >= 2:
+            if not self.photo_2:
+                self.save_image_from_url(photos[1], self.photo_2)
+        if len(photos) >= 3:
+            if not self.photo_3:
+                self.save_image_from_url(photos[2], self.photo_3)
+        if len(photos) >= 4:
+            if not self.photo_4:
+                self.save_image_from_url(photos[3], self.photo_4)
+
+    def save(self, **kwargs):
+        # do_something()
+        self.get_image_from_url()
+        super().save(**kwargs)  # Call the "real" save() method.
+        # do_something_else()
 
     def __str__(self):
-        return self.title
+        return self.title_a_en

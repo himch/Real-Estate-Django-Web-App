@@ -71,7 +71,8 @@ class SQLExecutor:
 
 
 class DatabaseDownloader(Downloader, SQLExecutor):
-    TOP_TABLE_NAME = 'listings_listing'
+    TOP_TABLE_PREFIX = 'listings_'
+    TOP_TABLE_NAME = 'listing'
     sql_for_create_table = dict()
     sql_for_insert_records = dict()
     python_for_insert_records = dict()
@@ -188,7 +189,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                 await self.execute_sql(self.sql_for_create_table[table])
 
     async def offer_exist(self, complex_id):
-        sql = f'SELECT * FROM {self.TOP_TABLE_NAME} WHERE complex_id={complex_id};'
+        sql = f'SELECT * FROM {self.TOP_TABLE_PREFIX + self.TOP_TABLE_NAME} WHERE complex_id={complex_id};'
         q = await self.execute_sql(sql, commit=False)
         data = q.fetchone()
         return data is not None
@@ -253,11 +254,11 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                 # exec(code_for_exec, globals(), locals())
 
     async def delete_record(self, complex_id):
-        sql = f'DELETE FROM {self.TOP_TABLE_NAME} WHERE complex_id={complex_id};'
+        sql = f'DELETE FROM {self.TOP_TABLE_PREFIX + self.TOP_TABLE_NAME} WHERE complex_id={complex_id};'
         q = await self.execute_sql(sql)
 
     async def load_data_into_db(self):
-        for offer in self.database_dict['realty-feed']['offers']:
+        for offer in self.database_dict['realty-feed']['offers'][:25]:
             print('work with offer complex-id', offer['complex-id'])
             if await self.offer_exist(offer['complex-id']):
                 await self.delete_record(offer['complex-id'])
