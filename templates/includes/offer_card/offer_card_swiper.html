@@ -1,7 +1,7 @@
 {% load static %}
 {% load l10n %}
 <!-- start listing -->
-<div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/listings/{{ listing.id }}">
+<div class="swiper-slide"><a class="p-card p-card_buy relative flex p-card_second" href="/listings/{{ listing.id|unlocalize }}">
     <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide img_cover img_full">
