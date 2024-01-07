@@ -61,7 +61,6 @@ def listing(request, listing_id):
         amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
 
     br_prices = json.loads(listing_item.listing_br_prices)
-    print(br_prices)
     if br_prices:
         br_price = br_prices[0]
         currency = br_price['currency']
@@ -87,17 +86,17 @@ def listing(request, listing_id):
         'br_prices': br_prices,
         'min_area_m2': min_area_m2,
 
-        'min_price_rub': f"{min_price_rub:,}",
-        'min_price_usd': f"{min_price_usd:,}",
-        'min_price_eur': f"{min_price_eur:,}",
+        'min_price_rub': min_price_rub,
+        'min_price_usd': min_price_usd,
+        'min_price_eur': min_price_eur,
 
-        'min_price_m2_rub': f"{min_price_m2_rub:,}",
-        'min_price_m2_usd': f"{min_price_m2_usd:,}",
-        'min_price_m2_eur': f"{min_price_m2_eur:,}",
+        'min_price_m2_rub': min_price_m2_rub,
+        'min_price_m2_usd': min_price_m2_usd,
+        'min_price_m2_eur': min_price_m2_eur,
 
-        'min_price_ft2_rub': f"{min_price_ft2_rub:,}",
-        'min_price_ft2_usd': f"{min_price_ft2_usd:,}",
-        'min_price_ft2_eur': f"{min_price_ft2_eur:,}",
+        'min_price_ft2_rub': min_price_ft2_rub,
+        'min_price_ft2_usd': min_price_ft2_usd,
+        'min_price_ft2_eur': min_price_ft2_eur,
 
         'amenities_ru': amenities['ru'],
         'amenities_en': amenities['en'],
