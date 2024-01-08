@@ -24,8 +24,8 @@
         </div>
       </div>
       <div class="rent-single__top flex flex-wrap rent-single__top_2">
-        <div class="rent-single__top-title text-c5 text-500">{% if listing.districts %}{{ listing.districts }}{% else %} {% endif %}</div>
-        <div class="rent-single__top-title text-c5 text-500">{% if listing.developer_a_title_a_ru %}{{ listing.developer_a_title_a_ru }}{% else %} {% endif %}</div>
+        <div class="rent-single__top-title text-c5 text-500">{% if listing.address %}{{ listing.address }}{% endif %}</div>
+        <div class="rent-single__top-title text-c5 text-500">{% if listing.districts %}{{ listing.districts }}{% endif %}</div>
       </div>
       <div class="rent-single__images grid rent-single__images_2">
         <div class="rent-single__image img_cover img_full img_br">
@@ -260,32 +260,9 @@
             -->
           </div>
         </div>
-        <div class="rent-single__right sticky">
-          <div class="rent-single__name flex flex-ai-center rent-single__name_2">
-            <div class="rent-single__name-left flex-shrink">
-              <div class="rent-single__name-img img_cover">
-                <picture>
-                  <source type="image/webp" srcset="/img/rent/single/main/name.webp"/><img width="136" height="137" src="/img/rent/single/main/name.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-            </div>
-            <div class="rent-single__name-right">
-              <div class="rent-single__name-title text-c3">Имя Фамилия</div>
-              <div class="rent-single__name-subtitle">Консультант по недвижимости</div>
-              <div class="rent-single__name-btns flex flex-ai-center">
-                <div class="rent-single__name-btn p-btn flex flex-ai-center flex-j-center text-500">Оставить заявку</div>
-                <div class="rent-single__name-socials flex flex-ai-center"><a class="rent-single__name-social flex flex-ai-center flex-j-center bg-c3" href="#!">
-                    <picture>
-                      <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/call.webp"/><img class="lazy " width="16" height="16" src="" data-src="/img/rent/single/main/call.png" alt="" loading="lazy"/>
-                    </picture></a><a class="rent-single__name-social flex flex-ai-center flex-j-center bg-c3" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
-                    <picture>
-                      <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/whatsapp.webp"/><img class="lazy " width="16" height="16" src="" data-src="/img/rent/single/main/whatsapp.png" alt="" loading="lazy"/>
-                    </picture></a></div>
-              </div>
-              <div class="rent-single__name-link text-500 text-underline">Скачать презентацию</div>
-            </div>
-          </div>
-        </div>
+        {% if realtor %}
+           {% include 'includes/realtor/realtor_card.html' %}
+        {% endif %}
       </div>
     </div>
   </div>
