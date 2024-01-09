@@ -1,4 +1,11 @@
+{% extends 'base.html' %}
 
+{% load humanize %}
+
+{% block title %} | Article {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
 <main>
   <div class="article">
     <div class="container margin-center">
@@ -195,3 +202,7 @@
     </div>
   </div>
 </main>
+{% endblock %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}

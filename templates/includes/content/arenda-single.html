@@ -1,4 +1,11 @@
+{% extends 'base.html' %}
 
+{% load humanize %}
+
+{% block title %} | Rent {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
 <main>
   <div class="rent-single">
     <div class="container margin-center"><a class="rent-single__link text-underline flex" href="/arenda.html">Каталог аренды</a>
@@ -913,3 +920,7 @@
     </div>
   </div>
 </main>
+{% endblock %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}

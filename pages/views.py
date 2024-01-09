@@ -151,3 +151,47 @@ def katalogi(request):
     }
 
     return render(request, 'includes/content/katalogi.html', context)
+
+
+def article(request):
+    # Get all realtors
+    realtors = Realtor.objects.order_by('-hire_date')
+
+    # Get MVP
+    mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
+
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    context = {
+        'listings': paged_listings,
+        'realtors': realtors,
+        'mvp_realtors': mvp_realtors
+    }
+
+    return render(request, 'includes/content/article.html', context)
+
+
+def arenda_single(request):
+    # Get all realtors
+    realtors = Realtor.objects.order_by('-hire_date')
+
+    # Get MVP
+    mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
+
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    context = {
+        'listings': paged_listings,
+        'realtors': realtors,
+        'mvp_realtors': mvp_realtors
+    }
+
+    return render(request, 'includes/content/arenda-single.html', context)
