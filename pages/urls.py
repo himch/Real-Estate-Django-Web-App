@@ -13,5 +13,5 @@ urlpatterns = [
     path('izbrannoe', views.izbrannoe, name='izbrannoe'),
     path('sravnenie', views.sravnenie, name='sravnenie'),
     path('article', views.article, name='article'),
-    path('arenda_single', views.arenda_single, name='arenda_single'),
+    # path('arenda_single', views.arenda_single, name='arenda_single'),
 ]

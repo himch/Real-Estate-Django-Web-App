@@ -7,6 +7,7 @@ from playwright.async_api import async_playwright
 
 from load_alnair_realty import DatabaseDownloader
 
+
 class Parser:
     locales = ('ar', 'ru', 'en')
 
@@ -47,7 +48,7 @@ class Parser:
                 await browser.close()
 
                 price_text = price_text.split('&')[0].strip()
-                price = price_text[:-1].replace(',','')
+                price = price_text[:-1].replace(',', '')
                 currency = price_text[-1]
                 currencies = {'₽': 'RUB', '$': 'USD', '€': 'EUR'}
                 price_a_currency = currencies[currency]
@@ -73,7 +74,8 @@ class Parser:
                     print(locale_url)
                     await page.goto(locale_url)
                     await wait(page, 25)
-                    description_text[locale]: str = await page.locator('//div[@data-section-id="DESCRIPTION_MODAL"]').inner_text()
+                    description_text[locale]: str = await page.locator(
+                        '//div[@data-section-id="DESCRIPTION_MODAL"]').inner_text()
                     description_text[locale] = '\n'.join(description_text[locale].split('\n')[1:])
                 await browser.close()
             return [(f'description_a_{locale}', 'CHAR', description_text[locale]) for locale in self.locales]
@@ -101,8 +103,9 @@ class Parser:
                             for li in lis_amenities:
                                 amenity = li.findAll("div", {"class": "twad414"})[0].text
                                 if locale == 'en':
-                                    svg = str(li.findAll('svg')[0])
-                                    amenities_list[locale].append({locale: f'{group_name} - {amenity}', 'amenity_svg': svg})
+                                    svg = str(li.findAll('svg')[0]).replace('"', "'")
+                                    amenities_list[locale].append(
+                                        {locale: f'{group_name} - {amenity}', 'amenity_svg': svg})
                                 else:
                                     amenities_list[locale].append({locale: f'{group_name} - {amenity}'})
                     # print(amenities_list)
@@ -163,7 +166,7 @@ class Parser:
                        ('updated_at', 'CHAR', date_time)])
 
         self.parsed_data = result
-        print(*result, sep='\n')
+        # print(*result, sep='\n')
         return result
 
 
@@ -196,6 +199,28 @@ class AirbnbDownloader(DatabaseDownloader):
                 os.system('python airbnb_add_record.py')
 
 
+class TooManyTriesException(BaseException):
+    pass
+
+
+def tries(times):
+    def func_wrapper(f):
+        async def wrapper(*args, **kwargs):
+            for time in range(times):
+                print('times:', time + 1)
+                # noinspection PyBroadException
+                try:
+                    return await f(*args, **kwargs)
+                except Exception as exc:
+                    pass
+            raise TooManyTriesException()
+
+        return wrapper
+
+    return func_wrapper
+
+
+@tries(times=3)
 async def airbnb_parse(url):
     parser = Parser()
     result = await parser.airbnb_parse(url)
@@ -203,12 +228,11 @@ async def airbnb_parse(url):
     print()
     adl = AirbnbDownloader()
     await adl.insert_record_python(result)
-    return result
 
 
 if __name__ == "__main__":
-    test_url = 'https://www.airbnb.ru/rooms/1025839257800387103?_set_bev_on_new_domain=1701086284_MzEyZWFhMTQxYTZi&source_impression_id=p3_1701086285_it%2FJbRJ34KuI0qDR&enable_auto_translate=false'
-    asyncio.run(airbnb_parse(test_url))
+    # test_url = 'https://www.airbnb.ru/rooms/1025839257800387103?_set_bev_on_new_domain=1701086284_MzEyZWFhMTQxYTZi&source_impression_id=p3_1701086285_it%2FJbRJ34KuI0qDR&enable_auto_translate=false'
+    # asyncio.run(airbnb_parse(test_url))
     test_url = 'https://www.airbnb.ru/rooms/924282872362443647?_set_bev_on_new_domain=1701086284_MzEyZWFhMTQxYTZi&source_impression_id=p3_1701087118_E8voa32ofmwdeDAd'
     asyncio.run(airbnb_parse(test_url))
     test_url = 'https://www.airbnb.ru/rooms/52959323?_set_bev_on_new_domain=1701086284_MzEyZWFhMTQxYTZi&source_impression_id=p3_1701087610_0TJGArZ2qEi/c9E8'

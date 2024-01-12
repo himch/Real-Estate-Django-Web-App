@@ -44,7 +44,10 @@ class Listing(models.Model):
     list_date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def _get_planned_completion(self):
-        return self.planned_completion_at[:7]
+        if self.planned_completion_at:
+            return self.planned_completion_at[:7]
+        else:
+            return None
 
     planned_completion = property(_get_planned_completion)
 

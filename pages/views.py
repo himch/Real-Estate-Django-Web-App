@@ -8,13 +8,18 @@ from realtors.models import Realtor
 
 
 def index(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
-
-    paginator = Paginator(listings, 6)
     page = request.GET.get('page')
+
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
+    paginator = Paginator(listings, 6)
     paged_listings = paginator.get_page(page)
 
+    rent_listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
+    rent_paginator = Paginator(rent_listings, 6)
+    paged_rent_listings = rent_paginator.get_page(page)
+
     context = {
+        'rent_listings': paged_rent_listings,
         'listings': paged_listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
@@ -26,7 +31,7 @@ def index(request):
 
 
 def buy(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
@@ -45,9 +50,9 @@ def buy(request):
 
 
 def arenda(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
 
-    paginator = Paginator(listings, 6)
+    paginator = Paginator(listings, 9)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
@@ -175,23 +180,23 @@ def article(request):
     return render(request, 'includes/content/article.html', context)
 
 
-def arenda_single(request):
-    # Get all realtors
-    realtors = Realtor.objects.order_by('-hire_date')
-
-    # Get MVP
-    mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
-
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
-
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
-
-    context = {
-        'listings': paged_listings,
-        'realtors': realtors,
-        'mvp_realtors': mvp_realtors
-    }
-
-    return render(request, 'includes/content/arenda-single.html', context)
+# def arenda_single(request):
+#     # Get all realtors
+#     realtors = Realtor.objects.order_by('-hire_date')
+#
+#     # Get MVP
+#     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
+#
+#     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+#
+#     paginator = Paginator(listings, 6)
+#     page = request.GET.get('page')
+#     paged_listings = paginator.get_page(page)
+#
+#     context = {
+#         'listings': paged_listings,
+#         'realtors': realtors,
+#         'mvp_realtors': mvp_realtors
+#     }
+#
+#     return render(request, 'includes/content/arenda-single.html', context)

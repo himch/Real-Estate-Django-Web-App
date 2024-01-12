@@ -1,4 +1,5 @@
 import json
+import ast
 
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
@@ -7,18 +8,18 @@ from .choices import price_choices, bedroom_choices, state_choices
 from .models import Listing
 
 
-def index(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
-
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
-
-    context = {
-        'listings': paged_listings
-    }
-
-    return render(request, 'listings/listings.html', context)
+# def index(request):
+#     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+#
+#     paginator = Paginator(listings, 6)
+#     page = request.GET.get('page')
+#     paged_listings = paginator.get_page(page)
+#
+#     context = {
+#         'listings': paged_listings
+#     }
+#
+#     return render(request, 'listings/listings.html', context)
 
 
 def listing(request, listing_id):
@@ -26,18 +27,15 @@ def listing(request, listing_id):
 
     realtor = listing_item.realtor
 
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
-    amenities = dict()
-    for lang in ('ru', 'en', 'ar'):
-        amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
-
-    br_prices = json.loads(listing_item.listing_br_prices)
-    if br_prices:
+    if listing_item.listing_br_prices:
+        br_prices = json.loads(listing_item.listing_br_prices)
+        print(type(br_prices), br_prices)
         br_price = br_prices[0]
         currency = br_price['currency']
         min_price = float(br_price['min_price'])
@@ -53,10 +51,15 @@ def listing(request, listing_id):
         min_price_ft2_eur = round(min_price_m2_eur / 10.7639)
         min_area_m2 = round(float(br_price['min_area']['m2']))
     else:
+        br_prices = None
         min_area_m2 = min_area_ft2 = None
         min_price_rub = min_price_usd = min_price_eur = None
         min_price_m2_rub = min_price_m2_usd = min_price_m2_eur = None
         min_price_ft2_rub = min_price_ft2_usd = min_price_ft2_eur = None
+
+    amenities = dict()
+    for lang in ('ru', 'en', 'ar'):
+        amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
 
     context = {
         'br_prices': br_prices,
@@ -84,6 +87,73 @@ def listing(request, listing_id):
 
     # return render(request, 'listings/listing.html', context)
     return render(request, 'includes/content/jk.html', context)
+
+
+def rent(request, listing_id):
+    listing_item = get_object_or_404(Listing, pk=listing_id)
+
+    realtor = listing_item.realtor
+
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    if listing_item.listing_br_prices:
+        br_prices = json.loads(listing_item.listing_br_prices)
+        print(type(br_prices), br_prices)
+        br_price = br_prices[0]
+        currency = br_price['currency']
+        min_price = float(br_price['min_price'])
+        min_price_rub = convert(min_price, currency, 'RUB')
+        min_price_usd = convert(min_price, currency, 'USD')
+        min_price_eur = convert(min_price, currency, 'EUR')
+        min_price_m2 = float(br_price['min_price_m2'])
+        min_price_m2_rub = convert(min_price_m2, currency, 'RUB')
+        min_price_m2_usd = convert(min_price_m2, currency, 'USD')
+        min_price_m2_eur = convert(min_price_m2, currency, 'EUR')
+        min_price_ft2_rub = round(min_price_m2_rub / 10.7639)
+        min_price_ft2_usd = round(min_price_m2_usd / 10.7639)
+        min_price_ft2_eur = round(min_price_m2_eur / 10.7639)
+        min_area_m2 = round(float(br_price['min_area']['m2']))
+    else:
+        br_prices = None
+        min_area_m2 = min_area_ft2 = None
+        min_price_rub = min_price_usd = min_price_eur = None
+        min_price_m2_rub = min_price_m2_usd = min_price_m2_eur = None
+        min_price_ft2_rub = min_price_ft2_usd = min_price_ft2_eur = None
+
+    amenities = dict()
+    for lang in ('ru', 'en', 'ar'):
+        amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
+
+    context = {
+        'br_prices': br_prices,
+        'min_area_m2': min_area_m2,
+
+        'min_price_rub': min_price_rub,
+        'min_price_usd': min_price_usd,
+        'min_price_eur': min_price_eur,
+
+        'min_price_m2_rub': min_price_m2_rub,
+        'min_price_m2_usd': min_price_m2_usd,
+        'min_price_m2_eur': min_price_m2_eur,
+
+        'min_price_ft2_rub': min_price_ft2_rub,
+        'min_price_ft2_usd': min_price_ft2_usd,
+        'min_price_ft2_eur': min_price_ft2_eur,
+
+        'amenities_ru': amenities['ru'],
+        'amenities_en': amenities['en'],
+        'amenities_ar': amenities['ar'],
+        'listing': listing_item,
+        'listings': paged_listings,
+        'realtor': realtor
+    }
+
+    # return render(request, 'listings/listing.html', context)
+    return render(request, 'includes/content/arenda-single.html', context)
 
 
 def search(request):
@@ -136,7 +206,6 @@ def convert(value, currency1, currency2):
                'AEDEUR': 0.25
                }
     return round(value * courses[currency1 + currency2])
-
 
 # amenities_type = {('air', 'conditioner'): 'air-conditioner',
 #                   ('balcony', ): 'balcony',

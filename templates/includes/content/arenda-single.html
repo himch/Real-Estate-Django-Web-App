@@ -8,10 +8,10 @@
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center"><a class="rent-single__link text-underline flex" href="/arenda.html">Каталог аренды</a>
-      <div class="rent-single__title font-tenor text-c3">Квартира 50 кв.м с видом на море</div>
+    <div class="container margin-center"><a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">Каталог аренды</a>
+      <div class="rent-single__title font-tenor text-c3">{{ listing.title_a_ru }}</div>
       <div class="rent-single__top flex flex-wrap">
-        <div class="rent-single__top-area text-c3 text-500 relative"><span>Район</span>
+        <div class="rent-single__top-area text-c3 text-500 relative"><span>{{ listing.address }}</span>
           <div class="rent-single__top-svg absolute w-full"><svg width="61" height="2" viewBox="0 0 61 2" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 1H61" stroke="url(#paint0_linear_347_3834)"/>
 <defs>
@@ -24,25 +24,25 @@
 </svg>
           </div>
         </div>
-        <div class="rent-single__top-title">Название ЖК</div>
-        <div class="rent-single__top-lot">Лот 1111111</div>
+        <div class="rent-single__top-title"><!--Название ЖК--></div>
+        <div class="rent-single__top-lot"><!--Лот 1111111--></div>
       </div>
       <div class="rent-single__row flex">
         <div class="rent-single__left">
           <div class="rent-single__images grid">
             <div class="rent-single__image img_cover img_full img_br">
               <picture>
-                <source type="image/webp" srcset="img/rent/single/main/1.webp"/><img width="474" height="312" src="img/rent/single/main/1.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_main }}"/><img width="474" height="312" src="/media/{{ listing.photo_main }}" alt="" loading="lazy"/>
               </picture>
             </div>
             <div class="rent-single__image img_cover img_full img_br">
               <picture>
-                <source type="image/webp" srcset="img/rent/single/main/2.webp"/><img width="474" height="312" src="img/rent/single/main/2.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_1 }}"/><img width="474" height="312" src="/media/{{ listing.photo_1 }}" alt="" loading="lazy"/>
               </picture>
             </div>
             <div class="rent-single__image img_cover img_full img_br">
               <picture>
-                <source type="image/webp" srcset="img/rent/single/main/2.webp"/><img width="474" height="312" src="img/rent/single/main/2.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_2 }}"/><img width="474" height="312" src="/media/{{ listing.photo_2 }}" alt="" loading="lazy"/>
               </picture>
             </div>
           </div>
@@ -56,8 +56,8 @@
               <div class="rent-single__tab-content active">
                 <div class="rent-single__days">
                   <div class="rent-single__day flex flex-wrap active">
-                    <div class="rent-single__day-left">100.000 р в месяц</div>
-                    <div class="rent-single__day-right">4.500 в сутки, от 5 суток</div>
+                    <div class="rent-single__day-left"><!--100.000 р в месяц--></div>
+                    <div class="rent-single__day-right">{% if listing.price_a_min %}{{ listing.price_a_min }} {{ listing.price_a_currency }} в сутки{% else %} {% endif %}</div>
                   </div>
                   <div class="rent-single__day flex flex-wrap">
                     <div class="rent-single__day-left">1090$ в месяц</div>
@@ -68,12 +68,12 @@
                     <div class="rent-single__day-right">45€ в сутки, от 5 суток</div>
                   </div>
                 </div>
-                <div class="rent-single__desc">Furnished room next to Festival Plaza Mall. You can also easily get around the city as the Energy Metro Station is a few steps to the building. There are a lot of cafes, restaurants nearby. We prefer ladies only. You will have your own private room and private bathroom, with a shared kitchen and small balcony too. The room furniture includes: 1 queen bed, nightstands, chair and mirrors. A huge private bathroom with a shower.</div>
+                <div class="rent-single__desc">{% if listing.description_a_ru %}{{ listing.description_a_ru|linebreaks|safe }}{% else %} {% endif %}</div>
                 <ul class="rent-single__list flex flex-wrap" data-count="8" data-status="true">
                   <li class="rent-single__list-li rent-single__list-li_first flex flex-ai-center active">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/element.webp"/><img class="lazy " width="24" height="24" src="" data-src="img/rent/single/main/element.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/element.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/element.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">Высокий этаж</div>
@@ -81,7 +81,7 @@
                   <li class="rent-single__list-li rent-single__list-li_second flex flex-ai-center active">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/wifi.webp"/><img class="lazy " width="24" height="24" src="" data-src="img/rent/single/main/wifi.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/wifi.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/wifi.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">Wi-Fi</div>
@@ -89,7 +89,7 @@
                   <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center active">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/balcony.webp"/><img class="lazy " width="22" height="22" src="" data-src="img/rent/single/main/balcony.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/balcony.webp"/><img class="lazy " width="22" height="22" src="" data-src="/img/rent/single/main/balcony.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">Балкон</div>
@@ -97,7 +97,7 @@
                   <li class="rent-single__list-li rent-single__list-li_first flex flex-ai-center active">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/bed.webp"/><img class="lazy " width="25" height="25" src="" data-src="img/rent/single/main/bed.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/bed.webp"/><img class="lazy " width="25" height="25" src="" data-src="/img/rent/single/main/bed.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">2 двуспальные кровати</div>
@@ -105,7 +105,7 @@
                   <li class="rent-single__list-li rent-single__list-li_second flex flex-ai-center active">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/dishwasher.webp"/><img class="lazy " width="20" height="20" src="" data-src="img/rent/single/main/dishwasher.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/dishwasher.webp"/><img class="lazy " width="20" height="20" src="" data-src="/img/rent/single/main/dishwasher.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">Посудомоечная машина</div>
@@ -113,7 +113,7 @@
                   <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center active">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/monitor.webp"/><img class="lazy " width="25" height="25" src="" data-src="img/rent/single/main/monitor.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/monitor.webp"/><img class="lazy " width="25" height="25" src="" data-src="/img/rent/single/main/monitor.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">TV</div>
@@ -121,7 +121,7 @@
                   <li class="rent-single__list-li rent-single__list-li_first flex flex-ai-center active">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/shower.webp"/><img class="lazy " width="26" height="26" src="" data-src="img/rent/single/main/shower.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/shower.webp"/><img class="lazy " width="26" height="26" src="" data-src="/img/rent/single/main/shower.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">Душевая кабина</div>
@@ -129,7 +129,7 @@
                   <li class="rent-single__list-li rent-single__list-li_second flex flex-ai-center active">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/air-conditioner.webp"/><img class="lazy " width="24" height="24" src="" data-src="img/rent/single/main/air-conditioner.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/air-conditioner.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/air-conditioner.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">Кондиционер</div>
@@ -137,7 +137,7 @@
                   <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/monitor.webp"/><img class="lazy " width="25" height="25" src="" data-src="img/rent/single/main/monitor.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/monitor.webp"/><img class="lazy " width="25" height="25" src="" data-src="/img/rent/single/main/monitor.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">TV</div>
@@ -145,7 +145,7 @@
                   <li class="rent-single__list-li rent-single__list-li_first flex flex-ai-center">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/shower.webp"/><img class="lazy " width="26" height="26" src="" data-src="img/rent/single/main/shower.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/shower.webp"/><img class="lazy " width="26" height="26" src="" data-src="/img/rent/single/main/shower.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">Душевая кабина</div>
@@ -153,7 +153,7 @@
                   <li class="rent-single__list-li rent-single__list-li_second flex flex-ai-center">
                     <div class="rent-single__list-svg">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/main/air-conditioner.webp"/><img class="lazy " width="24" height="24" src="" data-src="img/rent/single/main/air-conditioner.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/air-conditioner.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/air-conditioner.png" alt="" loading="lazy"/>
                       </picture>
                     </div>
                     <div class="rent-single__list-title">Кондиционер</div>
@@ -192,7 +192,7 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/main/clock.webp"/><img class="lazy " width="19" height="19" src="" data-src="img/rent/single/main/clock.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/clock.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/clock.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">Прибытие после 15:00</div>
@@ -200,7 +200,7 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/main/profile-2user.webp"/><img class="lazy " width="21" height="21" src="" data-src="img/rent/single/main/profile-2user.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/profile-2user.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/rent/single/main/profile-2user.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">Максимум 2 гостя</div>
@@ -208,7 +208,7 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/main/clock2.webp"/><img class="lazy " width="19" height="19" src="" data-src="img/rent/single/main/clock2.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/clock2.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/clock2.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">Выезд до 11:00</div>
@@ -216,7 +216,7 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/main/paw.webp"/><img class="lazy " width="19" height="19" src="" data-src="img/rent/single/main/paw.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/paw.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/paw.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">Можно с питомцами</div>
@@ -224,7 +224,7 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/main/door.webp"/><img class="lazy " width="22" height="22" src="" data-src="img/rent/single/main/door.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/door.webp"/><img class="lazy " width="22" height="22" src="" data-src="/img/rent/single/main/door.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">Самостоятельное прибытие (цифровой код)</div>
@@ -232,7 +232,7 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/main/celebrate.webp"/><img class="lazy " width="23" height="23" src="" data-src="img/rent/single/main/celebrate.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/celebrate.webp"/><img class="lazy " width="23" height="23" src="" data-src="/img/rent/single/main/celebrate.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">Без вечеринок и мероприятий</div>
@@ -240,7 +240,7 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/main/dont-smoke.webp"/><img class="lazy " width="24" height="24" src="" data-src="img/rent/single/main/dont-smoke.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/dont-smoke.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/dont-smoke.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">Курение запрещено</div>
@@ -248,7 +248,7 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="img/rent/single/main/close.webp"/><img class="lazy " width="13" height="13" src="" data-src="img/rent/single/main/close.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/close.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/rent/single/main/close.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">Бесплатная отмена до 19 октября</div>
@@ -256,7 +256,7 @@
                       </div><a class="rent-single__rules-btn p-btn flex flex-ai-center flex-j-center text-500" href="#!">Правила отмены</a>
                     </div>
                     <div class="rent-single__rules-content">
-                      <form class="rent-single__form bg lazy" data-bg="img/rent/single/form/1.webp">
+                      <form class="rent-single__form bg lazy" data-bg="/img/rent/single/form/1.webp">
                         <div class="rent-single__form-btn p-btn flex flex-ai-center flex-j-center text-500">оставьте заявку</div>
                         <div class="rent-single__form-subtitle text-500 text-c5">на скидку за количество месяцев аренды и заключения договора с собственником</div>
                       </form>
@@ -276,7 +276,7 @@
               <div class="rent-single__service-item flex flex-col">
                 <div class="rent-single__service-img img_cover img_br">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/rent/single/service/1.webp"/><img class="lazy " width="287" height="183" src="" data-src="img/rent/single/service/1.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/1.webp"/><img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/1.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
@@ -287,7 +287,7 @@
               <div class="rent-single__service-item flex flex-col">
                 <div class="rent-single__service-img img_cover img_br">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/rent/single/service/2.webp"/><img class="lazy " width="287" height="183" src="" data-src="img/rent/single/service/2.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/2.webp"/><img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/2.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
@@ -298,7 +298,7 @@
               <div class="rent-single__service-item flex">
                 <div class="rent-single__service-img img_cover img_br">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/rent/single/service/3.webp"/><img class="lazy " width="287" height="183" src="" data-src="img/rent/single/service/3.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/3.webp"/><img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/3.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
@@ -309,7 +309,7 @@
               <div class="rent-single__service-item flex">
                 <div class="rent-single__service-img img_cover img_br">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/rent/single/service/4.webp"/><img class="lazy " width="287" height="183" src="" data-src="img/rent/single/service/4.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/4.webp"/><img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/4.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
@@ -337,7 +337,7 @@
                       <label class="p-check flex flex-ai-center">
                         <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                           <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="img/main/get/check.png" alt="" loading="lazy"/>
+                            <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
                           </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
                       </label>
                     </div>
@@ -346,17 +346,17 @@
                 <div class="rent-single__faq-end flex flex-ai-center">
                   <div class="rent-single__socials flex flex-ai-center"><a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/faq/whatsapp.webp"/><img class="lazy " width="15" height="15" src="" data-src="img/rent/single/faq/whatsapp.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/whatsapp.webp"/><img class="lazy " width="15" height="15" src="" data-src="/img/rent/single/faq/whatsapp.png" alt="" loading="lazy"/>
                       </picture></a><a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" href="#!">
                       <picture>
-                        <source type="image/webp" srcset="" data-srcset="img/rent/single/faq/telegram.webp"/><img class="lazy " width="14" height="14" src="" data-src="img/rent/single/faq/telegram.png" alt="" loading="lazy"/>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/telegram.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/rent/single/faq/telegram.png" alt="" loading="lazy"/>
                       </picture></a></div><a class="rent-single__socials-phone" href="tel:+79999999999">+ 7 (999) 999-99-99</a>
                 </div>
               </div>
               <div class="rent-single__faq-right">
                 <div class="rent-single__faq-img">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="img/rent/single/faq/bg.webp"/><img class="lazy " width="226" height="518" src="" data-src="img/rent/single/faq/bg.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/bg.webp"/><img class="lazy " width="226" height="518" src="" data-src="/img/rent/single/faq/bg.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
               </div>
@@ -393,7 +393,7 @@
                       <div class="rent-single__select-title text-500">1 гость</div>
                       <div class="rent-single__select-arrow">
                         <picture>
-                          <source type="image/webp" srcset="img/rent/single/main/arrow.webp"/><img width="16" height="16" src="img/rent/single/main/arrow.png" alt="" loading="lazy"/>
+                          <source type="image/webp" srcset="/img/rent/single/main/arrow.webp"/><img width="16" height="16" src="/img/rent/single/main/arrow.png" alt="" loading="lazy"/>
                         </picture>
                       </div>
                     </div>
@@ -451,453 +451,22 @@
           <div class="estate__swiper relative">
             <div class="swiper">
               <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="p-card p-card_filter relative">
-                    <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/arenda-single.html">
-                        <div class="swiper">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="swiper-pagination"></div></a>
-                      <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
-</svg>
-                      </div>
-                    </div><a class="p-card_filter__text" href="/arenda-single.html">
-                      <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
-                      <div class="p-card_filter__content flex flex-wrap flex-ai-center">
-                        <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
-                        <div class="p-card_filter__content-item">Дубай Марина</div>
-                        <div class="p-card_filter__content-subitem">Лот 123456789</div>
-                      </div>
-                      <div class="p-card_filter__list flex flex-wrap">
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">2 комнаты</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">50м2</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">Высокий этаж</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card__second__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">1 ванна</div>
-                        </div>
-                      </div>
-                      <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
-                        <div class="p-card_filter__price-left">100.000 р в месяц</div>
-                        <div class="p-card_filter__price-right">или 4.500 в сутки</div>
-                      </div></a>
+
+                {% if listings %}
+                  {% for listing in listings %}
+                    <div class="swiper-slide">
+                      {% include 'includes/rent_card/rent_card_swiper.html' %}
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="col-md-12">
+                    <p>No Offers Available</p>
                   </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="p-card p-card_filter relative">
-                    <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/arenda-single.html">
-                        <div class="swiper">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="swiper-pagination"></div></a>
-                      <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
-</svg>
-                      </div>
-                    </div><a class="p-card_filter__text" href="/arenda-single.html">
-                      <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
-                      <div class="p-card_filter__content flex flex-wrap flex-ai-center">
-                        <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
-                        <div class="p-card_filter__content-item">Дубай Марина</div>
-                        <div class="p-card_filter__content-subitem">Лот 123456789</div>
-                      </div>
-                      <div class="p-card_filter__list flex flex-wrap">
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">2 комнаты</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">50м2</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">Высокий этаж</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card__second__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">1 ванна</div>
-                        </div>
-                      </div>
-                      <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
-                        <div class="p-card_filter__price-left">100.000 р в месяц</div>
-                        <div class="p-card_filter__price-right">или 4.500 в сутки</div>
-                      </div></a>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="p-card p-card_filter relative">
-                    <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/arenda-single.html">
-                        <div class="swiper">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="swiper-pagination"></div></a>
-                      <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
-</svg>
-                      </div>
-                    </div><a class="p-card_filter__text" href="/arenda-single.html">
-                      <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
-                      <div class="p-card_filter__content flex flex-wrap flex-ai-center">
-                        <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
-                        <div class="p-card_filter__content-item">Дубай Марина</div>
-                        <div class="p-card_filter__content-subitem">Лот 123456789</div>
-                      </div>
-                      <div class="p-card_filter__list flex flex-wrap">
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">2 комнаты</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">50м2</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">Высокий этаж</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card__second__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">1 ванна</div>
-                        </div>
-                      </div>
-                      <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
-                        <div class="p-card_filter__price-left">100.000 р в месяц</div>
-                        <div class="p-card_filter__price-right">или 4.500 в сутки</div>
-                      </div></a>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="p-card p-card_filter relative">
-                    <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/arenda-single.html">
-                        <div class="swiper">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="swiper-pagination"></div></a>
-                      <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
-</svg>
-                      </div>
-                    </div><a class="p-card_filter__text" href="/arenda-single.html">
-                      <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
-                      <div class="p-card_filter__content flex flex-wrap flex-ai-center">
-                        <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
-                        <div class="p-card_filter__content-item">Дубай Марина</div>
-                        <div class="p-card_filter__content-subitem">Лот 123456789</div>
-                      </div>
-                      <div class="p-card_filter__list flex flex-wrap">
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">2 комнаты</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">50м2</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">Высокий этаж</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card__second__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">1 ванна</div>
-                        </div>
-                      </div>
-                      <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
-                        <div class="p-card_filter__price-left">100.000 р в месяц</div>
-                        <div class="p-card_filter__price-right">или 4.500 в сутки</div>
-                      </div></a>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="p-card p-card_filter relative">
-                    <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/arenda-single.html">
-                        <div class="swiper">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="swiper-pagination"></div></a>
-                      <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
-</svg>
-                      </div>
-                    </div><a class="p-card_filter__text" href="/arenda-single.html">
-                      <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
-                      <div class="p-card_filter__content flex flex-wrap flex-ai-center">
-                        <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
-                        <div class="p-card_filter__content-item">Дубай Марина</div>
-                        <div class="p-card_filter__content-subitem">Лот 123456789</div>
-                      </div>
-                      <div class="p-card_filter__list flex flex-wrap">
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">2 комнаты</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">50м2</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">Высокий этаж</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card__second__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">1 ванна</div>
-                        </div>
-                      </div>
-                      <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
-                        <div class="p-card_filter__price-left">100.000 р в месяц</div>
-                        <div class="p-card_filter__price-right">или 4.500 в сутки</div>
-                      </div></a>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="p-card p-card_filter relative">
-                    <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/arenda-single.html">
-                        <div class="swiper">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                            <div class="swiper-slide">
-                              <picture>
-                                <source type="image/webp" srcset=""/><img class="lazy " width="356" height="218" src="" data-src="img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="swiper-pagination"></div></a>
-                      <div class="p-card_filter__like absolute top-0 right-0"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
-</svg>
-                      </div>
-                    </div><a class="p-card_filter__text" href="/arenda-single.html">
-                      <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
-                      <div class="p-card_filter__content flex flex-wrap flex-ai-center">
-                        <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
-                        <div class="p-card_filter__content-item">Дубай Марина</div>
-                        <div class="p-card_filter__content-subitem">Лот 123456789</div>
-                      </div>
-                      <div class="p-card_filter__list flex flex-wrap">
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bed.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">2 комнаты</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/area.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">50м2</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card_filter__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="18" height="18" src="" data-src="img/rent/filters/element.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">Высокий этаж</div>
-                        </div>
-                        <div class="p-card_filter__list-item flex flex-ai-center">
-                          <div class="p-card__second__list-img">
-                            <picture>
-                              <source type="image/webp" srcset=""/><img class="lazy " width="19" height="19" src="" data-src="img/rent/filters/bath.png" alt="" loading="lazy" srcset="srcset"/>
-                            </picture>
-                          </div>
-                          <div class="p-card_filter__list-title">1 ванна</div>
-                        </div>
-                      </div>
-                      <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
-                        <div class="p-card_filter__price-left">100.000 р в месяц</div>
-                        <div class="p-card_filter__price-right">или 4.500 в сутки</div>
-                      </div></a>
-                  </div>
-                </div>
+                {% endif %}
+
                 <div class="swiper-slide">
                   <div class="p-card p-card_back relative">
-                    <div class="p-card__abs absolute top-0 left-0 w-full h-full flex flex-ai-center flex-j-center bg-c3 text-c2"><a class="p-card__abs-link text-underline text-center text-500 margin-center" href="/arenda.html">Вернуться на страницу Аренды</a></div>
+                    <div class="p-card__abs absolute top-0 left-0 w-full h-full flex flex-ai-center flex-j-center bg-c3 text-c2"><a class="p-card__abs-link text-underline text-center text-500 margin-center" href="{% url 'arenda' %}">Вернуться на страницу Аренды</a></div>
                   </div>
                 </div>
               </div>
@@ -905,12 +474,12 @@
             <div class="main_swiper-arrows flex absolute">
               <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
                 <picture>
-                  <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-left.png" alt="" loading="lazy"/>
+                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-left.png" alt="" loading="lazy"/>
                 </picture>
               </div>
               <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
                 <picture>
-                  <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-right.png" alt="" loading="lazy"/>
+                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-right.png" alt="" loading="lazy"/>
                 </picture>
               </div>
             </div>

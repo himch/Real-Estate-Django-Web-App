@@ -374,8 +374,8 @@
       </form>
       <div class="filters__content active">
         <div class="filters__content-block flex flex-wrap active">
-          {% if range %}
-              {% for n in range %}
+          {% if listings %}
+              {% for listing in listings %}
                 {% include 'includes/rent_card/rent_card_swiper.html' %}
               {% endfor %}
               {% else %}

@@ -1,23 +1,23 @@
 {% load static %}
-
+{% load l10n %}
 <!-- start rent -->
 <div class="p-card p-card_filter relative">
-    <div class="p-card_filter__image relative"><a class="img_cover img_full" href="{% url 'arenda_single' %}">
+    <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/listings/rent/{{ listing.id|unlocalize }}">
         <div class="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <picture>
-                <source type="image/webp" srcset="/img/rent/filters/1.jpg"/><img class="lazy " width="356" height="218" src="" data-src="/img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_main }}"/><img class="lazy " width="356" height="218" src="" data-src="/media/{{ listing.photo_main }}" alt="" loading="lazy" srcset="srcset"/>
               </picture>
             </div>
             <div class="swiper-slide">
               <picture>
-                <source type="image/webp" srcset="/img/rent/filters/1.jpg"/><img class="lazy " width="356" height="218" src="" data-src="/img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_1 }}"/><img class="lazy " width="356" height="218" src="" data-src="/media/{{ listing.photo_1 }}" alt="" loading="lazy" srcset="srcset"/>
               </picture>
             </div>
             <div class="swiper-slide">
               <picture>
-                <source type="image/webp" srcset="/img/rent/filters/1.jpg"/><img class="lazy " width="356" height="218" src="" data-src="/img/rent/filters/1.jpg" alt="" loading="lazy" srcset="srcset"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_2 }}"/><img class="lazy " width="356" height="218" src="" data-src="/media/{{ listing.photo_2 }}" alt="" loading="lazy" srcset="srcset"/>
               </picture>
             </div>
           </div>
@@ -27,12 +27,12 @@
 <path d="M1.31877 0.793689H17.9837C18.2609 0.793689 18.3818 0.986484 18.3818 1.10765V21.9116C18.3818 22.1426 18.1064 22.2627 17.9371 22.1054L10.912 15.5763C10.2012 14.9157 9.1012 14.9157 8.39048 15.5763L1.36531 22.1054C1.19606 22.2627 0.920642 22.1426 0.920642 21.9116V1.10765C0.920642 0.98861 1.04435 0.793689 1.31877 0.793689Z" stroke="#003B50" stroke-width="1.58738"/>
 </svg>
       </div>
-    </div><a class="p-card_filter__text" href="{% url 'arenda_single' %}">
-      <div class="p-card_filter__title text-c5 text-500">Квартира 50 кв.м с видом на море</div>
+    </div><a class="p-card_filter__text" href="/listings/rent/{{ listing.id|unlocalize }}">
+      <div class="p-card_filter__title text-c5 text-500">{{ listing.title_a_ru }}</div>
       <div class="p-card_filter__content flex flex-wrap flex-ai-center">
-        <div class="p-card_filter__content-item text-c5">Дубай Марина</div>
-        <div class="p-card_filter__content-item">Дубай Марина</div>
-        <div class="p-card_filter__content-subitem">Лот 123456789</div>
+        <div class="p-card_filter__content-item text-c5">{{ listing.address }}</div>
+        <div class="p-card_filter__content-item"><!--{{ listing.address }}--></div>
+        <div class="p-card_filter__content-subitem"><!--Лот 123456789--></div>
       </div>
       <div class="p-card_filter__list flex flex-wrap">
         <div class="p-card_filter__list-item flex flex-ai-center">
@@ -69,8 +69,8 @@
         </div>
       </div>
       <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
-        <div class="p-card_filter__price-left">100.000 р в месяц</div>
-        <div class="p-card_filter__price-right">или 4.500 в сутки</div>
+        <div class="p-card_filter__price-left"><!--100.000 р в месяц--></div>
+        <div class="p-card_filter__price-right">{% if listing.price_a_min %}{{ listing.price_a_min }} {{ listing.price_a_currency }} в сутки{% else %} {% endif %}</div>
       </div></a>
 </div>
 <!-- end rent -->
