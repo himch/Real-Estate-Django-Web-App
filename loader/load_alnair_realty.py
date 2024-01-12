@@ -241,6 +241,8 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                          "realtor_list = Realtor.objects.all()\n"
                          "realtors_ids = [realtor.id for realtor in realtor_list]\n"
                          "listing = Listing()\n"
+                         "listing.source = 'alnair'\n"
+                         "listing.offer_type = 'sell'\n"
                          "listing.realtor_id = choice(realtors_ids)\n")
                 code = self.python_for_insert_records[table_name]
                 command = 'code.format(' + ', '.join(parameters) + ')'

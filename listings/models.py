@@ -13,6 +13,9 @@ from realtors.models import Realtor
 
 
 class Listing(models.Model):
+    source = models.TextField(default='alnair')
+    offer_type = models.TextField(default='sell')
+    url = models.URLField(blank=True, null=True)
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     # title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
