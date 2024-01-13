@@ -31,15 +31,20 @@ def index(request):
 
 
 def buy(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
-
-    paginator = Paginator(listings, 6)
     page = request.GET.get('page')
+
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
+    paginator = Paginator(listings, 6)
     paged_listings = paginator.get_page(page)
+
+    rent_listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
+    rent_paginator = Paginator(rent_listings, 6)
+    paged_rent_listings = rent_paginator.get_page(page)
 
     context = {
         'range': range(9),
-        'listings': listings,
+        'rent_listings': paged_rent_listings,
+        'listings': paged_listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices
@@ -69,7 +74,7 @@ def arenda(request):
 
 
 def izbrannoe(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
@@ -88,7 +93,7 @@ def izbrannoe(request):
 
 
 def sravnenie(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
@@ -143,7 +148,7 @@ def katalogi(request):
     # Get MVP
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
@@ -165,7 +170,7 @@ def article(request):
     # Get MVP
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')

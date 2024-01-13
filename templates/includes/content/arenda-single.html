@@ -56,108 +56,27 @@
               <div class="rent-single__tab-content active">
                 <div class="rent-single__days">
                   <div class="rent-single__day flex flex-wrap active">
-                    <div class="rent-single__day-left"><!--100.000 р в месяц--></div>
-                    <div class="rent-single__day-right">{% if listing.price_a_min %}{{ listing.price_a_min }} {{ listing.price_a_currency }} в сутки{% else %} {% endif %}</div>
+                    <div class="rent-single__day-left">₽{{ min_price_month_rub }} в месяц</div>
+                    <div class="rent-single__day-right">₽{{ min_price_rub }} в сутки</div>
                   </div>
                   <div class="rent-single__day flex flex-wrap">
-                    <div class="rent-single__day-left">1090$ в месяц</div>
-                    <div class="rent-single__day-right">49$ в сутки, от 5 суток</div>
+                    <div class="rent-single__day-left">${{ min_price_month_usd }} в месяц</div>
+                    <div class="rent-single__day-right">${{ min_price_usd }} в сутки</div>
                   </div>
                   <div class="rent-single__day flex flex-wrap">
-                    <div class="rent-single__day-left">987€ в месяц</div>
-                    <div class="rent-single__day-right">45€ в сутки, от 5 суток</div>
+                    <div class="rent-single__day-left">€{{ min_price_month_eur }} в месяц</div>
+                    <div class="rent-single__day-right">€{{ min_price_eur }} в сутки</div>
                   </div>
                 </div>
                 <div class="rent-single__desc">{% if listing.description_a_ru %}{{ listing.description_a_ru|linebreaks|safe }}{% else %} {% endif %}</div>
                 <ul class="rent-single__list flex flex-wrap" data-count="8" data-status="true">
-                  <li class="rent-single__list-li rent-single__list-li_first flex flex-ai-center active">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/element.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/element.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">Высокий этаж</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_second flex flex-ai-center active">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/wifi.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/wifi.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">Wi-Fi</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center active">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/balcony.webp"/><img class="lazy " width="22" height="22" src="" data-src="/img/rent/single/main/balcony.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">Балкон</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_first flex flex-ai-center active">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/bed.webp"/><img class="lazy " width="25" height="25" src="" data-src="/img/rent/single/main/bed.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">2 двуспальные кровати</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_second flex flex-ai-center active">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/dishwasher.webp"/><img class="lazy " width="20" height="20" src="" data-src="/img/rent/single/main/dishwasher.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">Посудомоечная машина</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center active">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/monitor.webp"/><img class="lazy " width="25" height="25" src="" data-src="/img/rent/single/main/monitor.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">TV</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_first flex flex-ai-center active">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/shower.webp"/><img class="lazy " width="26" height="26" src="" data-src="/img/rent/single/main/shower.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">Душевая кабина</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_second flex flex-ai-center active">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/air-conditioner.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/air-conditioner.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">Кондиционер</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/monitor.webp"/><img class="lazy " width="25" height="25" src="" data-src="/img/rent/single/main/monitor.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">TV</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_first flex flex-ai-center">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/shower.webp"/><img class="lazy " width="26" height="26" src="" data-src="/img/rent/single/main/shower.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">Душевая кабина</div>
-                  </li>
-                  <li class="rent-single__list-li rent-single__list-li_second flex flex-ai-center">
-                    <div class="rent-single__list-svg">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/air-conditioner.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/air-conditioner.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                    <div class="rent-single__list-title">Кондиционер</div>
-                  </li>
+
+                  {% if amenities_ru %}
+                    {% for amenity in amenities_ru %}
+                      {% include 'includes/amenities/rent_amenity.html' %}
+                    {% endfor %}
+                  {% endif %}
+
                   <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center rent-single__list-li_more text-c3 text-underline" data-text-show="ещё" data-text-hide="скрыть">ещё</li>
                 </ul>
                 <div class="rent-single__rules">
@@ -269,6 +188,13 @@
           <div class="rent-single__map">
             <div class="rent-single__map-title font-tenor section__title text-c3">Где находится</div>
             <div class="rent-single__map-item" id="rent-single__map-item"></div>
+            <div class="contacts__item">
+              <div class="contacts__item-subtitle">{% if listing.address %}{{ listing.address|safe }}{% else %} {% endif %}</div>
+              <div class="contacts__item-iframe">
+                <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
+              </div>
+            </div>
+
           </div>
           <div class="rent-single__service">
             <div class="rent-single__service-title font-tenor section__title text-c3">Услуги DADI</div>
@@ -350,7 +276,7 @@
                       </picture></a><a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" href="#!">
                       <picture>
                         <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/telegram.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/rent/single/faq/telegram.png" alt="" loading="lazy"/>
-                      </picture></a></div><a class="rent-single__socials-phone" href="tel:+79999999999">+ 7 (999) 999-99-99</a>
+                      </picture></a></div><a class="rent-single__socials-phone" href="tel:+79999999999">+971 4 585 9538</a>
                 </div>
               </div>
               <div class="rent-single__faq-right">
@@ -372,7 +298,7 @@
           </div>
           <div class="rent-single__subitem sticky">
             <div class="rent-single__price font-roboto">
-              <del><span class="rent-single__price-old">15 810</span><span>₽</span></del><ins><span class="rent-single__price-new">13 430</span><span>₽</span>&nbsp;ночь</ins>
+              <del><span class="rent-single__price-old">₽{{ max_price_rub }}</span><span>₽</span></del><ins><span class="rent-single__price-new">₽{{ min_price_rub }}</span><span>₽</span>&nbsp;ночь</ins>
             </div>
             <div class="rent-single__cols flex flex-col font-roboto">
               <div class="rent-single__col flex">
@@ -426,16 +352,16 @@
             </div>
             <div class="rent-single__end flex flex-col font-roboto">
               <div class="rent-single__end-item flex flex-ai-center flex-j-between w-full">
-                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">13 430</span>₽<span class="rent-single__end-span">х 2 ночи</span></div>
-                <div class="rent-single__end-subprice text-500"><span>26 860</span>₽</div>
+                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">₽{{ min_price_rub }}</span>₽<span class="rent-single__end-span">х 1 ночь</span></div>
+                <div class="rent-single__end-subprice text-500">₽<span>{{ min_price_rub }}</span></div>
               </div>
               <div class="rent-single__end-item flex flex-ai-center flex-j-between w-full">
                 <div class="rent-single__end-title text-500"><span class="rent-single__end-price">Плата за уборку</span></div>
-                <div class="rent-single__end-subprice text-500"><span>5 231</span>₽</div>
+                <div class="rent-single__end-subprice text-500">₽<span>5,231</span></div>
               </div>
               <div class="rent-single__end-item rent-single__end-item_last flex flex-ai-center flex-j-between w-full text-c3">
                 <div class="rent-single__end-title text-500"><span class="rent-single__end-price">Всего ( без учета налогов)</span></div>
-                <div class="rent-single__end-subprice text-500"><span>32 091</span>₽</div>
+                <div class="rent-single__end-subprice text-500">₽<span>32,091</span></div>
               </div>
             </div>
           </div>

@@ -100,29 +100,43 @@ def rent(request, listing_id):
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
-    if listing_item.listing_br_prices:
-        br_prices = json.loads(listing_item.listing_br_prices)
-        print(type(br_prices), br_prices)
-        br_price = br_prices[0]
-        currency = br_price['currency']
-        min_price = float(br_price['min_price'])
+    if (listing_item.price_a_min and listing_item.price_a_currency) or listing_item.listing_br_prices:
+        if listing_item.listing_br_prices:
+            br_prices = json.loads(listing_item.listing_br_prices)
+            br_price = br_prices[0]
+            currency = br_price['currency']
+            min_price = float(br_price['min_price'])
+            min_price_m2 = float(br_price['min_price_m2'])
+            min_area_m2 = round(float(br_price['min_area']['m2']))
+        else:
+            br_prices = None
+            currency = listing_item.price_a_currency
+            min_price = int(round(float(listing_item.price_a_min), -1))
+            min_area_m2 = 50
+            min_price_m2 = min_price / min_area_m2
         min_price_rub = convert(min_price, currency, 'RUB')
         min_price_usd = convert(min_price, currency, 'USD')
         min_price_eur = convert(min_price, currency, 'EUR')
-        min_price_m2 = float(br_price['min_price_m2'])
+        max_price_rub = int(round(min_price_rub * 1.33, -1))
+        max_price_usd = int(round(min_price_usd * 1.33, -1))
+        max_price_eur = int(round(min_price_eur * 1.33, -1))
+        min_price_month_rub = int(round(min_price_rub * 30 / 2.7, -1))
+        min_price_month_usd = int(round(min_price_usd * 30 / 2.7, -1))
+        min_price_month_eur = int(round(min_price_eur * 30 / 2.7, -1))
         min_price_m2_rub = convert(min_price_m2, currency, 'RUB')
         min_price_m2_usd = convert(min_price_m2, currency, 'USD')
         min_price_m2_eur = convert(min_price_m2, currency, 'EUR')
-        min_price_ft2_rub = round(min_price_m2_rub / 10.7639)
-        min_price_ft2_usd = round(min_price_m2_usd / 10.7639)
-        min_price_ft2_eur = round(min_price_m2_eur / 10.7639)
-        min_area_m2 = round(float(br_price['min_area']['m2']))
+        min_price_ft2_rub = int(round(min_price_m2_rub / 10.7639, -1))
+        min_price_ft2_usd = int(round(min_price_m2_usd / 10.7639, -1))
+        min_price_ft2_eur = int(round(min_price_m2_eur / 10.7639, -1))
     else:
         br_prices = None
         min_area_m2 = min_area_ft2 = None
         min_price_rub = min_price_usd = min_price_eur = None
         min_price_m2_rub = min_price_m2_usd = min_price_m2_eur = None
         min_price_ft2_rub = min_price_ft2_usd = min_price_ft2_eur = None
+        min_price_month_rub = min_price_month_usd = min_price_month_eur = None
+        max_price_rub = max_price_usd = max_price_eur = None
 
     amenities = dict()
     for lang in ('ru', 'en', 'ar'):
@@ -136,6 +150,14 @@ def rent(request, listing_id):
         'min_price_usd': min_price_usd,
         'min_price_eur': min_price_eur,
 
+        'max_price_rub': max_price_rub,
+        'max_price_usd': max_price_usd,
+        'max_price_eur': max_price_eur,
+
+        'min_price_month_rub': min_price_month_rub,
+        'min_price_month_usd': min_price_month_usd,
+        'min_price_month_eur': min_price_month_eur,
+
         'min_price_m2_rub': min_price_m2_rub,
         'min_price_m2_usd': min_price_m2_usd,
         'min_price_m2_eur': min_price_m2_eur,
@@ -144,9 +166,9 @@ def rent(request, listing_id):
         'min_price_ft2_usd': min_price_ft2_usd,
         'min_price_ft2_eur': min_price_ft2_eur,
 
-        'amenities_ru': amenities['ru'],
-        'amenities_en': amenities['en'],
-        'amenities_ar': amenities['ar'],
+        'amenities_ru': amenities['ru'][:9],
+        'amenities_en': amenities['en'][:9],
+        'amenities_ar': amenities['ar'][:9],
         'listing': listing_item,
         'listings': paged_listings,
         'realtor': realtor
@@ -203,9 +225,13 @@ def search(request):
 def convert(value, currency1, currency2):
     courses = {'AEDRUB': 24.76,
                'AEDUSD': 0.27,
-               'AEDEUR': 0.25
+               'AEDEUR': 0.25,
+               'AEDAED': 1,
+               'RUBUSD': 0.011,
+               'RUBEUR': 0.01,
+               'RUBRUB': 1,
                }
-    return round(value * courses[currency1 + currency2])
+    return int(round(value * courses[currency1 + currency2], -1))
 
 # amenities_type = {('air', 'conditioner'): 'air-conditioner',
 #                   ('balcony', ): 'balcony',
