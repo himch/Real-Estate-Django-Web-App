@@ -1,0 +1,986 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-15 18:57+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: templates/includes/content/index.html:23
+#: templates/includes/content/index_rus.html:23
+msgid "Selection of premium real estate in Dubai"
+msgstr "Подбор премиальной недвижимости в Дубае"
+
+#: templates/includes/content/index.html:29
+#: templates/includes/content/index.html:69
+#: templates/includes/content/index.html:743
+#: templates/includes/content/index.html:957
+#: templates/includes/content/index.html:1018
+#: templates/includes/content/index.html:1021
+#: templates/includes/content/index.html:1036
+#: templates/includes/content/index_rus.html:29
+#: templates/includes/content/index_rus.html:69
+#: templates/includes/content/index_rus.html:185
+#: templates/includes/content/index_rus.html:744
+#: templates/includes/content/index_rus.html:958
+#: templates/includes/content/index_rus.html:1015
+#: templates/includes/content/index_rus.html:1018
+#: templates/includes/content/index_rus.html:1074
+#: templates/includes/content/index_rus.html:1077
+#: templates/includes/content/index_rus.html:1133
+#: templates/includes/content/index_rus.html:1136
+#: templates/includes/content/index_rus.html:1192
+#: templates/includes/content/index_rus.html:1195
+#: templates/includes/content/index_rus.html:1251
+#: templates/includes/content/index_rus.html:1254
+#: templates/includes/content/index_rus.html:1261
+#: templates/includes/content/index_rus.html:1346
+#: templates/includes/content/index_rus.html:1347
+#: templates/includes/content/index_rus.html:1358
+#: templates/includes/content/index_rus.html:1359
+#: templates/includes/content/index_rus.html:1370
+#: templates/includes/content/index_rus.html:1371
+#: templates/includes/content/index_rus.html:1382
+#: templates/includes/content/index_rus.html:1383
+#: templates/includes/content/index_rus.html:1394
+#: templates/includes/content/index_rus.html:1395
+#: templates/includes/content/index_rus.html:1406
+#: templates/includes/content/index_rus.html:1407
+#: templates/includes/content/index_rus.html:1429
+#: templates/includes/content/index_rus.html:1453
+#: templates/includes/content/index_rus.html:1454
+#: templates/includes/content/index_rus.html:1455
+#: templates/includes/content/index_rus.html:1456
+#: templates/includes/content/index_rus.html:1465
+#: templates/includes/content/index_rus.html:1474
+#: templates/includes/content/index_rus.html:1482
+#: templates/includes/content/index_rus.html:1490
+#: templates/includes/content/index_rus.html:1507
+#: templates/includes/content/index_rus.html:1508
+#: templates/includes/content/index_rus.html:1522
+#: templates/includes/content/index_rus.html:1530
+#: templates/includes/content/index_rus.html:1531
+#: templates/includes/content/index_rus.html:1532
+#: templates/includes/content/index_rus.html:1533
+#: templates/includes/content/index_rus.html:1539
+#: templates/includes/content/index_rus.html:1544
+#: templates/includes/footer/footer.html:23
+#: templates/includes/header/header.html:43
+msgid "Rent"
+msgstr "Аренда"
+
+#: templates/includes/content/index.html:30
+#: templates/includes/content/index_rus.html:30
+msgid "Luxury apartments with hotel service for short and long term rent"
+msgstr "Лакшери апартаменты с&nbsp;отельным сервисом для&nbsp;краткосрочной и долгосрочной аренды"
+
+#: templates/includes/content/index.html:41
+#: templates/includes/content/index_rus.html:41
+msgid "rent an apartment"
+msgstr "снять квартиру"
+
+#: templates/includes/content/index.html:46
+#: templates/includes/content/index.html:85
+#: templates/includes/content/index.html:796
+#: templates/includes/content/index_rus.html:46
+#: templates/includes/content/index_rus.html:85
+#: templates/includes/content/index_rus.html:797
+msgid "Purchase"
+msgstr "Покупка"
+
+#: templates/includes/content/index.html:47
+#: templates/includes/content/index_rus.html:47
+msgid "Beneficial solutions for residence and investment"
+msgstr "Выгодные решения для проживания и инвестирования"
+
+#: templates/includes/content/index.html:47
+msgid "go to catalog"
+msgstr "перейти в каталог"
+
+#: templates/includes/content/index.html:57
+#: templates/includes/content/index_rus.html:57
+msgid "Consulting"
+msgstr "Консультация"
+
+#: templates/includes/content/index.html:58
+#: templates/includes/content/index_rus.html:58
+msgid "We will find the best solution for your request for free"
+msgstr "Бесплатно подберём лучшее решение под ваш запрос"
+
+#: templates/includes/content/index.html:59
+#: templates/includes/content/index_rus.html:59
+msgid "leave a request"
+msgstr "оставить заявку"
+
+#: templates/includes/content/index.html:66
+msgid "Why choose DADI"
+msgstr "Почему выбирают DADI"
+
+#: templates/includes/content/index.html:82
+#: templates/includes/content/index_rus.html:82
+msgid "Hotel accommodation options in apartments"
+msgstr "Отельный вариант размещения в апартаментах"
+
+#: templates/includes/content/index.html:98
+#: templates/includes/content/index_rus.html:98
+msgid "Full support of the transaction: sale, purchase, documents"
+msgstr "Полное сопровождение сделки: продажа, покупка, документы"
+
+#: templates/includes/content/index.html:107
+#: templates/includes/content/index.html:338
+#: templates/includes/content/index_rus.html:107
+#: templates/includes/content/index_rus.html:338
+msgid "Welcome service like in 5* hotel"
+msgstr "Welcome-сервис, как в отеле 5*"
+
+#: templates/includes/content/index.html:118
+#: templates/includes/content/index.html:349
+#: templates/includes/content/index_rus.html:118
+#: templates/includes/content/index_rus.html:349
+msgid ""
+"experience standards of living in one of the richest cities in the world"
+msgstr "прочувствуйте уровень жизни одного из самых богатых городов мира"
+
+#: templates/includes/content/index.html:123
+#: templates/includes/content/index.html:363
+#: templates/includes/content/index_rus.html:123
+#: templates/includes/content/index_rus.html:363
+msgid "Elite residence"
+msgstr "Элитные апартаменты"
+
+#: templates/includes/content/index.html:134
+#: templates/includes/content/index.html:374
+#: templates/includes/content/index_rus.html:134
+#: templates/includes/content/index_rus.html:374
+msgid ""
+"premium residential complexes and better conditions for short trips and long-"
+"term living"
+msgstr "премиальные ЖК и лучшие условия для жизни в коротких поездках и на долгосрок"
+
+#: templates/includes/content/index.html:139
+#: templates/includes/content/index.html:388
+#: templates/includes/content/index_rus.html:139
+#: templates/includes/content/index_rus.html:388
+msgid "Agent support"
+msgstr "Агентская поддержка"
+
+#: templates/includes/content/index.html:150
+#: templates/includes/content/index.html:399
+#: templates/includes/content/index_rus.html:150
+#: templates/includes/content/index_rus.html:399
+msgid "personal account for the convenience of booking and payment tracking"
+msgstr "личный кабинет на сайте для удобства бронирования и отслеживания оплат"
+
+#: templates/includes/content/index.html:155
+#: templates/includes/content/index.html:413
+#: templates/includes/content/index.html:772
+#: templates/includes/content/index_rus.html:155
+#: templates/includes/content/index_rus.html:413
+#: templates/includes/content/index_rus.html:773
+msgid "Personal assistant in&nbsp;the country"
+msgstr "Личный ассистент в стране"
+
+#: templates/includes/content/index.html:166
+#: templates/includes/content/index.html:424
+#: templates/includes/content/index_rus.html:166
+#: templates/includes/content/index_rus.html:424
+msgid ""
+"help with transfer, car rental, dry cleaning - takes care of all household "
+"issues in the new country 24/7"
+msgstr "поможет с трансфером, арендой автомобиля, химчисткой — решает все бытовые вопросы в новой стране 24/7"
+
+#: templates/includes/content/index.html:171
+#: templates/includes/content/index.html:438
+#: templates/includes/content/index_rus.html:171
+#: templates/includes/content/index_rus.html:438
+msgid "Tourist destination"
+msgstr "Туристическое направление"
+
+#: templates/includes/content/index.html:182
+#: templates/includes/content/index.html:449
+#: templates/includes/content/index_rus.html:182
+#: templates/includes/content/index_rus.html:449
+msgid ""
+"advise you on proven places to visit and restaurants so you can enjoy your "
+"holiday"
+msgstr "расскажем, куда съездить и где вкусно поесть, чтобы вы могли спокойно насладиться отдыхом"
+
+#: templates/includes/content/index.html:185
+#: templates/includes/content/index.html:459
+#: templates/includes/content/index_rus.html:459
+msgid "Rent an apartment in Dubai"
+msgstr "Снять квартиру в Дубае"
+
+#: templates/includes/content/index.html:212
+#: templates/includes/content/index.html:466
+#: templates/includes/content/index_rus.html:212
+#: templates/includes/content/index_rus.html:466
+msgid "Deep analysis of the market situation"
+msgstr "Глубокая аналитика рыночной ситуации"
+
+#: templates/includes/content/index.html:223
+#: templates/includes/content/index.html:477
+#: templates/includes/content/index_rus.html:223
+#: templates/includes/content/index_rus.html:477
+msgid ""
+"promise to find the best solutions depending on your requirements based on "
+"cost-effectiveness of investments, infrastructure, environment and profit "
+"prospects"
+msgstr "в зависимости от ваших запросов подберём наилучший вариант по рентабельности, инфраструктуре, окружающей застройке и перспективой прибыли"
+
+#: templates/includes/content/index.html:239
+#: templates/includes/content/index.html:502
+#: templates/includes/content/index_rus.html:239
+#: templates/includes/content/index_rus.html:502
+msgid ""
+"accompany through process of receiving all documents from beginning to the "
+"end"
+msgstr "сопроводим в получении всех документов от начала до конца"
+
+#: templates/includes/content/index.html:244
+#: templates/includes/content/index.html:516
+#: templates/includes/content/index_rus.html:244
+#: templates/includes/content/index_rus.html:516
+msgid "Guarantee of legal obligations"
+msgstr "Гарантия юридических обязательств"
+
+#: templates/includes/content/index.html:255
+#: templates/includes/content/index.html:527
+#: templates/includes/content/index_rus.html:255
+#: templates/includes/content/index_rus.html:527
+msgid ""
+"we undertake responsibility for documents work and legal support of the "
+"transaction"
+msgstr "берём на себя всю ответственность по работе с документами и юр. сопровождению сделки"
+
+#: templates/includes/content/index.html:260
+#: templates/includes/content/index.html:541
+#: templates/includes/content/index_rus.html:260
+#: templates/includes/content/index_rus.html:541
+msgid "Seeking out Distress Deal acquisitions"
+msgstr "Поиск сделок Distress Deal"
+
+#: templates/includes/content/index.html:271
+#: templates/includes/content/index.html:552
+#: templates/includes/content/index_rus.html:271
+#: templates/includes/content/index_rus.html:552
+msgid ""
+"we will provide access to the database of real estate with prices bellow "
+"their market value and help review to get a good deal."
+msgstr "предоставим доступ к базе недвижимости с ценой ниже рыночной и поможем проверить и заключить выгодную сделку"
+
+#: templates/includes/content/index.html:276
+#: templates/includes/content/index.html:566
+#: templates/includes/content/index_rus.html:276
+#: templates/includes/content/index_rus.html:566
+msgid "Asset management"
+msgstr "Доверительное управление"
+
+#: templates/includes/content/index.html:287
+#: templates/includes/content/index.html:577
+#: templates/includes/content/index_rus.html:287
+#: templates/includes/content/index_rus.html:577
+msgid ""
+"manage apartments: maintenance of the renovation of property, putting in "
+"rent/sale, as well as maximizing your profit"
+msgstr "берем квартиры в управление: проконтролируем ремонт, обслуживание и сдачу/продажу, максимизируем вашу прибыль"
+
+#: templates/includes/content/index.html:292
+#: templates/includes/content/index.html:591
+#: templates/includes/content/index_rus.html:292
+#: templates/includes/content/index_rus.html:591
+msgid "Choice of furniture"
+msgstr "Подбор мебели"
+
+#: templates/includes/content/index.html:303
+#: templates/includes/content/index.html:602
+#: templates/includes/content/index_rus.html:303
+#: templates/includes/content/index_rus.html:602
+msgid ""
+"if apartments are unfurnished we will hire a team of professional designers "
+"and monitor the processes"
+msgstr "если квартира не меблирована, наймём команду дизайнеров и проконтролируем процессы"
+
+#: templates/includes/content/index.html:306
+#: templates/includes/content/index.html:612
+#: templates/includes/content/index_rus.html:306
+#: templates/includes/content/index_rus.html:612
+msgid "Purchase an apartment in Dubai"
+msgstr "Купить квартиру в Дубае"
+
+#: templates/includes/content/index.html:228
+#: templates/includes/content/index.html:491
+#: templates/includes/content/index_rus.html:228
+#: templates/includes/content/index_rus.html:491
+msgid "Assistance in visa and residence permit"
+msgstr "Помощь в оформлении Визы и ВНЖ"
+
+#: templates/includes/content/index.html:621
+#: templates/includes/content/index_rus.html:617
+msgid "We love our work and "
+msgstr "Мы любим свою работу, "
+
+#: templates/includes/content/index.html:622
+#: templates/includes/content/index_rus.html:618
+msgid " are always working "
+msgstr "ежедневно работаем "
+
+#: templates/includes/content/index.html:625
+#: templates/includes/content/index_rus.html:621
+msgid "on quality to provide"
+msgstr "над качеством и предоставляем "
+
+#: templates/includes/content/index.html:627
+msgid "the best service "
+msgstr "лучший сервис на рынке "
+
+#: templates/includes/content/index.html:629
+#: templates/includes/content/index_rus.html:625
+msgid " on the Dubai real estate market"
+msgstr "недвижимости Дубая."
+
+#: templates/includes/content/index.html:631
+#: templates/includes/content/index_rus.html:632
+msgid "See for yourself by "
+msgstr "Вы можете проверить, просто "
+
+#: templates/includes/content/index.html:631
+msgid " calling us"
+msgstr " позвонив нам"
+
+#: templates/includes/content/index.html:631
+msgid " or "
+msgstr " или "
+
+#: templates/includes/content/index.html:631
+#: templates/includes/content/index_rus.html:632
+msgid "simply submitting a request."
+msgstr "оставив заявку"
+
+#: templates/includes/content/index.html:636
+#: templates/includes/content/index_rus.html:637
+msgid "Best premium real estate in Dubai"
+msgstr "Лучшая премиум недвижимость Дубая"
+
+#: templates/includes/content/index.html:639
+#: templates/includes/content/index_rus.html:640
+msgid "for Rent"
+msgstr "для Аренды"
+
+#: templates/includes/content/index.html:651
+#: templates/includes/content/index.html:685
+#: templates/includes/content/index.html:1120
+#: templates/includes/content/index_rus.html:652
+#: templates/includes/content/index_rus.html:686
+msgid "No Offers Available"
+msgstr "Нет обьектов"
+
+#: templates/includes/content/index.html:655
+#: templates/includes/content/index.html:791
+#: templates/includes/content/index_rus.html:656
+#: templates/includes/content/index_rus.html:792
+msgid "Go to Rent catalogue"
+msgstr "Перейти в каталог Аренды"
+
+#: templates/includes/content/index.html:673
+#: templates/includes/content/index_rus.html:674
+msgid "for Purchase"
+msgstr "для Покупки"
+
+#: templates/includes/content/index.html:689
+#: templates/includes/content/index.html:883
+#: templates/includes/content/index_rus.html:690
+#: templates/includes/content/index_rus.html:884
+msgid "Go to Purchase catalogue"
+msgstr "Перейти в каталог Покупки"
+
+#: templates/includes/content/index.html:713
+msgid "Services of DADI"
+msgstr "Услуги DADI"
+
+#: templates/includes/content/index.html:714
+#: templates/includes/content/index_rus.html:715
+msgid "Individual selection"
+msgstr "Индивидуальный подбор"
+
+#: templates/includes/content/index.html:715
+#: templates/includes/content/index_rus.html:716
+msgid "of property for rent or purchase based on your request"
+msgstr "недвижимости для аренды или покупки под ваши запросы"
+
+#: templates/includes/content/index.html:726
+#: templates/includes/content/index_rus.html:727
+msgid "Leave a request"
+msgstr "Оставить заявку"
+
+#: templates/includes/content/index.html:754
+#: templates/includes/content/index_rus.html:755
+msgid "Booking service"
+msgstr "Букинг-сервис"
+
+#: templates/includes/content/index.html:757
+#: templates/includes/content/index_rus.html:758
+msgid ""
+"availability of apartments and bookings can be done through a convenient "
+"calendar"
+msgstr "бронируйте свободные апартаменты через удобный календарь"
+
+#: templates/includes/content/index.html:758
+#: templates/includes/content/index_rus.html:759
+msgid "use personal profile for payments and communication with our managers"
+msgstr "оплачивайте, общайтесь с менеджером и отслеживайте информацию в личном кабинете"
+
+#: templates/includes/content/index.html:760
+#: templates/includes/content/index_rus.html:761
+msgid "Book an apartment"
+msgstr "Забронировать квартиру"
+
+#: templates/includes/content/index.html:773
+#: templates/includes/content/index_rus.html:774
+msgid ""
+"help with transfer, car rental, dry cleaning - assistant will take care of "
+"all household issues in the new country 24/7"
+msgstr "поможет с трансфером, арендой автомобиля, химчисткой - решит все бытовые вопросы в новой стране 24/7"
+
+#: templates/includes/content/index.html:774
+#: templates/includes/content/index_rus.html:775
+msgid "Book transfer from the airport"
+msgstr "Заказать трансфер из аэропорта"
+
+#: templates/includes/content/index.html:786
+#: templates/includes/content/index_rus.html:787
+msgid "Legal support"
+msgstr "Юридическое сопровождение"
+
+#: templates/includes/content/index.html:787
+#: templates/includes/content/index_rus.html:788
+msgid ""
+"in case of leasehold term starting from 3 months we will take care of "
+"checking all document and concluding the contract of rent with the proprietor"
+msgstr "при аренде на срок более 3 месяцев, поможем проверить документы и заключить выгодный договор с собственником"
+
+#: templates/includes/content/index.html:788
+#: templates/includes/content/index_rus.html:789
+msgid "Leave a long-term lease application"
+msgstr "Оставить заявку на долгосрочную аренду"
+
+#: templates/includes/content/index.html:805
+#: templates/includes/content/index_rus.html:806
+msgid "Remote property purchase"
+msgstr "Дистанционная покупка недвижимости"
+
+#: templates/includes/content/index.html:808
+#: templates/includes/content/index_rus.html:809
+msgid "we organize online viewing"
+msgstr "we organize online viewing"
+
+#: templates/includes/content/index.html:809
+#: templates/includes/content/index_rus.html:810
+msgid ""
+"prepare and translate all necessary documents for the purchase of real "
+"estate from any place in the world"
+msgstr "подготовим и переведем все необходимые документы для покупки недвижимости из любой точки мира"
+
+#: templates/includes/content/index.html:812
+#: templates/includes/content/index_rus.html:813
+msgid "Online application for the selection of real estate"
+msgstr "Заявка на подбор недвижимости"
+
+#: templates/includes/content/index.html:822
+#: templates/includes/content/index_rus.html:823
+msgid "Rent management"
+msgstr "Арендное управление"
+
+#: templates/includes/content/index.html:823
+#: templates/includes/content/index_rus.html:824
+msgid "We assume all responsibilities:"
+msgstr "Берем на себя все обязанности:"
+
+#: templates/includes/content/index.html:826
+#: templates/includes/content/index_rus.html:827
+msgid "search for tenants"
+msgstr "поиск арендаторов"
+
+#: templates/includes/content/index.html:827
+#: templates/includes/content/index_rus.html:828
+msgid "conclusion of rental agreement"
+msgstr "заключение договоров аренды"
+
+#: templates/includes/content/index.html:828
+#: templates/includes/content/index_rus.html:829
+msgid "lease payments"
+msgstr "взимание арендных платежей"
+
+#: templates/includes/content/index.html:829
+#: templates/includes/content/index_rus.html:830
+msgid "dispute settlement with tenants"
+msgstr "урегулирование споров с арендаторами"
+
+#: templates/includes/content/index.html:830
+#: templates/includes/content/index_rus.html:831
+msgid "general management of real estate for the owner"
+msgstr "общее управление недвижимостью в интересах собственника"
+
+#: templates/includes/content/index.html:833
+#: templates/includes/content/index_rus.html:834
+msgid "We will ensure maximum profitability and protection of your interests."
+msgstr "Обеспечим максимальную доходность и&nbsp;защиту ваших интересов."
+
+#: templates/includes/content/index.html:843
+#: templates/includes/content/index_rus.html:844
+msgid "Legal guarantees"
+msgstr "Юридические гарантии"
+
+#: templates/includes/content/index.html:844
+#: templates/includes/content/index_rus.html:845
+msgid ""
+"we take full responsibility for documents, obtaining residence permits, "
+"communication and contracting."
+msgstr "Берем на себя всю ответственность по работе с документами, получении ВНЖ, коммуникации и оформлении договоров"
+
+#: templates/includes/content/index.html:854
+msgid "Investing with DADI"
+msgstr "Инвестирование вместе&nbsp;с&nbsp;DADI"
+
+#: templates/includes/content/index.html:855
+#: templates/includes/content/index_rus.html:856
+msgid ""
+"We are existing investors and offer our loyal customers advantageous "
+"wholesale real estate purchases from developers. Invest in audited projects "
+"with us."
+msgstr "Мы являемся действующими инвесторами и предлагаем нашим преданным клиентам выгодные оптовые покупки недвижимости у застройщиков. Инвестируйте в проверенные проекты вместе с нами"
+
+#: templates/includes/content/index.html:856
+#: templates/includes/content/index_rus.html:857
+msgid "Invest with DADI"
+msgstr "Заявка на подбор недвижимости"
+
+#: templates/includes/content/index.html:866
+#: templates/includes/content/index_rus.html:867
+msgid "Property valuation"
+msgstr "Оценка недвижимости"
+
+#: templates/includes/content/index.html:867
+#: templates/includes/content/index_rus.html:868
+msgid ""
+"We will professionally evaluate your property for sale, consult on the "
+"nuances and help to form an offer for the buyer."
+msgstr "Профессионально оценим вашу недвижимость для продажи, проконсультируем по нюансам и поможем сформировать предложение для покупателя."
+
+#: templates/includes/content/index.html:868
+#: templates/includes/content/index_rus.html:869
+msgid "List my property"
+msgstr "Заявка на оценку недвижимости"
+
+#: templates/includes/content/index.html:878
+#: templates/includes/content/index_rus.html:879
+msgid "Urgent sale of the property"
+msgstr "Срочный выкуп недвижимости"
+
+#: templates/includes/content/index.html:879
+msgid "We&quot;ll assess the property within 24 hours since properties&quot; showings or will add the project to our database."
+msgstr "Выкупим вашу недвижимость за 24 часа с момента просмотра или добавим проект в нашу базу"
+
+#: templates/includes/content/index.html:880
+#: templates/includes/content/index_rus.html:881
+msgid "Application for urgent sale"
+msgstr "Заявка на оценку недвижимости"
+
+#: templates/includes/content/index.html:913
+#: templates/includes/content/index_rus.html:914
+msgid "Our values"
+msgstr "Наши принципы"
+
+#: templates/includes/content/index.html:923
+#: templates/includes/content/index_rus.html:924
+msgid "Support at all stages"
+msgstr "Поддержка на всех этапах"
+
+#: templates/includes/content/index.html:924
+#: templates/includes/content/index_rus.html:925
+msgid ""
+"DADI Agent Manager will contact you on all questions, will explain "
+"processes, nuances and professionally accompany all legal aspects"
+msgstr "Менеджер-агент DADI на связи с вами по всем вопросам, объяснит процессы и нюансы, профессионально сопроводит все юридические аспекты"
+
+#: templates/includes/content/index.html:935
+#: templates/includes/content/index_rus.html:936
+msgid "Excellent service"
+msgstr "Великолепный сервис"
+
+#: templates/includes/content/index.html:936
+#: templates/includes/content/index_rus.html:937
+msgid ""
+"We focus on the service quality and comfort of our customers, so all the "
+"mechanisms work like clocks and all agents go through an in-person screening "
+"from the key persons of the company"
+msgstr "Мы делаем акцент на качество сервиса и комфорт наших клиентов, поэтому все механизмы работают как часы и все агенты проходят личный отбор у главных лиц компании"
+
+#: templates/includes/content/index.html:947
+#: templates/includes/content/index_rus.html:948
+msgid "Long-term cooperation"
+msgstr "Долгосрочное сотрудничество"
+
+#: templates/includes/content/index.html:948
+#: templates/includes/content/index_rus.html:949
+msgid ""
+"Our goal isn’t just to make a deal. We work for the long term perspective: "
+"we accompany our customers in new projects, share news and become friends"
+msgstr "Наша цель - не просто провести сделку. Мы работаем на долгосрочную перспективу: сопровождаем наших клиентов в новых проектах, делимся новостями и становимся друзьями"
+
+#: templates/includes/content/index.html:1028
+msgid "No Review Available"
+msgstr "Нет отзывов"
+
+#: templates/includes/content/index.html:1052
+#: templates/includes/content/index_rus.html:1277
+msgid "Find the best solution for your request"
+msgstr "Подберём лучшее решение под ваш запрос"
+
+#: templates/includes/content/index.html:1053
+#: templates/includes/content/index_rus.html:1278
+msgid "Leave a request for a free consultation"
+msgstr "Оставьте заявку на бесплатную консультацию"
+
+#: templates/includes/content/index.html:1065
+#: templates/includes/content/index.html:1073
+#: templates/includes/content/index.html:1236
+#: templates/includes/content/index.html:1244
+#: templates/includes/content/index_rus.html:1290
+#: templates/includes/content/index_rus.html:1298
+#: templates/includes/footer/footer.html:128
+#: templates/includes/footer/footer.html:136
+#: templates/includes/footer/footer.html:209
+#: templates/includes/footer/footer.html:217
+msgid "Call me"
+msgstr "Позвонить мне"
+
+#: templates/includes/content/index.html:1074
+#: templates/includes/content/index_rus.html:1299
+#: templates/includes/footer/footer.html:137
+#: templates/includes/footer/footer.html:218
+msgid "Write me"
+msgstr "Написать мне"
+
+#: templates/includes/content/index.html:1075
+#: templates/includes/content/index_rus.html:1300
+#: templates/includes/footer/footer.html:138
+#: templates/includes/footer/footer.html:219
+msgid "Write later"
+msgstr "Написать позже"
+
+#: templates/includes/content/index.html:1076
+#: templates/includes/content/index_rus.html:1301
+#: templates/includes/footer/footer.html:139
+#: templates/includes/footer/footer.html:220
+msgid "Call later"
+msgstr "Позвонить позже"
+
+#: templates/includes/content/index.html:1082
+#: templates/includes/content/index_rus.html:1307
+#: templates/includes/footer/footer.html:226
+msgid "Receive a consultation"
+msgstr "Получить консультацию"
+
+#: templates/includes/content/index.html:1087
+#: templates/includes/content/index_rus.html:1312
+#: templates/includes/footer/footer.html:59
+#: templates/includes/footer/footer.html:150
+#: templates/includes/footer/footer.html:231
+#: templates/includes/footer/footer.html:275
+msgid "By submitting the form, you consent to the processing of personal data"
+msgstr "Отправляя форму, вы даёте согласие на обработку персональных данных"
+
+#: templates/includes/content/index.html:1097
+#: templates/includes/content/index_rus.html:1322
+msgid "Dubai’s Best Property Catalogs 2023-2024"
+msgstr "Каталоги лучшей недвижимости Дубая 2023-2024"
+
+#: templates/includes/content/index.html:1106
+#: templates/includes/content/index_rus.html:1328
+msgid "Download PDF"
+msgstr "Скачать PDF"
+
+#: templates/includes/content/index.html:1112
+#: templates/includes/content/index_rus.html:1334
+msgid "Catalog name"
+msgstr "Название каталога"
+
+#: templates/includes/content/index.html:1113
+msgid "A short description of the catalog or project, what\\"
+msgstr "Короткое описание каталога или проекта, что внутри"
+
+#: templates/includes/content/index.html:1143
+msgid "DADI team"
+msgstr "Команда DADI"
+
+#: templates/includes/content/index.html:1167
+msgid ""
+"We are experts in the field of real estate of large companies in Russia and "
+"CIS for more than 10 years."
+msgstr "Мы эксперты в области недвижимости крупных компаний РФ и СНГ более 10 лет."
+
+#: templates/includes/content/index.html:1168
+msgid ""
+"Efficiency, headache relieve, accompaniment of our clients - all these are "
+"the basics of our work. We want to do more for you, bring the best of the "
+"Russian market experience in realities of Dubai."
+msgstr "Оперативность, полное снятие головной боли, комфортное сопровождение наших клиентов - всё это основы нашей работы. Мы хотим делать для вас большее, привносить лучшее из опыта российского рынка в быстрые реалии Дубая."
+
+#: templates/includes/content/index.html:1169
+msgid ""
+"Every day we work on the quality of service and attract the best teams to "
+"outsource in analytics and training."
+msgstr "Каждый день работаем над качеством сервиса и привлекаем лучшие команды на аутсорс в аналитике и обучении."
+
+#: templates/includes/content/index.html:1170
+msgid ""
+"Our goal is not only to conduct a deal. We are interested in work for the "
+"long term perspective: we accompany our customers in new projects, share "
+"news and become friends."
+msgstr "Наша цель - не просто провести сделку. Мы работаем на долгосрочную перспективу: сопровождаем наших клиентов в новых проектах, делимся новостями и становимся друзьями."
+
+#: templates/includes/content/index.html:1179
+msgid "Blog about Dubai&quot;s real estate and news"
+msgstr "Блог о недвижимости и новостях Дубая"
+
+#: templates/includes/content/index.html:1180
+msgid "Go to the blog page"
+msgstr "Перейти в Блог"
+
+#: templates/includes/content/index.html:1188
+#: templates/includes/content/index.html:1196
+#: templates/includes/content/index.html:1204
+msgid "Start of construction of the residential complex"
+msgstr "Старт строительства комплекса"
+
+#: templates/includes/content/index.html:1188
+#: templates/includes/content/index.html:1196
+#: templates/includes/content/index.html:1204
+msgid "Read"
+msgstr ""
+
+#: templates/includes/content/index.html:1221
+msgid "The best property according to your criteria"
+msgstr "Читать"
+
+#: templates/includes/content/index.html:1222
+msgid "Leave a request for "
+msgstr "Оставьте заявку на "
+
+#: templates/includes/content/index.html:1222
+msgid "a free consultation"
+msgstr "бесплатную консультацию"
+
+#: templates/includes/content/index.html:1245
+msgid "2 guests"
+msgstr "2 гостя"
+
+#: templates/includes/content/index.html:1246
+msgid "3 guests"
+msgstr "3 гостя"
+
+#: templates/includes/content/index.html:1247
+msgid "More than 3 guests"
+msgstr "Более 3 гостей"
+
+#: templates/includes/content/index.html:1253
+#: templates/includes/footer/footer.html:54
+msgid "Get a consultation"
+msgstr ""
+
+#: templates/includes/content/index.html:1258
+msgid ""
+"y submitting the form, you consent to the processing of personal data</span>"
+msgstr "Получить консультацию"
+
+#: templates/includes/content/index_rus.html:66
+msgid "Why choose DADI "
+msgstr "Почему выбирают DADI"
+
+#: templates/includes/footer/footer.html:16
+msgid "Client&quot;s personal account"
+msgstr "Личный кабинет клиента"
+
+#: templates/includes/footer/footer.html:17
+#: templates/includes/footer/footer.html:335
+msgid "Log in"
+msgstr "Войти"
+
+#: templates/includes/footer/footer.html:24
+#: templates/includes/header/header.html:44
+msgid "Buy"
+msgstr "Покупка"
+
+#: templates/includes/footer/footer.html:25
+#: templates/includes/header/header.html:46
+msgid "Blog"
+msgstr "Блог"
+
+#: templates/includes/footer/footer.html:26
+#: templates/includes/header/header.html:47
+msgid "About DADI"
+msgstr "О DADI"
+
+#: templates/includes/footer/footer.html:35
+msgid "Phone:"
+msgstr "Телефон:"
+
+#: templates/includes/footer/footer.html:38
+msgid "Working hours in Dubai:"
+msgstr "Время работы по Дубаю:"
+
+#: templates/includes/footer/footer.html:42
+msgid "Office"
+msgstr "Офис"
+
+#: templates/includes/footer/footer.html:43
+msgid "Al Gurg Tower 3, office 3, Dubai P Floor, UAE"
+msgstr "Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ"
+
+#: templates/includes/footer/footer.html:50
+msgid "Ask a question"
+msgstr "Задать вопрос"
+
+#: templates/includes/footer/footer.html:66
+msgid "Website"
+msgstr "Разработка сайта"
+
+#: templates/includes/footer/footer.html:67
+msgid "Copying materials without the author’s consent is prohibited"
+msgstr "Копирование материалов без согласия автора запрещено"
+
+#: templates/includes/footer/footer.html:95
+msgid "Privacy policy"
+msgstr "Политика конфиденциальности"
+
+#: templates/includes/footer/footer.html:115
+#: templates/includes/footer/footer.html:196
+msgid "Consultation with DADI manager"
+msgstr "Консультация менеджера DADI"
+
+#: templates/includes/footer/footer.html:197
+#: templates/includes/footer/footer.html:116
+msgid "Leave your details, "
+msgstr "Оставьте свои данные, "
+
+#: templates/includes/footer/footer.html:116
+msgid "our manager will contact you within a day"
+msgstr "наш менеджер свяжется с вами в течение дня"
+
+#: templates/includes/footer/footer.html:145
+msgid "Get consultation"
+msgstr "Получить консультацию"
+
+#: templates/includes/footer/footer.html:154
+#: templates/includes/footer/footer.html:166
+msgid "Write to "
+msgstr "Написать в "
+
+#: templates/includes/footer/footer.html:197
+msgid "our agent will contact you during the day"
+msgstr "наш агент свяжется с вами в течение дня"
+
+#: templates/includes/footer/footer.html:234
+msgid "or write to us at"
+msgstr "или напишите нам в"
+
+#: templates/includes/footer/footer.html:257
+msgid "Complete the form to get "
+msgstr "Заполните форму, чтобы получить "
+
+#: templates/includes/footer/footer.html:257
+msgid "the full catalogue"
+msgstr "полный каталог"
+
+#: templates/includes/footer/footer.html:270
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/includes/footer/footer.html:291
+msgid "Registration"
+msgstr "Регистрация"
+
+#: templates/includes/footer/footer.html:296
+msgid "Country/region"
+msgstr "Страна/регион"
+
+#: templates/includes/footer/footer.html:302
+msgid "We will send you an SMS to confirm your number phone."
+msgstr "Мы отправим вам SMS для подтверждения номера телефона."
+
+#: templates/includes/footer/footer.html:309
+msgid "We will send you a verification code mail."
+msgstr "Мы отправим вам код для подтверждения почты."
+
+#: templates/includes/footer/footer.html:313
+msgid "Continue"
+msgstr "Продолжить"
+
+#: templates/includes/footer/footer.html:322
+msgid "Via email"
+msgstr "С помощью e-mail"
+
+#: templates/includes/footer/footer.html:330
+msgid "Using a phone number"
+msgstr "С помощью номера телефона"
+
+#: templates/includes/footer/footer.html:334
+msgid "Already have an account?"
+msgstr "У вас уже есть аккаунт?"
+
+#: templates/includes/footer/footer.html:353
+msgid "Confirm your number"
+msgstr "Подтвердите номер"
+
+#: templates/includes/footer/footer.html:354
+msgid "Enter the code sent to the number +7 (9**) ***-**-**"
+msgstr "Введите код, высланный на номер +7 (9**) ***-**-**"
+
+#: templates/includes/footer/footer.html:362
+#: templates/includes/footer/footer.html:376
+msgid "Didn&quot;t receive the code?"
+msgstr "Не получили код?"
+
+#: templates/includes/footer/footer.html:363
+#: templates/includes/footer/footer.html:377
+msgid "Send again"
+msgstr "Отправить ещё раз"
+
+#: templates/includes/footer/footer.html:367
+msgid "Confirm your email"
+msgstr "Подтвердите почту"
+
+#: templates/includes/footer/footer.html:368
+msgid "Enter the code sent to the address *******@gmail.com"
+msgstr "Введите код, высланный на адрес *******@gmail.com"
+
+#: templates/includes/footer/footer.html:381
+msgid "Choose another way"
+msgstr "Выбрать другой способ"
+
+#: templates/includes/header/header.html:16
+msgid "Change"
+msgstr "Выбрать"
+
+#: templates/includes/header/header.html:45
+msgid "Catalogs"
+msgstr "Каталоги"
+
+#: templates/includes/header/header.html:51
+msgid "Write to messenger"
+msgstr "Написать в мессенджер"

@@ -8,6 +8,7 @@ from realtors.models import Realtor
 
 
 def index(request):
+    print('request.LANGUAGE_CODE:', request.LANGUAGE_CODE)
     page = request.GET.get('page')
 
     listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
@@ -19,6 +20,7 @@ def index(request):
     paged_rent_listings = rent_paginator.get_page(page)
 
     context = {
+        'range': range(9),
         'rent_listings': paged_rent_listings,
         'listings': paged_listings,
         'state_choices': state_choices,

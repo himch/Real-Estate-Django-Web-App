@@ -6,17 +6,17 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide img_cover img_full">
           <picture>
-            <source type="image/webp" srcset="" data-srcset="media/{{ listing.photo_main }}"/><img class="lazy " width="281" height="417" src="" data-src="media/{{ listing.photo_main }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ listing.photo_main.url }}" alt="" loading="lazy"/>
           </picture>
         </div>
         <div class="swiper-slide img_cover img_full">
           <picture>
-            <source type="image/webp" srcset="" data-srcset="media/{{ listing.photo_1 }}"/><img class="lazy " width="281" height="417" src="" data-src="media/{{ listing.photo_1 }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="" data-srcset="{{ listing.photo_1.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ listing.photo_1.url }}" alt="" loading="lazy"/>
           </picture>
         </div>
         <div class="swiper-slide img_cover img_full">
           <picture>
-            <source type="image/webp" srcset="" data-srcset="media/{{ listing.photo_2 }}"/><img class="lazy " width="281" height="417" src="" data-src="media/{{ listing.photo_2 }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="" data-srcset="{{ listing.photo_2.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ listing.photo_2.url }}" alt="" loading="lazy"/>
           </picture>
         </div>
       </div>

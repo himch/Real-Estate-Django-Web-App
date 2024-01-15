@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# print('BASE_DIR:', BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -47,12 +48,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'realestate.urls'
@@ -69,6 +70,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'listings.templatetags.i18n_urls',
+            ]
         },
     },
 ]
@@ -133,18 +137,24 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_THOUSAND_SEPARATOR = True
 
-LOCALE_PATHS = (
-    'locale',
-    # os.path.join(PROJECT_DIR, 'locale'),
-)
-
 USE_L10N = True
 
 USE_TZ = True
 
 SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
+# print('SETTINGS_PATH:', SETTINGS_PATH)
 
 PROJECT_ROOT = os.path.normpath(os.path.dirname(SETTINGS_PATH))
+# print('PROJECT_ROOT:', PROJECT_ROOT)
+
+
+LOCALE_PATHS = (
+    # 'locale',
+    os.path.join(PROJECT_ROOT, 'locale'),
+)
+
+# print('locale path:', os.path.join(PROJECT_ROOT, 'locale'))
+
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),

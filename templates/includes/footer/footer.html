@@ -1,4 +1,6 @@
+{% load i18n %}
 {% load static %}
+
 <!-- Footer -->
 <footer class="footer text-c2">
   <div class="container margin-center">
@@ -12,17 +14,17 @@
               </picture>
             </div>
             <div class="footer__cabinet">
-              <div class="footer__cabinet-title">Личный кабинет клиента</div>
-              <div class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500 modal__show" data-modal="register">Войти</div>
+              <div class="footer__cabinet-title">{% trans 'Client&quot;s personal account' %}<!--Личный кабинет клиента--></div>
+              <div class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500 modal__show" data-modal="register">{% trans 'Log in' %}<!--Войти--></div>
             </div>
           </div>
           <div class="footer__right">
             <div class="footer__list">
               <ul class="flex flex-col">
-                <li><a href="{% url 'arenda' %}">Аренда</a></li>
-                <li><a href="{% url 'buy' %}">Покупка</a></li>
-                <li><a href="{% url 'blog' %}">Блог</a></li>
-                <li><a href="{% url 'about' %}">О DADI</a></li>
+                <li><a href="{% url 'arenda' %}">{% trans 'Rent' %}<!--Аренда--></a></li>
+                <li><a href="{% url 'buy' %}">{% trans 'Buy' %}<!--Покупка--></a></li>
+                <li><a href="{% url 'blog' %}">{% trans 'Blog' %}<!--Блог--></a></li>
+                <li><a href="{% url 'about' %}">{% trans 'About DADI' %}<!--О DADI--></a></li>
               </ul>
             </div>
           </div>
@@ -31,39 +33,39 @@
       <div class="footer__top-center margin-center">
         <div class="footer__links flex flex-col">
           <div class="footer__link">
-            <div class="footer__link-title">Телефон:</div><a class="footer__link-subtitle" href="tel:+97145859538">+971 4 585 9538</a>
+            <div class="footer__link-title">{% trans 'Phone:' %}<!--Телефон:--></div><a class="footer__link-subtitle" href="tel:+97145859538">+971 4 585 9538</a>
           </div>
           <div class="footer__link">
-            <div class="footer__link-title">Время работы по Дубаю:</div>
+            <div class="footer__link-title">{% trans 'Working hours in Dubai:' %}<!--Время работы по Дубаю:--></div>
             <div class="footer__link-subtitle">9:00-21:00</div>
           </div>
           <div class="footer__link">
-            <div class="footer__link-title">Офис</div>
-            <div class="footer__link-subtitle">Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ</div>
+            <div class="footer__link-title">{% trans 'Office' %}<!--Офис--></div>
+            <div class="footer__link-subtitle">{% trans 'Al Gurg Tower 3, office 3, Dubai P Floor, UAE' %}<!--Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ--></div>
           </div>
         </div>
       </div>
       <div class="footer__top-right">
         <form>
           <div class="footer__form">
-            <div class="footer__form-title">Задать вопрос</div>
+            <div class="footer__form-title">{% trans 'Ask a question' %}<!--Задать вопрос--></div>
             <div class="footer__form-input w-full">
               <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
             </div>
-            <button class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500" type="submit">Получить консультацию</button>
+            <button class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Get a consultation' %}<!--Получить консультацию--></button>
             <label class="p-check flex flex-ai-center">
               <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                 <picture>
                   <source type="image/webp" srcset="" data-srcset="/img/main/get/check-white.webp"/><img class="lazy " width="15" height="15" src="" data-src="/img/main/get/check-white.png" alt="" loading="lazy"/>
-                </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на&nbsp;обработку персональных данных</span>
+                </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на&nbsp;обработку персональных данных--></span>
             </label>
           </div>
         </form>
       </div>
     </div>
     <div class="footer__bottom flex flex-j-between flex-ai-end">
-      <div class="footer__bottom-left"><a class="footer__web uppercase font-500 flex" href="#!">Разработка сайта</a>
-        <div class="footer__copy uppercase"><span>© 2023 All Right Reserved</span><span>Копирование материалов без согласия автора запрещено</span></div>
+      <div class="footer__bottom-left"><a class="footer__web uppercase font-500 flex" href="#!">{% trans 'Website' %}<!--Разработка сайта--></a>
+        <div class="footer__copy uppercase"><span>© 2023 All Right Reserved</span><span>{% trans 'Copying materials without the author’s consent is prohibited' %}<!--Копирование материалов без согласия автора запрещено--></span></div>
       </div>
       <div class="footer__bottom-center margin-center">
         <div class="contacts__socials flex"><a class="contacts__social flex flex-ai-center flex-j-center" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
@@ -91,7 +93,7 @@
             </picture></a></div>
       </div>
       <div class="footer__bottom-right">
-        <div class="footer__bottom-links flex flex-col"><a class="footer__bottom-link" href="#!">Политика конфиденциальности</a><a class="footer__bottom-link" href="#!">Договор оферты</a></div>
+        <div class="footer__bottom-links flex flex-col"><a class="footer__bottom-link" href="#!">{% trans 'Privacy policy' %}<!--Политика конфиденциальности--></a><a class="footer__bottom-link" href="#!">Offer contract</a></div>
       </div>
     </div>
   </div>
@@ -111,8 +113,8 @@
       </div>
       <form class="relative">
         <div class="get__item-text relative">
-          <div class="get__item-title">Консультация менеджера DADI</div>
-          <div class="get__item-subtitle">Оставьте свои данные, <span class="text-c5">наш менеджер свяжется с вами в течение дня</span></div>
+          <div class="get__item-title">{% trans 'Consultation with DADI manager' %}<!--Консультация менеджера DADI--></div>
+          <div class="get__item-subtitle">{% trans 'Leave your details, ' %}<!--Оставьте свои данные, --><span class="text-c5">{% trans 'our manager will contact you within a day' %}<!--наш менеджер свяжется с вами в течение дня--></span></div>
           <div class="get__item-inputs flex">
             <div class="get__item-input form__input">
               <input type="text" name="name" placeholder="Ваше имя" required="required"/>
@@ -124,7 +126,7 @@
               <div class="p-select relative">
                 <div class="p-select__current flex flex-ai-center flex-j-between">
                   <input type="hidden" name="request" value="Позвонить мне"/>
-                  <div class="p-select__current-item">Позвонить мне</div>
+                  <div class="p-select__current-item">{% trans 'Call me' %}<!--Позвонить мне--></div>
                   <div class="p-select__current-arrow">
                     <picture>
                       <source type="image/webp" srcset="" data-srcset="/img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/get/arrow.png" alt="" loading="lazy"/>
@@ -132,25 +134,25 @@
                   </div>
                 </div>
                 <div class="p-select__abs absolute flex flex-col">
-                  <div class="p-select__abs-item active" data-value="Позвонить мне">Позвонить мне</div>
-                  <div class="p-select__abs-item" data-value="Написать мне">Написать мне</div>
-                  <div class="p-select__abs-item" data-value="Написать позже">Написать позже</div>
-                  <div class="p-select__abs-item" data-value="Позвонить позже">Позвонить позже</div>
+                  <div class="p-select__abs-item active" data-value="Позвонить мне">{% trans 'Call me' %}<!--Позвонить мне--></div>
+                  <div class="p-select__abs-item" data-value="Написать мне">{% trans 'Write me' %}<!--Написать мне--></div>
+                  <div class="p-select__abs-item" data-value="Написать позже">{% trans 'Write later' %}<!--Написать позже--></div>
+                  <div class="p-select__abs-item" data-value="Позвонить позже">{% trans 'Call later' %}<!--Позвонить позже--></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="get__item-end">
-            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Получить консультацию</button>
+            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Get consultation' %}<!--Получить консультацию--></button>
             <label class="p-check flex flex-ai-center">
               <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                 <picture>
                   <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
+                </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
             </label>
           </div>
           <div class="modal__socials flex flex-wrap flex-j-end"><a class="modal__socials-item flex flex-ai-center" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
-              <div class="modal__socials-title">Написать в <span class="text-underline">WhatsApp</span></div>
+              <div class="modal__socials-title">{% trans 'Write to ' %}<!--Написать в --><span class="text-underline">WhatsApp</span></div>
               <div class="modal__socials-svg">
                 <picture>
                   <source type="image/webp" srcset="" data-srcset="/img/modal/type/what.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/modal/type/what.png" alt="" loading="lazy"/>
@@ -162,7 +164,7 @@
                   <source type="image/webp" srcset="" data-srcset="/img/modal/type/call.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/modal/type/call.png" alt="" loading="lazy"/>
                 </picture>
               </div></a><a class="modal__socials-item flex flex-ai-center" href="#!">
-              <div class="modal__socials-title">Написать в <span class="text-underline">Telegram</span></div>
+              <div class="modal__socials-title">{% trans 'Write to ' %}<!--Написать в --><span class="text-underline">Telegram</span></div>
               <div class="modal__socials-svg">
                 <picture>
                   <source type="image/webp" srcset="" data-srcset="/img/modal/type/tel.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/modal/type/tel.png" alt="" loading="lazy"/>
@@ -192,8 +194,8 @@
         </div>
         <form class="relative">
           <div class="catalog-cons__text relative">
-            <div class="catalog-cons__title">Консультация менеджера DADI</div>
-            <div class="catalog-cons__subtitle">Оставьте свои данные, <span class="text-c5">наш агент свяжется с вами в течение дня</span></div>
+            <div class="catalog-cons__title">{% trans 'Consultation with DADI manager' %}<!--Консультация менеджера DADI--></div>
+            <div class="catalog-cons__subtitle">{% trans 'Leave your details, ' %}<!--Оставьте свои данные, --><span class="text-c5">{% trans 'our agent will contact you during the day' %}<!--наш агент свяжется с вами в течение дня--></span></div>
             <div class="catalog-cons__inputs flex">
               <div class="form__input">
                 <input type="text" name="name" placeholder="Ваше имя" required="required"/>
@@ -205,7 +207,7 @@
                 <div class="p-select relative">
                   <div class="p-select__current flex flex-ai-center flex-j-between">
                     <input type="hidden" name="request" value="Позвонить мне"/>
-                    <div class="p-select__current-item">Позвонить мне</div>
+                    <div class="p-select__current-item">{% trans 'Call me' %}<!--Позвонить мне--></div>
                     <div class="p-select__current-arrow">
                       <picture>
                         <source type="image/webp" srcset="" data-srcset="/img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/get/arrow.png" alt="" loading="lazy"/>
@@ -213,24 +215,24 @@
                     </div>
                   </div>
                   <div class="p-select__abs absolute flex flex-col">
-                    <div class="p-select__abs-item active" data-value="Позвонить мне">Позвонить мне</div>
-                    <div class="p-select__abs-item" data-value="Написать мне">Написать мне</div>
-                    <div class="p-select__abs-item" data-value="Написать позже">Написать позже</div>
-                    <div class="p-select__abs-item" data-value="Позвонить позже">Позвонить позже</div>
+                    <div class="p-select__abs-item active" data-value="Позвонить мне">{% trans 'Call me' %}<!--Позвонить мне--></div>
+                    <div class="p-select__abs-item" data-value="Написать мне">{% trans 'Write me' %}<!--Написать мне--></div>
+                    <div class="p-select__abs-item" data-value="Написать позже">{% trans 'Write later' %}<!--Написать позже--></div>
+                    <div class="p-select__abs-item" data-value="Позвонить позже">{% trans 'Call later' %}<!--Позвонить позже--></div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="get__item-end">
-              <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Получить консультацию</button>
+              <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Receive a consultation' %}<!--Получить консультацию--></button>
               <label class="p-check flex flex-ai-center">
                 <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                   <picture>
                     <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                  </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
+                  </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
               </label>
             </div>
-            <div class="catalog-cons__end"><span>или напишите нам в</span><span><a class="catalog-cons__end-link flex flex-ai-center" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai."><span class="catalog-cons__end-svg flex-shrink">
+            <div class="catalog-cons__end"><span>{% trans 'or write to us at' %}<!--или напишите нам в--></span><span><a class="catalog-cons__end-link flex flex-ai-center" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai."><span class="catalog-cons__end-svg flex-shrink">
                     <picture>
                       <source type="image/webp" srcset="" data-srcset="/img/catalogs/cons/whatsapp.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/catalogs/cons/whatsapp.png" alt="" loading="lazy"/>
                     </picture></span><span class="catalog-cons__end-title text-c3 text-underline">Whatsapp</span></a></span><span>или</span><span><a class="catalog-cons__end-link flex flex-ai-center" href="#!"><span class="catalog-cons__end-svg flex-shrink">
@@ -253,7 +255,7 @@
     <div class="modal_type__content relative">
       <form class="relative">
         <div class="get__item-text relative">
-          <div class="get__item-title">Заполните форму, чтобы получить <span class="text-c5 text-500">полный каталог</span></div>
+          <div class="get__item-title">{% trans 'Complete the form to get ' %}<!--Заполните форму, чтобы получить --><span class="text-c5 text-500">{% trans 'the full catalogue' %}<!--полный каталог--></span></div>
           <div class="get__item-inputs flex">
             <div class="get__item-input form__input">
               <input type="text" name="name" placeholder="Ваше имя" required="required"/>
@@ -266,12 +268,12 @@
             </div>
           </div>
           <div class="get__item-end">
-            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Отправить</button>
+            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Send' %}<!--Отправить--></button>
             <label class="p-check flex flex-ai-center">
               <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                 <picture>
                   <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
+                </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
             </label>
           </div>
         </div>
@@ -287,29 +289,29 @@
       </picture>
     </div>
     <div class="modal_register__content relative">
-      <div class="modal_register__title text-center text-c5">Регистрация</div>
+      <div class="modal_register__title text-center text-c5">{% trans 'Registration' %}<!--Регистрация--></div>
       <form class="relative">
         <div class="modal_register__inputs flex flex-col">
           <div class="modal_register__inputs-item active">
             <div class="modal_register__input form__input">
-              <div class="modal_register__input-subtitle text-500">Страна/регион</div>
+              <div class="modal_register__input-subtitle text-500">{% trans 'Country/region' %}<!--Страна/регион--></div>
               <div class="modal_register__input-title">Россия (+7)</div>
             </div>
             <div class="modal_register__input form__input">
               <input type="tel" name="tel" placeholder="Номер телефона" required="required"/>
             </div>
-            <div class="modal_register__input-text text-center">Мы отправим вам SMS для подтверждения номера телефона.</div>
+            <div class="modal_register__input-text text-center">{% trans 'We will send you an SMS to confirm your number phone.' %}<!--Мы отправим вам SMS для подтверждения номера телефона.--></div>
           </div>
           <div class="modal_register__inputs-item">
             <div class="modal_register__input form__input">
               <div class="modal_register__input-subtitle text-500">Email</div>
               <input type="email" name="email" placeholder="Ваш Email" required="required"/>
             </div>
-            <div class="modal_register__input-text text-center">Мы отправим вам код для подтверждения почты.</div>
+            <div class="modal_register__input-text text-center">{% trans 'We will send you a verification code mail.' %}<!--Мы отправим вам код для подтверждения почты.--></div>
           </div>
         </div>
         <div class="modal_register__end">
-          <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Продолжить</button>
+          <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Continue' %}<!--Продолжить--></button>
           <div class="modal_register__end-center text-center font-roboto">или</div>
           <div class="modal_register__changes">
             <div class="modal_register__change cursor-pointer flex flex-ai-center active">
@@ -318,7 +320,7 @@
                   <source type="image/webp" srcset="" data-srcset="/img/modal/form/mail.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/modal/form/mail.png" alt="" loading="lazy"/>
                 </picture>
               </div>
-              <div class="modal_register__change-title">С помощью e-mail</div>
+              <div class="modal_register__change-title">{% trans 'Via email' %}<!--С помощью e-mail--></div>
             </div>
             <div class="modal_register__change cursor-pointer flex flex-ai-center">
               <div class="modal_register__change-svg">
@@ -326,12 +328,12 @@
                   <source type="image/webp" srcset="" data-srcset="/img/modal/form/tel.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/modal/form/tel.png" alt="" loading="lazy"/>
                 </picture>
               </div>
-              <div class="modal_register__change-title">С помощью номера телефона</div>
+              <div class="modal_register__change-title">{% trans 'Using a phone number' %}<!--С помощью номера телефона--></div>
             </div>
           </div>
           <div class="modal_register__acc flex flex-ai-center">
-            <div class="modal_register__acc-text">У вас уже есть аккаунт?</div>
-            <div class="modal_register__acc-link text-underline text-500">Войти</div>
+            <div class="modal_register__acc-text">{% trans 'Already have an account?' %}<!--У вас уже есть аккаунт?--></div>
+            <div class="modal_register__acc-link text-underline text-500">{% trans 'Log in' %}<!--Войти--></div>
           </div>
         </div>
       </form>
@@ -349,8 +351,8 @@
       <form class="relative">
         <div class="modal_conf__items">
           <div class="modal_conf__item active">
-            <div class="modal_conf__title modal_register__title text-center text-c5">Подтвердите номер</div>
-            <div class="modal_conf__item-title">Введите код, высланный на номер +7 (9**) ***-**-**</div>
+            <div class="modal_conf__title modal_register__title text-center text-c5">{% trans 'Confirm your number' %}<!--Подтвердите номер--></div>
+            <div class="modal_conf__item-title">{% trans 'Enter the code sent to the number +7 (9**) ***-**-**' %}<!--Введите код, высланный на номер +7 (9**) ***-**-**--></div>
             <div class="modal_conf__item-inputs flex flex-ai-center">
               <input class="modal_conf__item-input" type="text" name="code1"/>
               <input class="modal_conf__item-input" type="text" name="code2"/>
@@ -358,13 +360,13 @@
               <input class="modal_conf__item-input" type="text" name="code4"/>
             </div>
             <div class="modal_conf__request flex flex-ai-center">
-              <div class="modal_conf__request-left">Не получили код?</div>
-              <div class="modal_conf__request-right text-underline cursor-pointer">Отправить ещё раз</div>
+              <div class="modal_conf__request-left">{% trans 'Didn&quot;t receive the code?' %}<!--Не получили код?--></div>
+              <div class="modal_conf__request-right text-underline cursor-pointer">{% trans 'Send again' %}<!--Отправить ещё раз--></div>
             </div>
           </div>
           <div class="modal_conf__item">
-            <div class="modal_conf__title modal_register__title text-center text-c5">Подтвердите почту</div>
-            <div class="modal_conf__item-title">Введите код, высланный на адрес *******@gmail.com</div>
+            <div class="modal_conf__title modal_register__title text-center text-c5">{% trans 'Confirm your email' %}<!--Подтвердите почту--></div>
+            <div class="modal_conf__item-title">{% trans 'Enter the code sent to the address *******@gmail.com' %}<!--Введите код, высланный на адрес *******@gmail.com--></div>
             <div class="modal_conf__item-inputs flex flex-ai-center">
               <input class="modal_conf__item-input" type="text" name="code1"/>
               <input class="modal_conf__item-input" type="text" name="code2"/>
@@ -372,12 +374,12 @@
               <input class="modal_conf__item-input" type="text" name="code4"/>
             </div>
             <div class="modal_conf__request flex flex-ai-center">
-              <div class="modal_conf__request-left">Не получили код?</div>
-              <div class="modal_conf__request-right text-underline cursor-pointer">Отправить ещё раз</div>
+              <div class="modal_conf__request-left">{% trans 'Didn&quot;t receive the code?' %}<!--Не получили код?--></div>
+              <div class="modal_conf__request-right text-underline cursor-pointer">{% trans 'Send again' %}<!--Отправить ещё раз--></div>
             </div>
           </div>
         </div>
-        <div class="modal_conf__end-link text-underline text-500 text-c3 cursor-pointer" data-index="2">Выбрать другой способ</div>
+        <div class="modal_conf__end-link text-underline text-500 text-c3 cursor-pointer" data-index="2">{% trans 'Choose another way' %}<!--Выбрать другой способ--></div>
       </form>
     </div>
   </div>
