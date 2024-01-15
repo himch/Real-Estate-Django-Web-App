@@ -3,7 +3,7 @@ import ast
 
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from .choices import price_choices, bedroom_choices, state_choices
 
