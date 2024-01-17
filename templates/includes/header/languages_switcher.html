@@ -1,0 +1,14 @@
+{% load i18n %}
+{% load i18n_urls %}
+
+<div class="p-lang__current cursor-pointer">{{ LANGUAGE_CODE }}</div>
+<div class="p-lang__abs absolute flex flex-col">
+    {% for language in languages %}
+        {% if language.code != LANGUAGE_CODE %}
+            <a class="p-lang__abs-item" href="{% change_lang language.code %}">
+                {{ language.code }}
+                <!--{{ language.name_local }} -->
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>

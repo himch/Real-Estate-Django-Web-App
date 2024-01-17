@@ -17,5 +17,7 @@ def get_attr(context, obj_name: str, attr_name: str, *args, **kwargs):
     obj = context.get(obj_name, None)
     if obj:
         if hasattr(obj, attr_name):
+            # print('get_attr', obj_name, attr_name, getattr(obj, attr_name))
             return getattr(obj, attr_name)
+    # print('get_attr', obj_name, attr_name, None)
     return None

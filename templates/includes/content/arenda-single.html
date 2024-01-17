@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
+{% load static %}
+{% load l10n %}
 {% load humanize %}
 
-{% block title %} | Rent {% endblock %}
+{% block title %} | Rent | {{ listing.title_a_en }}{% endblock %}
 
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE as listing_title %}
+{% get_attr 'listing' 'description_a_'|add:LANGUAGE_CODE as listing_description %}
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center"><a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">Каталог аренды</a>
-      <div class="rent-single__title font-tenor text-c3">{{ listing.title_a_ru }}</div>
+    <div class="container margin-center"><a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">{% trans 'Purchase catalogue' %}<!--Каталог аренды--></a>
+      <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
       <div class="rent-single__top flex flex-wrap">
         <div class="rent-single__top-area text-c3 text-500 relative"><span>{{ listing.address }}</span>
           <div class="rent-single__top-svg absolute w-full"><svg width="61" height="2" viewBox="0 0 61 2" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,19 +61,19 @@
               <div class="rent-single__tab-content active">
                 <div class="rent-single__days">
                   <div class="rent-single__day flex flex-wrap active">
-                    <div class="rent-single__day-left">₽{{ min_price_month_rub }} в месяц</div>
-                    <div class="rent-single__day-right">₽{{ min_price_rub }} в сутки</div>
+                    <div class="rent-single__day-left">₽{{ min_price_month_rub }} {% trans 'per month' %}<!--в месяц--></div>
+                    <div class="rent-single__day-right">₽{{ min_price_rub }} {% trans 'per night' %}<!--в сутки--></div>
                   </div>
                   <div class="rent-single__day flex flex-wrap">
-                    <div class="rent-single__day-left">${{ min_price_month_usd }} в месяц</div>
-                    <div class="rent-single__day-right">${{ min_price_usd }} в сутки</div>
+                    <div class="rent-single__day-left">${{ min_price_month_usd }} {% trans 'per month' %}<!--в месяц--></div>
+                    <div class="rent-single__day-right">${{ min_price_usd }} {% trans 'per night' %}<!--в сутки--></div>
                   </div>
                   <div class="rent-single__day flex flex-wrap">
-                    <div class="rent-single__day-left">€{{ min_price_month_eur }} в месяц</div>
-                    <div class="rent-single__day-right">€{{ min_price_eur }} в сутки</div>
+                    <div class="rent-single__day-left">€{{ min_price_month_eur }} {% trans 'per month' %}<!--в месяц--></div>
+                    <div class="rent-single__day-right">€{{ min_price_eur }} {% trans 'per night' %}<!--в сутки--></div>
                   </div>
                 </div>
-                <div class="rent-single__desc">{% if listing.description_a_ru %}{{ listing.description_a_ru|linebreaks|safe }}{% else %} {% endif %}</div>
+                <div class="rent-single__desc">{% if listing.description_a_en %}{{ listing_description|linebreaks|safe }}{% endif %}</div>
                 <ul class="rent-single__list flex flex-wrap" data-count="8" data-status="true">
 
                   {% if amenities_ru %}
@@ -80,9 +85,9 @@
                   <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center rent-single__list-li_more text-c3 text-underline" data-text-show="ещё" data-text-hide="скрыть">ещё</li>
                 </ul>
                 <div class="rent-single__rules">
-                  <div class="rent-single__rules-title font-tenor text-c3">Правила дома</div>
+                  <div class="rent-single__rules-title font-tenor text-c3">{% trans 'House rules' %}<!--Правила дома--></div>
                   <div class="rent-single__rules-tabs flex">
-                    <div class="rent-single__rules-tab active"><span>Краткосрочная аренда (от 5 дн до 3 мес)</span><svg width="393" height="2" viewBox="0 0 393 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="rent-single__rules-tab active"><span>{% trans 'Short-term lease (5 days to 3 months)' %}<!--Краткосрочная аренда (от 5 дн до 3 мес)--></span><svg width="393" height="2" viewBox="0 0 393 2" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 1H393" stroke="url(#paint0_linear_347_3835)"/>
 <defs>
 <linearGradient id="paint0_linear_347_3835" x1="0" y1="1" x2="393" y2="1" gradientUnits="userSpaceOnUse">
@@ -93,7 +98,7 @@
 </defs>
 </svg>
                     </div>
-                    <div class="rent-single__rules-tab"><span>Долгосрочная аренда (от 3 мес)</span><svg width="393" height="2" viewBox="0 0 393 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="rent-single__rules-tab"><span>{% trans 'Long term lease (from 3 months)' %}<!--Долгосрочная аренда (от 3 мес)--></span><svg width="393" height="2" viewBox="0 0 393 2" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 1H393" stroke="url(#paint0_linear_347_3835)"/>
 <defs>
 <linearGradient id="paint0_linear_347_3835" x1="0" y1="1" x2="393" y2="1" gradientUnits="userSpaceOnUse">
@@ -114,7 +119,7 @@
                               <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/clock.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/clock.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
-                          <div class="rent-single__advs-title">Прибытие после 15:00</div>
+                          <div class="rent-single__advs-title">{% trans 'Check in after 15:00' %}<!--Прибытие после 15:00--></div>
                         </div>
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
@@ -122,7 +127,7 @@
                               <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/profile-2user.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/rent/single/main/profile-2user.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
-                          <div class="rent-single__advs-title">Максимум 2 гостя</div>
+                          <div class="rent-single__advs-title">{% trans 'Maximum 2 guests' %}<!--Максимум 2 гостя--></div>
                         </div>
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
@@ -130,7 +135,7 @@
                               <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/clock2.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/clock2.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
-                          <div class="rent-single__advs-title">Выезд до 11:00</div>
+                          <div class="rent-single__advs-title">{% trans 'Check out before 11:00' %}<!--Выезд до 11:00--></div>
                         </div>
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
@@ -138,7 +143,7 @@
                               <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/paw.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/paw.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
-                          <div class="rent-single__advs-title">Можно с питомцами</div>
+                          <div class="rent-single__advs-title">{% trans 'Pets are allowed' %}<!--Можно с питомцами--></div>
                         </div>
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
@@ -146,7 +151,7 @@
                               <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/door.webp"/><img class="lazy " width="22" height="22" src="" data-src="/img/rent/single/main/door.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
-                          <div class="rent-single__advs-title">Самостоятельное прибытие (цифровой код)</div>
+                          <div class="rent-single__advs-title">{% trans 'Self-check-in (digital code)' %}<!--Самостоятельное прибытие (цифровой код)--></div>
                         </div>
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
@@ -154,7 +159,7 @@
                               <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/celebrate.webp"/><img class="lazy " width="23" height="23" src="" data-src="/img/rent/single/main/celebrate.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
-                          <div class="rent-single__advs-title">Без вечеринок и мероприятий</div>
+                          <div class="rent-single__advs-title">{% trans 'Parties and events aren’t allowed' %}<!--Без вечеринок и мероприятий--></div>
                         </div>
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
@@ -162,7 +167,7 @@
                               <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/dont-smoke.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/dont-smoke.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
-                          <div class="rent-single__advs-title">Курение запрещено</div>
+                          <div class="rent-single__advs-title">{% trans 'Smoking is prohibited' %}<!--Курение запрещено--></div>
                         </div>
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
@@ -170,14 +175,14 @@
                               <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/close.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/rent/single/main/close.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
-                          <div class="rent-single__advs-title">Бесплатная отмена до 19 октября</div>
+                          <div class="rent-single__advs-title">{% trans 'Free cancellation before 19th of october' %}<!--Бесплатная отмена до 19 октября--></div>
                         </div>
-                      </div><a class="rent-single__rules-btn p-btn flex flex-ai-center flex-j-center text-500" href="#!">Правила отмены</a>
+                      </div><a class="rent-single__rules-btn p-btn flex flex-ai-center flex-j-center text-500" href="#!">{% trans 'Cancellation policy' %}<!--Правила отмены--></a>
                     </div>
                     <div class="rent-single__rules-content">
                       <form class="rent-single__form bg lazy" data-bg="/img/rent/single/form/1.webp">
-                        <div class="rent-single__form-btn p-btn flex flex-ai-center flex-j-center text-500">оставьте заявку</div>
-                        <div class="rent-single__form-subtitle text-500 text-c5">на скидку за количество месяцев аренды и заключения договора с собственником</div>
+                        <div class="rent-single__form-btn p-btn flex flex-ai-center flex-j-center text-500">{% trans 'leave an application' %}<!--оставьте заявку--></div>
+                        <div class="rent-single__form-subtitle text-500 text-c5">{% trans 'for a discount on number of months of rent and contract with the owner' %}<!--на скидку за количество месяцев аренды и заключения договора с собственником--></div>
                       </form>
                     </div>
                   </div>
@@ -186,10 +191,10 @@
             </div>
           </div>
           <div class="rent-single__map">
-            <div class="rent-single__map-title font-tenor section__title text-c3">Где находится</div>
+            <div class="rent-single__map-title font-tenor section__title text-c3">{% trans 'Location' %}<!--Где находится--></div>
             <div class="rent-single__map-item" id="rent-single__map-item"></div>
             <div class="contacts__item">
-              <div class="contacts__item-subtitle">{% if listing.address %}{{ listing.address|safe }}{% else %} {% endif %}</div>
+              <div class="contacts__item-subtitle">{% if listing.address %}{{ listing.address|safe }}{% endif %}</div>
               <div class="contacts__item-iframe">
                 <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
               </div>
@@ -197,7 +202,7 @@
 
           </div>
           <div class="rent-single__service">
-            <div class="rent-single__service-title font-tenor section__title text-c3">Услуги DADI</div>
+            <div class="rent-single__service-title font-tenor section__title text-c3">{% trans 'Services of DADI' %}<!--Услуги DADI--></div>
             <div class="rent-single__service-row grid">
               <div class="rent-single__service-item flex flex-col">
                 <div class="rent-single__service-img img_cover img_br">
@@ -206,8 +211,8 @@
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
-                  <div class="rent-single__service-subtitle">Личный кабинет</div>
-                  <div class="rent-single__service-desc">для отслеживания бронирования и оплаты</div>
+                  <div class="rent-single__service-subtitle">{% trans 'Client’s personal account' %}<!--Личный кабинет--></div>
+                  <div class="rent-single__service-desc">{% trans 'for tracking booking and payment' %}<!--для отслеживания бронирования и оплаты--></div>
                 </div>
               </div>
               <div class="rent-single__service-item flex flex-col">
@@ -217,8 +222,8 @@
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
-                  <div class="rent-single__service-subtitle">Индивидуальный подбор</div>
-                  <div class="rent-single__service-desc">недвижимости для аренды или покупки под ваши запросы</div>
+                  <div class="rent-single__service-subtitle">{% trans 'Personalized choice' %}<!--Индивидуальный подбор--></div>
+                  <div class="rent-single__service-desc">{% trans 'of property for rent or purchase basen on your request' %}<!--недвижимости для аренды или покупки под ваши запросы--></div>
                 </div>
               </div>
               <div class="rent-single__service-item flex">
@@ -228,8 +233,8 @@
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
-                  <div class="rent-single__service-subtitle">Персональный ассистент</div>
-                  <div class="rent-single__service-desc">поможет с трансфером, арендой автомобиля, химчисткой - решит все бытовые вопросы в новой стране 24/7</div>
+                  <div class="rent-single__service-subtitle">{% trans 'Personal assistant in the country' %}<!--Персональный ассистент--></div>
+                  <div class="rent-single__service-desc">{% trans 'help with transfer, car rental, dry cleaning - assistant will take care of all household issues in the new country 24/7' %}<!--поможет с трансфером, арендой автомобиля, химчисткой - решит все бытовые вопросы в новой стране 24/7--></div>
                 </div>
               </div>
               <div class="rent-single__service-item flex">
@@ -239,18 +244,18 @@
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
-                  <div class="rent-single__service-subtitle">Юридическое сопровождение</div>
-                  <div class="rent-single__service-desc">при аренде на срок более 3 месяцев, поможем проверить документы и заключить выгодный договор с собственником</div>
+                  <div class="rent-single__service-subtitle">{% trans 'Legal support' %}<!--Юридическое сопровождение--></div>
+                  <div class="rent-single__service-desc">{% trans 'In case of leasehold term starting from 3 months we will take care of checking all document and concluding the contract of rent with the proprietor' %}<!--при аренде на срок более 3 месяцев, поможем проверить документы и заключить выгодный договор с собственником--></div>
                 </div>
               </div>
             </div>
-            <div class="rent-single__service-btn p-btn flex flex-ai-center flex-j-center text-500">Оставить заявку</div>
+            <div class="rent-single__service-btn p-btn flex flex-ai-center flex-j-center text-500">{% trans 'Leave a request' %}<!--Оставить заявку--></div>
           </div>
           <div class="rent-single__faq">
             <div class="rent-single__faq-item flex flex-ai-center bg-c1 text-c2">
               <div class="rent-single__faq-left">
-                <div class="rent-single__faq-title text-500">Задайте свой вопрос</div>
-                <div class="rent-single__faq-subtitle">Оставьте заявку на <span>бесплатную консультацию</span></div>
+                <div class="rent-single__faq-title text-500">{% trans 'Ask a question' %}<!--Задайте свой вопрос--></div>
+                <div class="rent-single__faq-subtitle">{% trans 'Leave a request for' %}<!--Оставьте заявку на--><span> {% trans 'free consultation' %}<!--бесплатную консультацию--></span></div>
                 <form class="rent-single__faq-form">
                   <div class="get__item-text relative">
                     <div class="get__item-inputs flex flex-col">
@@ -259,12 +264,12 @@
                       </div>
                     </div>
                     <div class="get__item-end">
-                      <button class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500" type="submit">Получить консультацию</button>
+                      <button class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Get free consultation' %}<!--Получить консультацию--></button>
                       <label class="p-check flex flex-ai-center">
                         <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                           <picture>
                             <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                          </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
+                          </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
                       </label>
                     </div>
                   </div>
@@ -303,11 +308,11 @@
             <div class="rent-single__cols flex flex-col font-roboto">
               <div class="rent-single__col flex">
                 <div class="rent-single__col-item">
-                  <div class="rent-single__col-title uppercase text-500">Прибытие</div>
+                  <div class="rent-single__col-title uppercase text-500">{% trans 'Arrival' %}<!--Прибытие--></div>
                   <div class="rent-single__col-date rent-single__col-date_start text-500">27.12.2023</div>
                 </div>
                 <div class="rent-single__col-item">
-                  <div class="rent-single__col-title uppercase text-500">Выезд</div>
+                  <div class="rent-single__col-title uppercase text-500">{% trans 'Check out' %}<!--Выезд--></div>
                   <div class="rent-single__col-date rent-single__col-date_end text-500">27.12.2023</div>
                 </div>
               </div>
@@ -315,8 +320,8 @@
                 <div class="rent-single__col-item rent-single__col-item_select w-full">
                   <div class="rent-single__select flex flex-ai-center flex-j-between w-full relative">
                     <div class="rent-single__select-current relative w-full flex flex-ai-center flex-j-between cursor-pointer">
-                      <div class="rent-single__col-title uppercase text-500 absolute">Для кого</div>
-                      <div class="rent-single__select-title text-500">1 гость</div>
+                      <div class="rent-single__col-title uppercase text-500 absolute">{% trans 'number of guests' %}<!--Для кого--></div>
+                      <div class="rent-single__select-title text-500">{% trans '1 guest' %}<!--1 гость--></div>
                       <div class="rent-single__select-arrow">
                         <picture>
                           <source type="image/webp" srcset="/img/rent/single/main/arrow.webp"/><img width="16" height="16" src="/img/rent/single/main/arrow.png" alt="" loading="lazy"/>
@@ -327,8 +332,8 @@
                       <div class="rent-single__select-items flex flex-col">
                         <div class="rent-single__select-item flex flex-ai-center w-full flex-j-between">
                           <div class="rent-single__select-left">
-                            <div class="rent-single__select-subtitle text-500">Взрослые</div>
-                            <div class="rent-single__select-subdesc">От 13 лет</div>
+                            <div class="rent-single__select-subtitle text-500">{% trans 'Adults' %}<!--Взрослые--></div>
+                            <div class="rent-single__select-subdesc">{% trans 'From 13 years old' %}<!--От 13 лет--></div>
                           </div>
                           <div class="rent-single__select-right">
                             <div class="rent-single__quantity flex flex-ai-center" data-texts="[&quot;гость&quot;,&quot;гостя&quot;,&quot;гостей&quot;]">
@@ -341,26 +346,26 @@
                           </div>
                         </div>
                       </div>
-                      <div class="rent-single__select-close text-underline flex flex-j-end cursor-pointer">Закрыть</div>
+                      <div class="rent-single__select-close text-underline flex flex-j-end cursor-pointer">{% trans 'Close' %}<!--Закрыть--></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="rent-single__button">
-              <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Оставить заявку</button>
+              <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Leave a request' %}<!--Оставить заявку--></button>
             </div>
             <div class="rent-single__end flex flex-col font-roboto">
               <div class="rent-single__end-item flex flex-ai-center flex-j-between w-full">
-                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">₽{{ min_price_rub }}</span>₽<span class="rent-single__end-span">х 1 ночь</span></div>
+                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">₽{{ min_price_rub }}</span>₽<span class="rent-single__end-span">х {% trans '1 night' %}<!--1 ночь--></span></div>
                 <div class="rent-single__end-subprice text-500">₽<span>{{ min_price_rub }}</span></div>
               </div>
               <div class="rent-single__end-item flex flex-ai-center flex-j-between w-full">
-                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">Плата за уборку</span></div>
+                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">{% trans 'Cleaning fee' %}<!--Плата за уборку--></span></div>
                 <div class="rent-single__end-subprice text-500">₽<span>5,231</span></div>
               </div>
               <div class="rent-single__end-item rent-single__end-item_last flex flex-ai-center flex-j-between w-full text-c3">
-                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">Всего ( без учета налогов)</span></div>
+                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">{% trans 'Total (excluding tax)' %}<!--Всего (без учета налогов)--></span></div>
                 <div class="rent-single__end-subprice text-500">₽<span>32,091</span></div>
               </div>
             </div>
@@ -371,7 +376,7 @@
   </div>
   <div class="estate overflow-hidden estate_second offers">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3">Другие предложения</div>
+      <div class="section__title font-tenor text-c3">{% trans 'More offers' %}<!--Другие предложения--></div>
       <div class="estate__items flex flex-col">
         <div class="estate__item relative w-full">
           <div class="estate__swiper relative">
@@ -392,7 +397,7 @@
 
                 <div class="swiper-slide">
                   <div class="p-card p-card_back relative">
-                    <div class="p-card__abs absolute top-0 left-0 w-full h-full flex flex-ai-center flex-j-center bg-c3 text-c2"><a class="p-card__abs-link text-underline text-center text-500 margin-center" href="{% url 'arenda' %}">Вернуться на страницу Аренды</a></div>
+                    <div class="p-card__abs absolute top-0 left-0 w-full h-full flex flex-ai-center flex-j-center bg-c3 text-c2"><a class="p-card__abs-link text-underline text-center text-500 margin-center" href="{% url 'arenda' %}">{% trans 'Back to the Rent page' %}<!--Вернуться на страницу Аренды--></a></div>
                   </div>
                 </div>
               </div>
