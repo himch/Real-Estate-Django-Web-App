@@ -1,0 +1,12 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="blog__item">
+    <div class="blog__item-img img_cover img_br">
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/main/blog/1.webp"/><img class="lazy " width="343" height="324" src="" data-src="/img/main/blog/1.jpg" alt="" loading="lazy"/>
+      </picture>
+    </div>
+    <div class="blog__item-title">{% trans 'Start of construction of the residential complex' %}<!--Старт строительства комплекса--></div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">{% trans 'Read' %}<!--Читать--></a>
+</div>

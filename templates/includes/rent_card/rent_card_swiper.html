@@ -1,5 +1,7 @@
+{% load i18n %}
 {% load static %}
 {% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!-- start rent -->
 <div class="p-card p-card_filter relative">
     <div class="p-card_filter__image relative"><a class="img_cover img_full" href="/listings/rent/{{ listing.id|unlocalize }}">
@@ -28,7 +30,7 @@
 </svg>
       </div>
     </div><a class="p-card_filter__text" href="/listings/rent/{{ listing.id|unlocalize }}">
-      <div class="p-card_filter__title text-c5 text-500">{{ listing.title_a_ru }}</div>
+      <div class="p-card_filter__title text-c5 text-500">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</div>
       <div class="p-card_filter__content flex flex-wrap flex-ai-center">
         <div class="p-card_filter__content-item text-c5">{{ listing.address }}</div>
         <div class="p-card_filter__content-item"><!--{{ listing.address }}--></div>

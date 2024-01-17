@@ -1,0 +1,38 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %
+<!-- start location -->
+<div class="p-checkboxes flex flex-wrap">
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Высокий этаж"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'High floor' %}<!--Высокий этаж--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Близко к метро"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Close to metro' %}<!--Близко к метро--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Вид на канал"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Canal view' %}<!--Вид на канал--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Средний этаж"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Middle floor' %}<!--Средний этаж--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Вид на город"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'City view' %}<!--Вид на город--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Вид на парк"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Park view' %}<!--Вид на парк--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Низкий этаж"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Lower floor' %}<!--Низкий этаж--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Вид на море"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Sea view' %}<!--Вид на море--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Вид на Бурдж-Халифа"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Burj Khalifa view' %}<!--Вид на Бурдж-Халифа--></span>
+    </label>
+    <label class="p-checkboxes__item flex">
+      <input type="checkbox" name="place[]" value="Близко к пляжу"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Close to the beach' %}<!--Близко к пляжу--></span>
+    </label>
+</div>
+<!-- end location -->

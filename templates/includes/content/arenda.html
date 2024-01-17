@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load humanize %}
 
 {% block title %} | Rent {% endblock %}
 
 {% block content %}
 <!-- Showcase -->
+
 <main>
   <div class="rent">
     <div class="container margin-center">
-      <div class="rent__subtitle uppercase text-c5">Dadi holiday</div>
-      <div class="rent__title text-c3 font-tenor">Аренда недвижимости в Дубае</div>
+      <div class="rent__subtitle uppercase text-c5">{% trans 'Dadi holiday' %}<!--Dadi holiday--></div>
+      <div class="rent__title text-c3 font-tenor">{% trans 'Dubai property rental' %}<!--Аренда недвижимости в Дубае--></div>
       <div class="rent__item-block relative">
-        <div class="rent__item-top absolute">апартаменты с сервисом отеля 5*</div>
+        <div class="rent__item-top absolute">{% trans 'apartment with 5* hotel service' %}<!--апартаменты с сервисом отеля 5*--></div>
         <div class="rent__item relative bg" style="background-image:url('/img/rent/main/1.webp')">
           <form class="rent__form flex">
             <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
@@ -40,18 +41,18 @@
                   </div>
                 </div>
                 <div class="p-select__abs absolute flex flex-col">
-                  <div class="p-select__abs-item active" data-value="1 гость">1 гость</div>
-                  <div class="p-select__abs-item" data-value="2 гостя">2 гостя</div>
-                  <div class="p-select__abs-item" data-value="3 гостя">3 гостя</div>
-                  <div class="p-select__abs-item" data-value="Более 3 гостей">Более 3 гостей</div>
+                  <div class="p-select__abs-item active" data-value="1 гость">{% trans '1 guest' %}<!--1 гость--></div>
+                  <div class="p-select__abs-item" data-value="2 гостя">{% trans '2 guests' %}<!--2 гостя--></div>
+                  <div class="p-select__abs-item" data-value="3 гостя">{% trans '3 guests' %}<!--3 гостя--></div>
+                  <div class="p-select__abs-item" data-value="Более 3 гостей">{% trans 'More than 3 guests' %}<!--Более 3 гостей--></div>
                 </div>
               </div>
             </div>
             <div class="rent__input relative">
-              <button class="text-500" type="submit">Посмотреть х вариантов</button>
+              <button class="text-500" type="submit">{% trans 'View' %}<!--Посмотреть--> х {% trans 'options' %}<!--вариантов--></button>
             </div>
           </form>
-          <div class="rent__item-end text-underline text-c3 text-600 modal__show" data-modal="type-first">Подобрать с менеджером</div>
+          <div class="rent__item-end text-underline text-c3 text-600 modal__show" data-modal="type-first">{% trans 'Select with manager' %}<!--Подобрать с менеджером--></div>
         </div>
       </div>
     </div>
@@ -65,7 +66,7 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.02209C0 1.68367 0.135459 1.35912 0.376577 1.11982C0.617695 0.880528 0.944722 0.746094 1.28571 0.746094H28.7143C29.0553 0.746094 29.3823 0.880528 29.6234 1.11982C29.8645 1.35912 30 1.68367 30 2.02209C30 2.3605 29.8645 2.68505 29.6234 2.92435C29.3823 3.16364 29.0553 3.29808 28.7143 3.29808H1.28571C0.944722 3.29808 0.617695 3.16364 0.376577 2.92435C0.135459 2.68505 0 2.3605 0 2.02209ZM0 10.5287C0 10.1903 0.135459 9.86574 0.376577 9.62644C0.617695 9.38715 0.944722 9.25271 1.28571 9.25271H20.1429C20.4839 9.25271 20.8109 9.38715 21.052 9.62644C21.2931 9.86574 21.4286 10.1903 21.4286 10.5287C21.4286 10.8671 21.2931 11.1917 21.052 11.431C20.8109 11.6703 20.4839 11.8047 20.1429 11.8047H1.28571C0.944722 11.8047 0.617695 11.6703 0.376577 11.431C0.135459 11.1917 0 10.8671 0 10.5287ZM0 19.0353C0 18.6969 0.135459 18.3724 0.376577 18.1331C0.617695 17.8938 0.944722 17.7593 1.28571 17.7593H9.85714C10.1981 17.7593 10.5252 17.8938 10.7663 18.1331C11.0074 18.3724 11.1429 18.6969 11.1429 19.0353C11.1429 19.3737 11.0074 19.6983 10.7663 19.9376C10.5252 20.1769 10.1981 20.3113 9.85714 20.3113H1.28571C0.944722 20.3113 0.617695 20.1769 0.376577 19.9376C0.135459 19.6983 0 19.3737 0 19.0353Z" fill="#003B50"/>
 </svg>
             </div>
-            <div class="filters__main-title">Фильтры</div>
+            <div class="filters__main-title">{% trans 'Filters' %}<!--Фильтры--></div>
           </div>
           <div class="modal modal_filter">
             <div class="modal__content relative">
@@ -74,39 +75,39 @@
                   <source type="image/webp" srcset="/img/rent/filters/close.webp"/><img width="21" height="21" src="/img/rent/filters/close.png" alt="" loading="lazy"/>
                 </picture>
               </div>
-              <div class="modal_filter__reset absolute text-underline cursor-pointer">Сбросить фильтры</div>
+              <div class="modal_filter__reset absolute text-underline cursor-pointer">{% trans 'Remove filters' %}<!--Сбросить фильтры--></div>
               <div class="modal_filter__items flex relative flex-col">
                 <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">Тип недвижимости</div>
+                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Property type' %}<!--Тип недвижимости--></div>
                   <div class="p-checkboxes flex flex-wrap">
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Любая"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Любая</span>
+                      <input type="checkbox" name="type[]" value="Любая"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Any type' %}<!--Любая--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Таунхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Таунхаусы</span>
+                      <input type="checkbox" name="type[]" value="Таунхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Townhouses' %}<!--Таунхаусы--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Виллы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Виллы</span>
+                      <input type="checkbox" name="type[]" value="Виллы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Villas' %}<!--Виллы--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Апартаменты"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Апартаменты</span>
+                      <input type="checkbox" name="type[]" value="Апартаменты"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Apartments' %}<!--Апартаменты--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Дуплексы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Дуплексы</span>
+                      <input type="checkbox" name="type[]" value="Дуплексы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Duplexes' %}<!--Дуплексы--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Пентхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Пентхаусы</span>
+                      <input type="checkbox" name="type[]" value="Пентхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Penthouses' %}<!--Пентхаусы--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Квартиры в отелях"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Квартиры в отелях</span>
+                      <input type="checkbox" name="type[]" value="Квартиры в отелях"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Hotel apartment' %}<!--Квартиры в отелях--></span>
                     </label>
                   </div>
                 </div>
                 <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">Комнаты</div>
+                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Bedroom' %}<!--Комнаты--></div>
                   <div class="p-checkboxes p-checkboxes_second flex flex-wrap">
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="room[]" value="Студия"/><span class="p-checkboxes__item-title">Студия</span>
+                      <input type="checkbox" name="room[]" value="Студия"/><span class="p-checkboxes__item-title">{% trans 'Studio' %}<!--Студия--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
                       <input type="checkbox" name="room[]" value="1"/><span class="p-checkboxes__item-title">1</span>
@@ -126,7 +127,7 @@
                   <div class="modal_filter__price-row flex">
                     <div class="modal_filter__price-item modal_filter__item_change">
                       <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">Стоимость в месяц</div>
+                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Monthly rental cost' %}<!--Стоимость в месяц--></div>
                         <div class="modal_filter__price-currency flex">
                           <div class="p-checkboxes p-checkboxes_second flex">
                             <label class="p-checkboxes__item flex">
@@ -167,7 +168,7 @@
                     </div>
                     <div class="modal_filter__price-item">
                       <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">Спальни</div>
+                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Bedrooms' %}<!--Спальни--></div>
                       </div>
                       <div class="modal_filter__range modal_filter__bedrooms" data-min="1" data-max="3" data-type="int">
                         <div class="modal_filter__range-main"></div>
@@ -178,142 +179,25 @@
                   </div>
                 </div>
                 <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">Местоположение</div>
-                  <div class="p-checkboxes flex flex-wrap">
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Высокий этаж"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Высокий этаж</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Близко к метро"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Близко к метро</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Вид на канал"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на канал</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Средний этаж"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Средний этаж</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Вид на город"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на город</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Вид на парк"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на парк</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Низкий этаж"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Низкий этаж</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Вид на море"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на море</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Вид на Бурдж-Халифа"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на Бурдж-Халифа</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="place[]" value="Близко к пляжу"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Близко к пляжу</span>
-                    </label>
-                  </div>
+                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Location' %}<!--Местоположение--></div>
+
+                  {% include 'includes/filter/location.html' %}
+
                 </div>
                 <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">Удобства</div>
-                  <div class="p-checkboxes flex flex-wrap">
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Wi-Fi" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Wi-Fi</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Фен" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Фен</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Микроволновая печь" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Микроволновая печь</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="TV" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">TV</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Кофемашина" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Кофемашина</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Посудомоечная машина" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Посудомоечная машина</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Кондиционер" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Кондиционер</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Парковочное место" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Парковочное место</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Стиральная машина" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Стиральная машина</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Ванна"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Ванна</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Балкон"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Балкон</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Общий бассейн"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Общий бассейн</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Душ"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Душ</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Фитнес-зал"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Фитнес-зал</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Детская площадка"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Детская площадка</span>
-                    </label>
-                  </div>
+                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Amenities' %}<!--Удобства--></div>
+
+                  {% include 'includes/filter/amenities.html' %}
+
                 </div>
                 <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">Районы</div>
-                  <div class="p-checkboxes flex flex-wrap">
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Palm Jumeriah"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Palm Jumeriah</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Yas Island"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Yas Island</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Town Square"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Town Square</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="JVC"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">JVC</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Arjan"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Arjan</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Arjan"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Arjan</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Jebel Ali"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Jebel Ali</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Dubailand"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubailand</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Production City"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Production City</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Damac Lagoons"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Damac Lagoons</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Beachfront"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Beachfront</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="JLT"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">JLT</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Dubai Hils"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubai Hils</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="MBR"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">MBR</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Dubai Marina"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubai Marina</span>
-                    </label>
-                  </div>
+                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Districts' %}<!--Районы--></div>
+
+                  {% include 'includes/filter/districts.html' %}
+
                 </div>
                 <div class="modal_filter__item">
-                  <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Применить фильтры</button>
+                  <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Apply filters' %}<!--Применить фильтры--></button>
                 </div>
               </div>
             </div>
@@ -341,7 +225,7 @@
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
                 <input type="hidden" name="sort" value="Cначала новые"/>
-                <div class="p-select__current-item">Cначала новые</div>
+                <div class="p-select__current-item">{% trans 'New first' %}<!--Cначала новые--></div>
                 <div class="p-select__current-arrow"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.8536 0.146447C15.6583 -0.0488155 15.3417 -0.0488155 15.1464 0.146447L11.9645 3.32843C11.7692 3.52369 11.7692 3.84027 11.9645 4.03553C12.1597 4.2308 12.4763 4.2308 12.6716 4.03553L15.5 1.20711L18.3284 4.03553C18.5237 4.2308 18.8403 4.2308 19.0355 4.03553C19.2308 3.84027 19.2308 3.52369 19.0355 3.32843L15.8536 0.146447ZM16 21.5V0.5H15V21.5H16Z" fill="black"/>
 <path d="M3.64645 22.3536C3.84171 22.5488 4.15829 22.5488 4.35355 22.3536L7.53553 19.1716C7.7308 18.9763 7.7308 18.6597 7.53553 18.4645C7.34027 18.2692 7.02369 18.2692 6.82843 18.4645L4 21.2929L1.17157 18.4645C0.976311 18.2692 0.659728 18.2692 0.464466 18.4645C0.269204 18.6597 0.269204 18.9763 0.464466 19.1716L3.64645 22.3536ZM4.5 22V1H3.5V22H4.5Z" fill="black"/>
@@ -349,9 +233,9 @@
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
-                <div class="p-select__abs-item active" data-value="Cначала новые">Cначала новые</div>
-                <div class="p-select__abs-item" data-value="Сначала дешевле">Сначала дешевле</div>
-                <div class="p-select__abs-item" data-value="Сначала дороже">Сначала дороже</div>
+                <div class="p-select__abs-item active" data-value="Cначала новые">{% trans 'New first' %}<!--Cначала новые--></div>
+                <div class="p-select__abs-item" data-value="Сначала дешевле">{% trans 'Cheaper first' %}<!--Сначала дешевле--></div>
+                <div class="p-select__abs-item" data-value="Сначала дороже">{% trans 'More expensive' %}<!--Сначала дороже--></div>
               </div>
             </div>
           </div>
@@ -384,7 +268,7 @@
                 </div>
           {% endif %}
         </div>
-        <div class="filters__content-load margin-center text-c3 text-underline text-500">Загрузить <span>18</span> из 103</div>
+        <div class="filters__content-load margin-center text-c3 text-underline text-500">{% trans 'Download' %}<!--Загрузить--> <span>18</span> {% trans 'out of' %}<!--из--> 103</div>
       </div>
       <div class="filters__content-map">
         <div class="filters__content-map-item" id="map"></div>
@@ -393,8 +277,8 @@
   </div>
   <div class="advs overflow-hidden">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3 relative">В чем преимущества</div>
-      <div class="advs__subtitle relative">аренды апартаментов с отельным сервисом</div>
+      <div class="section__title font-tenor text-c3 relative">{% trans 'What are the advantages' %}<!--В чем преимущества--></div>
+      <div class="advs__subtitle relative">{% trans 'rent apartments with hotel service' %}<!--аренды апартаментов с отельным сервисом--></div>
       <div class="advs__items flex flex-col">
         <div class="advs__item relative">
           <div class="advs__item-icon absolute top-0 left-0 bg-c5 flex flex-ai-center flex-j-center">
@@ -413,8 +297,8 @@
             </picture>
           </div>
           <div class="advs__item-text absolute">
-            <div class="advs__item-title text-c5 text-500">Гостеприимство 5* отеля</div>
-            <div class="advs__item-desc flex flex-col">Мы встречаем вас, как самого дорогого гостя, с&nbsp;приветственными напитками, фруктовой тарелкой, а также предоставляем чай, кофе и душевые принадлежности для вашего комфорта. </div>
+            <div class="advs__item-title text-c5 text-500">{% trans '5* hotel hospitaluty' %}<!--Гостеприимство 5* отеля--></div>
+            <div class="advs__item-desc flex flex-col">{% trans 'We welcome you as the as the most esteemed guest, with welcome drinks, fruit plate, as well as tea, coffee and shower accessories for your comfort.' %}<!--Мы встречаем вас, как самого дорогого гостя, с&nbsp;приветственными напитками, фруктовой тарелкой, а также предоставляем чай, кофе и душевые принадлежности для вашего комфорта.--></div>
           </div>
         </div>
         <div class="advs__item relative">
@@ -434,8 +318,8 @@
             </picture>
           </div>
           <div class="advs__item-text absolute">
-            <div class="advs__item-title text-c5 text-500">Лучшее обустройство</div>
-            <div class="advs__item-desc flex flex-col">Наши апартаменты оборудованы лучше, чем большинство отелей. В каждой квартире есть кофемашина, посудомоечная машина, стиральная машина, фен и полный набор посуды и для удобства наших гостей. </div>
+            <div class="advs__item-title text-c5 text-500">{% trans 'Best arrangement' %}<!--Лучшее обустройство--></div>
+            <div class="advs__item-desc flex flex-col">{% trans 'Our apartments are equipped better than most hotels. Each apartment has a coffee machine, dishwasher, washing machine, hairdryer and a full set of dishes for the convenience of our guests.' %}<!--Наши апартаменты оборудованы лучше, чем большинство отелей. В каждой квартире есть кофемашина, посудомоечная машина, стиральная машина, фен и полный набор посуды и для удобства наших гостей.--></div>
           </div>
         </div>
         <div class="advs__item relative">
@@ -455,8 +339,8 @@
             </picture>
           </div>
           <div class="advs__item-text absolute">
-            <div class="advs__item-title text-c5 text-500">Обслуживание и уборка</div>
-            <div class="advs__item-desc flex flex-col">Вам не нужно думать об уборке и обслуживании апартаментов — мы обо всём позаботимся. Сделаем всё, чтобы ваше пребывание было беззаботным и приятным. </div>
+            <div class="advs__item-title text-c5 text-500">{% trans 'Service and cleaning' %}<!--Обслуживание и уборка--></div>
+            <div class="advs__item-desc flex flex-col">{% trans 'You won’t need to think about cleaning and maintenance of apartments - we will take care of everything. We will make sure your stay is pleasant and carefree.' %}<!--Вам не нужно думать об уборке и обслуживании апартаментов — мы обо всём позаботимся. Сделаем всё, чтобы ваше пребывание было беззаботным и приятным.--></div>
           </div>
         </div>
         <div class="advs__item relative">
@@ -476,8 +360,8 @@
             </picture>
           </div>
           <div class="advs__item-text absolute">
-            <div class="advs__item-title text-c5 text-500">Поддержка Customer Service 24/7</div>
-            <div class="advs__item-desc flex flex-col">Наша Служба Заботы доступна круглосуточно и готова помочь вам в любое время суток. Мы гарантируем, что ваши запросы и потребности будут удовлетворены моментально. </div>
+            <div class="advs__item-title text-c5 text-500">{% trans '24/7 Customer Service and support' %}<!--Поддержка Customer Service 24/7--></div>
+            <div class="advs__item-desc flex flex-col">{% trans 'Our Care Service is available 24 hours a day and is ready to assist you at any time of the day. We guarantee that your requests and needs will be met immediately.' %}<!--Наша Служба Заботы доступна круглосуточно и готова помочь вам в любое время суток. Мы гарантируем, что ваши запросы и потребности будут удовлетворены моментально.--></div>
           </div>
         </div>
         <div class="advs__item relative">
@@ -497,8 +381,8 @@
             </picture>
           </div>
           <div class="advs__item-text absolute">
-            <div class="advs__item-title text-c5 text-500">Парковочное место</div>
-            <div class="advs__item-desc flex flex-col">Мы предоставляем паркинг неподалеку от дома, чтобы вы могли удобно и без забот оставить свой автомобиль. </div>
+            <div class="advs__item-title text-c5 text-500">{% trans 'Parking space' %}<!--Парковочное место--></div>
+            <div class="advs__item-desc flex flex-col">{% trans 'We provide parking near the house so you can leave your car comfortably, with no worries.' %}<!--Мы предоставляем паркинг неподалеку от дома, чтобы вы могли удобно и без забот оставить свой автомобиль.--></div>
           </div>
         </div>
         <div class="advs__item relative">
@@ -518,8 +402,9 @@
             </picture>
           </div>
           <div class="advs__item-text absolute">
-            <div class="advs__item-title text-c5 text-500">Бесплатный Wi-Fi и телевизор</div>
-            <div class="advs__item-desc flex flex-col"><p>с возможностью потокового воспроизведения</p><p>Все наши апартаменты оборудованы бесплатным Wi-Fi и современными телевизорами с доступом к потоковым сервисам для вашего развлечения и связи.</p></div>
+            <div class="advs__item-title text-c5 text-500">{% trans 'Free Wi-Fi and TV' %}<!--Бесплатный Wi-Fi и телевизор--></div>
+            <div class="advs__item-desc flex flex-col"><p>{% trans 'with streaming capability' %}<!--с возможностью потокового воспроизведения--></p>
+              <p>{% trans 'All our apartments are equipped with free Wi-Fi and modern TVs with access to streaming services for your entertainment and communication.' %}<!--Все наши апартаменты оборудованы бесплатным Wi-Fi и современными телевизорами с доступом к потоковым сервисам для вашего развлечения и связи.--></p></div>
           </div>
         </div>
       </div>
@@ -528,7 +413,7 @@
   <div class="addit">
     <div class="container margin-center">
       <div class="addit__item bg-c5 text-c2">
-        <div class="addit__item-title font-tenor">Дополнительно можем предложить:</div>
+        <div class="addit__item-title font-tenor">{% trans 'Additionally, we can offer:' %}<!--Дополнительно можем предложить:--></div>
         <div class="addit__els flex">
           <div class="addit__el flex flex-ai-center">
             <div class="addit__el-img img_cover flex-shrink">
@@ -537,8 +422,8 @@
               </picture>
             </div>
             <div class="addit__el-text">
-              <div class="addit__el-title">Фитнес-центр и бассейн</div>
-              <div class="addit__el-subtitle">Предоставим доступ к фитнес-центру и бассейну в ЖК или рядом, чтобы вы могли&nbsp;поддерживать активный образ жизни&nbsp;и расслабиться.</div>
+              <div class="addit__el-title">{% trans 'Fitness center and swimming pool' %}<!--Фитнес-центр и бассейн--></div>
+              <div class="addit__el-subtitle">{% trans 'We will provide access to the fitness centre and swimming pool in the residential complex or nearby so that you can maintain an active lifestyle and relax.' %}<!--Предоставим доступ к фитнес-центру и бассейну в ЖК или рядом, чтобы вы могли&nbsp;поддерживать активный образ жизни&nbsp;и расслабиться.--></div>
             </div>
           </div>
           <div class="addit__el flex flex-ai-center">
@@ -548,8 +433,8 @@
               </picture>
             </div>
             <div class="addit__el-text">
-              <div class="addit__el-title">Экскурсии и развлечения</div>
-              <div class="addit__el-subtitle">Мы поможем спланировать и забронировать экскурсии в регионе, чтобы вы могли насладиться всем, что может предложить местная культура и природа.</div>
+              <div class="addit__el-title">{% trans 'Tours and entertainment' %}<!--Экскурсии и развлечения--></div>
+              <div class="addit__el-subtitle">{% trans 'We will help you plan and book excursions in the region so that you can enjoy what local culture and nature can offer you.' %}<!--Мы поможем спланировать и забронировать экскурсии в регионе, чтобы вы могли насладиться всем, что может предложить местная культура и природа.--></div>
             </div>
           </div>
         </div>
@@ -560,8 +445,10 @@
     <div class="container margin-center">
       <div class="why__desc">
         <p>
-          Наши апартаменты сочетают в себе <span class="text-c5">комфорт и удобства отеля</span>
-          с простором и <span class="text-c5">автономией собственного жилья,</span><span class="why__desc-img bg lazy" data-bg="/img/rent/appartments/1.webp"></span>делая ваше пребывание<span class="why__desc-img why__desc-img_2 bg lazy" data-bg="/img/rent/appartments/2.webp"></span><span class="text-c5">незабываемым и удовлетворяющим </span> все ваши потребности.
+          {% trans 'Our apartments combine ' %}<!--Наши апартаменты сочетают в себе --><span class="text-c5">{% trans 'the comfort and convenience of the hotel' %}<!--комфорт и удобства отеля--></span>
+          {% trans 'with the spaciousness and &nbsp;' %}<!--с простором и --><span class="text-c5">{% trans 'autonomy of your own home' %}<!--автономией собственного жилья,--></span>
+          <span class="why__desc-img bg lazy" data-bg="/img/rent/appartments/1.webp"></span>{% trans 'making your stay' %}<!--делая ваше пребывание--><span class="why__desc-img why__desc-img_2 bg lazy" data-bg="/img/rent/appartments/2.webp"></span>
+          <span class="text-c5">{% trans '&nbsp;unforgettable and satisfying all your needs.' %}<!--незабываемым и удовлетворяющим все ваши потребности.--></span>
         </p>
       </div>
     </div>
@@ -628,14 +515,14 @@
       </div>
     </div>
     <div class="appartments__end flex flex flex-ai-center flex-j-center">
-      <div class="p-btn flex flex-ai-center flex-j-center text-500 modal__show" data-modal="type">Оставить заявку</div>
-      <div class="appartments__link text-underline text-c3 text-600 modal__show" data-modal="type-first">Подобрать с менеджером</div>
+      <div class="p-btn flex flex-ai-center flex-j-center text-500 modal__show" data-modal="type">{% trans 'Receive a consultation' %}<!--Оставить заявку--></div>
+      <div class="appartments__link text-underline text-c3 text-600 modal__show" data-modal="type-first">{% trans 'Select with manager' %}<!--Подобрать с менеджером--></div>
     </div>
   </div>
   <div class="type type_second rent__type">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3 text-center">Услуги DADI HOLIDAY</div>
-      <div class="type__subtitle text-center">аренда апартаментов в Дубае с отельным сервисом</div>
+      <div class="section__title font-tenor text-c3 text-center">{% trans 'Services of DADI HOLIDAY' %}<!--Услуги DADI HOLIDAY--></div>
+      <div class="type__subtitle text-center">{% trans 'rent apartments in Dubai with hotel service' %}<!--аренда апартаментов в Дубае с отельным сервисом--></div>
       <div class="type__row grid">
         <div class="type__item flex flex-ai-center">
           <div class="type__item-left">
@@ -646,13 +533,13 @@
             </div>
           </div>
           <div class="type__item-right">
-            <div class="type__title">Букинг-сервис</div>
+            <div class="type__title">{% trans 'Booking service' %}<!--Букинг-сервис--></div>
             <div class="type__list p-list">
               <ul>
-                <li>бронируйте свободные апартаменты через удобный календарь</li>
-                <li>оплачивайте, общайтесь с менеджером и отслеживайте информацию в личном кабинете</li>
+                <li>{% trans 'availability of apartments and bookings can be done through a convenient calendar' %}<!--бронируйте свободные апартаменты через удобный календарь--></li>
+                <li>{% trans 'use personal profile for payments and communication with our managers' %}<!--оплачивайте, общайтесь с менеджером и отслеживайте информацию в личном кабинете--></li>
               </ul>
-            </div><a class="type__link text-600 text-underline text-c3" href="/arenda">Забронировать квартиру</a>
+            </div><a class="type__link text-600 text-underline text-c3" href="/arenda">{% trans 'Book an apartment' %}<!--Забронировать квартиру--></a>
           </div>
         </div>
         <div class="type__item type__item_col flex flex-col flex-ai-center text-center">
@@ -664,9 +551,9 @@
             </div>
           </div>
           <div class="type__item-right">
-            <div class="type__title">Персональный ассистент в стране</div>
-            <div class="type__desc">поможет с трансфером, арендой автомобиля, химчисткой - решит все бытовые вопросы в новой стране 24/7</div>
-            <div class="type__link text-600 text-underline modal__show cursor-pointer" data-modal="type-first">Заказать трансфер из аэропорта</div>
+            <div class="type__title">{% trans 'Personal assistant in&nbsp;the country' %}<!--Персональный ассистент в стране--></div>
+            <div class="type__desc">{% trans 'help with transfer, car rental, dry cleaning - assistant will take care of all household issues in the new country 24/7' %}<!--поможет с трансфером, арендой автомобиля, химчисткой - решит все бытовые вопросы в новой стране 24/7--></div>
+            <div class="type__link text-600 text-underline modal__show cursor-pointer" data-modal="type-first">{% trans 'Book transfer from the airport' %}<!--Заказать трансфер из аэропорта--></div>
           </div>
         </div>
         <div class="type__item type__item_col flex flex-col flex-ai-center text-center">
@@ -678,9 +565,9 @@
             </div>
           </div>
           <div class="type__item-right">
-            <div class="type__title">Юридическое сопровождение</div>
-            <div class="type__desc">при аренде на срок более 3 месяцев, поможем проверить документы и заключить выгодный договор с собственником</div>
-            <div class="type__link text-600 text-underline modal__show" data-modal="type-second">Оставить заявку на долгосрочную аренду</div>
+            <div class="type__title">{% trans 'Legal support' %}<!--Юридическое сопровождение--></div>
+            <div class="type__desc">{% trans 'in case of leasehold term starting from 3 months we will take care of checking all document and concluding the contract of rent with the proprietor' %}<!--при аренде на срок более 3 месяцев, поможем проверить документы и заключить выгодный договор с собственником--></div>
+            <div class="type__link text-600 text-underline modal__show" data-modal="type-second">{% trans 'Leave a long-term lease application' %}<!--Оставить заявку на долгосрочную аренду--></div>
           </div>
         </div>
         <div class="type__item type__item_col flex flex-col flex-ai-center text-center">
@@ -692,9 +579,9 @@
             </div>
           </div>
           <div class="type__item-right">
-            <div class="type__title">Индивидуальный подбор</div>
-            <div class="type__desc">недвижимости для аренды или покупки под ваши запросы</div>
-            <div class="type__link text-600 text-underline modal__show" data-modal="type-second">Оставить заявку</div>
+            <div class="type__title">{% trans 'Individual selection' %}<!--Индивидуальный подбор--></div>
+            <div class="type__desc">{% trans 'of property for rent or purchase based on your request' %}<!--недвижимости для аренды или покупки под ваши запросы--></div>
+            <div class="type__link text-600 text-underline modal__show" data-modal="type-second">{% trans 'Leave an application' %}<!--Оставить заявку--></div>
           </div>
         </div>
       </div>
@@ -704,12 +591,12 @@
     <div class="container margin-center">
       <div class="help__item relative">
         <div class="help__text relative">
-          <div class="help__title text-500 text-c5">Поможем подобрать квартиру в аренду</div>
+          <div class="help__title text-500 text-c5">{% trans 'We will help you find an apartment for rent' %}<!--Поможем подобрать квартиру в аренду--></div>
           <div class="p-list">
             <ul>
-              <li>Подберем комфортный вариант под бюджет и пожелания</li>
-              <li>Проконсультируем по лучшим районам для жизни</li>
-              <li>Организуем трансфер из аэропорта</li>
+              <li>{% trans 'We will find the most comfortable option based on your budget and desire' %}<!--Подберем комфортный вариант под бюджет и пожелания--></li>
+              <li>{% trans 'Advise on the best areas for living' %}<!--Проконсультируем по лучшим районам для жизни--></li>
+              <li>{% trans 'Arrange transfer from the airport' %}<!--Организуем трансфер из аэропорта--></li>
             </ul>
           </div>
           <form>
@@ -723,12 +610,12 @@
                 </div>
               </div>
               <div class="get__item-end">
-                <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Подобрать квартиру</button>
+                <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Find real estate' %}<!--Подобрать квартиру--></button>
                 <label class="p-check flex flex-ai-center">
                   <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                     <picture>
                       <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                    </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
+                    </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
                 </label>
               </div>
             </div>
@@ -744,8 +631,8 @@
 </svg>
             </div>
             <div class="help__name-text relative">
-              <div class="help__name-title">Владислав</div>
-              <div class="help__name-subtitle">менеджер клиентского сервиса</div>
+              <div class="help__name-title">{% trans 'Vladislav' %}<!--Владислав--></div>
+              <div class="help__name-subtitle">{% trans 'customer service manager' %}<!--менеджер клиентского сервиса--></div>
             </div>
           </div>
         </div>
@@ -753,39 +640,9 @@
     </div>
   </div>
   <div class="blog_second">
-    <div class="blog">
-      <div class="container margin-center">
-        <div class="section__title font-tenor text-c3">Блог о недвижимости и новостях Дубая</div>
-        <div class="blog__block relative"><a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="/blog">Перейти в Блог</a>
-          <div class="blog__items relative flex">
-            <div class="blog__item">
-              <div class="blog__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/blog/1.webp"/><img class="lazy " width="343" height="324" src="" data-src="/img/main/blog/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="blog__item-title">Где лучше жить: в чем отличие районов Дубая</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
-            </div>
-            <div class="blog__item">
-              <div class="blog__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/blog/2.webp"/><img class="lazy " width="343" height="324" src="" data-src="/img/main/blog/2.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="blog__item-title">Старт строительства комплекса “Название”</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
-            </div>
-            <div class="blog__item">
-              <div class="blog__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/blog/1.webp"/><img class="lazy " width="343" height="324" src="" data-src="/img/main/blog/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="blog__item-title">Где лучше жить: в чем отличие районов Дубая</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    {% include 'includes/blog/blog_module.html' %}
+
   </div>
 </main>
 {% endblock %}

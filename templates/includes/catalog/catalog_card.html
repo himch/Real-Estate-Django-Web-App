@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!-- start catalog card -->
+    <div class="swiper-slide">
+      <div class="best__item relative">
+        <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">{% trans 'Download PDF' %}<!--Скачать PDF--></div>
+        <div class="best__item-img img_br img_cover">
+          <picture>
+            <source type="image/webp" srcset="" data-srcset="/img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="/img/main/best/1.jpg" alt="" loading="lazy"/>
+          </picture>
+        </div>
+        <div class="best__item-title text-c5 text-500">{% trans 'Catalog name' %}<!--Название каталога--></div>
+        <div class="best__item-subtitle">{% trans 'A short description of the catalog or project, what’s inside' %}<!--Короткое описание каталога или проекта, что внутри--></div>
+      </div>
+    </div>
+<!-- end catalog card -->

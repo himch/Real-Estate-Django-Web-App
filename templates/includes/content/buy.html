@@ -1,28 +1,29 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load static %}
 {% load humanize %}
-
+{% get_current_language as LANGUAGE_CODE %}
 {% block title %} | Buy {% endblock %}
 
 {% block content %}
 <!-- Showcase -->
+
 <main>
   <div class="rent rent_second">
     <div class="container margin-center">
-      <div class="rent__subtitle uppercase text-c5">Dadi Properties</div>
-      <div class="rent__title text-c3 font-tenor">Покупка недвижимости в Дубае</div>
+      <div class="rent__subtitle uppercase text-c5">{% trans 'Dadi Properties' %}<!--Dadi Properties--></div>
+      <div class="rent__title text-c3 font-tenor">{% trans 'Purchase of real estate in Dubai' %}<!--Покупка недвижимости в Дубае--></div>
       <div class="rent__item-block relative">
-        <div class="rent__item-top absolute">для жизни и инвестиций</div>
+        <div class="rent__item-top absolute">{% trans 'for living and investment' %}<!--для жизни и инвестиций--></div>
         <div class="rent__item relative bg" style="background-image:url('/img/rent/main/2.webp')">
           <form class="rent__form flex">
             <div class="rent__input relative">
               <div class="rent__form-item">
-                <div class="rent__form-title">Тип недвижимости</div>
+                <div class="rent__form-title">{% trans 'Property type' %}<!--Тип недвижимости--></div>
                 <div class="rent__select">
                   <div class="p-select relative" data-text-default="Выберите тип">
                     <div class="p-select__current flex flex-ai-center flex-j-between">
-                      <div class="p-select__current-item">Любая</div>
+                      <div class="p-select__current-item">{% trans 'Any type' %}<!--Любая--></div>
                       <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
 </svg>
@@ -31,40 +32,40 @@
                     <div class="p-select__abs absolute flex flex-col">
                       <div class="p-checkboxes flex flex-wrap">
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Любая" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Любая</span>
+                          <input type="checkbox" name="type[]" value="Любая" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Any type' %}<!--Любая--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Апартаменты"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Апартаменты</span>
+                          <input type="checkbox" name="type[]" value="Апартаменты"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Apartments' %}<!--Апартаменты--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Пентхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Пентхаусы</span>
+                          <input type="checkbox" name="type[]" value="Пентхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Penthouses' %}<!--Пентхаусы--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Таунхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Таунхаусы</span>
+                          <input type="checkbox" name="type[]" value="Таунхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Townhouses' %}<!--Таунхаусы--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Дуплексы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Дуплексы</span>
+                          <input type="checkbox" name="type[]" value="Дуплексы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Duplexes' %}<!--Дуплексы--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Квартиры в отелях"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Квартиры в отелях</span>
+                          <input type="checkbox" name="type[]" value="Квартиры в отелях"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Hotel apartment' %}<!--Квартиры в отелях--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Виллы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Виллы</span>
+                          <input type="checkbox" name="type[]" value="Виллы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Villas' %}<!--Виллы--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Пол этажа"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Пол этажа</span>
+                          <input type="checkbox" name="type[]" value="Пол этажа"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Half a floor' %}<!--Пол этажа--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Целые этажи"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Целые этажи</span>
+                          <input type="checkbox" name="type[]" value="Целые этажи"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Entire floors' %}<!--Целые этажи--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Целые здания"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Целые здания</span>
+                          <input type="checkbox" name="type[]" value="Целые здания"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Entire buildings' %}<!--Целые здания--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Коммерческие помещения"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Коммерческие помещения</span>
+                          <input type="checkbox" name="type[]" value="Коммерческие помещения"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Commercial premises' %}<!--Коммерческие помещения--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Земельные участки"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Земельные участки</span>
+                          <input type="checkbox" name="type[]" value="Земельные участки"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Land plots' %}<!--Земельные участки--></span>
                         </label>
                       </div>
                     </div>
@@ -74,22 +75,22 @@
             </div>
             <div class="rent__input relative">
               <div class="rent__form-item">
-                <div class="rent__form-title">Цена</div>
+                <div class="rent__form-title">{% trans 'Price' %}<!--Цена--></div>
                 <div class="rent__price flex">
-                  <div class="rent__price-left"><span>от</span>
+                  <div class="rent__price-left"><span>{% trans 'min' %}<!--от--></span>
                     <input type="number" name="price_min"/>
                   </div>
-                  <div class="rent__price-right"><span>до</span>
+                  <div class="rent__price-right"><span>{% trans 'max' %}<!--до--></span>
                     <input type="number" name="price_min"/>
                   </div>
                 </div>
               </div>
             </div>
             <div class="rent__input relative">
-              <button class="text-500" type="submit">Посмотреть х вариантов</button>
+              <button class="text-500" type="submit">{% trans 'View' %}<!--Посмотреть--> х {% trans 'options' %}<!--вариантов--></button>
             </div>
           </form>
-          <div class="rent__item-end text-underline text-c3 text-600 modal__show" data-modal="type-first">Подобрать с менеджером</div>
+          <div class="rent__item-end text-underline text-c3 text-600 modal__show" data-modal="type-first">{% trans 'Select with manager' %}<!--Подобрать с менеджером--></div>
         </div>
       </div>
     </div>
@@ -103,7 +104,7 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.02209C0 1.68367 0.135459 1.35912 0.376577 1.11982C0.617695 0.880528 0.944722 0.746094 1.28571 0.746094H28.7143C29.0553 0.746094 29.3823 0.880528 29.6234 1.11982C29.8645 1.35912 30 1.68367 30 2.02209C30 2.3605 29.8645 2.68505 29.6234 2.92435C29.3823 3.16364 29.0553 3.29808 28.7143 3.29808H1.28571C0.944722 3.29808 0.617695 3.16364 0.376577 2.92435C0.135459 2.68505 0 2.3605 0 2.02209ZM0 10.5287C0 10.1903 0.135459 9.86574 0.376577 9.62644C0.617695 9.38715 0.944722 9.25271 1.28571 9.25271H20.1429C20.4839 9.25271 20.8109 9.38715 21.052 9.62644C21.2931 9.86574 21.4286 10.1903 21.4286 10.5287C21.4286 10.8671 21.2931 11.1917 21.052 11.431C20.8109 11.6703 20.4839 11.8047 20.1429 11.8047H1.28571C0.944722 11.8047 0.617695 11.6703 0.376577 11.431C0.135459 11.1917 0 10.8671 0 10.5287ZM0 19.0353C0 18.6969 0.135459 18.3724 0.376577 18.1331C0.617695 17.8938 0.944722 17.7593 1.28571 17.7593H9.85714C10.1981 17.7593 10.5252 17.8938 10.7663 18.1331C11.0074 18.3724 11.1429 18.6969 11.1429 19.0353C11.1429 19.3737 11.0074 19.6983 10.7663 19.9376C10.5252 20.1769 10.1981 20.3113 9.85714 20.3113H1.28571C0.944722 20.3113 0.617695 20.1769 0.376577 19.9376C0.135459 19.6983 0 19.3737 0 19.0353Z" fill="#003B50"/>
 </svg>
             </div>
-            <div class="filters__main-title">Фильтры</div>
+            <div class="filters__main-title">{% trans 'Filters' %}<!--Фильтры--></div>
           </div>
           <div class="modal modal_filter">
             <div class="modal__content relative">
@@ -112,13 +113,13 @@
                   <source type="image/webp" srcset="/img/rent/filters/close.webp"/><img width="21" height="21" src="/img/rent/filters/close.png" alt="" loading="lazy"/>
                 </picture>
               </div>
-              <div class="modal_filter__reset absolute text-underline cursor-pointer">Сбросить фильтры</div>
+              <div class="modal_filter__reset absolute text-underline cursor-pointer">{% trans 'Remove filters' %}<!--Сбросить фильтры--></div>
               <div class="modal_filter__items flex relative flex-col">
                 <div class="modal_filter__item">
                   <div class="modal_filter__price-row flex">
                     <div class="modal_filter__price-item modal_filter__item_change">
                       <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">Стоимость в месяц</div>
+                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Price' %}<!--Стоимость--></div>
                         <div class="modal_filter__price-currency flex">
                           <div class="p-checkboxes p-checkboxes_second flex">
                             <label class="p-checkboxes__item flex">
@@ -159,14 +160,14 @@
                     </div>
                     <div class="modal_filter__price-item modal_filter__price-item_area">
                       <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">Общая площадь</div>
+                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Total area' %}<!--Общая площадь--></div>
                         <div class="modal_filter__price-currency flex">
                           <div class="p-checkboxes p-checkboxes_second flex">
                             <label class="p-checkboxes__item flex">
-                              <input type="radio" name="area" value="м2" checked="checked"/><span class="p-checkboxes__item-title">м2</span>
+                              <input type="radio" name="area" value="м2" checked="checked"/><span class="p-checkboxes__item-title">{% trans 'sq. m' %}<!--м2--></span>
                             </label>
                             <label class="p-checkboxes__item flex">
-                              <input type="radio" name="area" value="фут2"/><span class="p-checkboxes__item-title">фут2</span>
+                              <input type="radio" name="area" value="фут2"/><span class="p-checkboxes__item-title">{% trans 'sq. ft' %}<!--фут2--></span>
                             </label>
                           </div>
                         </div>
@@ -175,36 +176,36 @@
                         <div class="modal_filter__area-item active">
                           <div class="modal_filter__area-subitems flex">
                             <div class="modal_filter__area-subitem flex">
-                              <div class="modal_filter__area-left">От</div>
+                              <div class="modal_filter__area-left">{% trans 'From' %}<!--От--></div>
                               <div class="modal_filter__area-input">
                                 <input type="text" name="area_min"/>
                               </div>
-                              <div class="modal_filter__area-right">м2</div>
+                              <div class="modal_filter__area-right">{% trans 'sq. m' %}<!--м2--></div>
                             </div>
                             <div class="modal_filter__area-subitem flex">
-                              <div class="modal_filter__area-left">До</div>
+                              <div class="modal_filter__area-left">{% trans 'To' %}<!--До--></div>
                               <div class="modal_filter__area-input">
                                 <input type="text" name="area_max"/>
                               </div>
-                              <div class="modal_filter__area-right">м2</div>
+                              <div class="modal_filter__area-right">{% trans 'sq. m' %}<!--м2--></div>
                             </div>
                           </div>
                         </div>
                         <div class="modal_filter__area-item">
                           <div class="modal_filter__area-subitems flex">
                             <div class="modal_filter__area-subitem flex">
-                              <div class="modal_filter__area-left">От</div>
+                              <div class="modal_filter__area-left">{% trans 'From' %}<!--От--></div>
                               <div class="modal_filter__area-input">
                                 <input type="text" name="fut_min"/>
                               </div>
-                              <div class="modal_filter__area-right">фут2</div>
+                              <div class="modal_filter__area-right">{% trans 'sq. ft' %}<!--фут2--></div>
                             </div>
                             <div class="modal_filter__area-subitem flex">
-                              <div class="modal_filter__area-left">До</div>
+                              <div class="modal_filter__area-left">{% trans 'To' %}<!--До--></div>
                               <div class="modal_filter__area-input">
                                 <input type="text" name="fut_max"/>
                               </div>
-                              <div class="modal_filter__area-right">фут2</div>
+                              <div class="modal_filter__area-right">{% trans 'sq. ft' %}<!--фут2--></div>
                             </div>
                           </div>
                         </div>
@@ -216,7 +217,7 @@
                   <div class="modal_filter__price-row flex">
                     <div class="modal_filter__price-item">
                       <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">Количество комнат</div>
+                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Number or rooms' %}<!--Количество комнат--></div>
                       </div>
                       <div class="modal_filter__range modal_filter__bedrooms" data-min="1" data-max="10" data-type="int">
                         <div class="modal_filter__range-main"></div>
@@ -226,7 +227,7 @@
                     </div>
                     <div class="modal_filter__price-item">
                       <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">Срок сдачи</div>
+                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Lease period' %}<!--Срок сдачи--></div>
                       </div>
                       <div class="modal_filter__range modal_filter__due_date" data-string="[&quot;Сдан&quot;,&quot;5&quot;,&quot;15&quot;, &quot;235&quot;]" data-start="Сдан" data-end="235" data-type="int">
                         <div class="modal_filter__range-main"></div>
@@ -237,60 +238,17 @@
                   </div>
                 </div>
                 <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">Районы</div>
-                  <div class="p-checkboxes flex flex-wrap">
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Palm Jumeriah"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Palm Jumeriah</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Yas Island"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Yas Island</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Town Square"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Town Square</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="JVC"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">JVC</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Arjan"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Arjan</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Business Bay"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Business Bay</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Downtown"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Downtown</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Jebel Ali"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Jebel Ali</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Dubailand"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubailand</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Production City"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Production City</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Damac Lagoons"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Damac Lagoons</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Beachfront"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Beachfront</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="JLT"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">JLT</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Dubai Hils"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubai Hils</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="MBR"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">MBR</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="raioni[]" value="Dubai Marina"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Dubai Marina</span>
-                    </label>
-                  </div>
+                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Districts' %}<!--Районы--></div>
+
+                  {% include 'includes/filter/districts.html' %}
+
                 </div>
                 <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">Удобства</div>
+                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Amenities' %}<!--Удобства--></div>
+
+                  {% include 'includes/filter/location.html' %}
+
+                  <!--
                   <div class="p-checkboxes flex flex-wrap">
                     <label class="p-checkboxes__item flex">
                       <input type="checkbox" name="ydobstva[]" value="Вид на море"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на море</span>
@@ -323,23 +281,25 @@
                       <input type="checkbox" name="ydobstva[]" value="Бассейн"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Бассейн</span>
                     </label>
                   </div>
+                  -->
+
                 </div>
                 <div class="modal_filter__item modal_filter__item_finishing">
-                  <div class="modal_filter__item-title text-500 text-c5">Отделка</div>
+                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Furnishings' %}<!--Отделка--></div>
                   <div class="p-checkboxes flex flex-wrap">
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="Полностью меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Полностью меблированная</span>
+                      <input type="checkbox" name="finishing[]" value="Полностью меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'All furnishings' %}<!--Полностью меблированная--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="Частично меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Частично меблированная</span>
+                      <input type="checkbox" name="finishing[]" value="Частично меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Partly furnished' %}<!--Частично меблированная--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="Не меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Не меблированная</span>
+                      <input type="checkbox" name="finishing[]" value="Не меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Unfurnished' %}<!--Не меблированная--></span>
                     </label>
                   </div>
                 </div>
                 <div class="modal_filter__item">
-                  <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Применить фильтры</button>
+                  <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Apply filters' %}<!--Применить фильтры--></button>
                 </div>
               </div>
             </div>
@@ -365,15 +325,15 @@
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
                 <input type="hidden" name="type" value="кв. м"/>
-                <div class="p-select__current-item">кв. м</div>
+                <div class="p-select__current-item">{% trans 'sq. m' %}<!--м2--></div>
                 <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
 </svg>
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
-                <div class="p-select__abs-item active" data-value="кв. м">кв. м</div>
-                <div class="p-select__abs-item" data-value="км. фут">км. фут</div>
+                <div class="p-select__abs-item active" data-value="кв. м">{% trans 'sq. m' %}<!--м2--></div>
+                <div class="p-select__abs-item" data-value="км. фут">{% trans 'sq. ft' %}<!--фут2--></div>
               </div>
             </div>
           </div>
@@ -383,7 +343,7 @@
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
                 <input type="hidden" name="sort" value="Cначала новые"/>
-                <div class="p-select__current-item">Cначала новые</div>
+                <div class="p-select__current-item">{% trans 'New first' %}<!--Cначала новые--></div>
                 <div class="p-select__current-arrow"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.8536 0.146447C15.6583 -0.0488155 15.3417 -0.0488155 15.1464 0.146447L11.9645 3.32843C11.7692 3.52369 11.7692 3.84027 11.9645 4.03553C12.1597 4.2308 12.4763 4.2308 12.6716 4.03553L15.5 1.20711L18.3284 4.03553C18.5237 4.2308 18.8403 4.2308 19.0355 4.03553C19.2308 3.84027 19.2308 3.52369 19.0355 3.32843L15.8536 0.146447ZM16 21.5V0.5H15V21.5H16Z" fill="black"/>
 <path d="M3.64645 22.3536C3.84171 22.5488 4.15829 22.5488 4.35355 22.3536L7.53553 19.1716C7.7308 18.9763 7.7308 18.6597 7.53553 18.4645C7.34027 18.2692 7.02369 18.2692 6.82843 18.4645L4 21.2929L1.17157 18.4645C0.976311 18.2692 0.659728 18.2692 0.464466 18.4645C0.269204 18.6597 0.269204 18.9763 0.464466 19.1716L3.64645 22.3536ZM4.5 22V1H3.5V22H4.5Z" fill="black"/>
@@ -391,9 +351,9 @@
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
-                <div class="p-select__abs-item active" data-value="Cначала новые">Cначала новые</div>
-                <div class="p-select__abs-item" data-value="Сначала дешевле">Сначала дешевле</div>
-                <div class="p-select__abs-item" data-value="Сначала дороже">Сначала дороже</div>
+                <div class="p-select__abs-item active" data-value="Cначала новые">{% trans 'New first' %}<!--Cначала новые--></div>
+                <div class="p-select__abs-item" data-value="Сначала дешевле">{% trans 'Cheaper first' %}<!--Сначала дешевле--></div>
+                <div class="p-select__abs-item" data-value="Сначала дороже">{% trans 'More expensive' %}<!--Сначала дороже--></div>
               </div>
             </div>
           </div>
@@ -426,7 +386,7 @@
                 </div>
           {% endif %}
         </div>
-        <div class="filters__content-load margin-center text-c3 text-underline text-500">Загрузить <span>18</span> из 103</div>
+        <div class="filters__content-load margin-center text-c3 text-underline text-500">{% trans 'Download' %}<!--Загрузить--> <span> 18</span> {% trans 'out of' %}<!--из--> 103</div>
       </div>
       <div class="filters__content-map">
         <div class="filters__content-map-item" id="map"></div>
@@ -435,7 +395,7 @@
   </div>
   <div class="estate overflow-hidden estate_buy">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3">Новые проекты партнеров DADI</div>
+      <div class="section__title font-tenor text-c3">{% trans 'New projects of DADI partners' %}<!--Новые проекты партнеров DADI--></div>
       <div class="estate__items flex flex-col">
         <div class="estate__item relative w-full">
           <div class="estate__swiper relative">
@@ -472,14 +432,14 @@
   <div class="buy-form">
     <div class="container margin-center">
       <div class="buy-form__item relative">
-        <div class="buy-form__item-subtitle uppercase">Dadi Properties</div>
-        <div class="buy-form__item-title text-c3 text-500">Каталог надёжных застройщиков Дубая</div>
+        <div class="buy-form__item-subtitle uppercase">{% trans 'Dadi Properties' %}<!--Dadi Properties--></div>
+        <div class="buy-form__item-title text-c3 text-500">{% trans 'Dubai’s Reliable Property Developers Catalogue' %}<!--Каталог надёжных застройщиков Дубая--></div>
         <div class="buy-form__item-desc font-roboto">
-          <p>Внутри:</p>
-          <p>- новые объекты с подробным описанием характеристик</p>
-          <p>- апартаменты по специальной цене</p>
-          <p>- идеи по обустройству</p>
-          <p>- советы экспертов</p>
+          <p>{% trans 'Inside:' %}<!--Внутри:--></p>
+          <p>{% trans '- new objects with detailed description of characteristics' %}<!--- новые объекты с подробным описанием характеристик--></p>
+          <p>{% trans '- apartments at special price' %}<!--- апартаменты по специальной цене--></p>
+          <p>{% trans '- ideas for improvement' %}<!--- идеи по обустройству--></p>
+          <p>{% trans '- Expert Advice' %}<!--- советы экспертов--></p>
         </div>
         <form>
           <div class="buy-form__inner relative">
@@ -491,12 +451,12 @@
                 <input type="email" name="email" placeholder="Email" required="required"/>
               </div>
             </div>
-            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Скачать</button>
+            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Download' %}<!--Скачать--></button>
             <label class="p-check flex flex-ai-center">
               <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
                 <picture>
                   <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
+                </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
             </label>
           </div>
         </form>
@@ -517,7 +477,15 @@
 <path d="M721.832 20.9147L716.508 1221.3" stroke="#BCBCBC" stroke-opacity="0.3"/>
 </svg>
         </div>
-        <div class="buy-advs__circle-title font-tenor text-c3 text-center relative"><span>В чем</span><span>преимущества</span></div>
+        {% if LANGUAGE_CODE == 'en' %}
+          <div class="buy-advs__circle-title font-tenor text-c3 text-center relative">Advantages</div>
+        {% endif %}
+        {% if LANGUAGE_CODE == 'ar' %}
+          <div class="buy-advs__circle-title font-tenor text-c3 text-center relative">ما هي المزايا</div>
+        {% endif %}
+        {% if LANGUAGE_CODE == 'ru' %}
+          <div class="buy-advs__circle-title font-tenor text-c3 text-center relative"><span>В чем</span><span>преимущества</span></div>
+        {% endif %}
         <div class="buy-advs__circle-left img_cover absolute">
           <picture>
             <source type="image/webp" srcset="" data-srcset="/img/buy/advs/1.webp"/><img class="lazy " width="145" height="64" src="" data-src="/img/buy/advs/1.jpg" alt="" loading="lazy"/>
@@ -528,7 +496,7 @@
             <source type="image/webp" srcset="" data-srcset="/img/buy/advs/2.webp"/><img class="lazy " width="145" height="64" src="" data-src="/img/buy/advs/2.jpg" alt="" loading="lazy"/>
           </picture>
         </div>
-        <div class="buy-advs__circle-subtitle text-center relative"> покупки недвижимости в Дубае в 2023</div>
+        <div class="buy-advs__circle-subtitle text-center relative"> {% trans 'of real estate purchase in Dubai' %}<!--покупки недвижимости в Дубае в 2023--></div>
       </div>
       <div class="buy-advs__items relative flex-wrap flex">
         <div class="buy-advs__item">
@@ -537,10 +505,10 @@
               <source type="image/webp" srcset="" data-srcset="/img/buy/advs/refund.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/buy/advs/refund.png" alt="" loading="lazy"/>
             </picture>
           </div>
-          <div class="buy-advs__item-title text-500">Высокая окупаемость инвестиций</div>
+          <div class="buy-advs__item-title text-500">{% trans 'High return on investment.' %}<!--Высокая окупаемость инвестиций--></div>
           <div class="buy-advs__item-desc flex flex-col">
-            <p>В 2022 году Дубай принял 14 млн туристов - сдавая жилье краткосрочно можно получать <strong>доход до 12% годовых.</strong></p>
-            <p>Также ежегодно растет количество экспатов, которые уже сейчас составляют 89% населения ОАЭ. При долгосрочной аренде доход составит <strong>6-9% годовых.</strong> И это без учёта роста стоимости самого объекта.</p>
+            <p>{% trans 'In 2022, Dubai welcomed 14 million tourists - annual revenue up to 12% can be earned by renting out accommodation for short term.' %}<!--В 2022 году Дубай принял 14 млн туристов - сдавая жилье краткосрочно можно получать доход до 12% годовых.--></p>
+            <p>{% trans 'The number of expats is growing every year, now it already makes up 89% of the UAE population. Long-term leases will yield 6-9% per annum. Excluding the increase in the value of the object.' %}<!--Также ежегодно растет количество экспатов, которые уже сейчас составляют 89% населения ОАЭ. При долгосрочной аренде доход составит 6-9% годовых. И это без учёта роста стоимости самого объекта.--></p>
           </div>
         </div>
         <div class="buy-advs__item buy-advs__item_second">
@@ -549,10 +517,10 @@
               <source type="image/webp" srcset="" data-srcset="/img/buy/advs/like.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/buy/advs/like.png" alt="" loading="lazy"/>
             </picture>
           </div>
-          <div class="buy-advs__item-title text-500">Прозрачность законодательства в сфере недвижимости</div>
+          <div class="buy-advs__item-title text-500">{% trans 'Transparency of real estate legislation' %}<!--Прозрачность законодательства в сфере недвижимости--></div>
           <div class="buy-advs__item-desc flex flex-col">
-            <p>Из всех 7 эмиратов в составе ОАЭ, Дубай обладает самой развитой законодательной базой в сфере недвижимости. Сектор строительства внимательно <strong>контролируется государством</strong>, все сделки купли-продажи проходят государственную проверку.</p>
-            <p>Граждане иностранных государств имеют право напрямую приобретать недвижимость в Дубае в <strong>полную собственность</strong> в специально оговоренных Freehold-районах.</p>
+            <p>{% trans 'Dubai has the most developed legal framework in the field of real estate out of the 7 emirates in the UAE. The construction sector is closely monitored by the Government, all transactions are subject to government inspection.' %}<!--Из всех 7 эмиратов в составе ОАЭ, Дубай обладает самой развитой законодательной базой в сфере недвижимости. Сектор строительства внимательно контролируется государством, все сделки купли-продажи проходят государственную проверку.--></p>
+            <p>{% trans 'Foreign citizens are able to acquire real estate directly in full ownership in designated Freehold areas.' %}<!--Граждане иностранных государств имеют право напрямую приобретать недвижимость в Дубае в полную собственность в специально оговоренных Freehold-районах.--></p>
           </div>
         </div>
         <div class="buy-advs__item buy-advs__item_third">
@@ -561,10 +529,10 @@
               <source type="image/webp" srcset="" data-srcset="/img/buy/advs/identity-card.webp"/><img class="lazy " width="20" height="20" src="" data-src="/img/buy/advs/identity-card.png" alt="" loading="lazy"/>
             </picture>
           </div>
-          <div class="buy-advs__item-title text-500">Получение ВНЖ</div>
+          <div class="buy-advs__item-title text-500">{% trans 'Residence permit' %}<!--Получение ВНЖ--></div>
           <div class="buy-advs__item-desc flex flex-col">
-            <p>Купив недвижимость в Дубае ценой от 750.000 дирхам (около 205.000$), инвестор и его семья получают <strong>вид на жительство со статусом резидента</strong>. Она выдается на 2 года, может быть многократно продлена, пока вы остаётесь собственником недвижимости.</p>
-            <p>Покупка недвижимости суммой от 2.000.000 дирхам (около 545.000$) дает возможность получить <strong>“Золотую визу в ОАЭ”</strong> сроком на 10 лет и перспективой стать гражданином Эмиратов.</p>
+            <p>{% trans 'Buying real estate starting from 750,000 dirham (about $205,000), the investor and his family receive a residence permit with resident status. It is issued for 2 years, can be repeatedly extended until you remain the owner of the property.' %}<!--Купив недвижимость в Дубае ценой от 750.000 дирхам (около 205.000$), инвестор и его семья получают вид на жительство со статусом резидента<. Она выдается на 2 года, может быть многократно продлена, пока вы остаётесь собственником недвижимости.--></p>
+            <p>{% trans 'Buying real estate starting from 2.000.000 dirhams (about 545.000$ ) gives the opportunity to obtain a Golden visa in the UAE for 10 years and the prospect of becoming a citizen of the Emirates.' %}<!--Покупка недвижимости суммой от 2.000.000 дирхам (около 545.000$) дает возможность получить Золотую визу в ОАЭ сроком на 10 лет и перспективой стать гражданином Эмиратов.--></p>
           </div>
         </div>
         <div class="buy-advs__item">
@@ -573,11 +541,11 @@
               <source type="image/webp" srcset="" data-srcset="/img/buy/advs/security.webp"/><img class="lazy " width="23" height="23" src="" data-src="/img/buy/advs/security.png" alt="" loading="lazy"/>
             </picture>
           </div>
-          <div class="buy-advs__item-title text-500">Стабильность экономики и безопасность</div>
+          <div class="buy-advs__item-title text-500">{% trans 'Stability and security of economics' %}<!--Стабильность экономики и безопасность--></div>
           <div class="buy-advs__item-desc flex flex-col">
-            <p>В 2021 году Эмираты заняли 2-ое место из 134 <strong>самых безопасных стран</strong> на планете по версии журнала Global Finance.</p>
-            <p>Курс дирхама жёстко привязан к доллару и остаётся <strong>неизменным более 20 лет</strong>.</p>
-            <p>Нейтральный статус ОАЭ в мировых конфликтах, отсутствие санкций и не вмешательство в мировую политику подтверждает <strong>политическую стабильность</strong>.</p>
+            <p>{% trans 'In 2021, the UAE was ranked 2nd safest country out of 134 according to the journal Global Finance.' %}<!--В 2021 году Эмираты заняли 2-ое место из 134 самых безопасных стран на планете по версии журнала Global Finance.--></p>
+            <p>{% trans 'Dirham’s exchange rate is tied to the US dollar and has remained unchanged for more then 20 years.' %}<!--Курс дирхама жёстко привязан к доллару и остаётся неизменным более 20 лет.--></p>
+            <p>{% trans 'The UAE remained neutral in international conflicts, absence of sanctions and non-interference in world politics confirms political stability.' %}<!--Нейтральный статус ОАЭ в мировых конфликтах, отсутствие санкций и не вмешательство в мировую политику подтверждает политическую стабильность.-->Н</p>
           </div>
         </div>
         <div class="buy-advs__item buy-advs__item_four">
@@ -586,10 +554,10 @@
               <source type="image/webp" srcset="" data-srcset="/img/buy/advs/taxes.webp"/><img class="lazy " width="20" height="20" src="" data-src="/img/buy/advs/taxes.png" alt="" loading="lazy"/>
             </picture>
           </div>
-          <div class="buy-advs__item-title text-500">Отсутствие налога на&nbsp;недвижимость</div>
+          <div class="buy-advs__item-title text-500">{% trans 'No real estate tax' %}<!--Отсутствие налога на&nbsp;недвижимость--></div>
           <div class="buy-advs__item-desc flex flex-col">
-            <p>При покупке необходимо оплатить пошлину в размере 4% от стоимости жилья в Земельный департамент.</p>
-            <p>Владение, сдача в аренду, продажа и все другие операции <strong>налогом не облагаются</strong>.</p>
+            <p>{% trans '4% of the cost of housing must be payed as the fee to the Land Department.' %}<!--При покупке необходимо оплатить пошлину в размере 4% от стоимости жилья в Земельный департамент.--></p>
+            <p>{% trans 'Ownership, lease, sale and all other transactions are not taxed' %}<!--Владение, сдача в аренду, продажа и все другие операции налогом не облагаются.--></p>
           </div>
         </div>
       </div>
@@ -597,238 +565,20 @@
   </div>
   <div class="buy overflow-hidden buy_second bg-c2 relative">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3 text-center">Услуги DADI</div>
-      <div class="buy__subtitle text-center">покупка недвижимости в Дубае</div>
-      <div class="buy__row flex hidden">
-        <div class="buy__item flex-shrink">
-          <div class="buy__item-img img_br img_cover buy__item-img_1">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/buy/1.webp"/><img class="lazy " width="325" height="162" src="" data-src="/img/main/buy/1.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-          <div class="buy__item-text">
-            <div class="buy__item-title text-500">Дистанционная покупка недвижимости</div>
-            <div class="buy__item-list p-list">
-              <ul>
-                <li>организуем онлайн просмотр</li>
-                <li>подготовим и переведем все необходимые документы для покупки недвижимости из любой точки мира</li>
-              </ul>
-            </div>
-            <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">Заявка на подбор недвижимости</div>
-          </div>
-        </div>
-        <div class="buy__item flex-shrink">
-          <div class="buy__item-img img_br img_cover buy__item-img_2">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/buy/2.webp"/><img class="lazy " width="325" height="125" src="" data-src="/img/main/buy/2.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-          <div class="buy__item-text">
-            <div class="buy__item-title text-500">Арендное управление</div>
-            <div class="buy__item-subtitle text-500">Берем на себя все обязанности:</div>
-            <div class="buy__item-list p-list">
-              <ul>
-                <li>поиск арендаторов</li>
-                <li>заключение договоров аренды</li>
-                <li>взимание арендных платежей</li>
-                <li>урегулирование споров с арендаторами</li>
-                <li>общее управление недвижимостью в интересах собственника</li>
-              </ul>
-            </div>
-            <div class="buy__item-desc text-500">Обеспечим максимальную доходность и&nbsp;защиту ваших интересов.</div>
-          </div>
-        </div>
-        <div class="buy__item flex-shrink">
-          <div class="buy__item-img img_br img_cover buy__item-img_3">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/buy/3.webp"/><img class="lazy " width="325" height="215" src="" data-src="/img/main/buy/3.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-          <div class="buy__item-text">
-            <div class="buy__item-title text-500">Юридические гарантии</div>
-            <div class="buy__item-desc text-500">Берем на себя всю ответственность по работе с документами, получении ВНЖ, коммуникации и оформлении договоров</div>
-          </div>
-        </div>
-        <div class="buy__item flex-shrink">
-          <div class="buy__item-img img_br img_cover buy__item-img_4">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/buy/4.webp"/><img class="lazy " width="325" height="152" src="" data-src="/img/main/buy/4.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-          <div class="buy__item-text">
-            <div class="buy__item-title text-500">Инвестирование вместе&nbsp;с&nbsp;DADI</div>
-            <div class="buy__item-desc text-500">Мы являемся действующими инвесторами и предлагаем нашим преданным клиентам выгодные оптовые покупки недвижимости у застройщиков. Инвестируйте в проверенные проекты вместе с нами</div>
-            <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">Заявка на подбор недвижимости</div>
-          </div>
-        </div>
-        <div class="buy__item flex-shrink">
-          <div class="buy__item-img img_br img_cover buy__item-img_5">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/buy/5.webp"/><img class="lazy " width="325" height="188" src="" data-src="/img/main/buy/5.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-          <div class="buy__item-text">
-            <div class="buy__item-title text-500">Оценка недвижимости</div>
-            <div class="buy__item-desc text-500">Профессионально оценим вашу недвижимость для продажи, проконсультируем по нюансам и поможем сформировать предложение для покупателя.</div>
-            <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">Заявка на оценку недвижимости</div>
-          </div>
-        </div>
-        <div class="buy__item flex-shrink">
-          <div class="buy__item-img img_br img_cover buy__item-img_6">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/buy/6.webp"/><img class="lazy " width="325" height="204" src="" data-src="/img/main/buy/6.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-          <div class="buy__item-text">
-            <div class="buy__item-title text-500">Срочный выкуп недвижимости</div>
-            <div class="buy__item-desc text-500">Выкупим вашу недвижимость за 24 часа с момента просмотра или добавим проект в нашу базу.</div>
-            <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">Заявка на оценку недвижимости</div>
-          </div>
-        </div>
-      </div>
+      <div class="section__title font-tenor text-c3 text-center">{% trans 'Services of DADI' %}<!--Услуги DADI--></div>
+      <div class="buy__subtitle text-center">{% trans 'purchase of real estate in Dubai' %}<!--покупка недвижимости в Дубае--></div>
+
+      {% include 'includes/buy/buy_row.html' %}
+
     </div>
   </div>
-  <div class="best overflow-hidden">
-    <div class="container margin-center">
-      <div class="section__title font-tenor text-c3">Каталоги лучшей недвижимости Дубая 2023-2024</div>
-      <div class="best__swiper relative">
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="best__item relative">
-                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
-                <div class="best__item-img img_br img_cover">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="/img/main/best/1.jpg" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-                <div class="best__item-title text-c5 text-500">Название каталога</div>
-                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="best__item relative">
-                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
-                <div class="best__item-img img_br img_cover">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="/img/main/best/1.jpg" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-                <div class="best__item-title text-c5 text-500">Название каталога</div>
-                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="best__item relative">
-                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
-                <div class="best__item-img img_br img_cover">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="/img/main/best/1.jpg" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-                <div class="best__item-title text-c5 text-500">Название каталога</div>
-                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="best__item relative">
-                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
-                <div class="best__item-img img_br img_cover">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="/img/main/best/1.jpg" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-                <div class="best__item-title text-c5 text-500">Название каталога</div>
-                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="best__item relative">
-                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
-                <div class="best__item-img img_br img_cover">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="/img/main/best/1.jpg" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-                <div class="best__item-title text-c5 text-500">Название каталога</div>
-                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="best__item relative">
-                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
-                <div class="best__item-img img_br img_cover">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="/img/main/best/1.jpg" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-                <div class="best__item-title text-c5 text-500">Название каталога</div>
-                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="best__item relative">
-                <div class="best__item-link absolute top-0 right-0 text-c2 flex flex-ai-center flex-j-center text-center modal__show" data-modal="pdf">Скачать PDF</div>
-                <div class="best__item-img img_br img_cover">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/best/1.webp"/><img class="lazy " width="281" height="265" src="" data-src="/img/main/best/1.jpg" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-                <div class="best__item-title text-c5 text-500">Название каталога</div>
-                <div class="best__item-subtitle">Короткое описание каталога или проекта, что внутри</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main_swiper-arrows flex absolute">
-          <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-left.png" alt="" loading="lazy"/>
-            </picture>
-          </div>
-          <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-right.png" alt="" loading="lazy"/>
-            </picture>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  {% include 'includes/catalog/catalog_module.html' %}
+
   <div class="blog_second">
-    <div class="blog">
-      <div class="container margin-center">
-        <div class="section__title font-tenor text-c3">Блог о недвижимости и новостях Дубая</div>
-        <div class="blog__block relative"><a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="/blog">Перейти в Блог</a>
-          <div class="blog__items relative flex">
-            <div class="blog__item">
-              <div class="blog__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/blog/1.webp"/><img class="lazy " width="343" height="324" src="" data-src="/img/main/blog/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="blog__item-title">Где лучше жить: в чем отличие районов Дубая</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
-            </div>
-            <div class="blog__item">
-              <div class="blog__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/blog/2.webp"/><img class="lazy " width="343" height="324" src="" data-src="/img/main/blog/2.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="blog__item-title">Старт строительства комплекса “Название”</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
-            </div>
-            <div class="blog__item">
-              <div class="blog__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/blog/1.webp"/><img class="lazy " width="343" height="324" src="" data-src="/img/main/blog/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="blog__item-title">Где лучше жить: в чем отличие районов Дубая</div><a class="blog__item-link text-c5 text-underline text-500" href="/article.html">Читать</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    {% include 'includes/blog/blog_module.html' %}
+
   </div>
 </main>
 {% endblock %}

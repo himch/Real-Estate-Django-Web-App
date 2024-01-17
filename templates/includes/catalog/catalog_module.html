@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="best overflow-hidden">
+    <div class="container margin-center">
+      <div class="section__title font-tenor text-c3">{% trans 'Dubai’s Best Property Catalogs 2023-2024' %}<!--Каталоги лучшей недвижимости Дубая 2023-2024--></div>
+      <div class="best__swiper relative">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {% if range %}
+              {% for r in range %}
+                <!-- start catalog -->
+                {% include 'includes/catalog/catalog_card.html' %}
+                <!-- end catalog -->
+              {% endfor %}
+            {% else %}
+              <div class="col-md-12">
+                <p>{% trans 'No Catalogs Available' %}</p>
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+        <div class="main_swiper-arrows flex absolute">
+          <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-left.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+          <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-right.png" alt="" loading="lazy"/>
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+

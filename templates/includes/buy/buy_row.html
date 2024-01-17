@@ -1,0 +1,92 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="buy__row flex hidden">
+    <div class="buy__item flex-shrink">
+      <div class="buy__item-img img_br img_cover buy__item-img_1">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="/img/main/buy/1.webp"/><img class="lazy " width="325" height="162" src="" data-src="/img/main/buy/1.jpg" alt="" loading="lazy"/>
+        </picture>
+      </div>
+      <div class="buy__item-text">
+        <div class="buy__item-title text-500">{% trans 'Remote property purchase' %}<!--Дистанционная покупка недвижимости--></div>
+        <div class="buy__item-list p-list">
+          <ul>
+            <li>{% trans 'we organize online viewing' %}<!--организуем онлайн просмотр--></li>
+            <li>{% trans 'prepare and translate all necessary documents for the purchase of real estate from any place in the world' %}<!--подготовим и переведем все необходимые документы для покупки недвижимости из любой точки мира--></li>
+          </ul>
+        </div>
+        <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">{% trans 'Online application for the selection of real estate' %}<!--Заявка на подбор недвижимости--></div>
+      </div>
+    </div>
+    <div class="buy__item flex-shrink">
+      <div class="buy__item-img img_br img_cover buy__item-img_2">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="/img/main/buy/2.webp"/><img class="lazy " width="325" height="125" src="" data-src="/img/main/buy/2.jpg" alt="" loading="lazy"/>
+        </picture>
+      </div>
+      <div class="buy__item-text">
+        <div class="buy__item-title text-500">{% trans 'Rent management' %}<!--Арендное управление--></div>
+        <div class="buy__item-subtitle text-500">{% trans 'We assume all responsibilities:' %}<!--Берем на себя все обязанности:--></div>
+        <div class="buy__item-list p-list">
+          <ul>
+            <li>{% trans 'search for tenants' %}<!--поиск арендаторов--></li>
+            <li>{% trans 'conclusion of rental agreement' %}<!--заключение договоров аренды--></li>
+            <li>{% trans 'lease payments' %}<!--взимание арендных платежей--></li>
+            <li>{% trans 'dispute settlement with tenants' %}<!--урегулирование споров с арендаторами--></li>
+            <li>{% trans 'general management of real estate for the owner' %}<!--общее управление недвижимостью в интересах собственника--></li>
+          </ul>
+        </div>
+        <div class="buy__item-desc text-500">{% trans 'We will ensure maximum profitability and protection of your interests.' %}<!--Обеспечим максимальную доходность и&nbsp;защиту ваших интересов.--></div>
+      </div>
+    </div>
+    <div class="buy__item flex-shrink">
+      <div class="buy__item-img img_br img_cover buy__item-img_3">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="/img/main/buy/3.webp"/><img class="lazy " width="325" height="215" src="" data-src="/img/main/buy/3.jpg" alt="" loading="lazy"/>
+        </picture>
+      </div>
+      <div class="buy__item-text">
+        <div class="buy__item-title text-500">{% trans 'Legal guarantees' %}<!--Юридические гарантии--></div>
+        <div class="buy__item-desc text-500">{% trans 'we take full responsibility for documents, obtaining residence permits, communication and contracting.' %}<!--Берем на себя всю ответственность по работе с документами, получении ВНЖ, коммуникации и оформлении договоров--></div>
+      </div>
+    </div>
+    <div class="buy__item flex-shrink">
+      <div class="buy__item-img img_br img_cover buy__item-img_4">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="/img/main/buy/4.webp"/><img class="lazy " width="325" height="152" src="" data-src="/img/main/buy/4.jpg" alt="" loading="lazy"/>
+        </picture>
+      </div>
+      <div class="buy__item-text">
+        <div class="buy__item-title text-500">{% trans 'Investing with DADI' %}<!--Инвестирование вместе&nbsp;с&nbsp;DADI--></div>
+        <div class="buy__item-desc text-500">{% trans 'We are existing investors and offer our loyal customers advantageous wholesale real estate purchases from developers. Invest in audited projects with us.' %}<!--Мы являемся действующими инвесторами и предлагаем нашим преданным клиентам выгодные оптовые покупки недвижимости у застройщиков. Инвестируйте в проверенные проекты вместе с нами--></div>
+        <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">{% trans 'Invest with DADI' %}<!--Заявка на подбор недвижимости--></div>
+      </div>
+    </div>
+    <div class="buy__item flex-shrink">
+      <div class="buy__item-img img_br img_cover buy__item-img_5">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="/img/main/buy/5.webp"/><img class="lazy " width="325" height="188" src="" data-src="/img/main/buy/5.jpg" alt="" loading="lazy"/>
+        </picture>
+      </div>
+      <div class="buy__item-text">
+        <div class="buy__item-title text-500">{% trans 'Property valuation' %}<!--Оценка недвижимости--></div>
+        <div class="buy__item-desc text-500">{% trans 'We will professionally evaluate your property for sale, consult on the nuances and help to form an offer for the buyer.' %}<!--Профессионально оценим вашу недвижимость для продажи, проконсультируем по нюансам и поможем сформировать предложение для покупателя.--></div>
+        <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">{% trans 'List my property' %}<!--Заявка на оценку недвижимости--></div>
+      </div>
+    </div>
+    <div class="buy__item flex-shrink">
+      <div class="buy__item-img img_br img_cover buy__item-img_6">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="/img/main/buy/6.webp"/><img class="lazy " width="325" height="204" src="" data-src="/img/main/buy/6.jpg" alt="" loading="lazy"/>
+        </picture>
+      </div>
+      <div class="buy__item-text">
+        <div class="buy__item-title text-500">{% trans 'Urgent sale of the property' %}<!--Срочный выкуп недвижимости--></div>
+        <div class="buy__item-desc text-500">{% trans 'We&quot;ll assess the property within 24 hours since properties&quot; showings or will add the project to our database.' %}<!--Выкупим вашу недвижимость за 24 часа с момента просмотра или добавим проект в нашу базу-->.</div>
+        <div class="buy__item-link text-600 text-underline modal__show" data-modal="type-second">{% trans 'Application for urgent sale' %}<!--Заявка на оценку недвижимости--></div>
+      </div>
+    </div>
+</div>

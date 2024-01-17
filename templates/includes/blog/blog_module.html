@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load l10n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="blog">
+    <div class="container margin-center">
+      <div class="section__title font-tenor text-c3">{% trans 'Blog about Dubai’s real estate and news' %}<!--Блог о недвижимости и новостях Дубая--></div>
+      <div class="blog__block relative"><a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="/blog">{% trans 'Go to the blog page' %}<!--Перейти в Блог--></a>
+        <div class="blog__items relative flex">
+
+          {% if blog_range %}
+              {% for r in blog_range %}
+                {% include 'includes/blog/blog_card.html' %}
+              {% endfor %}
+          {% else %}
+            <div class="col-md-12">
+              <p>{% trans 'No Articles Available' %}</p>
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+</div>

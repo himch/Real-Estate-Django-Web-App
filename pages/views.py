@@ -21,6 +21,7 @@ def index(request):
 
     context = {
         'range': range(9),
+        'blog_range': range(3),
         'rent_listings': paged_rent_listings,
         'listings': paged_listings,
         'state_choices': state_choices,
@@ -45,6 +46,7 @@ def buy(request):
 
     context = {
         'range': range(9),
+        'blog_range': range(3),
         'rent_listings': paged_rent_listings,
         'listings': paged_listings,
         'state_choices': state_choices,
@@ -65,6 +67,7 @@ def arenda(request):
 
     context = {
         'range': range(9),
+        'blog_range': range(3),
         'listings': paged_listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,

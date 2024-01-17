@@ -49,7 +49,6 @@ class Listing(models.Model):
             return self.planned_completion_at[:7]
         else:
             return None
-
     planned_completion = property(_get_planned_completion)
 
     # ---------------------------------------------------
@@ -60,6 +59,11 @@ class Listing(models.Model):
     title_a_ru = models.TextField(blank=True, null=True)
     title_a_en = models.TextField(blank=True, null=True)
     title_a_ar = models.TextField(blank=True, null=True)
+
+    # def _get_trans_title(self):
+    #     return None
+    # trans_title = property(_get_trans_title)
+
     description_a_ru = models.TextField(blank=True, null=True)
     description_a_en = models.TextField(blank=True, null=True)
     description_a_ar = models.TextField(blank=True, null=True)
