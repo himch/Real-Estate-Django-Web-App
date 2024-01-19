@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load l10n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+<div class="container margin-center">
+  <div class="section__title font-tenor text-c3">{% trans 'DADI team' %}<!--Команда DADI--></div>
+  <div class="team__row flex">
+    <div class="team__left">
+      <div class="team__img img_br img_cover">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="/img/main/team/1.webp"/><img class="lazy " width="381" height="406" src="" data-src="/img/main/team/1.jpg" alt="" loading="lazy"/>
+        </picture>
+      </div>
+    </div>
+    <div class="team__right">
+      <div class="team__text relative flex">
+        <div class="team__text-line relative"><svg xmlns="http://www.w3.org/2000/svg" width="2" height="461" viewBox="0 0 2 461" fill="none">
+          <path d="M1 0V461" stroke="url(#paint0_linear_347_1155)" stroke-width="2"/>
+          <defs>
+          <linearGradient id="paint0_linear_347_1155" x1="0.965365" y1="486.5" x2="0.951261" y2="-138.804" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4B97A1" stop-opacity="0"/>
+          <stop offset="0.5" stop-color="#156B7F"/>
+          <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+          </linearGradient>
+          </defs>
+          </svg>
+          <div class="team__text-line-circle absolute"></div>
+        </div>
+        <div class="team__text-items flex flex-col">
+          <div class="team__text-item">{% trans 'We are experts in the field of real estate of large companies in Russia and CIS for more than 10 years.' %}<!--Мы эксперты в области недвижимости крупных компаний РФ и СНГ более 10 лет.--></div>
+          <div class="team__text-item">{% trans 'Efficiency, headache relieve, accompaniment of our clients - all these are the basics of our work. We want to do more for you, bring the best of the Russian market experience in realities of Dubai.' %}<!--Оперативность, полное снятие головной боли, комфортное сопровождение наших клиентов - всё это основы нашей работы. Мы хотим делать для вас большее, привносить лучшее из опыта российского рынка в быстрые реалии Дубая.--></div>
+          <div class="team__text-item">{% trans 'Every day we work on the quality of service and attract the best teams to outsource in analytics and training.' %}<!--Каждый день работаем над качеством сервиса и привлекаем лучшие команды на аутсорс в аналитике и обучении.--></div>
+          <div class="team__text-item">{% trans 'Our goal is not only to conduct a deal. We are interested in work for the long term perspective: we accompany our customers in new projects, share news and become friends.' %}<!--Наша цель - не просто провести сделку. Мы работаем на долгосрочную перспективу: сопровождаем наших клиентов в новых проектах, делимся новостями и становимся друзьями.--></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

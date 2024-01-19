@@ -707,90 +707,13 @@
     </div>
   </div>
   <div class="service">
-    <div class="container margin-center">
-      <div class="service__item relative">
-        <div class="service__item-text relative">
-          <div class="section__title font-tenor text-c3">{% trans 'Services of DADI' %}<!--Услуги DADI--></div>
-          <div class="service__item-subtitle text-500 text-c5">{% trans 'Individual selection' %}<!--Индивидуальный подбор--></div>
-          <div class="service__item-subtitle_2">{% trans 'of property for rent or purchase based on your request' %}<!--недвижимости для аренды или покупки под ваши запросы--></div>
-          <form>
-            <div class="service__form form">
-              <div class="service__form-inputs flex flex-col">
-                <div class="service__form-input w-full form__input">
-                  <input type="text" name="fname" placeholder="Ваше имя" required="required"/>
-                </div>
-                <div class="service__form-input w-full form__input">
-                  <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-                </div>
-              </div>
-              <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Leave a request' %}<!--Оставить заявку--></button>
-            </div>
-          </form>
-        </div>
-        <div class="service__item-bg absolute right-0 bottom-0 p-img">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/service/1.webp"/><img class="lazy " width="907" height="604" src="" data-src="/img/main/service/1.png" alt="" loading="lazy"/>
-          </picture>
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/service/1_mb.webp"/><img class="lazy " width="340" height="262" src="" data-src="/img/main/service/1_mb.png" alt="" loading="lazy"/>
-          </picture>
-        </div>
-      </div>
-    </div>
+
+    {% include 'includes/feedback_forms/building.html' %}
+
   </div>
-  <div class="type">
-    <div class="container margin-center">
-      <div class="section__title font-tenor text-c3 text-center">{% trans 'Rent' %}<!--Аренда--></div>
-      <div class="type__row grid">
-        <div class="type__item flex flex-ai-center">
-          <div class="type__item-left">
-            <div class="type__item-img w-full img_cover img_br">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/main/type/1.webp"/><img class="lazy " width="323" height="259" src="" data-src="/img/main/type/1.jpg" alt="" loading="lazy"/>
-              </picture>
-            </div>
-          </div>
-          <div class="type__item-right">
-            <div class="type__title">{% trans 'Booking service' %}<!--Букинг-сервис--></div>
-            <div class="type__list p-list">
-              <ul>
-                <li>{% trans 'availability of apartments and bookings can be done through a convenient calendar' %}<!--бронируйте свободные апартаменты через удобный календарь--></li>
-                <li>{% trans 'use personal profile for payments and communication with our managers' %}<!--оплачивайте, общайтесь с менеджером и отслеживайте информацию в личном кабинете--></li>
-              </ul>
-            </div><a class="type__link text-600 text-underline text-c3" href="/arenda">{% trans 'Book an apartment' %}<!--Забронировать квартиру--></a>
-          </div>
-        </div>
-        <div class="type__item flex flex-col flex-ai-center text-center">
-          <div class="type__item-left">
-            <div class="type__item-img w-full img_cover img_br">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/main/type/2.webp"/><img class="lazy " width="376" height="379" src="" data-src="/img/main/type/2.jpg" alt="" loading="lazy"/>
-              </picture>
-            </div>
-          </div>
-          <div class="type__item-right">
-            <div class="type__title">{% trans 'Personal assistant in&nbsp;the country' %}<!--Персональный ассистент в стране--></div>
-            <div class="type__desc">{% trans 'help with transfer, car rental, dry cleaning - assistant will take care of all household issues in the new country 24/7' %}<!--поможет с трансфером, арендой автомобиля, химчисткой - решит все бытовые вопросы в новой стране 24/7--></div>
-            <div class="type__link text-600 text-underline modal__show cursor-pointer" data-modal="type-first">{% trans 'Book transfer from the airport' %}<!--Заказать трансфер из аэропорта--></div>
-          </div>
-        </div>
-        <div class="type__item flex flex-ai-center">
-          <div class="type__item-left">
-            <div class="type__item-img w-full img_cover img_br">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/main/type/3.webp"/><img class="lazy " width="323" height="259" src="" data-src="/img/main/type/3.jpg" alt="" loading="lazy"/>
-              </picture>
-            </div>
-          </div>
-          <div class="type__item-right">
-            <div class="type__title">{% trans 'Legal support' %}<!--Юридическое сопровождение--></div>
-            <div class="type__desc">{% trans 'in case of leasehold term starting from 3 months we will take care of checking all document and concluding the contract of rent with the proprietor' %}<!--при аренде на срок более 3 месяцев, поможем проверить документы и заключить выгодный договор с собственником--></div>
-            <div class="type__link text-600 text-underline modal__show" data-modal="type-second">{% trans 'Leave a long-term lease application' %}<!--Оставить заявку на долгосрочную аренду--></div>
-          </div>
-        </div>
-      </div><a class="p-btn flex flex-ai-center flex-j-center text-500" href="/arenda">{% trans 'Go to Rent catalogue' %}<!--Перейти в каталог аренды--></a>
-    </div>
-  </div>
+
+  {% include 'includes/rent/rent_module.html' %}
+
   <div class="buy overflow-hidden">
     <div class="container margin-center">
       <div class="section__title font-tenor text-c3 text-center">{% trans 'Purchase' %}<!--Покупка--></div>
@@ -800,75 +723,11 @@
       <a class="p-btn flex flex-ai-center flex-j-center text-500" href="/buy">{% trans 'Go to Purchase catalogue' %}<!--Перейти в каталог покупки--></a>
     </div>
   </div>
+
   <div class="principle overflow-hidden">
-    <div class="container margin-center">
-      <div class="principle__block relative">
-        <div class="principle__img principle__img_1 absolute img_cover p-img">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/principle/1.webp"/><img class="lazy " width="448" height="493" src="" data-src="/img/main/principle/1.jpg" alt="" loading="lazy"/>
-          </picture>
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/principle/1_mb.webp"/><img class="lazy " width="394" height="125" src="" data-src="/img/main/principle/1_mb.jpg" alt="" loading="lazy"/>
-          </picture>
-        </div>
-        <div class="principle__img principle__img_2 absolute img_cover p-img">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/principle/2.webp"/><img class="lazy " width="337" height="102" src="" data-src="/img/main/principle/2.jpg" alt="" loading="lazy"/>
-          </picture>
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/principle/2_mb.webp"/><img class="lazy " width="186" height="58" src="" data-src="/img/main/principle/2_mb.jpg" alt="" loading="lazy"/>
-          </picture>
-        </div>
-        <div class="principle__img principle__img_3 absolute img_cover p-img">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/principle/3.webp"/><img class="lazy " width="337" height="288" src="" data-src="/img/main/principle/3.jpg" alt="" loading="lazy"/>
-          </picture>
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/principle/3_mb.webp"/><img class="lazy " width="158" height="58" src="" data-src="/img/main/principle/3_mb.jpg" alt="" loading="lazy"/>
-          </picture>
-        </div>
-        <div class="section__title font-tenor text-c3">{% trans 'Our values' %}<!--Наши принципы--></div>
-        <div class="principle__items flex flex-col">
-          <div class="principle__item flex">
-            <div class="principle__item-left">
-              <div class="principle__item-arrow flex flex-ai-center flex-j-center"><svg width="18" height="8" viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.3536 4.35355C17.5488 4.15829 17.5488 3.84171 17.3536 3.64645L14.1716 0.464465C13.9763 0.269203 13.6597 0.269203 13.4645 0.464465C13.2692 0.659727 13.2692 0.97631 13.4645 1.17157L16.2929 4L13.4645 6.82843C13.2692 7.02369 13.2692 7.34027 13.4645 7.53553C13.6597 7.73079 13.9763 7.73079 14.1716 7.53553L17.3536 4.35355ZM4.37114e-08 4.5L17 4.5L17 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="#156B7F"/>
-</svg>
-              </div>
-            </div>
-            <div class="principle__item-right">
-              <div class="principle__item-title text-c5">{% trans 'Support at all stages' %}<!--Поддержка на всех этапах--></div>
-              <div class="principle__item-desc">{% trans 'DADI Agent Manager will contact you on all questions, will explain processes, nuances and professionally accompany all legal aspects' %}<!--Менеджер-агент DADI на связи с вами по всем вопросам, объяснит процессы и нюансы, профессионально сопроводит все юридические аспекты--></div>
-            </div>
-          </div>
-          <div class="principle__item flex">
-            <div class="principle__item-left">
-              <div class="principle__item-arrow flex flex-ai-center flex-j-center"><svg width="18" height="8" viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.3536 4.35355C17.5488 4.15829 17.5488 3.84171 17.3536 3.64645L14.1716 0.464465C13.9763 0.269203 13.6597 0.269203 13.4645 0.464465C13.2692 0.659727 13.2692 0.97631 13.4645 1.17157L16.2929 4L13.4645 6.82843C13.2692 7.02369 13.2692 7.34027 13.4645 7.53553C13.6597 7.73079 13.9763 7.73079 14.1716 7.53553L17.3536 4.35355ZM4.37114e-08 4.5L17 4.5L17 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="#156B7F"/>
-</svg>
-              </div>
-            </div>
-            <div class="principle__item-right">
-              <div class="principle__item-title text-c5">{% trans 'Excellent service' %}<!--Великолепный сервис--></div>
-              <div class="principle__item-desc">{% trans 'We focus on the service quality and comfort of our customers, so all the mechanisms work like clocks and all agents go through an in-person screening from the key persons of the company' %}<!--Мы делаем акцент на качество сервиса и комфорт наших клиентов, поэтому все механизмы работают как часы и все агенты проходят личный отбор у главных лиц компании--></div>
-            </div>
-          </div>
-          <div class="principle__item flex">
-            <div class="principle__item-left">
-              <div class="principle__item-arrow flex flex-ai-center flex-j-center"><svg width="18" height="8" viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.3536 4.35355C17.5488 4.15829 17.5488 3.84171 17.3536 3.64645L14.1716 0.464465C13.9763 0.269203 13.6597 0.269203 13.4645 0.464465C13.2692 0.659727 13.2692 0.97631 13.4645 1.17157L16.2929 4L13.4645 6.82843C13.2692 7.02369 13.2692 7.34027 13.4645 7.53553C13.6597 7.73079 13.9763 7.73079 14.1716 7.53553L17.3536 4.35355ZM4.37114e-08 4.5L17 4.5L17 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="#156B7F"/>
-</svg>
-              </div>
-            </div>
-            <div class="principle__item-right">
-              <div class="principle__item-title text-c5">{% trans 'Long-term cooperation' %}<!--Долгосрочное сотрудничество--></div>
-              <div class="principle__item-desc">{% trans 'Our goal isn’t just to make a deal. We work for the long term perspective: we accompany our customers in new projects, share news and become friends' %}<!--Наша цель - не просто провести сделку. Мы работаем на долгосрочную перспективу: сопровождаем наших клиентов в новых проектах, делимся новостями и становимся друзьями--></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% include 'includes/our_values/our_values.html' %}
   </div>
+
   <div class="reviews overflow-hidden hidden">
     <div class="container margin-center">
       <div class="section__title font-tenor text-c3 text-center">{% trans 'Rent' %}<!--Аренда-->Больше 1000 отзывов</div>
@@ -957,158 +816,17 @@
   {% include 'includes/blog/blog_module.html' %}
 
   <div class="get">
-    <div class="container margin-center">
-      <div class="get__item relative">
-        <div class="get__item-img absolute bottom-0 left-0 p-img">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/get/1.webp"/><img class="lazy " width="975" height="600" src="" data-src="/img/main/get/1.png" alt="" loading="lazy"/>
-          </picture>
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/get/1_mb.webp"/><img class="lazy " width="340" height="344" src="" data-src="/img/main/get/1_mb.png" alt="" loading="lazy"/>
-          </picture>
-        </div>
-        <form>
-          <div class="get__item-text relative">
-            <div class="get__item-title text-500">{% trans 'Find the best solution for your request' %}<!--Подберём лучшее решение под ваш запрос--></div>
-            <div class="get__item-subtitle text-500 text-c5">{% trans 'Leave a request for a free consultation' %}<!--Оставьте заявку на бесплатную консультацию--></div>
-            <div class="get__item-inputs flex">
-              <div class="get__item-input form__input">
-                <input type="text" name="name" placeholder="Ваше имя" required="required"/>
-              </div>
-              <div class="get__item-input form__input">
-                <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-              </div>
-              <div class="get__item-input form__input">
-                <div class="p-select relative">
-                  <div class="p-select__current flex flex-ai-center flex-j-between">
-                    <input type="hidden" name="request" value="Позвонить мне"/>
-                    <div class="p-select__current-item">{% trans 'Call me' %}<!--Позвонить мне--></div>
-                    <div class="p-select__current-arrow">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/get/arrow.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                  </div>
-                  <div class="p-select__abs absolute flex flex-col">
-                    <div class="p-select__abs-item active" data-value="Позвонить мне">{% trans 'Call me' %}<!--Позвонить мне--></div>
-                    <div class="p-select__abs-item" data-value="Написать мне">{% trans 'Write me' %}<!--Написать мне--></div>
-                    <div class="p-select__abs-item" data-value="Написать позже">{% trans 'Write later' %}<!--Написать позже--></div>
-                    <div class="p-select__abs-item" data-value="Позвонить позже">{% trans 'Call later' %}<!--Позвонить позже--></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="get__item-end">
-              <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Receive a consultation' %}<!--Получить консультацию--></button>
-              <label class="p-check flex flex-ai-center">
-                <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                  </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
-              </label>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+    {% include 'includes/feedback_forms/building_2.html' %}
   </div>
 
   {% include 'includes/catalog/catalog_module.html' %}
 
   <div class="team">
-    <div class="container margin-center">
-      <div class="section__title font-tenor text-c3">{% trans 'DADI team' %}<!--Команда DADI--></div>
-      <div class="team__row flex">
-        <div class="team__left">
-          <div class="team__img img_br img_cover">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/team/1.webp"/><img class="lazy " width="381" height="406" src="" data-src="/img/main/team/1.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-        </div>
-        <div class="team__right">
-          <div class="team__text relative flex">
-            <div class="team__text-line relative"><svg xmlns="http://www.w3.org/2000/svg" width="2" height="461" viewBox="0 0 2 461" fill="none">
-              <path d="M1 0V461" stroke="url(#paint0_linear_347_1155)" stroke-width="2"/>
-              <defs>
-              <linearGradient id="paint0_linear_347_1155" x1="0.965365" y1="486.5" x2="0.951261" y2="-138.804" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#4B97A1" stop-opacity="0"/>
-              <stop offset="0.5" stop-color="#156B7F"/>
-              <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
-              </linearGradient>
-              </defs>
-              </svg>
-              <div class="team__text-line-circle absolute"></div>
-            </div>
-            <div class="team__text-items flex flex-col">
-              <div class="team__text-item">{% trans 'We are experts in the field of real estate of large companies in Russia and CIS for more than 10 years.' %}<!--Мы эксперты в области недвижимости крупных компаний РФ и СНГ более 10 лет.--></div>
-              <div class="team__text-item">{% trans 'Efficiency, headache relieve, accompaniment of our clients - all these are the basics of our work. We want to do more for you, bring the best of the Russian market experience in realities of Dubai.' %}<!--Оперативность, полное снятие головной боли, комфортное сопровождение наших клиентов - всё это основы нашей работы. Мы хотим делать для вас большее, привносить лучшее из опыта российского рынка в быстрые реалии Дубая.--></div>
-              <div class="team__text-item">{% trans 'Every day we work on the quality of service and attract the best teams to outsource in analytics and training.' %}<!--Каждый день работаем над качеством сервиса и привлекаем лучшие команды на аутсорс в аналитике и обучении.--></div>
-              <div class="team__text-item">{% trans 'Our goal is not only to conduct a deal. We are interested in work for the long term perspective: we accompany our customers in new projects, share news and become friends.' %}<!--Наша цель - не просто провести сделку. Мы работаем на долгосрочную перспективу: сопровождаем наших клиентов в новых проектах, делимся новостями и становимся друзьями.--></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% include 'includes/dadi_team/dadi_team.html' %}
   </div>
 
-
-
   <div class="criterion">
-    <div class="container margin-center">
-      <div class="criterion__item relative flex flex-col overflow-hidden">
-        <div class="criterion__item-bg absolute bottom-0 left-0 p-img">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/criterion/bg.webp"/><img class="lazy " width="1160" height="432" src="" data-src="/img/main/criterion/bg.png" alt="" loading="lazy"/>
-          </picture>
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/main/criterion/bg_mb.webp"/><img class="lazy " width="322" height="230" src="" data-src="/img/main/criterion/bg_mb.png" alt="" loading="lazy"/>
-          </picture>
-        </div>
-        <div class="criterion__title text-center">{% trans 'The best property according to your criteria' %}<!--Лучшая недвижимость по вашим критериям--></div>
-        <div class="criterion__subtitle text-center">{% trans 'Leave a request for ' %}<!--Оставьте заявку на --><span class="text-c5">{% trans 'a free consultation' %}<!--бесплатную консультацию--></span></div>
-        <form>
-          <div class="criterion__form">
-            <div class="criterion__form-inputs flex">
-              <div class="criterion__form-input form__input">
-                <input type="text" name="name" placeholder="Ваше имя" required="required"/>
-              </div>
-              <div class="criterion__form-input form__input">
-                <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-              </div>
-              <div class="criterion__form-input form__input">
-                <div class="p-select relative">
-                  <div class="p-select__current flex flex-ai-center flex-j-between">
-                    <input type="hidden" name="request" value="Позвонить мне"/>
-                    <div class="p-select__current-item">{% trans 'Call me' %}<!--Позвонить мне--></div>
-                    <div class="p-select__current-arrow">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/get/arrow.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                  </div>
-                  <div class="p-select__abs absolute flex flex-col">
-                    <div class="p-select__abs-item active" data-value="Позвонить мне">{% trans 'Call me' %}<!--Позвонить мне--></div>
-                    <div class="p-select__abs-item" data-value="2 гостя">{% trans '2 guests' %}<!--2 гостя--></div>
-                    <div class="p-select__abs-item" data-value="3 гостя">{% trans '3 guests' %}<!--3 гостя--></div>
-                    <div class="p-select__abs-item" data-value="Более 3 гостей">{% trans 'More than 3 guests' %}<!--Более 3 гостей--></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="criterion__form-end">
-              <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Get a consultation' %}<!--Получить консультацию--></button>
-              <label class="p-check flex flex-ai-center">
-                <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                  </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data</span>' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
-              </label>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+    {% include 'includes/feedback_forms/building_3.html' %}
   </div>
 </main>
 

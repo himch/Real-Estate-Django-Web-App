@@ -335,56 +335,11 @@
   </div>
   -->
   <div class="help help_second">
-    <div class="container margin-center">
-      <div class="help__item relative">
-        <div class="help__text relative">
-          <div class="help__title text-500 text-c5">Получите консультацию от&nbsp;Профессионалов в сфере недвижимости</div>
-          <div class="p-list">
-            <ul>
-              <li>Подберем комфортный вариант под бюджет и пожелания</li>
-              <li>Проконсультируем по лучшим районам для жизни</li>
-              <li>Организуем трансфер из аэропорта</li>
-            </ul>
-          </div>
-          <form>
-            <div class="get__item-text relative">
-              <div class="get__item-inputs flex flex-col">
-                <div class="get__item-input form__input">
-                  <input type="text" name="name" placeholder="Ваше имя" required="required"/>
-                </div>
-                <div class="get__item-input form__input">
-                  <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-                </div>
-              </div>
-              <div class="get__item-end">
-                <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Подобрать квартиру</button>
-                <label class="p-check flex flex-ai-center">
-                  <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                    <picture>
-                      <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                    </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
-                </label>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="help__img absolute bottom-0 right-0">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/rent/help/1.webp"/><img class="lazy " width="543" height="571" src="" data-src="/img/rent/help/1.png" alt="" loading="lazy"/>
-          </picture>
-          <div class="help__name absolute text-c2">
-            <div class="help__name-svg absolute"><svg width="216" height="69" viewBox="0 0 216 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7.3457 0C3.47971 0 0.345703 3.134 0.345703 7V31.9733C0.345703 33.3831 0.523682 34.8837 0.381642 36.2863C0.357877 36.521 0.345703 36.7591 0.345703 37V62C0.345703 65.866 3.47971 69 7.3457 69H208.346C212.212 69 215.346 65.866 215.346 62V39C215.346 34.0294 211.316 30 206.346 30H197.346C189.061 30 182.346 23.2843 182.346 15V8C182.346 3.58172 178.764 0 174.346 0H7.3457Z" fill="#003B50"/>
-</svg>
-            </div>
-            <div class="help__name-text relative">
-              <div class="help__name-title">Владислав</div>
-              <div class="help__name-subtitle">консультант по недвижимости</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    {% trans 'Get an expert advice from Real Estate Professionals' as form_title %}<!--Получите консультацию от&nbsp;Профессионалов в сфере недвижимости-->
+    {% trans 'Find real estate' as button_title %}
+    {% include 'includes/feedback_forms/vladislav.html' %}
+
   </div>
   <div class="estate overflow-hidden offers">
     <div class="container margin-center">

@@ -1,0 +1,96 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="container margin-center">
+
+  <div class="criterion__item relative flex flex-col overflow-hidden">
+    <div class="criterion__item-bg absolute bottom-0 left-0 p-img">
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/main/criterion/bg.webp"/><img class="lazy " width="1160" height="432" src="" data-src="/img/main/criterion/bg.png" alt="" loading="lazy"/>
+      </picture>
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/main/criterion/bg_mb.webp"/><img class="lazy " width="322" height="230" src="" data-src="/img/main/criterion/bg_mb.png" alt="" loading="lazy"/>
+      </picture>
+    </div>
+    <div class="criterion__title text-center">{% trans 'The best property according to your criteria' %}</div>
+    <div class="criterion__subtitle text-center">{% trans 'Leave a request for ' %}<span class="text-c5">{% trans 'a free consultation' %}</span></div>
+
+    <form method="post" id="post-form-building-3">
+      {% csrf_token %}
+      {% if user.is_authenticated %}
+        <input type="hidden" name="user_id" value="{{ user.id }}">
+      {% else %}
+        <input type="hidden" name="user_id" value="0">
+      {% endif %}
+      {% trans 'Leave a request for a free consultation' as form_title %}
+      <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+      <input type="hidden" name="listing_id" value="{{ listing.id|unlocalize }}">
+      <input type="hidden" name="listing" value="{{ listing.title_a_en }}">
+      <input type="hidden" name="message" value="Request from: {{ form_title }}">
+      <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
+
+
+      <div class="criterion__form">
+        <div class="criterion__form-inputs flex">
+          <div class="criterion__form-input form__input">
+            <input type="text" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required="required"/>
+          </div>
+          <div class="criterion__form-input form__input">
+            <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
+          </div>
+          <div class="criterion__form-input form__input">
+            <div class="p-select relative">
+              <div class="p-select__current flex flex-ai-center flex-j-between">
+                <input type="hidden" name="feedback_method" value="{% trans 'Call me' %}"/>
+                <div class="p-select__current-item">{% trans 'Call me' %}</div>
+                <div class="p-select__current-arrow">
+                  <picture>
+                    <source type="image/webp" srcset="" data-srcset="/img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/get/arrow.png" alt="" loading="lazy"/>
+                  </picture>
+                </div>
+              </div>
+              <div class="p-select__abs absolute flex flex-col">
+                <div class="p-select__abs-item active" data-value="{% trans 'Call me' %}">{% trans 'Call me' %}</div>
+                <div class="p-select__abs-item" data-value="{% trans 'Write me' %}">{% trans 'Write me' %}</div>
+                <div class="p-select__abs-item" data-value="{% trans 'Write later' %}">{% trans 'Write later' %}</div>
+                <div class="p-select__abs-item" data-value="{% trans 'Call later' %}">{% trans 'Call later' %}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="criterion__form-end">
+          <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit" value="Send">{% trans 'Receive a consultation' %}</button>
+          <label class="p-check flex flex-ai-center">
+            <input type="checkbox" name="consent_processing_personal_data" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
+              <picture>
+                <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
+              </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}</span>
+          </label>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(
+  $('#post-form-building-3').submit(function(e){
+    e.preventDefault();
+    var serializedData = $(this).serialize();
+
+    $.ajax({
+      type:"POST",
+      url: "{% url 'contact' %}",
+      data:  serializedData,
+      success: function(data){
+        $("#result").text(data["result"]);
+      },
+    });
+  })
+);
+</script>
+

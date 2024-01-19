@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load humanize %}
 
 {% block title %} | Blog {% endblock %}
@@ -11,8 +11,8 @@
     <div class="container margin-center relative">
       <div class="main__item bg flex flex-ai-center flex-j-end flex-col relative text-c2 text-center overflow-hidden" style="background-image:url('/img/blog/bg.webp')">
         <div class="main__item-bg absolute top-0 left-0 w-full h-full"></div>
-        <div class="main__item-title font-tenor relative">DADI Блог</div>
-        <div class="main__item-subtitle relative">Полезные статьи о жизни и недвижимости в Дубае</div>
+        <div class="main__item-title font-tenor relative">{% trans 'DADI Blog' %}<!--DADI Блог--></div>
+        <div class="main__item-subtitle relative">{% trans 'Useful articles about life and real estate in Dubai' %}<!--Полезные статьи о жизни и недвижимости в Дубае--></div>
       </div>
     </div>
   </div>
@@ -27,31 +27,31 @@
               </picture>
             </div>
             <div class="articles__item-text relative">
-              <div class="articles__item-title text-c3">Дубай: лучшие районы для жизни</div>
+              <div class="articles__item-title text-c3">{% trans 'Dubai: best places to live' %}<!--Дубай: лучшие районы для жизни--></div>
               <div class="articles__item-tags absolute top-0 right-0">
                 <div class="articles__item-date">21.10.2023</div>
-                <div class="articles__item-status">обновлено</div>
+                <div class="articles__item-status">{% trans 'updated' %}<!--обновлено--></div>
               </div>
-              <div class="articles__item-desc">Жизнь в дубае</div><a class="articles__item-link text-c3 text-underline" href="{% url 'article' %}">Читать</a>
+              <div class="articles__item-desc">{% trans 'Life in Dubai' %}<!--Жизнь в дубае--></div><a class="articles__item-link text-c3 text-underline" href="{% url 'article' %}">{% trans 'Read' %}<!--Читать--></a>
             </div>
           </div>
           <div class="articles__item articles__item_2 overflow-hidden bg lazy flex flex-ai-end relative text-c2" data-bg="/img/blog/items/2.webp">
             <div class="articles__item-tags absolute top-0 right-0">
-              <div class="articles__item-status">обновлено</div>
+              <div class="articles__item-status">{% trans 'updated' %}<!--обновлено--></div>
               <div class="articles__item-date">21.10.2023</div>
             </div>
             <div class="articles__item-text relative">
-              <div class="articles__item-title">7 шагов для оплаты  криптовалютой</div>
-              <div class="articles__item-desc">Технологии</div><a class="articles__item-link text-underline" href="{% url 'article' %}">Читать</a>
+              <div class="articles__item-title">{% trans '7 steps to pay with cryptocurrency' %}<!--7 шагов для оплаты криптовалютой--></div>
+              <div class="articles__item-desc">{% trans 'Technologies' %}<!--Технологии--></div><a class="articles__item-link text-underline" href="{% url 'article' %}">{% trans 'Read' %}<!--Читать--></a>
             </div>
           </div>
           <div class="articles__item articles__item_3 overflow-hidden">
             <div class="articles__item-text relative">
-              <div class="articles__item-title text-c3">Изменение в законодательстве ОАЭ: новые возможности</div>
+              <div class="articles__item-title text-c3">{% trans 'Changes in UAE legislation: new opportunities' %}<!--Изменение в законодательстве ОАЭ: новые возможности--></div>
               <div class="articles__item-tags absolute top-0 right-0">
                 <div class="articles__item-date">21.10.2023</div>
               </div>
-              <div class="articles__item-desc">Новости  Дубая</div><a class="articles__item-link text-c3 text-underline" href="{% url 'article' %}">Читать</a>
+              <div class="articles__item-desc">{% trans 'Dubai news' %}<!--Новости Дубая--></div><a class="articles__item-link text-c3 text-underline" href="{% url 'article' %}">{% trans 'Read' %}<!--Читать--></a>
             </div>
             <div class="articles__item-img img_cover img_br">
               <picture>
@@ -64,8 +64,8 @@
               <div class="articles__item-date">21.10.2023</div>
             </div>
             <div class="articles__item-text relative">
-              <div class="articles__item-title">7 шагов для оплаты  криптовалютой</div>
-              <div class="articles__item-desc">Технологии</div><a class="articles__item-link text-underline" href="{% url 'article' %}">Читать</a>
+              <div class="articles__item-title">{% trans '7 steps to pay with cryptocurrency' %}<!--7 шагов для оплаты криптовалютой--></div>
+              <div class="articles__item-desc">{% trans 'xxx' %}<!--Technologies--></div><a class="articles__item-link text-underline" href="{% url 'article' %}">{% trans 'Read' %}<!--Читать--></a>
             </div>
           </div>
           <div class="articles__item articles__item_5 overflow-hidden flex flex-ai-center">
@@ -75,11 +75,11 @@
               </picture>
             </div>
             <div class="articles__item-text relative">
-              <div class="articles__item-title text-c3">Дубай: лучшие районы для жизни</div>
+              <div class="articles__item-title text-c3">{% trans 'Dubai: best places to live' %}<!--Дубай: лучшие районы для жизни--></div>
               <div class="articles__item-tags absolute top-0 right-0">
                 <div class="articles__item-date">21.10.2023</div>
               </div>
-              <div class="articles__item-desc">Жизнь в дубае</div><a class="articles__item-link text-c3 text-underline" href="{% url 'article' %}">Читать</a>
+              <div class="articles__item-desc">{% trans 'Life in Dubai' %}<!--Жизнь в Дубае--></div><a class="articles__item-link text-c3 text-underline" href="{% url 'article' %}">{% trans 'Read' %}<!--Читать--></a>
             </div>
           </div>
           <div class="articles__item articles__item_6 overflow-hidden flex flex-ai-center">
@@ -89,24 +89,24 @@
               </picture>
             </div>
             <div class="articles__item-text relative">
-              <div class="articles__item-title text-c3">Изменение в законодательстве ОАЭ: новые возможности</div>
+              <div class="articles__item-title text-c3">{% trans 'Changes in UAE legislation: new opportunities' %}<!--Изменение в законодательстве ОАЭ: новые возможности--></div>
               <div class="articles__item-tags absolute top-0 right-0">
                 <div class="articles__item-date">21.10.2023</div>
               </div>
-              <div class="articles__item-desc">Новости Дубая</div><a class="articles__item-link text-c3 text-underline" href="{% url 'article' %}">Читать</a>
+              <div class="articles__item-desc">{% trans 'Dubai news' %}<!--Новости Дубая--></div><a class="articles__item-link text-c3 text-underline" href="{% url 'article' %}">{% trans 'Read' %}<!--Читать--></a>
             </div>
           </div>
         </div>
       </div>
-      <div class="articles__load text-c3 text-underline margin-center text-500 cursor-pointer">Загрузить <span>12</span> из 103</div>
+      <div class="articles__load text-c3 text-underline margin-center text-500 cursor-pointer">{% trans 'Download' %}<!--Загрузить--><span>12</span> {% trans 'xxx' %}<!--из--> 103</div>
     </div>
   </div>
   <div class="telegram">
     <div class="container margin-center">
       <div class="telegram__item relative">
-        <div class="telegram__subtitle text-center relative">со свежими новостями из мира Дубая</div>
-        <div class="section__title font-tenor text-c3 text-center relative">Телеграм канал DADI</div>
-        <div class="telegram__btns flex flex-j-between margin-center relative flex-ai-center"><a class="telegram__btns-link text-c5 text-underline" href="#!">@Название_канала</a><a class="p-btn flex flex-ai-center flex-j-center text-500" href="#!">Перейти в канал</a></div>
+        <div class="telegram__subtitle text-center relative">{% trans 'with fresh news in Dubai' %}<!--со свежими новостями из мира Дубая--></div>
+        <div class="section__title font-tenor text-c3 text-center relative">{% trans 'Telegram channel DADI' %}<!--Телеграм канал DADI--></div>
+        <div class="telegram__btns flex flex-j-between margin-center relative flex-ai-center"><a class="telegram__btns-link text-c5 text-underline" href="#!">@channel_name</a><a class="p-btn flex flex-ai-center flex-j-center text-500" href="#!">{% trans 'Go to Telegram channel' %}<!--Перейти в канал--></a></div>
         <div class="telegram__img absolute bottom-0">
           <picture>
             <source type="image/webp" srcset="" data-srcset="/img/blog/telegram/iPhone.webp"/><img class="lazy " width="1002" height="484" src="" data-src="/img/blog/telegram/iPhone.jpg" alt="" loading="lazy"/>
@@ -116,56 +116,11 @@
     </div>
   </div>
   <div class="help help_second">
-    <div class="container margin-center">
-      <div class="help__item relative">
-        <div class="help__text relative">
-          <div class="help__title text-500 text-c5">Получите консультацию от&nbsp;Профессионалов в сфере недвижимости</div>
-          <div class="p-list">
-            <ul>
-              <li>Подберем комфортный вариант под бюджет и пожелания</li>
-              <li>Проконсультируем по лучшим районам для жизни</li>
-              <li>Организуем трансфер из аэропорта</li>
-            </ul>
-          </div>
-          <form>
-            <div class="get__item-text relative">
-              <div class="get__item-inputs flex flex-col">
-                <div class="get__item-input form__input">
-                  <input type="text" name="name" placeholder="Ваше имя" required="required"/>
-                </div>
-                <div class="get__item-input form__input">
-                  <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-                </div>
-              </div>
-              <div class="get__item-end">
-                <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Подобрать квартиру</button>
-                <label class="p-check flex flex-ai-center">
-                  <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                    <picture>
-                      <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                    </picture></span><span class="p-check__title">Отправляя форму, вы даёте согласие на обработку персональных данных</span>
-                </label>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="help__img absolute bottom-0 right-0">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/rent/help/1.webp"/><img class="lazy " width="543" height="571" src="" data-src="/img/rent/help/1.png" alt="" loading="lazy"/>
-          </picture>
-          <div class="help__name absolute text-c2">
-            <div class="help__name-svg absolute"><svg width="216" height="69" viewBox="0 0 216 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7.3457 0C3.47971 0 0.345703 3.134 0.345703 7V31.9733C0.345703 33.3831 0.523682 34.8837 0.381642 36.2863C0.357877 36.521 0.345703 36.7591 0.345703 37V62C0.345703 65.866 3.47971 69 7.3457 69H208.346C212.212 69 215.346 65.866 215.346 62V39C215.346 34.0294 211.316 30 206.346 30H197.346C189.061 30 182.346 23.2843 182.346 15V8C182.346 3.58172 178.764 0 174.346 0H7.3457Z" fill="#003B50"/>
-</svg>
-            </div>
-            <div class="help__name-text relative">
-              <div class="help__name-title">Владислав</div>
-              <div class="help__name-subtitle">консультант по недвижимости</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    {% trans 'Get an expert advice from Real Estate Professionals' as form_title %}<!--Получите консультацию от&nbsp;Профессионалов в сфере недвижимости-->
+    {% trans 'Find real estate' as button_title %}
+    {% include 'includes/feedback_forms/vladislav.html' %}
+
   </div>
 </main>
 {% endblock %}

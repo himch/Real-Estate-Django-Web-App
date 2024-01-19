@@ -160,6 +160,8 @@ def katalogi(request):
     paged_listings = paginator.get_page(page)
 
     context = {
+        'range': range(9),
+        'blog_range': range(3),
         'listings': paged_listings,
         'realtors': realtors,
         'mvp_realtors': mvp_realtors

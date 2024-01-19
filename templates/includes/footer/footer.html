@@ -46,21 +46,9 @@
         </div>
       </div>
       <div class="footer__top-right">
-        <form>
-          <div class="footer__form">
-            <div class="footer__form-title">{% trans 'Ask a question' %}<!--Задать вопрос--></div>
-            <div class="footer__form-input w-full">
-              <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-            </div>
-            <button class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Get a consultation' %}<!--Получить консультацию--></button>
-            <label class="p-check flex flex-ai-center">
-              <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/get/check-white.webp"/><img class="lazy " width="15" height="15" src="" data-src="/img/main/get/check-white.png" alt="" loading="lazy"/>
-                </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на&nbsp;обработку персональных данных--></span>
-            </label>
-          </div>
-        </form>
+
+        {% include 'includes/feedback_forms/footer_feedback.html' %}
+
       </div>
     </div>
     <div class="footer__bottom flex flex-j-between flex-ai-end">

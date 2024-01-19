@@ -1,0 +1,93 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="container margin-center">
+  <div class="help__item relative">
+    <div class="help__text relative">
+      <div class="help__title text-500 text-c5">{{ form_title }}</div>
+      <div class="p-list">
+        <ul>
+          <li>{% trans 'We will find the most comfortable option based on your budget and desire' %}<!--Подберем комфортный вариант под бюджет и пожелания--></li>
+          <li>{% trans 'Advise on the best areas for living' %}<!--Проконсультируем по лучшим районам для жизни--></li>
+          <li>{% trans 'Arrange transfer from the airport' %}<!--Организуем трансфер из аэропорта--></li>
+        </ul>
+      </div>
+      <form method="post" id="post-form-vladislav"> <!--action="{% url 'contact' %}"-->
+      {% csrf_token %}
+        {% if user.is_authenticated %}
+          <input type="hidden" name="user_id" value="{{ user.id }}">
+        {% else %}
+          <input type="hidden" name="user_id" value="0">
+        {% endif %}
+        <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+        <input type="hidden" name="listing_id" value="{{ listing.id|unlocalize }}">
+        <input type="hidden" name="listing" value="{{ listing.title_a_en }}">
+        <input type="hidden" name="message" value="Request from: {{ form_title }}">
+        <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
+        <div class="get__item-text relative">
+          <div class="get__item-inputs flex flex-col">
+            <div class="get__item-input form__input">
+              <input type="text" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required="required"/>
+            </div>
+            <!--
+            <div class="get__item-input form__input">
+              <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
+            </div>
+            -->
+            <div class="get__item-input form__input">
+              <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
+            </div>
+          </div>
+          <div class="get__item-end">
+            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit" value="Send">{{ button_title }}</button>
+            <label class="p-check flex flex-ai-center">
+              <input type="checkbox" name="consent_processing_personal_data" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
+                </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
+            </label>
+            <div id="result" >{{ result }}</div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="help__img absolute bottom-0 right-0">
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/rent/help/1.webp"/><img class="lazy " width="543" height="571" src="" data-src="/img/rent/help/1.png" alt="" loading="lazy"/>
+      </picture>
+      <div class="help__name absolute text-c2">
+        <div class="help__name-svg absolute">
+          <svg width="173" height="75" viewBox="0 0 173 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.13401 0 0 3.13401 0 7V34C0 35.8916 0.343283 38.1169 0.0724688 39.989C0.0247171 40.3191 0 40.6567 0 41V68C0 71.866 3.13401 75 7 75H166C169.866 75 173 71.866 173 68V41C173 37.134 169.866 34 166 34H136C127.716 34 121 27.2843 121 19V8C121 3.58172 117.418 0 113 0H7Z" fill="#003B50"/>
+          </svg>
+        </div>
+        <div class="help__name-text relative">
+          <div class="help__name-title">{% trans 'Vladislav' %}<!--Владислав--></div>
+          <div class="help__name-subtitle">{% trans 'customer service manager' %}<!--менеджер клиентского сервиса--></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(
+  $('#post-form-vladislav').submit(function(e){
+    e.preventDefault();
+    var serializedData = $(this).serialize();
+
+    $.ajax({
+      type:"POST",
+      url: "{% url 'contact' %}",
+      data:  serializedData,
+      success: function(data){
+        $("#result").text(data["result"]);
+      },
+    });
+  })
+);
+</script>
+

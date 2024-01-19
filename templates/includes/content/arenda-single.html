@@ -251,48 +251,9 @@
             </div>
             <div class="rent-single__service-btn p-btn flex flex-ai-center flex-j-center text-500">{% trans 'Leave a request' %}<!--Оставить заявку--></div>
           </div>
-          <div class="rent-single__faq">
-            <div class="rent-single__faq-item flex flex-ai-center bg-c1 text-c2">
-              <div class="rent-single__faq-left">
-                <div class="rent-single__faq-title text-500">{% trans 'Ask a question' %}<!--Задайте свой вопрос--></div>
-                <div class="rent-single__faq-subtitle">{% trans 'Leave a request for' %}<!--Оставьте заявку на--><span> {% trans 'free consultation' %}<!--бесплатную консультацию--></span></div>
-                <form class="rent-single__faq-form">
-                  <div class="get__item-text relative">
-                    <div class="get__item-inputs flex flex-col">
-                      <div class="get__item-input form__input">
-                        <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-                      </div>
-                    </div>
-                    <div class="get__item-end">
-                      <button class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Get free consultation' %}<!--Получить консультацию--></button>
-                      <label class="p-check flex flex-ai-center">
-                        <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                          <picture>
-                            <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                          </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
-                      </label>
-                    </div>
-                  </div>
-                </form>
-                <div class="rent-single__faq-end flex flex-ai-center">
-                  <div class="rent-single__socials flex flex-ai-center"><a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/whatsapp.webp"/><img class="lazy " width="15" height="15" src="" data-src="/img/rent/single/faq/whatsapp.png" alt="" loading="lazy"/>
-                      </picture></a><a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" href="#!">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/telegram.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/rent/single/faq/telegram.png" alt="" loading="lazy"/>
-                      </picture></a></div><a class="rent-single__socials-phone" href="tel:+79999999999">+971 4 585 9538</a>
-                </div>
-              </div>
-              <div class="rent-single__faq-right">
-                <div class="rent-single__faq-img">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/bg.webp"/><img class="lazy " width="226" height="518" src="" data-src="/img/rent/single/faq/bg.jpg" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-              </div>
-            </div>
-          </div>
+
+          {% include 'includes/feedback_forms/rent_single_feedback.html' %}
+
         </div>
         <form class="rent-single__right">
           <div class="rent-single__right-item">

@@ -1,0 +1,73 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="container margin-center">
+  <div class="service__item relative">
+    <div class="service__item-text relative">
+      <div class="section__title font-tenor text-c3">{% trans 'Services of DADI' as form_title %}{{ form_title }}<!--Услуги DADI--></div>
+      <div class="service__item-subtitle text-500 text-c5">{% trans 'Individual selection' %}<!--Индивидуальный подбор--></div>
+      <div class="service__item-subtitle_2">{% trans 'of property for rent or purchase based on your request' %}<!--недвижимости для аренды или покупки под ваши запросы--></div>
+
+      <form method="post" id="post-form-building"> <!--action="{% url 'contact' %}"-->
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+          <input type="hidden" name="user_id" value="{{ user.id }}">
+        {% else %}
+          <input type="hidden" name="user_id" value="0">
+        {% endif %}
+        <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+        <input type="hidden" name="listing_id" value="{{ listing.id|unlocalize }}">
+        <input type="hidden" name="listing" value="{{ listing.title_a_en }}">
+        <input type="hidden" name="message" value="Request from: {{ form_title }}">
+        <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
+        <div class="service__form form">
+          <div class="service__form-inputs flex flex-col">
+            <div class="service__form-input w-full form__input">
+              <input type="text" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required="required"/>
+            </div>
+            <!--
+            <div class="service__form-input w-full form__input">
+              <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
+            </div>
+            -->
+            <div class="service__form-input w-full form__input">
+              <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
+            </div>
+          </div>
+          <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit" value="Send">{% trans 'Leave a request' %}<!--Оставить заявку--></button>
+        </div>
+      </form>
+
+    </div>
+    <div class="service__item-bg absolute right-0 bottom-0 p-img">
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/main/service/1.webp"/><img class="lazy " width="907" height="604" src="" data-src="/img/main/service/1.png" alt="" loading="lazy"/>
+      </picture>
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/main/service/1_mb.webp"/><img class="lazy " width="340" height="262" src="" data-src="/img/main/service/1_mb.png" alt="" loading="lazy"/>
+      </picture>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(
+  $('#post-form-building').submit(function(e){
+    e.preventDefault();
+    var serializedData = $(this).serialize();
+
+    $.ajax({
+      type:"POST",
+      url: "{% url 'contact' %}",
+      data:  serializedData,
+      success: function(data){
+        $("#result").text(data["result"]);
+      },
+    });
+  })
+);
+</script>
+

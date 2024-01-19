@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="type">
+    <div class="container margin-center">
+      <div class="section__title font-tenor text-c3 text-center">{% trans 'Rent' %}<!--Аренда--></div>
+      <div class="type__row grid">
+        <div class="type__item flex flex-ai-center">
+          <div class="type__item-left">
+            <div class="type__item-img w-full img_cover img_br">
+              <picture>
+                <source type="image/webp" srcset="" data-srcset="/img/main/type/1.webp"/><img class="lazy " width="323" height="259" src="" data-src="/img/main/type/1.jpg" alt="" loading="lazy"/>
+              </picture>
+            </div>
+          </div>
+          <div class="type__item-right">
+            <div class="type__title">{% trans 'Booking service' %}<!--Букинг-сервис--></div>
+            <div class="type__list p-list">
+              <ul>
+                <li>{% trans 'availability of apartments and bookings can be done through a convenient calendar' %}<!--бронируйте свободные апартаменты через удобный календарь--></li>
+                <li>{% trans 'use personal profile for payments and communication with our managers' %}<!--оплачивайте, общайтесь с менеджером и отслеживайте информацию в личном кабинете--></li>
+              </ul>
+            </div><a class="type__link text-600 text-underline text-c3" href="/arenda">{% trans 'Book an apartment' %}<!--Забронировать квартиру--></a>
+          </div>
+        </div>
+        <div class="type__item flex flex-col flex-ai-center text-center">
+          <div class="type__item-left">
+            <div class="type__item-img w-full img_cover img_br">
+              <picture>
+                <source type="image/webp" srcset="" data-srcset="/img/main/type/2.webp"/><img class="lazy " width="376" height="379" src="" data-src="/img/main/type/2.jpg" alt="" loading="lazy"/>
+              </picture>
+            </div>
+          </div>
+          <div class="type__item-right">
+            <div class="type__title">{% trans 'Personal assistant in&nbsp;the country' %}<!--Персональный ассистент в стране--></div>
+            <div class="type__desc">{% trans 'help with transfer, car rental, dry cleaning - assistant will take care of all household issues in the new country 24/7' %}<!--поможет с трансфером, арендой автомобиля, химчисткой - решит все бытовые вопросы в новой стране 24/7--></div>
+            <div class="type__link text-600 text-underline modal__show cursor-pointer" data-modal="type-first">{% trans 'Book transfer from the airport' %}<!--Заказать трансфер из аэропорта--></div>
+          </div>
+        </div>
+        <div class="type__item flex flex-ai-center">
+          <div class="type__item-left">
+            <div class="type__item-img w-full img_cover img_br">
+              <picture>
+                <source type="image/webp" srcset="" data-srcset="/img/main/type/3.webp"/><img class="lazy " width="323" height="259" src="" data-src="/img/main/type/3.jpg" alt="" loading="lazy"/>
+              </picture>
+            </div>
+          </div>
+          <div class="type__item-right">
+            <div class="type__title">{% trans 'Legal support' %}<!--Юридическое сопровождение--></div>
+            <div class="type__desc">{% trans 'in case of leasehold term starting from 3 months we will take care of checking all document and concluding the contract of rent with the proprietor' %}<!--при аренде на срок более 3 месяцев, поможем проверить документы и заключить выгодный договор с собственником--></div>
+            <div class="type__link text-600 text-underline modal__show" data-modal="type-second">{% trans 'Leave a long-term lease application' %}<!--Оставить заявку на долгосрочную аренду--></div>
+          </div>
+        </div>
+      </div><a class="p-btn flex flex-ai-center flex-j-center text-500" href="/arenda">{% trans 'Go to Rent catalogue' %}<!--Перейти в каталог аренды--></a>
+    </div>
+</div>

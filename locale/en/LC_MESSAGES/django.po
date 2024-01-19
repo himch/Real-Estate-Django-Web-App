@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-17 20:04+0300\n"
+"POT-Creation-Date: 2024-01-19 20:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: contacts/views.py:79
+msgid "Your request has been submitted, a realtor will get back to you soon"
+msgstr ""
+
 #: templates/includes/blog/blog_card.html:11
 msgid "Start of construction of the residential complex"
 msgstr ""
 
 #: templates/includes/blog/blog_card.html:11
+#: templates/includes/content/blog.html:35
+#: templates/includes/content/blog.html:45
+#: templates/includes/content/blog.html:54
+#: templates/includes/content/blog.html:68
+#: templates/includes/content/blog.html:82
+#: templates/includes/content/blog.html:96
 msgid "Read"
 msgstr ""
 
@@ -207,6 +217,187 @@ msgstr ""
 msgid "Al Gurg Tower 3, office 3, Dubai P Floor, UAE"
 msgstr ""
 
+#: templates/includes/content/arenda-single.html:16
+msgid "Purchase catalogue"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:64
+#: templates/includes/content/arenda-single.html:68
+#: templates/includes/content/arenda-single.html:72
+msgid "per month"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:65
+#: templates/includes/content/arenda-single.html:69
+#: templates/includes/content/arenda-single.html:73
+msgid "per night"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:88
+msgid "House rules"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:90
+msgid "Short-term lease (5 days to 3 months)"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:101
+msgid "Long term lease (from 3 months)"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:122
+msgid "Check in after 15:00"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:130
+msgid "Maximum 2 guests"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:138
+msgid "Check out before 11:00"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:146
+msgid "Pets are allowed"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:154
+msgid "Self-check-in (digital code)"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:162
+msgid "Parties and events aren’t allowed"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:170
+msgid "Smoking is prohibited"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:178
+msgid "Free cancellation before 19th of october"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:180
+msgid "Cancellation policy"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:184
+msgid "leave an application"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:185
+msgid "for a discount on number of months of rent and contract with the owner"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:194
+#: templates/includes/content/arenda.html:182
+msgid "Location"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:205
+#: templates/includes/content/buy.html:568
+#: templates/includes/feedback_forms/building.html:9
+msgid "Services of DADI"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:214
+msgid "Client’s personal account"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:215
+msgid "for tracking booking and payment"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:225
+msgid "Personalized choice"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:226
+msgid "of property for rent or purchase basen on your request"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:236
+msgid "Personal assistant in the country"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:237
+#: templates/includes/content/arenda.html:555
+#: templates/includes/content/index_rus.html:774
+#: templates/includes/rent/rent_module.html:38
+msgid ""
+"help with transfer, car rental, dry cleaning - assistant will take care of "
+"all household issues in the new country 24/7"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:247
+#: templates/includes/content/arenda.html:568
+#: templates/includes/content/index_rus.html:787
+#: templates/includes/rent/rent_module.html:51
+msgid "Legal support"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:248
+msgid ""
+"In case of leasehold term starting from 3 months we will take care of "
+"checking all document and concluding the contract of rent with the proprietor"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:252
+#: templates/includes/content/arenda-single.html:317
+#: templates/includes/content/index_rus.html:727
+#: templates/includes/feedback_forms/building.html:39
+msgid "Leave a request"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:272
+msgid "Arrival"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:276
+msgid "Check out"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:284
+msgid "number of guests"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:285
+#: templates/includes/content/arenda.html:44
+msgid "1 guest"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:296
+msgid "Adults"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:297
+msgid "From 13 years old"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:310
+msgid "Close"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:321
+msgid "1 night"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:325
+msgid "Cleaning fee"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:329
+msgid "Total (excluding tax)"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:340
+msgid "More offers"
+msgstr ""
+
+#: templates/includes/content/arenda-single.html:361
+msgid "Back to the Rent page"
+msgstr ""
+
 #: templates/includes/content/arenda.html:13
 msgid "Dadi holiday"
 msgstr ""
@@ -219,22 +410,15 @@ msgstr ""
 msgid "apartment with 5* hotel service"
 msgstr ""
 
-#: templates/includes/content/arenda.html:44
-msgid "1 guest"
-msgstr ""
-
 #: templates/includes/content/arenda.html:45
-#: templates/includes/content/index.html:1092
 msgid "2 guests"
 msgstr ""
 
 #: templates/includes/content/arenda.html:46
-#: templates/includes/content/index.html:1093
 msgid "3 guests"
 msgstr ""
 
 #: templates/includes/content/arenda.html:47
-#: templates/includes/content/index.html:1094
 msgid "More than 3 guests"
 msgstr ""
 
@@ -321,10 +505,6 @@ msgstr ""
 msgid "Bedrooms"
 msgstr ""
 
-#: templates/includes/content/arenda.html:182
-msgid "Location"
-msgstr ""
-
 #: templates/includes/content/arenda.html:188
 #: templates/includes/content/buy.html:247
 msgid "Amenities"
@@ -358,6 +538,7 @@ msgid "More expensive"
 msgstr ""
 
 #: templates/includes/content/arenda.html:271
+#: templates/includes/content/blog.html:101
 #: templates/includes/content/buy.html:389
 #: templates/includes/content/buy.html:454
 msgid "Download"
@@ -494,9 +675,11 @@ msgid "&nbsp;unforgettable and satisfying all your needs."
 msgstr ""
 
 #: templates/includes/content/arenda.html:518
-#: templates/includes/content/index.html:1002
 #: templates/includes/content/index_rus.html:1307
-#: templates/includes/footer/footer.html:227
+#: templates/includes/feedback_forms/building_2.html:62
+#: templates/includes/feedback_forms/building_3.html:64
+#: templates/includes/feedback_forms/building_4.html:61
+#: templates/includes/footer/footer.html:215
 msgid "Receive a consultation"
 msgstr ""
 
@@ -509,84 +692,70 @@ msgid "rent apartments in Dubai with hotel service"
 msgstr ""
 
 #: templates/includes/content/arenda.html:536
-#: templates/includes/content/index.html:754
 #: templates/includes/content/index_rus.html:755
+#: templates/includes/rent/rent_module.html:19
 msgid "Booking service"
 msgstr ""
 
 #: templates/includes/content/arenda.html:539
-#: templates/includes/content/index.html:757
 #: templates/includes/content/index_rus.html:758
+#: templates/includes/rent/rent_module.html:22
 msgid ""
 "availability of apartments and bookings can be done through a convenient "
 "calendar"
 msgstr ""
 
 #: templates/includes/content/arenda.html:540
-#: templates/includes/content/index.html:758
 #: templates/includes/content/index_rus.html:759
+#: templates/includes/rent/rent_module.html:23
 msgid "use personal profile for payments and communication with our managers"
 msgstr ""
 
 #: templates/includes/content/arenda.html:542
-#: templates/includes/content/index.html:760
 #: templates/includes/content/index_rus.html:761
+#: templates/includes/rent/rent_module.html:25
 msgid "Book an apartment"
 msgstr ""
 
 #: templates/includes/content/arenda.html:554
 #: templates/includes/content/index.html:155
 #: templates/includes/content/index.html:413
-#: templates/includes/content/index.html:772
 #: templates/includes/content/index_rus.html:155
 #: templates/includes/content/index_rus.html:413
 #: templates/includes/content/index_rus.html:773
+#: templates/includes/rent/rent_module.html:37
 msgid "Personal assistant in&nbsp;the country"
 msgstr ""
 
-#: templates/includes/content/arenda.html:555
-#: templates/includes/content/index.html:773
-#: templates/includes/content/index_rus.html:774
-msgid ""
-"help with transfer, car rental, dry cleaning - assistant will take care of "
-"all household issues in the new country 24/7"
-msgstr ""
-
 #: templates/includes/content/arenda.html:556
-#: templates/includes/content/index.html:774
 #: templates/includes/content/index_rus.html:775
+#: templates/includes/rent/rent_module.html:39
 msgid "Book transfer from the airport"
 msgstr ""
 
-#: templates/includes/content/arenda.html:568
-#: templates/includes/content/index.html:786
-#: templates/includes/content/index_rus.html:787
-msgid "Legal support"
-msgstr ""
-
 #: templates/includes/content/arenda.html:569
-#: templates/includes/content/index.html:787
 #: templates/includes/content/index_rus.html:788
+#: templates/includes/rent/rent_module.html:52
 msgid ""
 "in case of leasehold term starting from 3 months we will take care of "
 "checking all document and concluding the contract of rent with the proprietor"
 msgstr ""
 
 #: templates/includes/content/arenda.html:570
-#: templates/includes/content/index.html:788
 #: templates/includes/content/index_rus.html:789
+#: templates/includes/rent/rent_module.html:53
 msgid "Leave a long-term lease application"
 msgstr ""
 
 #: templates/includes/content/arenda.html:582
-#: templates/includes/content/index.html:714
 #: templates/includes/content/index_rus.html:715
+#: templates/includes/feedback_forms/building.html:10
 msgid "Individual selection"
 msgstr ""
 
 #: templates/includes/content/arenda.html:583
-#: templates/includes/content/index.html:715
 #: templates/includes/content/index_rus.html:716
+#: templates/includes/feedback_forms/building.html:11
 msgid "of property for rent or purchase based on your request"
 msgstr ""
 
@@ -594,44 +763,80 @@ msgstr ""
 msgid "Leave an application"
 msgstr ""
 
-#: templates/includes/content/arenda.html:594
+#: templates/includes/content/arenda.html:591
 msgid "We will help you find an apartment for rent"
 msgstr ""
 
-#: templates/includes/content/arenda.html:597
-msgid ""
-"We will find the most comfortable option based on your budget and desire"
-msgstr ""
-
-#: templates/includes/content/arenda.html:598
-msgid "Advise on the best areas for living"
-msgstr ""
-
-#: templates/includes/content/arenda.html:599
-msgid "Arrange transfer from the airport"
-msgstr ""
-
-#: templates/includes/content/arenda.html:613
+#: templates/includes/content/arenda.html:592
+#: templates/includes/content/blog.html:121
+#: templates/includes/content/dadi.html:83
+#: templates/includes/content/jk.html:340
 msgid "Find real estate"
 msgstr ""
 
-#: templates/includes/content/arenda.html:618
-#: templates/includes/content/buy.html:459
-#: templates/includes/content/index.html:1007
-#: templates/includes/content/index_rus.html:1312
-#: templates/includes/footer/footer.html:60
-#: templates/includes/footer/footer.html:151
-#: templates/includes/footer/footer.html:232
-#: templates/includes/footer/footer.html:276
-msgid "By submitting the form, you consent to the processing of personal data"
+#: templates/includes/content/blog.html:14
+msgid "DADI Blog"
 msgstr ""
 
-#: templates/includes/content/arenda.html:634
-msgid "Vladislav"
+#: templates/includes/content/blog.html:15
+msgid "Useful articles about life and real estate in Dubai"
 msgstr ""
 
-#: templates/includes/content/arenda.html:635
-msgid "customer service manager"
+#: templates/includes/content/blog.html:30
+#: templates/includes/content/blog.html:78
+msgid "Dubai: best places to live"
+msgstr ""
+
+#: templates/includes/content/blog.html:33
+#: templates/includes/content/blog.html:40
+msgid "updated"
+msgstr ""
+
+#: templates/includes/content/blog.html:35
+#: templates/includes/content/blog.html:82
+msgid "Life in Dubai"
+msgstr ""
+
+#: templates/includes/content/blog.html:44
+#: templates/includes/content/blog.html:67
+msgid "7 steps to pay with cryptocurrency"
+msgstr ""
+
+#: templates/includes/content/blog.html:45
+msgid "Technologies"
+msgstr ""
+
+#: templates/includes/content/blog.html:50
+#: templates/includes/content/blog.html:92
+msgid "Changes in UAE legislation: new opportunities"
+msgstr ""
+
+#: templates/includes/content/blog.html:54
+#: templates/includes/content/blog.html:96
+msgid "Dubai news"
+msgstr ""
+
+#: templates/includes/content/blog.html:68
+#: templates/includes/content/blog.html:101
+msgid "xxx"
+msgstr ""
+
+#: templates/includes/content/blog.html:107
+msgid "with fresh news in Dubai"
+msgstr ""
+
+#: templates/includes/content/blog.html:108
+msgid "Telegram channel DADI"
+msgstr ""
+
+#: templates/includes/content/blog.html:109
+msgid "Go to Telegram channel"
+msgstr ""
+
+#: templates/includes/content/blog.html:120
+#: templates/includes/content/dadi.html:82
+#: templates/includes/content/jk.html:339
+msgid "Get an expert advice from Real Estate Professionals"
 msgstr ""
 
 #: templates/includes/content/buy.html:14
@@ -761,6 +966,18 @@ msgstr ""
 msgid "- Expert Advice"
 msgstr ""
 
+#: templates/includes/content/buy.html:459
+#: templates/includes/content/index_rus.html:1312
+#: templates/includes/feedback_forms/building_2.html:67
+#: templates/includes/feedback_forms/footer_feedback.html:32
+#: templates/includes/feedback_forms/rent_single_feedback.html:40
+#: templates/includes/feedback_forms/vladislav.html:49
+#: templates/includes/footer/footer.html:139
+#: templates/includes/footer/footer.html:220
+#: templates/includes/footer/footer.html:264
+msgid "By submitting the form, you consent to the processing of personal data"
+msgstr ""
+
 #: templates/includes/content/buy.html:499
 msgid "of real estate purchase in Dubai"
 msgstr ""
@@ -856,13 +1073,65 @@ msgstr ""
 msgid "Ownership, lease, sale and all other transactions are not taxed"
 msgstr ""
 
-#: templates/includes/content/buy.html:568
-#: templates/includes/content/index.html:713
-msgid "Services of DADI"
-msgstr ""
-
 #: templates/includes/content/buy.html:569
 msgid "purchase of real estate in Dubai"
+msgstr ""
+
+#: templates/includes/content/dadi.html:37
+msgid ""
+"Progressive Real Estate Agency with an emphasis on service and comfort of "
+"our customers"
+msgstr ""
+
+#: templates/includes/content/dadi.html:40
+msgid "Dadi properties"
+msgstr ""
+
+#: templates/includes/content/dadi.html:41
+msgid ""
+"Full cycle of real estate management: valuation, sale, purchase, rental "
+"management and service, legal support"
+msgstr ""
+
+#: templates/includes/content/dadi.html:44
+msgid "DADI HOLIDAYS"
+msgstr ""
+
+#: templates/includes/content/dadi.html:45
+msgid ""
+"Rent apartments with 5* hotel service: booking service, personal assistant "
+"in the country, organization of excursions"
+msgstr ""
+
+#: templates/includes/content/dadi.html:48
+msgid "DADI DESIGN"
+msgstr ""
+
+#: templates/includes/content/dadi.html:49
+msgid "Finding repair and design team for apartments with no decoration."
+msgstr ""
+
+#: templates/includes/content/dadi.html:49
+msgid "Case studies"
+msgstr ""
+
+#: templates/includes/content/dadi.html:65
+#: templates/includes/content/index.html:46
+#: templates/includes/content/index.html:85
+#: templates/includes/content/index.html:719
+#: templates/includes/content/index_rus.html:46
+#: templates/includes/content/index_rus.html:85
+#: templates/includes/content/index_rus.html:797
+msgid "Purchase"
+msgstr ""
+
+#: templates/includes/content/dadi.html:69
+#: templates/includes/content/index.html:689
+#: templates/includes/content/index.html:723
+#: templates/includes/content/index_rus.html:690
+#: templates/includes/content/index_rus.html:884
+#: templates/includes/content/katalogi.html:46
+msgid "Go to Purchase catalogue"
 msgstr ""
 
 #: templates/includes/content/index.html:23
@@ -872,11 +1141,10 @@ msgstr ""
 
 #: templates/includes/content/index.html:29
 #: templates/includes/content/index.html:69
-#: templates/includes/content/index.html:743
-#: templates/includes/content/index.html:874
-#: templates/includes/content/index.html:935
-#: templates/includes/content/index.html:938
-#: templates/includes/content/index.html:953
+#: templates/includes/content/index.html:733
+#: templates/includes/content/index.html:794
+#: templates/includes/content/index.html:797
+#: templates/includes/content/index.html:812
 #: templates/includes/content/index_rus.html:29
 #: templates/includes/content/index_rus.html:69
 #: templates/includes/content/index_rus.html:185
@@ -924,7 +1192,8 @@ msgstr ""
 #: templates/includes/content/index_rus.html:1539
 #: templates/includes/content/index_rus.html:1544
 #: templates/includes/footer/footer.html:24
-#: templates/includes/header/header.html:70
+#: templates/includes/header/header.html:48
+#: templates/includes/rent/rent_module.html:8
 msgid "Rent"
 msgstr ""
 
@@ -936,15 +1205,6 @@ msgstr ""
 #: templates/includes/content/index.html:41
 #: templates/includes/content/index_rus.html:41
 msgid "rent an apartment"
-msgstr ""
-
-#: templates/includes/content/index.html:46
-#: templates/includes/content/index.html:85
-#: templates/includes/content/index.html:796
-#: templates/includes/content/index_rus.html:46
-#: templates/includes/content/index_rus.html:85
-#: templates/includes/content/index_rus.html:797
-msgid "Purchase"
 msgstr ""
 
 #: templates/includes/content/index.html:47
@@ -1223,9 +1483,9 @@ msgid "No Offers Available"
 msgstr ""
 
 #: templates/includes/content/index.html:655
-#: templates/includes/content/index.html:791
 #: templates/includes/content/index_rus.html:656
 #: templates/includes/content/index_rus.html:792
+#: templates/includes/rent/rent_module.html:56
 msgid "Go to Rent catalogue"
 msgstr ""
 
@@ -1234,158 +1494,8 @@ msgstr ""
 msgid "for Purchase"
 msgstr ""
 
-#: templates/includes/content/index.html:689
-#: templates/includes/content/index.html:800
-#: templates/includes/content/index_rus.html:690
-#: templates/includes/content/index_rus.html:884
-msgid "Go to Purchase catalogue"
-msgstr ""
-
-#: templates/includes/content/index.html:726
-#: templates/includes/content/index_rus.html:727
-msgid "Leave a request"
-msgstr ""
-
-#: templates/includes/content/index.html:830
-#: templates/includes/content/index_rus.html:914
-msgid "Our values"
-msgstr ""
-
-#: templates/includes/content/index.html:840
-#: templates/includes/content/index_rus.html:924
-msgid "Support at all stages"
-msgstr ""
-
-#: templates/includes/content/index.html:841
-#: templates/includes/content/index_rus.html:925
-msgid ""
-"DADI Agent Manager will contact you on all questions, will explain "
-"processes, nuances and professionally accompany all legal aspects"
-msgstr ""
-
-#: templates/includes/content/index.html:852
-#: templates/includes/content/index_rus.html:936
-msgid "Excellent service"
-msgstr ""
-
-#: templates/includes/content/index.html:853
-#: templates/includes/content/index_rus.html:937
-msgid ""
-"We focus on the service quality and comfort of our customers, so all the "
-"mechanisms work like clocks and all agents go through an in-person screening "
-"from the key persons of the company"
-msgstr ""
-
-#: templates/includes/content/index.html:864
-#: templates/includes/content/index_rus.html:948
-msgid "Long-term cooperation"
-msgstr ""
-
-#: templates/includes/content/index.html:865
-#: templates/includes/content/index_rus.html:949
-msgid ""
-"Our goal isn’t just to make a deal. We work for the long term perspective: "
-"we accompany our customers in new projects, share news and become friends"
-msgstr ""
-
-#: templates/includes/content/index.html:945
+#: templates/includes/content/index.html:804
 msgid "No Review Available"
-msgstr ""
-
-#: templates/includes/content/index.html:972
-#: templates/includes/content/index_rus.html:1277
-msgid "Find the best solution for your request"
-msgstr ""
-
-#: templates/includes/content/index.html:973
-#: templates/includes/content/index_rus.html:1278
-msgid "Leave a request for a free consultation"
-msgstr ""
-
-#: templates/includes/content/index.html:985
-#: templates/includes/content/index.html:993
-#: templates/includes/content/index.html:1083
-#: templates/includes/content/index.html:1091
-#: templates/includes/content/index_rus.html:1290
-#: templates/includes/content/index_rus.html:1298
-#: templates/includes/footer/footer.html:129
-#: templates/includes/footer/footer.html:137
-#: templates/includes/footer/footer.html:210
-#: templates/includes/footer/footer.html:218
-msgid "Call me"
-msgstr ""
-
-#: templates/includes/content/index.html:994
-#: templates/includes/content/index_rus.html:1299
-#: templates/includes/footer/footer.html:138
-#: templates/includes/footer/footer.html:219
-msgid "Write me"
-msgstr ""
-
-#: templates/includes/content/index.html:995
-#: templates/includes/content/index_rus.html:1300
-#: templates/includes/footer/footer.html:139
-#: templates/includes/footer/footer.html:220
-msgid "Write later"
-msgstr ""
-
-#: templates/includes/content/index.html:996
-#: templates/includes/content/index_rus.html:1301
-#: templates/includes/footer/footer.html:140
-#: templates/includes/footer/footer.html:221
-msgid "Call later"
-msgstr ""
-
-#: templates/includes/content/index.html:1020
-msgid "DADI team"
-msgstr ""
-
-#: templates/includes/content/index.html:1044
-msgid ""
-"We are experts in the field of real estate of large companies in Russia and "
-"CIS for more than 10 years."
-msgstr ""
-
-#: templates/includes/content/index.html:1045
-msgid ""
-"Efficiency, headache relieve, accompaniment of our clients - all these are "
-"the basics of our work. We want to do more for you, bring the best of the "
-"Russian market experience in realities of Dubai."
-msgstr ""
-
-#: templates/includes/content/index.html:1046
-msgid ""
-"Every day we work on the quality of service and attract the best teams to "
-"outsource in analytics and training."
-msgstr ""
-
-#: templates/includes/content/index.html:1047
-msgid ""
-"Our goal is not only to conduct a deal. We are interested in work for the "
-"long term perspective: we accompany our customers in new projects, share "
-"news and become friends."
-msgstr ""
-
-#: templates/includes/content/index.html:1068
-msgid "The best property according to your criteria"
-msgstr ""
-
-#: templates/includes/content/index.html:1069
-msgid "Leave a request for "
-msgstr ""
-
-#: templates/includes/content/index.html:1069
-msgid "a free consultation"
-msgstr ""
-
-#: templates/includes/content/index.html:1100
-#: templates/includes/footer/footer.html:55
-msgid "Get a consultation"
-msgstr ""
-
-#: templates/includes/content/index.html:1105
-msgid ""
-"y submitting the form, you consent to the processing of personal data</span>"
 msgstr ""
 
 #: templates/includes/content/index_rus.html:66
@@ -1424,8 +1534,252 @@ msgstr ""
 msgid "We"
 msgstr ""
 
+#: templates/includes/content/index_rus.html:914
+#: templates/includes/our_values/our_values.html:33
+msgid "Our values"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:924
+#: templates/includes/our_values/our_values.html:44
+msgid "Support at all stages"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:925
+#: templates/includes/our_values/our_values.html:45
+msgid ""
+"DADI Agent Manager will contact you on all questions, will explain "
+"processes, nuances and professionally accompany all legal aspects"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:936
+#: templates/includes/our_values/our_values.html:57
+msgid "Excellent service"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:937
+#: templates/includes/our_values/our_values.html:58
+msgid ""
+"We focus on the service quality and comfort of our customers, so all the "
+"mechanisms work like clocks and all agents go through an in-person screening "
+"from the key persons of the company"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:948
+#: templates/includes/our_values/our_values.html:70
+msgid "Long-term cooperation"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:949
+#: templates/includes/our_values/our_values.html:71
+msgid ""
+"Our goal isn’t just to make a deal. We work for the long term perspective: "
+"we accompany our customers in new projects, share news and become friends"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:1277
+#: templates/includes/feedback_forms/building_2.html:32
+msgid "Find the best solution for your request"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:1278
+#: templates/includes/feedback_forms/building_2.html:24
+#: templates/includes/feedback_forms/building_3.html:27
+msgid "Leave a request for a free consultation"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:1290
+#: templates/includes/content/index_rus.html:1298
+#: templates/includes/feedback_forms/building_2.html:44
+#: templates/includes/feedback_forms/building_2.html:45
+#: templates/includes/feedback_forms/building_2.html:53
+#: templates/includes/feedback_forms/building_3.html:46
+#: templates/includes/feedback_forms/building_3.html:47
+#: templates/includes/feedback_forms/building_3.html:55
+#: templates/includes/feedback_forms/building_4.html:43
+#: templates/includes/feedback_forms/building_4.html:44
+#: templates/includes/feedback_forms/building_4.html:52
+#: templates/includes/footer/footer.html:117
+#: templates/includes/footer/footer.html:125
+#: templates/includes/footer/footer.html:198
+#: templates/includes/footer/footer.html:206
+msgid "Call me"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:1299
+#: templates/includes/feedback_forms/building_2.html:54
+#: templates/includes/feedback_forms/building_3.html:56
+#: templates/includes/feedback_forms/building_4.html:53
+#: templates/includes/footer/footer.html:126
+#: templates/includes/footer/footer.html:207
+msgid "Write me"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:1300
+#: templates/includes/feedback_forms/building_2.html:55
+#: templates/includes/feedback_forms/building_3.html:57
+#: templates/includes/feedback_forms/building_4.html:54
+#: templates/includes/footer/footer.html:127
+#: templates/includes/footer/footer.html:208
+msgid "Write later"
+msgstr ""
+
+#: templates/includes/content/index_rus.html:1301
+#: templates/includes/feedback_forms/building_2.html:56
+#: templates/includes/feedback_forms/building_3.html:58
+#: templates/includes/feedback_forms/building_4.html:55
+#: templates/includes/footer/footer.html:128
+#: templates/includes/footer/footer.html:209
+msgid "Call later"
+msgstr ""
+
 #: templates/includes/content/index_rus.html:1335
 msgid "A short description of the catalog or project, what"
+msgstr ""
+
+#: templates/includes/content/katalogi.html:12
+msgid "DADI REAL ESTATE"
+msgstr ""
+
+#: templates/includes/content/katalogi.html:13
+msgid "Real Estate Catalogs in Dubai"
+msgstr ""
+
+#: templates/includes/content/katalogi.html:30
+msgid "Residential complexes"
+msgstr ""
+
+#: templates/includes/content/katalogi.html:69
+msgid "Developers"
+msgstr ""
+
+#: templates/includes/dadi_team/dadi_team.html:8
+msgid "DADI team"
+msgstr ""
+
+#: templates/includes/dadi_team/dadi_team.html:32
+msgid ""
+"We are experts in the field of real estate of large companies in Russia and "
+"CIS for more than 10 years."
+msgstr ""
+
+#: templates/includes/dadi_team/dadi_team.html:33
+msgid ""
+"Efficiency, headache relieve, accompaniment of our clients - all these are "
+"the basics of our work. We want to do more for you, bring the best of the "
+"Russian market experience in realities of Dubai."
+msgstr ""
+
+#: templates/includes/dadi_team/dadi_team.html:34
+msgid ""
+"Every day we work on the quality of service and attract the best teams to "
+"outsource in analytics and training."
+msgstr ""
+
+#: templates/includes/dadi_team/dadi_team.html:35
+msgid ""
+"Our goal is not only to conduct a deal. We are interested in work for the "
+"long term perspective: we accompany our customers in new projects, share "
+"news and become friends."
+msgstr ""
+
+#: templates/includes/feedback_forms/building.html:24
+#: templates/includes/feedback_forms/building.html:32
+#: templates/includes/feedback_forms/building_2.html:29
+#: templates/includes/feedback_forms/building_3.html:32
+#: templates/includes/feedback_forms/building_4.html:28
+#: templates/includes/feedback_forms/footer_feedback.html:19
+#: templates/includes/feedback_forms/rent_single_feedback.html:25
+#: templates/includes/feedback_forms/vladislav.html:28
+#: templates/includes/feedback_forms/vladislav.html:36
+msgid "Email"
+msgstr ""
+
+#: templates/includes/feedback_forms/building.html:28
+#: templates/includes/feedback_forms/building_2.html:36
+#: templates/includes/feedback_forms/building_3.html:38
+#: templates/includes/feedback_forms/building_4.html:35
+#: templates/includes/feedback_forms/footer_feedback.html:20
+#: templates/includes/feedback_forms/rent_single_feedback.html:26
+#: templates/includes/feedback_forms/vladislav.html:32
+msgid "Your name"
+msgstr ""
+
+#: templates/includes/feedback_forms/building_3.html:17
+msgid "The best property according to your criteria"
+msgstr ""
+
+#: templates/includes/feedback_forms/building_3.html:18
+msgid "Leave a request for "
+msgstr ""
+
+#: templates/includes/feedback_forms/building_3.html:18
+msgid "a free consultation"
+msgstr ""
+
+#: templates/includes/feedback_forms/building_3.html:69
+#: templates/includes/feedback_forms/building_4.html:66
+msgid ""
+"By submitting the form, you consent to the processing of personal data</span>"
+msgstr ""
+
+#: templates/includes/feedback_forms/building_4.html:23
+msgid "Get advice on Developers and best projects"
+msgstr ""
+
+#: templates/includes/feedback_forms/building_4.html:32
+msgid "Leave your details and"
+msgstr ""
+
+#: templates/includes/feedback_forms/building_4.html:32
+msgid "we will answer to all your questions"
+msgstr ""
+
+#: templates/includes/feedback_forms/building_4.html:70
+#: templates/includes/feedback_forms/building_4.html:82
+msgid "Write to"
+msgstr ""
+
+#: templates/includes/feedback_forms/footer_feedback.html:14
+#: templates/includes/feedback_forms/rent_single_feedback.html:10
+#: templates/includes/feedback_forms/rent_single_feedback.html:20
+msgid "Ask a question"
+msgstr ""
+
+#: templates/includes/feedback_forms/footer_feedback.html:27
+msgid "Get a consultation"
+msgstr ""
+
+#: templates/includes/feedback_forms/rent_single_feedback.html:11
+msgid "Leave a request for"
+msgstr ""
+
+#: templates/includes/feedback_forms/rent_single_feedback.html:11
+msgid "free consultation"
+msgstr ""
+
+#: templates/includes/feedback_forms/rent_single_feedback.html:35
+msgid "Get free consultation"
+msgstr ""
+
+#: templates/includes/feedback_forms/vladislav.html:12
+msgid ""
+"We will find the most comfortable option based on your budget and desire"
+msgstr ""
+
+#: templates/includes/feedback_forms/vladislav.html:13
+msgid "Advise on the best areas for living"
+msgstr ""
+
+#: templates/includes/feedback_forms/vladislav.html:14
+msgid "Arrange transfer from the airport"
+msgstr ""
+
+#: templates/includes/feedback_forms/vladislav.html:67
+msgid "Vladislav"
+msgstr ""
+
+#: templates/includes/feedback_forms/vladislav.html:68
+msgid "customer service manager"
 msgstr ""
 
 #: templates/includes/filter/amenities.html:8
@@ -1585,22 +1939,22 @@ msgid "Client&quot;s personal account"
 msgstr ""
 
 #: templates/includes/footer/footer.html:18
-#: templates/includes/footer/footer.html:336
+#: templates/includes/footer/footer.html:324
 msgid "Log in"
 msgstr ""
 
 #: templates/includes/footer/footer.html:25
-#: templates/includes/header/header.html:71
+#: templates/includes/header/header.html:49
 msgid "Buy"
 msgstr ""
 
 #: templates/includes/footer/footer.html:26
-#: templates/includes/header/header.html:73
+#: templates/includes/header/header.html:51
 msgid "Blog"
 msgstr ""
 
 #: templates/includes/footer/footer.html:27
-#: templates/includes/header/header.html:74
+#: templates/includes/header/header.html:52
 msgid "About DADI"
 msgstr ""
 
@@ -1612,136 +1966,128 @@ msgstr ""
 msgid "Working hours in Dubai:"
 msgstr ""
 
-#: templates/includes/footer/footer.html:51
-msgid "Ask a question"
-msgstr ""
-
-#: templates/includes/footer/footer.html:67
+#: templates/includes/footer/footer.html:55
 msgid "Website"
 msgstr ""
 
-#: templates/includes/footer/footer.html:68
+#: templates/includes/footer/footer.html:56
 msgid "Copying materials without the author’s consent is prohibited"
 msgstr ""
 
-#: templates/includes/footer/footer.html:96
+#: templates/includes/footer/footer.html:84
 msgid "Privacy policy"
 msgstr ""
 
-#: templates/includes/footer/footer.html:116
-#: templates/includes/footer/footer.html:197
+#: templates/includes/footer/footer.html:104
+#: templates/includes/footer/footer.html:185
 msgid "Consultation with DADI manager"
 msgstr ""
 
-#: templates/includes/footer/footer.html:117
-#: templates/includes/footer/footer.html:198
+#: templates/includes/footer/footer.html:105
+#: templates/includes/footer/footer.html:186
 msgid "Leave your details, "
 msgstr ""
 
-#: templates/includes/footer/footer.html:117
+#: templates/includes/footer/footer.html:105
 msgid "our manager will contact you within a day"
 msgstr ""
 
-#: templates/includes/footer/footer.html:146
+#: templates/includes/footer/footer.html:134
 msgid "Get consultation"
 msgstr ""
 
+#: templates/includes/footer/footer.html:143
 #: templates/includes/footer/footer.html:155
-#: templates/includes/footer/footer.html:167
 msgid "Write to "
 msgstr ""
 
-#: templates/includes/footer/footer.html:198
+#: templates/includes/footer/footer.html:186
 msgid "our agent will contact you during the day"
 msgstr ""
 
-#: templates/includes/footer/footer.html:235
+#: templates/includes/footer/footer.html:223
 msgid "or write to us at"
 msgstr ""
 
-#: templates/includes/footer/footer.html:258
+#: templates/includes/footer/footer.html:246
 msgid "Complete the form to get "
 msgstr ""
 
-#: templates/includes/footer/footer.html:258
+#: templates/includes/footer/footer.html:246
 msgid "the full catalogue"
 msgstr ""
 
-#: templates/includes/footer/footer.html:271
+#: templates/includes/footer/footer.html:259
 msgid "Send"
 msgstr ""
 
-#: templates/includes/footer/footer.html:292
+#: templates/includes/footer/footer.html:280
 msgid "Registration"
 msgstr ""
 
-#: templates/includes/footer/footer.html:297
+#: templates/includes/footer/footer.html:285
 msgid "Country/region"
 msgstr ""
 
-#: templates/includes/footer/footer.html:303
+#: templates/includes/footer/footer.html:291
 msgid "We will send you an SMS to confirm your number phone."
 msgstr ""
 
-#: templates/includes/footer/footer.html:310
+#: templates/includes/footer/footer.html:298
 msgid "We will send you a verification code mail."
 msgstr ""
 
-#: templates/includes/footer/footer.html:314
+#: templates/includes/footer/footer.html:302
 msgid "Continue"
 msgstr ""
 
-#: templates/includes/footer/footer.html:323
+#: templates/includes/footer/footer.html:311
 msgid "Via email"
 msgstr ""
 
-#: templates/includes/footer/footer.html:331
+#: templates/includes/footer/footer.html:319
 msgid "Using a phone number"
 msgstr ""
 
-#: templates/includes/footer/footer.html:335
+#: templates/includes/footer/footer.html:323
 msgid "Already have an account?"
 msgstr ""
 
-#: templates/includes/footer/footer.html:354
+#: templates/includes/footer/footer.html:342
 msgid "Confirm your number"
 msgstr ""
 
-#: templates/includes/footer/footer.html:355
+#: templates/includes/footer/footer.html:343
 msgid "Enter the code sent to the number +7 (9**) ***-**-**"
 msgstr ""
 
-#: templates/includes/footer/footer.html:363
-#: templates/includes/footer/footer.html:377
+#: templates/includes/footer/footer.html:351
+#: templates/includes/footer/footer.html:365
 msgid "Didn&quot;t receive the code?"
 msgstr ""
 
-#: templates/includes/footer/footer.html:364
-#: templates/includes/footer/footer.html:378
+#: templates/includes/footer/footer.html:352
+#: templates/includes/footer/footer.html:366
 msgid "Send again"
 msgstr ""
 
-#: templates/includes/footer/footer.html:368
+#: templates/includes/footer/footer.html:356
 msgid "Confirm your email"
 msgstr ""
 
-#: templates/includes/footer/footer.html:369
+#: templates/includes/footer/footer.html:357
 msgid "Enter the code sent to the address *******@gmail.com"
 msgstr ""
 
-#: templates/includes/footer/footer.html:382
+#: templates/includes/footer/footer.html:370
 msgid "Choose another way"
 msgstr ""
 
-#: templates/includes/header/header.html:19
-msgid "Change"
-msgstr ""
-
-#: templates/includes/header/header.html:72
+#: templates/includes/header/header.html:50
 msgid "Catalogs"
 msgstr ""
 
-#: templates/includes/header/header.html:78
+#: templates/includes/header/header.html:56
 msgid "Write to messenger"
 msgstr ""
 
