@@ -1,0 +1,53 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="contacts__socials flex">
+    <a class="contacts__social flex flex-ai-center flex-j-center" target="_blank" href="https://wa.me/{{ our_company.whatsapp }}?text=Hello! I’m interested in a real estate in Dubai.">
+        <picture>
+            <source type="image/webp" srcset="" data-srcset="/img/main/contacts/whatsapp.webp"/>
+            <img class="lazy " width="18" height="18" src="" data-src="/img/main/contacts/whatsapp.png" alt="" loading="lazy"/>
+        </picture>
+    </a>
+    <a class="contacts__social flex flex-ai-center flex-j-center" target="_blank" href="{{ our_company.telegram }}">
+        <picture>
+            <source type="image/webp" srcset="" data-srcset="/img/main/contacts/telegram.webp"/>
+            <img class="lazy " width="17" height="17" src="" data-src="/img/main/contacts/telegram.png" alt="" loading="lazy"/>
+        </picture>
+    </a>
+    <a class="contacts__social flex flex-ai-center flex-j-center" target="_blank" href="{{ our_company.instagram }}">
+        <picture>
+            <source type="image/webp" srcset="" data-srcset="/img/main/contacts/instagram.webp"/>
+            <img class="lazy " width="16" height="16" src="" data-src="/img/main/contacts/instagram.png" alt="" loading="lazy"/>
+        </picture>
+    </a>
+</div>
+<div class="contacts__socials flex contacts__socials_second">
+    <!--
+    <a class="contacts__social flex flex-ai-center flex-j-center" target="_blank" href="{{ our_company.youtube }}">
+        <picture>
+            <source type="image/webp" srcset="" data-srcset="/img/main/contacts/youtube.webp"/>
+            <img class="lazy " width="21" height="21" src="" data-src="/img/main/contacts/youtube.png" alt="" loading="lazy"/>
+        </picture>
+    </a>
+    <a class="contacts__social flex flex-ai-center flex-j-center" target="_blank" href="{{ our_company.vk }}">
+        <picture>
+            <source type="image/webp" srcset="" data-srcset="/img/main/contacts/vk.webp"/>
+            <img class="lazy " width="19" height="19" src="" data-src="/img/main/contacts/vk.png" alt="" loading="lazy"/>
+        </picture>
+    </a>
+    <a class="contacts__social flex flex-ai-center flex-j-center" target="_blank" href="{{ our_company.dzen }}">
+        <picture>
+            <source type="image/webp" srcset="" data-srcset="/img/main/contacts/yandex.webp"/>
+            <img class="lazy " width="16" height="16" src="" data-src="/img/main/contacts/yandex.png" alt="" loading="lazy"/>
+        </picture>
+    </a>
+    <a class="contacts__social flex flex-ai-center flex-j-center" target="_blank" href="{{ our_company.facebook }}">
+        <picture>
+            <source type="image/webp" srcset="" data-srcset="/img/main/contacts/facebook.webp"/>
+            <img class="lazy " width="18" height="18" src="" data-src="/img/main/contacts/facebook.png" alt="" loading="lazy"/>
+        </picture>
+    </a>
+    -->
+</div>

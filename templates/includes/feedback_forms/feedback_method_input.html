@@ -1,0 +1,22 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="p-select relative">
+  <div class="p-select__current flex flex-ai-center flex-j-between">
+    <input type="hidden" name="feedback_method" value="{% trans 'Call me' %}"/>
+    <div class="p-select__current-item">{% trans 'Call me' %}<!--Позвонить мне--></div>
+    <div class="p-select__current-arrow">
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/get/arrow.png" alt="" loading="lazy"/>
+      </picture>
+    </div>
+  </div>
+  <div class="p-select__abs absolute flex flex-col">
+    <div class="p-select__abs-item active" data-value="{% trans 'Call me' %}">{% trans 'Call me' %}<!--Позвонить мне--></div>
+    <div class="p-select__abs-item" data-value="{% trans 'Write me' %}">{% trans 'Write me' %}<!--Написать мне--></div>
+    <div class="p-select__abs-item" data-value="{% trans 'Write later' %}">{% trans 'Write later' %}<!--Написать позже--></div>
+    <div class="p-select__abs-item" data-value="{% trans 'Call later' %}">{% trans 'Call later' %}<!--Позвонить позже--></div>
+  </div>
+</div>

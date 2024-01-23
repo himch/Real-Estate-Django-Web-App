@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.utils.translation import gettext_lazy as _
 
+from our_company.models import OurCompany
 from .choices import price_choices, bedroom_choices, state_choices
 
 from .models import Listing
@@ -25,6 +26,8 @@ from .models import Listing
 
 
 def listing(request, listing_id):
+    our_company = OurCompany.objects.all().first()
+
     listing_item = get_object_or_404(Listing, pk=listing_id)
 
     realtor = listing_item.realtor
@@ -64,6 +67,8 @@ def listing(request, listing_id):
         amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
 
     context = {
+        'our_company': our_company,
+
         'br_prices': br_prices,
         'min_area_m2': min_area_m2,
 
@@ -92,6 +97,8 @@ def listing(request, listing_id):
 
 
 def rent(request, listing_id):
+    our_company = OurCompany.objects.all().first()
+
     listing_item = get_object_or_404(Listing, pk=listing_id)
 
     realtor = listing_item.realtor
@@ -145,6 +152,8 @@ def rent(request, listing_id):
         amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
 
     context = {
+        'our_company': our_company,
+
         'br_prices': br_prices,
         'min_area_m2': min_area_m2,
 
@@ -181,6 +190,8 @@ def rent(request, listing_id):
 
 
 def search(request):
+    our_company = OurCompany.objects.all().first()
+
     queryset_list = Listing.objects.order_by('-list_date')
 
     # Keywords
@@ -214,6 +225,7 @@ def search(request):
             queryset_list = queryset_list.filter(price__lte=price)
 
     context = {
+        'our_company': our_company,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,

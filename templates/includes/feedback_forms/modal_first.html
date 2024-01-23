@@ -1,0 +1,104 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="modal modal_type modal_type-first">
+  <div class="modal__content relative margin-center">
+    <div class="modal__close absolute">
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/modal/type/close.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/modal/type/close.png" alt="" loading="lazy"/>
+      </picture>
+    </div>
+    <div class="modal_type__content relative">
+      <div class="modal_type__img-left absolute bottom-0 left-0">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="/img/modal/type/left.webp"/><img class="lazy " width="603" height="579" src="" data-src="/img/modal/type/left.png" alt="" loading="lazy"/>
+        </picture>
+      </div>
+
+      <form class="relative" method="post" id="post-form-modal-first">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+          <input type="hidden" name="user_id" value="{{ user.id }}">
+        {% else %}
+          <input type="hidden" name="user_id" value="0">
+        {% endif %}
+        {% trans 'Consultation with DADI manager' as form_title %}<!--Консультация менеджера DADI-->
+        <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+        <input type="hidden" name="listing_id" value="{{ listing.id|unlocalize }}">
+        <input type="hidden" name="listing" value="{{ listing.title_a_en }}">
+        <input type="hidden" name="message" value="Request from: {{ form_title }}">
+        <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
+
+        <div class="get__item-text relative">
+          <div class="get__item-title">{{ form_title }}</div>
+          <div class="get__item-subtitle">{% trans 'Leave your details, ' %}<!--Оставьте свои данные, --><span class="text-c5">{% trans 'our manager will contact you within a day' %}<!--наш менеджер свяжется с вами в течение дня--></span></div>
+          <div class="get__item-inputs flex">
+            <div class="get__item-input form__input">
+              <input type="text" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required="required"/>
+            </div>
+            <div class="get__item-input form__input">
+              <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
+            </div>
+            <div class="get__item-input form__input">
+              {% include 'includes/feedback_forms/feedback_method_input.html' %}
+            </div>
+          </div>
+          <div class="get__item-end">
+            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Get consultation' %}<!--Получить консультацию--></button>
+            <label class="p-check flex flex-ai-center">
+              <input type="checkbox" name="consent_processing_personal_data" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
+                </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
+            </label>
+          </div>
+          <div class="modal__socials flex flex-wrap flex-j-end">
+            <a class="modal__socials-item flex flex-ai-center" target="_blank" href="https://wa.me/{{ our_company.whatsapp }}?text=Hello! I’m interested in a real estate in Dubai.">
+              <div class="modal__socials-title">{% trans 'Write to ' %}<!--Написать в --><span class="text-underline">WhatsApp</span></div>
+              <div class="modal__socials-svg">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="/img/modal/type/what.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/modal/type/what.png" alt="" loading="lazy"/>
+                </picture>
+              </div></a>
+            <a class="modal__socials-item flex flex-ai-center" href="tel:{{ our_company.phone }}">
+              <div class="modal__socials-title">{{ our_company.phone }}</div>
+              <div class="modal__socials-svg">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="/img/modal/type/call.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/modal/type/call.png" alt="" loading="lazy"/>
+                </picture>
+              </div></a>
+            <a class="modal__socials-item flex flex-ai-center" target="_blank" href="{{ our_company.telegram }}">
+              <div class="modal__socials-title">{% trans 'Write to ' %}<!--Написать в --><span class="text-underline">Telegram</span></div>
+              <div class="modal__socials-svg">
+                <picture>
+                  <source type="image/webp" srcset="" data-srcset="/img/modal/type/tel.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/modal/type/tel.png" alt="" loading="lazy"/>
+                </picture>
+              </div></a></div>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(
+  $('#post-form-modal-first').submit(function(e){
+    e.preventDefault();
+    var serializedData = $(this).serialize();
+
+    $.ajax({
+      type:"POST",
+      url: "{% url 'contact' %}",
+      data:  serializedData,
+      success: function(data){
+        $("#result").text(data["result"]);
+      },
+    });
+  })
+);
+</script>

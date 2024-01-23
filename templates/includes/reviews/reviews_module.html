@@ -1,0 +1,89 @@
+{% load i18n %}
+{% load l10n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="reviews overflow-hidden hidden">
+    <div class="container margin-center">
+      <div class="section__title font-tenor text-c3 text-center p-animate p-animate__up p-animate__splitt">{% trans 'Over 1000 reviews' %}<!--Больше 1000 отзывов--></div>
+      <div class="reviews__swiper p-swiper relative">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+
+            {% if range %}
+              {% for r in range %}
+                <!-- start catalog -->
+                  <div class="swiper-slide">
+                    <div class="reviews__item bg-c5 text-c2">
+                      <div class="reviews__top flex">
+                        <div class="reviews__top-left">
+                          <div class="reviews__top-img img_cover">
+                            <picture>
+                              <source type="image/webp" srcset="" data-srcset="/img/main/reviews/1.webp"/><img class="lazy " width="110" height="110" src="" data-src="/img/main/reviews/1.jpg" alt="" loading="lazy"/>
+                            </picture>
+                          </div>
+                        </div>
+                        <div class="reviews__top-right">
+                          <div class="reviews__top-stars flex"><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.49996 0L9.1838 5.18234H14.6328L10.2245 8.38521L11.9083 13.5676L7.49996 10.3647L3.09159 13.5676L4.77544 8.38521L0.367074 5.18234H5.81611L7.49996 0Z" fill="url(#paint0_linear_347_1109)"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_347_1109" x1="7.49996" y1="0" x2="7.49996" y2="14.9999" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFCE1F"/>
+                            <stop offset="1" stop-color="#FFA800"/>
+                            </linearGradient>
+                            </defs>
+                            </svg><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.49996 0L9.1838 5.18234H14.6328L10.2245 8.38521L11.9083 13.5676L7.49996 10.3647L3.09159 13.5676L4.77544 8.38521L0.367074 5.18234H5.81611L7.49996 0Z" fill="url(#paint0_linear_347_1109)"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_347_1109" x1="7.49996" y1="0" x2="7.49996" y2="14.9999" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFCE1F"/>
+                            <stop offset="1" stop-color="#FFA800"/>
+                            </linearGradient>
+                            </defs>
+                            </svg><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.49996 0L9.1838 5.18234H14.6328L10.2245 8.38521L11.9083 13.5676L7.49996 10.3647L3.09159 13.5676L4.77544 8.38521L0.367074 5.18234H5.81611L7.49996 0Z" fill="url(#paint0_linear_347_1109)"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_347_1109" x1="7.49996" y1="0" x2="7.49996" y2="14.9999" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFCE1F"/>
+                            <stop offset="1" stop-color="#FFA800"/>
+                            </linearGradient>
+                            </defs>
+                            </svg><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.49996 0L9.1838 5.18234H14.6328L10.2245 8.38521L11.9083 13.5676L7.49996 10.3647L3.09159 13.5676L4.77544 8.38521L0.367074 5.18234H5.81611L7.49996 0Z" fill="url(#paint0_linear_347_1109)"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_347_1109" x1="7.49996" y1="0" x2="7.49996" y2="14.9999" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFCE1F"/>
+                            <stop offset="1" stop-color="#FFA800"/>
+                            </linearGradient>
+                            </defs>
+                            </svg><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.49996 0L9.1838 5.18234H14.6328L10.2245 8.38521L11.9083 13.5676L7.49996 10.3647L3.09159 13.5676L4.77544 8.38521L0.367074 5.18234H5.81611L7.49996 0Z" fill="url(#paint0_linear_347_1109)"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_347_1109" x1="7.49996" y1="0" x2="7.49996" y2="14.9999" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFCE1F"/>
+                            <stop offset="1" stop-color="#FFA800"/>
+                            </linearGradient>
+                            </defs>
+                            </svg>
+                          </div>
+                          <div class="reviews__top-title text-500">{% trans 'Анна' %}<!--Анна--></div><a class="reviews__top-subtitle text-500" href="#!">@annamol</a>
+                        </div>
+                      </div>
+                      <div class="reviews__item-desc">{% trans 'Спасибо большое за Ваши старания, доставка пришла очень быстро, все размер в размер, спасибо большое за уделённое время и такой подход, вернусь к вам ещё раз обязательно!' %}<!--Спасибо большое за Ваши старания, доставка пришла очень быстро, все размер в размер, спасибо большое за уделённое время и такой подход, вернусь к вам ещё раз обязательно!--></div>
+                    </div>
+                  </div>
+                <!-- end catalog -->
+              {% endfor %}
+            {% else %}
+              <div class="col-md-12">
+                <p>{% trans 'No Review Available' %}</p>
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="reviews__link text-c3 text-center text-500">{% trans 'Оставить отзыв о нашей работе' %}<!--Оставить отзыв о нашей работе--></div>
+    </div>
+</div>

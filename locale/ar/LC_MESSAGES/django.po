@@ -21,7 +21,7 @@ msgstr ""
 
 #: contacts/views.py:79
 msgid "Your request has been submitted, a realtor will get back to you soon"
-msgstr ""
+msgstr "لقد تم تقديم طلبك، وسيقوم وكيل العقارات بالرد عليك قريبًا"
 
 #: templates/includes/blog/blog_card.html:11
 msgid "Start of construction of the residential complex"
@@ -206,10 +206,6 @@ msgstr "وصف مختصر للكتالوج أو المشروع وما بداخل
 msgid "Dubai’s Best Property Catalogs 2023-2024"
 msgstr "كتالوجات أفضل العقارات في دبي 2023-2024"
 
-#: templates/includes/catalog/catalog_module.html:20
-msgid "Catalog name"
-msgstr "الاسم"
-
 msgid "No Catalogs Available"
 msgstr ""
 
@@ -245,76 +241,70 @@ msgstr "انتقل إلى كتالوج الشراء"
 #: templates/includes/content/arenda-single.html:68
 #: templates/includes/content/arenda-single.html:72
 msgid "per month"
-msgstr ""
+msgstr "روبل شهريا"
 
 #: templates/includes/content/arenda-single.html:65
 #: templates/includes/content/arenda-single.html:69
 #: templates/includes/content/arenda-single.html:73
 msgid "per night"
-msgstr ""
+msgstr "رول لليلة"
 
 #: templates/includes/content/arenda-single.html:88
 msgid "House rules"
-msgstr ""
+msgstr "الشروط"
 
 #: templates/includes/content/arenda-single.html:90
 msgid "Short-term lease (5 days to 3 months)"
-msgstr ""
+msgstr "إيجار قصير الأجل (من 5 أيام إلى 3 أشهر)"
 
 #: templates/includes/content/arenda-single.html:101
 msgid "Long term lease (from 3 months)"
-msgstr ""
+msgstr "إيجار طويل الأجل (من 3 أشهر)"
 
 #: templates/includes/content/arenda-single.html:122
 msgid "Check in after 15:00"
-msgstr ""
+msgstr "الوصول بعد الساعة 00: 15"
 
 #: templates/includes/content/arenda-single.html:130
 msgid "Maximum 2 guests"
-msgstr ""
+msgstr "الحد الأقصى لعدد الضيوف 2"
 
 #: templates/includes/content/arenda-single.html:138
 msgid "Check out before 11:00"
-msgstr ""
+msgstr " المغادرة قبل الساعة 00: 11"
 
 #: templates/includes/content/arenda-single.html:146
 msgid "Pets are allowed"
-msgstr ""
+msgstr "الحيوانات الأليفة مسموحة"
 
 #: templates/includes/content/arenda-single.html:154
 msgid "Self-check-in (digital code)"
-msgstr ""
+msgstr "تسجيل الوصول الذاتي (رمز رقمي)"
 
 #: templates/includes/content/arenda-single.html:162
 msgid "Parties and events aren’t allowed"
-msgstr ""
+msgstr "الحفلات غير مسموحة"
 
 #: templates/includes/content/arenda-single.html:170
 msgid "Smoking is prohibited"
-msgstr ""
+msgstr "ممنوع  التدخين"
 
 #: templates/includes/content/arenda-single.html:178
 msgid "Free cancellation before 19th of october"
-msgstr ""
+msgstr "إلغاء مجاني حتى 19 أكتوبر"
 
 #: templates/includes/content/arenda-single.html:180
 msgid "Cancellation policy"
-msgstr ""
-
-#: templates/includes/content/arenda-single.html:184
-#, fuzzy
-#| msgid "Leave a long-term lease application"
-msgid "leave an application"
-msgstr "قدم طلب الإيجار"
+msgstr "سياسة الإلغاء"
 
 #: templates/includes/content/arenda-single.html:185
 msgid "for a discount on number of months of rent and contract with the owner"
-msgstr ""
+msgstr "للحصول على خصم على عدد من أشهر الإيجار والتعاقد مع المالك"
 
 #: templates/includes/content/arenda-single.html:194
 #: templates/includes/content/arenda.html:182
 msgid "Location"
-msgstr ""
+msgstr "الموقع"
 
 #: templates/includes/content/arenda-single.html:205
 #: templates/includes/content/buy.html:568
@@ -330,11 +320,11 @@ msgstr "الحساب الشخصي للعميل"
 
 #: templates/includes/content/arenda-single.html:215
 msgid "for tracking booking and payment"
-msgstr ""
+msgstr "لتتبع الحجوزات والمدفوعات"
 
 #: templates/includes/content/arenda-single.html:225
 msgid "Personalized choice"
-msgstr ""
+msgstr "الاختيار الفردي"
 
 #: templates/includes/content/arenda-single.html:226
 #, fuzzy
@@ -355,7 +345,7 @@ msgstr "مساعد شخصي في البلد"
 msgid ""
 "help with transfer, car rental, dry cleaning - assistant will take care of "
 "all household issues in the new country 24/7"
-msgstr ""
+msgstr "سوف يساعد في التنقل وتأجير السيارات وغسيل الملابس-يحل جميع القضايا المنزلية في بلد جديد 24/7"
 "سيساعد في عمليات النقل واستئجار السيارات وتنظيف الملابس - ويحل جميع المشاكل "
 "اليومية في البلد الجديد على مدار الساعة طوال أيام الأسبوع"
 
@@ -372,10 +362,10 @@ msgstr "الدعم القانوني"
 #| "in case of leasehold term starting from 3 months we will take care of "
 #| "checking all document and concluding the contract of rent with the "
 #| "proprietor"
-msgid ""
+msgid "عند الاستئجار لمدة تزيد عن 3 أشهر ، سنساعدك في التحقق من المستندات وإبرام اتفاقية مع المالك"
 "In case of leasehold term starting from 3 months we will take care of "
 "checking all document and concluding the contract of rent with the proprietor"
-msgstr ""
+msgstr "عند الاستئجار لمدة تزيد عن 3 أشهر ، سنساعدك في التحقق من المستندات وإبرام اتفاقية مع المالك"
 "عند الاستئجار لمدة تزيد عن 3 أشهر، سنساعدك على التحقق من صحة المستندات "
 "وإبرام اتفاقية مربحة مع المالك"
 
@@ -388,144 +378,135 @@ msgstr "تقديم طلب"
 
 #: templates/includes/content/arenda-single.html:272
 msgid "Arrival"
-msgstr ""
+msgstr "الوصول"
 
 #: templates/includes/content/arenda-single.html:276
 msgid "Check out"
-msgstr ""
+msgstr "المغادرة"
 
 #: templates/includes/content/arenda-single.html:284
 msgid "number of guests"
-msgstr ""
+msgstr "عدد الضيوف"
 
 #: templates/includes/content/arenda-single.html:285
 #: templates/includes/content/arenda.html:44
 msgid "1 guest"
-msgstr ""
+msgstr "1 ضيف"
 
 #: templates/includes/content/arenda-single.html:296
 msgid "Adults"
-msgstr ""
+msgstr "الكبار"
 
 #: templates/includes/content/arenda-single.html:297
 msgid "From 13 years old"
-msgstr ""
+msgstr "من 13 سنة"
 
 #: templates/includes/content/arenda-single.html:310
 msgid "Close"
-msgstr ""
+msgstr "يغلق"
 
 #: templates/includes/content/arenda-single.html:321
 msgid "1 night"
-msgstr ""
+msgstr "1 ليلة"
 
 #: templates/includes/content/arenda-single.html:325
 msgid "Cleaning fee"
-msgstr ""
+msgstr "رسوم التنظيف"
 
 #: templates/includes/content/arenda-single.html:329
 msgid "Total (excluding tax)"
-msgstr ""
+msgstr "المجموع (باستثناء الضرائب)"
 
 #: templates/includes/content/arenda-single.html:340
 msgid "More offers"
-msgstr ""
-
-#: templates/includes/content/arenda-single.html:361
-msgid "Go to the blog page"
-msgstr "إلى المدونة"
+msgstr "عروض أخرى"
 
 msgid "Back to the Rent page"
-msgstr ""
+msgstr "العودة إلى صفحة الإيجار"
 
 #: templates/includes/content/arenda.html:13
 msgid "Dadi holiday"
-
+msgstr ""
 
 #: templates/includes/content/arenda.html:14
 msgid "Dubai property rental"
-msgstr ""
+msgstr "عقارات للإيجار في دبي"
 
 #: templates/includes/content/arenda.html:16
 msgid "apartment with 5* hotel service"
-msgstr ""
+msgstr "شقق مع خدمات فندقية 5*"
 
 #: templates/includes/content/arenda.html:45
 msgid "2 guests"
-msgstr ""
+msgstr "ضيف 2"
 
 #: templates/includes/content/arenda.html:46
 msgid "3 guests"
-msgstr ""
+msgstr "ضيف 3"
 
 #: templates/includes/content/arenda.html:47
 msgid "More than 3 guests"
-msgstr ""
+msgstr "أكثر من 3 ضيوف"
 
 #: templates/includes/content/arenda.html:52
 #: templates/includes/content/buy.html:90
 msgid "View"
-msgstr ""
+msgstr "عرض"
 
 #: templates/includes/content/arenda.html:52
 #: templates/includes/content/buy.html:90
 msgid "options"
-msgstr ""
+msgstr "خيارات"
 
 #: templates/includes/content/arenda.html:55
 #: templates/includes/content/arenda.html:519
 #: templates/includes/content/buy.html:93
 msgid "Select with manager"
-msgstr ""
+msgstr "الاختيار مع أحد مستشارينا"
 
 #: templates/includes/content/arenda.html:69
 #: templates/includes/content/buy.html:107
 msgid "Filters"
-msgstr ""
+msgstr "التصنيف"
 
 #: templates/includes/content/arenda.html:78
 #: templates/includes/content/buy.html:116
 msgid "Remove filters"
-msgstr ""
-
-#: templates/includes/content/arenda.html:81
-#: templates/includes/content/buy.html:22
-msgid "Property valuation"
-msgstr "تقييم العقارات"
+msgstr "إعادة تعيين التصنيف"
 
 msgid "Property type"
-msgstr ""
+msgstr "نوع العقار"
 
 #: templates/includes/content/arenda.html:84
 #: templates/includes/content/buy.html:26
 #: templates/includes/content/buy.html:35
 msgid "Any type"
-msgstr ""
+msgstr "غير محدد"
 
 #: templates/includes/content/arenda.html:87
 #: templates/includes/content/buy.html:44
 msgid "Townhouses"
-msgstr ""
+msgstr "تاون هاوس"
 
 #: templates/includes/content/arenda.html:90
 #: templates/includes/content/buy.html:53
 msgid "Villas"
-msgstr ""
+msgstr "فلل"
 
 #: templates/includes/content/arenda.html:93
 #: templates/includes/content/buy.html:38
 msgid "Apartments"
-msgstr ""
+msgstr "شقق سكنية"
 
 #: templates/includes/content/arenda.html:96
 #: templates/includes/content/buy.html:47
 msgid "Duplexes"
-msgstr ""
+msgstr "دوبلكس"
 
 #: templates/includes/content/arenda.html:99
 #: templates/includes/content/buy.html:41
 msgid "Penthouses"
-msgstr ""
+msgstr "بنتهاوس"
 
 #: templates/includes/content/arenda.html:102
 #: templates/includes/content/buy.html:50
@@ -533,7 +514,7 @@ msgid "rent an apartment"
 msgstr "لاستئجار شقة"
 
 msgid "Hotel apartment"
-msgstr ""
+msgstr "شقق فندقية"
 
 #: templates/includes/content/arenda.html:107
 msgid "Bedroom"
@@ -549,127 +530,115 @@ msgstr ""
 
 #: templates/includes/content/arenda.html:171
 msgid "Bedrooms"
-msgstr ""
+msgstr "غرف نوم"
 
 #: templates/includes/content/arenda.html:188
 #: templates/includes/content/buy.html:247
 msgid "Amenities"
-msgstr ""
+msgstr "الموقع"
 
 #: templates/includes/content/arenda.html:194
 #: templates/includes/content/buy.html:241
 msgid "Districts"
-msgstr ""
+msgstr "المرافق"
 
 #: templates/includes/content/arenda.html:200
 #: templates/includes/content/buy.html:302
 msgid "Apply filters"
-msgstr ""
+msgstr "تطبيق التصنيف"
 
 #: templates/includes/content/arenda.html:228
 #: templates/includes/content/arenda.html:236
 #: templates/includes/content/buy.html:346
 #: templates/includes/content/buy.html:354
 msgid "New first"
-msgstr ""
+msgstr "الجديد أولا"
 
 #: templates/includes/content/arenda.html:237
 #: templates/includes/content/buy.html:355
 msgid "Cheaper first"
-msgstr ""
+msgstr "أرخص أولا"
 
 #: templates/includes/content/arenda.html:238
 #: templates/includes/content/buy.html:356
 msgid "More expensive"
-msgstr ""
-
-#: templates/includes/content/arenda.html:271
-#: templates/includes/content/blog.html:101
-#: templates/includes/content/buy.html:389
-#: templates/includes/content/buy.html:454
-msgid "Download PDF"
-msgstr "تحميل PDF"
+msgstr "أغلى"
 
 msgid "Download"
-msgstr ""
+msgstr "تحميل"
 
 #: templates/includes/content/arenda.html:271
 #: templates/includes/content/buy.html:389
 msgid "out of"
-msgstr ""
+msgstr "من"
 
 #: templates/includes/content/arenda.html:280
 msgid "What are the advantages"
-msgstr ""
+msgstr "ماهي المزايا"
 
 #: templates/includes/content/arenda.html:281
 msgid "Luxury apartments with hotel service for short and long term rent"
 msgstr "القصير والطويل"
 
 msgid "rent apartments with hotel service"
-msgstr ""
+msgstr "تأجير الشقق مع الخدمة الفندقية"
 
 #: templates/includes/content/arenda.html:300
 msgid "5* hotel hospitaluty"
-msgstr ""
+msgstr "ضيافة فندق 5 نجوم"
 
 #: templates/includes/content/arenda.html:301
 msgid ""
 "We welcome you as the as the most esteemed guest, with welcome drinks, fruit "
 "plate, as well as tea, coffee and shower accessories for your comfort."
-msgstr ""
-
-#: templates/includes/content/arenda.html:321
-msgid "Rent management"
-msgstr "إدارة الإيجارات"
+msgstr "نرحب بكم ضيوفنا الأكثر تميزا، مع مشروبات ترحيبية وطبق فاكهة، ونقدم لكم الشاي والقهوة و كافة وسائل الراحة."
 
 msgid "Best arrangement"
-msgstr ""
-
+msgstr "المرافق الأفضل"
 
 #: templates/includes/content/arenda.html:322
 msgid ""
 "Our apartments are equipped better than most hotels. Each apartment has a "
 "coffee machine, dishwasher, washing machine, hairdryer and a full set of "
 "dishes for the convenience of our guests."
-msgstr ""
+msgstr "شققنا مجهزة بشكل أفضل من معظم الفنادق. تحتوي كل شقة على آلة لصنع القهوة وغسالة صحون وغسالة ملابس ومجفف شعر ومجموعة كاملة من الأطباق لراحة ضيوفنا."
 
 #: templates/includes/content/arenda.html:342
 msgid "Service and cleaning"
-msgstr ""
+msgstr "الصيانة والتنظيف"
 
 #: templates/includes/content/arenda.html:343
 msgid ""
 "You won’t need to think about cleaning and maintenance of apartments - we "
 "will take care of everything. We will make sure your stay is pleasant and "
 "carefree."
-msgstr ""
+msgstr "لا داعي للتفكير في تنظيف الشقة وصيانتها - فنحن سنتولى كل شيء. سنبذل قصارى جهدنا لجعل إقامتك ممتعة و خالية من الهموم."
 
 #: templates/includes/content/arenda.html:363
 msgid "24/7 Customer Service and support"
-msgstr ""
+msgstr "دعم خدمة العملاء 24/7 "
 
 #: templates/includes/content/arenda.html:364
 msgid ""
 "Our Care Service is available 24 hours a day and is ready to assist you at "
 "any time of the day. We guarantee that your requests and needs will be met "
 "immediately."
-msgstr ""
+msgstr "تتوفر خدمة العملاء لدينا على مدار الساعة لمساعدتك في أي وقت من اليوم. نحن نضمن تلبية طلباتك واحتياجاتك على الفور."
 
 #: templates/includes/content/arenda.html:384
 #: templates/includes/filter/amenities.html:29
 msgid "Parking space"
-msgstr ""
+msgstr "مواقف السيارات"
 
 #: templates/includes/content/arenda.html:385
 msgid ""
 "We provide parking near the house so you can leave your car comfortably, "
 "with no worries."
-msgstr ""
+msgstr " نحن نقدم مواقف السيارات بالقرب من المنزل بحيث يمكنك أن تركن سيارتك بكل يسر و أمان."
 
 #: templates/includes/content/arenda.html:405
 msgid "Free Wi-Fi and TV"
-msgstr ""
+msgstr "واي فاي مجاني وتلفزيون"
 
 #: templates/includes/content/arenda.html:406
 msgid "with streaming capability"
@@ -679,39 +648,39 @@ msgstr ""
 msgid ""
 "All our apartments are equipped with free Wi-Fi and modern TVs with access "
 "to streaming services for your entertainment and communication."
-msgstr ""
+msgstr " تم تجهيز جميع شققنا بخدمة الواي فاي المجانية وأجهزة تلفزيون حديثة للترفيه والتواصل"
 
 #: templates/includes/content/arenda.html:416
 msgid "Additionally, we can offer:"
-msgstr ""
+msgstr "بالإضافة إلى ذلك ، يمكننا أن نقدم:"
 
 #: templates/includes/content/arenda.html:425
 msgid "Fitness center and swimming pool"
-msgstr ""
+msgstr "مركز اللياقة البدنية وحمام سباحة"
 
 #: templates/includes/content/arenda.html:426
 msgid ""
 "We will provide access to the fitness centre and swimming pool in the "
 "residential complex or nearby so that you can maintain an active lifestyle "
 "and relax."
-msgstr ""
+msgstr "سنوفر لك مركز اللياقة البدنية والمسبح في المجمع السكني أو بالقرب منه ، حتى تتمكن من الحفاظ على نمط حياة نشط والاسترخاء."
 
 #: templates/includes/content/arenda.html:436
 msgid "Tours and entertainment"
-msgstr ""
+msgstr "الرحلات والترفيه"
 
 #: templates/includes/content/arenda.html:437
 msgid ""
 "We will help you plan and book excursions in the region so that you can "
 "enjoy what local culture and nature can offer you."
-msgstr ""
+msgstr "سنساعدك في تخطيط وحجز الرحلات في المنطقة حتى تتمكن من الاستمتاع بكل ما تقدمه الثقافة والطبيعة المحلية."
 
 #: templates/includes/content/arenda.html:448
 msgid "Purchase an apartment in Dubai"
 msgstr "شراء شقة في دبي"
 
 msgid "Our apartments combine "
-msgstr ""
+msgstr "تجمع شققنا بين راحة الفندق                     واستقلالية الشقة الخاصة بك، كما نحرص على تلبية كل احتياجاتك لجعل                     إقامتك لا تنسى."
 
 
 #: templates/includes/content/arenda.html:448
@@ -743,12 +712,8 @@ msgstr ""
 msgid "Receive a consultation"
 msgstr "احصل على استشارة"
 
-#: templates/includes/content/arenda.html:524
-msgid "Services of DADI"
-msgstr "خدمات DADI"
-
 msgid "Services of DADI HOLIDAY"
-msgstr ""
+msgstr "خدمات DADI HOLIDAYS"
 
 #: templates/includes/content/arenda.html:525
 msgid "Rent an apartment in Dubai"
@@ -756,7 +721,7 @@ msgstr "استئجار شقة في دبي"
 
 
 msgid "rent apartments in Dubai with hotel service"
-msgstr ""
+msgstr "استئجار شقق في دبي مع خدمة فندقية"
 
 #: templates/includes/content/arenda.html:536
 #: templates/includes/content/index_rus.html:755
@@ -828,30 +793,26 @@ msgstr "الحلول الفردية"
 msgid "of property for rent or purchase based on your request"
 msgstr "عقارات للإيجار أو الشراء حسب طلبك"
 
-#: templates/includes/content/arenda.html:584
-msgid "Leave a long-term lease application"
-msgstr "قدم طلب الإيجار"
-
 msgid "Leave an application"
-msgstr ""
+msgstr "قديم الطلب"
 
 #: templates/includes/content/arenda.html:591
 msgid "We will help you find an apartment for rent"
-msgstr ""
+msgstr "سوف نساعدك على اختيار شقة للإيجار"
 
 #: templates/includes/content/arenda.html:592
 #: templates/includes/content/blog.html:121
 #: templates/includes/content/dadi.html:83
 #: templates/includes/content/jk.html:340
 msgid "Find real estate"
-msgstr ""
+msgstr "اختر شقتك"
 
 #: templates/includes/content/blog.html:14
 msgid "Blog"
 msgstr "المدونة"
 
 msgid "DADI Blog"
-msgstr ""
+msgstr "DADI مدونة"
 
 #: templates/includes/content/blog.html:15
 msgid "Best premium real estate in Dubai"
@@ -859,41 +820,41 @@ msgstr "أفضل العقارات الفاخرة في دبي"
 
 
 msgid "Useful articles about life and real estate in Dubai"
-msgstr ""
+msgstr "مقالات مفيدة عن الحياة والعقارات في دبي"
 
 #: templates/includes/content/blog.html:30
 #: templates/includes/content/blog.html:78
 msgid "Dubai: best places to live"
-msgstr ""
+msgstr "دبي: أفضل المناطق للعيش فيها"
 
 #: templates/includes/content/blog.html:33
 #: templates/includes/content/blog.html:40
 msgid "updated"
-msgstr ""
+msgstr "تحديث"
 
 #: templates/includes/content/blog.html:35
 #: templates/includes/content/blog.html:82
 msgid "Life in Dubai"
-msgstr ""
+msgstr "الحياة في دبي"
 
 #: templates/includes/content/blog.html:44
 #: templates/includes/content/blog.html:67
 msgid "7 steps to pay with cryptocurrency"
-msgstr ""
+msgstr "7 خطوات للدفع باستخدام العملة الرقمية"
 
 #: templates/includes/content/blog.html:45
 msgid "Technologies"
-msgstr ""
+msgstr "التقنيات"
 
 #: templates/includes/content/blog.html:50
 #: templates/includes/content/blog.html:92
 msgid "Changes in UAE legislation: new opportunities"
-msgstr ""
+msgstr "التغييرات في التشريعات الإماراتية: امكانيات جديدة"
 
 #: templates/includes/content/blog.html:54
 #: templates/includes/content/blog.html:96
 msgid "Dubai news"
-msgstr ""
+msgstr "اخبار دبي"
 
 #: templates/includes/content/blog.html:68
 #: templates/includes/content/blog.html:101
@@ -902,74 +863,70 @@ msgstr ""
 
 #: templates/includes/content/blog.html:107
 msgid "with fresh news in Dubai"
-msgstr ""
+msgstr "مع آخر الأخبار من عالم دبي"
 
 #: templates/includes/content/blog.html:108
 msgid "Telegram channel DADI"
-msgstr ""
+msgstr "قناة DADI تيليجرام "
 
 #: templates/includes/content/blog.html:109
 msgid "Go to Telegram channel"
-msgstr ""
+msgstr "انتقل إلى القناة"
 
 #: templates/includes/content/blog.html:120
 #: templates/includes/content/dadi.html:82
 #: templates/includes/content/jk.html:339
 msgid "Get an expert advice from Real Estate Professionals"
-msgstr ""
+msgstr " سوف نساعدك على اختيار شقة للإيجار"
 
 #: templates/includes/content/buy.html:14
 #: templates/includes/content/buy.html:435
 msgid "Dadi Properties"
-msgstr ""
-
-#: templates/includes/content/buy.html:15
-msgid "Purchase an apartment in Dubai"
-msgstr "شراء شقة في دبي"
+msgstr "Dadi Properties"
 
 msgid "Purchase of real estate in Dubai"
-msgstr ""
+msgstr "شراء عقار في دبي"
 
 #: templates/includes/content/buy.html:17
 msgid "for living and investment"
-msgstr ""
+msgstr "من أجل السكن والاستثمار"
 
 #: templates/includes/content/buy.html:56
 msgid "Half a floor"
-msgstr ""
+msgstr "نصف طابق"
 
 #: templates/includes/content/buy.html:59
 msgid "Entire floors"
-msgstr ""
+msgstr "طوابق كاملة"
 
 #: templates/includes/content/buy.html:62
 msgid "Entire buildings"
-msgstr ""
+msgstr "مباني كاملة"
 
 #: templates/includes/content/buy.html:65
 msgid "Commercial premises"
-msgstr ""
+msgstr "المباني التجارية"
 
 #: templates/includes/content/buy.html:68
 msgid "Land plots"
-msgstr ""
+msgstr "قطع الأراضي"
 
 #: templates/includes/content/buy.html:78
 #: templates/includes/content/buy.html:122
 msgid "Price"
-msgstr ""
+msgstr "السعر"
 
 #: templates/includes/content/buy.html:80
 msgid "min"
-msgstr ""
+msgstr "من"
 
 #: templates/includes/content/buy.html:83
 msgid "max"
-msgstr ""
+msgstr "الى"
 
 #: templates/includes/content/buy.html:163
 msgid "Total area"
-msgstr ""
+msgstr "المساحة الكلية"
 
 #: templates/includes/content/buy.html:167
 #: templates/includes/content/buy.html:183
@@ -977,79 +934,75 @@ msgstr ""
 #: templates/includes/content/buy.html:328
 #: templates/includes/content/buy.html:335
 msgid "sq. m"
-msgstr ""
+msgstr "م2"
 
 #: templates/includes/content/buy.html:170
 #: templates/includes/content/buy.html:201
 #: templates/includes/content/buy.html:208
 #: templates/includes/content/buy.html:336
 msgid "sq. ft"
-msgstr ""
+msgstr "قدم2"
 
 #: templates/includes/content/buy.html:179
 #: templates/includes/content/buy.html:197
 msgid "From"
-msgstr ""
+msgstr "من"
 
 #: templates/includes/content/buy.html:186
 #: templates/includes/content/buy.html:204
 msgid "To"
-msgstr ""
+msgstr "الى"
 
 #: templates/includes/content/buy.html:220
 msgid "Number or rooms"
-msgstr ""
+msgstr "عدد الغرف"
 
 #: templates/includes/content/buy.html:230
 msgid "Lease period"
-msgstr ""
+msgstr "تاريخ التسليم"
 
 #: templates/includes/content/buy.html:288
 msgid "Furnishings"
-msgstr ""
+msgstr "التشطيب"
 
 #: templates/includes/content/buy.html:291
 msgid "All furnishings"
-msgstr ""
+msgstr "مفروشة بالكامل"
 
 #: templates/includes/content/buy.html:294
 msgid "Partly furnished"
-msgstr ""
+msgstr "مفروشة جزئيا"
 
 #: templates/includes/content/buy.html:297
 msgid "Unfurnished"
-msgstr ""
+msgstr "غير مفروشة"
 
 #: templates/includes/content/buy.html:398
 msgid "New projects of DADI partners"
-msgstr ""
-
-#: templates/includes/content/buy.html:436
-msgid "Dubai’s Best Property Catalogs 2023-2024"
-msgstr "كتالوجات أفضل العقارات في دبي 2023-2024"
+msgstr "مشاريع شركاء DADI الجدد"
 
 msgid "Dubai’s Reliable Property Developers Catalogue"
-msgstr ""
+msgstr "دليل المطورين الموثوق بهم في دبي"
 
 #: templates/includes/content/buy.html:438
 msgid "Inside:"
-msgstr ""
+msgstr "في الملف:"
 
 #: templates/includes/content/buy.html:439
 msgid "- new objects with detailed description of characteristics"
-msgstr ""
+msgstr " - وحدات جديدة مع وصف مفصل للخصائص"
 
 #: templates/includes/content/buy.html:440
 msgid "- apartments at special price"
-msgstr ""
+msgstr "- شقق بسعر خاص"
 
 #: templates/includes/content/buy.html:441
 msgid "- ideas for improvement"
-msgstr ""
+msgstr "- أفكار لترتيب الشقق"
 
 #: templates/includes/content/buy.html:442
 msgid "- Expert Advice"
-msgstr ""
+msgstr "- آراء الخبراء"
 
 #: templates/includes/content/buy.html:459
 #: templates/includes/content/index_rus.html:1312
@@ -1063,23 +1016,19 @@ msgstr ""
 msgid "By submitting the form, you consent to the processing of personal data"
 msgstr "عند تقديم الطلب، فإنك توافق على معالجة البيانات الشخصية"
 
-#: templates/includes/content/buy.html:499
-msgid "Best premium real estate in Dubai"
-msgstr "أفضل العقارات الفاخرة في دبي"
-
 msgid "of real estate purchase in Dubai"
-msgstr ""
+msgstr "شراء العقارات في دبي عام 2023"
 
 #: templates/includes/content/buy.html:508
 msgid "High return on investment."
-msgstr ""
+msgstr "عائد مرتفع من الاستثمار"
 
 #: templates/includes/content/buy.html:510
 #, python-format
 msgid ""
 "In 2022, Dubai welcomed 14 million tourists - annual revenue up to 12%% can "
 "be earned by renting out accommodation for short term."
-msgstr ""
+msgstr "في عام 2022، استقبلت دبي 14 مليون سائح - عند التأجير قصير الاجل يمكنك ان تحصل على دخل يصل إلى 12 ٪ سنويا. "
 
 #: templates/includes/content/buy.html:511
 #, python-format
@@ -1087,28 +1036,28 @@ msgid ""
 "The number of expats is growing every year, now it already makes up 89%% of "
 "the UAE population. Long-term leases will yield 6-9%% per annum. Excluding "
 "the increase in the value of the object."
-msgstr ""
+msgstr "كما يتزايد عدد المغتربين كل عام ، الذين يشكلون  89 ٪ من سكان الإمارات العربية المتحدة. مع عقد إيجار طويل الأجل ، ستحصل على دخل 6-9 ٪ سنويا. اضافة الى الزيادة في قيمة العقار نفسه."
 
 #: templates/includes/content/buy.html:520
 msgid "Transparency of real estate legislation"
-msgstr ""
+msgstr "شفافية التشريعات في مجال العقارات،"
 
 #: templates/includes/content/buy.html:522
 msgid ""
 "Dubai has the most developed legal framework in the field of real estate out "
 "of the 7 emirates in the UAE. The construction sector is closely monitored "
 "by the Government, all transactions are subject to government inspection."
-msgstr ""
+msgstr "دبي لديها الإطار القانوني الأكثر تطورا في مجال العقارات على مستوى الامارات ال7 في دولة الإمارات العربية المتحدة. تتم مراقبة قطاع البناء عن كثب، كما تخضع جميع معاملات الشراء والبيع للمراقبة من قبل الدولة."
 
 #: templates/includes/content/buy.html:523
 msgid ""
 "Foreign citizens are able to acquire real estate directly in full ownership "
 "in designated Freehold areas."
-msgstr ""
+msgstr " لمواطني الدول الأجنبية الحق في شراء العقارات مباشرة في دبي بملكية كاملة في مناطق التملك الحر المخصصة لذلك."
 
 #: templates/includes/content/buy.html:532
 msgid "Residence permit"
-msgstr ""
+msgstr "الحصول على الاقامة"
 
 #: templates/includes/content/buy.html:534
 msgid ""
@@ -1116,30 +1065,30 @@ msgid ""
 "investor and his family receive a residence permit with resident status. It "
 "is issued for 2 years, can be repeatedly extended until you remain the owner "
 "of the property."
-msgstr ""
+msgstr "عند شراءك عقارا في دبي بقيمة 750.000 درهم (ما يقارب $ 205,000), المستثمر وعائلته يحصلون على الاقامات. يتم إصدارها لسنتين, يمكن تمديدها عدة مرات في حال كنت لا تزال مالك العقار."
 
 #: templates/includes/content/buy.html:535
 msgid ""
 "Buying real estate starting from 2.000.000 dirhams (about 545.000$ ) gives "
 "the opportunity to obtain a Golden visa in the UAE for 10 years and the "
 "prospect of becoming a citizen of the Emirates."
-msgstr ""
+msgstr "شراء العقارات بقيمة 2,000,000 درهم (ما يقارب $ 545,000) يجعل من الممكن الحصول على تأشيرة ذهبية  لمدة 10 سنوات واحتمال الحصول على الجنسية الاماراتية."
 
 #: templates/includes/content/buy.html:544
 msgid "Stability and security of economics"
-msgstr ""
+msgstr "الاستقرار الاقتصادي والأمن"
 
 #: templates/includes/content/buy.html:546
 msgid ""
 "In 2021, the UAE was ranked 2nd safest country out of 134 according to the "
 "journal Global Finance."
-msgstr ""
+msgstr " في عام 2021 ، احتلت الإمارات المرتبة 2 من بين 134 دولة الأكثر أمانا على هذا الكوكب وفقا لمجلة جلوبال فاينانس ، فإن سعر صرف الدرهم مرتبط بشكل مباشر بالدولار وبقي دون تغيير لأكثر من 20 عاما."
 
 #: templates/includes/content/buy.html:547
 msgid ""
 "Dirham’s exchange rate is tied to the US dollar and has remained unchanged "
 "for more then 20 years."
-msgstr ""
+msgstr "الوضع المحايد لدولة الإمارات العربية المتحدة في النزاعات العالمية وغياب العقوبات وعدم التدخل في السياسة العالمية يؤكد الاستقرار السياسي ."
 
 #: templates/includes/content/buy.html:548
 msgid ""
@@ -1149,62 +1098,58 @@ msgstr ""
 
 #: templates/includes/content/buy.html:557
 msgid "No real estate tax"
-msgstr ""
+msgstr "لا توجد ضريبة على الأملاك"
 
 #: templates/includes/content/buy.html:559
 #, python-format
 msgid ""
 "4%% of the cost of housing must be payed as the fee to the Land Department."
-msgstr ""
+msgstr "عند الشراء ، يجب عليك دفع رسوم قدرها 4٪ من تكلفة السكن إلى دائرة الأراضي والأملاك."
 
 #: templates/includes/content/buy.html:560
 msgid "Ownership, lease, sale and all other transactions are not taxed"
-msgstr ""
-
-#: templates/includes/content/buy.html:569
-msgid "Best premium real estate in Dubai"
-msgstr "أفضل العقارات الفاخرة في دبي"
+msgstr " أما التأجير والبيع وجميع المعاملات الأخرى فلا يخضعون للضريبة."
 
 msgid "purchase of real estate in Dubai"
-msgstr ""
+msgstr "شراء عقار في دبي"
 
 #: templates/includes/content/dadi.html:37
 msgid ""
 "Progressive Real Estate Agency with an emphasis on service and comfort of "
 "our customers"
-msgstr ""
+msgstr "وكالة عقارية تقدمية مع التركيز على خدمة وراحة عملائنا"
 
 #: templates/includes/content/dadi.html:40
 msgid "Dadi properties"
-msgstr ""
+msgstr "Dadi properties"
 
 #: templates/includes/content/dadi.html:41
 msgid ""
 "Full cycle of real estate management: valuation, sale, purchase, rental "
 "management and service, legal support"
-msgstr ""
+msgstr "دورة كاملة لإدارة العقارات: التقييم ، البيع ، الشراء ، إدارة الإيجار والصيانة، الدعم القانوني"
 
 #: templates/includes/content/dadi.html:44
 msgid "DADI HOLIDAYS"
-msgstr ""
+msgstr "DADI HOLIDAYS"
 
 #: templates/includes/content/dadi.html:45
 msgid ""
 "Rent apartments with 5* hotel service: booking service, personal assistant "
 "in the country, organization of excursions"
-msgstr ""
+msgstr "استئجار شقق فندقية 5*: خدمة الحجز ، مساعد شخصي في البلاد ، وتنظيم الرحلات"
 
 #: templates/includes/content/dadi.html:48
 msgid "DADI DESIGN"
-msgstr ""
+msgstr "DADI DESIGN"
 
 #: templates/includes/content/dadi.html:49
 msgid "Finding repair and design team for apartments with no decoration."
-msgstr ""
+msgstr "اختيار فريق لإصلاح وتصميم شقة دون التشطيب"
 
 #: templates/includes/content/dadi.html:49
 msgid "Case studies"
-msgstr ""
+msgstr "عرض الحالات"
 
 #: templates/includes/content/dadi.html:65
 #: templates/includes/content/index.html:46
@@ -1287,16 +1232,6 @@ msgstr "أفضل العقارات الفاخرة في دبي"
 #: templates/includes/rent/rent_module.html:8
 msgid "Rent"
 msgstr "الإيجار"
-
-#: templates/includes/content/index.html:30
-#: templates/includes/content/index_rus.html:30
-msgid "Luxury apartments with hotel service for short and long term rent"
-msgstr "القصير والطويل"
-
-#: templates/includes/content/index.html:41
-#: templates/includes/content/index_rus.html:41
-msgid "rent an apartment"
-msgstr "لاستئجار شقة"
 
 #: templates/includes/content/index.html:47
 #: templates/includes/content/index_rus.html:47
@@ -1410,12 +1345,6 @@ msgstr ""
 "سنخبرك أين تذهب وأين تأكل طعاما لذيذًا، حتى تتمكن من الاستمتاع بإجازتك لاقصى "
 "حد"
 
-#: templates/includes/content/index.html:185
-#: templates/includes/content/index.html:459
-#: templates/includes/content/index_rus.html:459
-msgid "Rent an apartment in Dubai"
-msgstr "استئجار شقة في دبي"
-
 #: templates/includes/content/index.html:212
 #: templates/includes/content/index.html:466
 #: templates/includes/content/index_rus.html:212
@@ -1519,17 +1448,10 @@ msgid ""
 msgstr ""
 "- إذا كانت الشقة مفروشة، فسوف نقوم بتعيين فريق من المصممين ونشرف على العمليات"
 
-#: templates/includes/content/index.html:306
-#: templates/includes/content/index.html:612
-#: templates/includes/content/index_rus.html:306
-#: templates/includes/content/index_rus.html:612
-msgid "Purchase an apartment in Dubai"
-msgstr "شراء شقة في دبي"
-
 #: templates/includes/content/index.html:621
 #: templates/includes/content/index_rus.html:617
 msgid "We love our work and "
-msgstr ""
+msgstr "نحن نحب عملنا، ونعمل كل يوم على الجودة ونقدم أفضل خدمة في سوق العقارات في دبي.  "
 
 #: templates/includes/content/index.html:622
 #: templates/includes/content/index_rus.html:618
@@ -1567,11 +1489,6 @@ msgstr "أو"
 msgid "simply submitting a request."
 msgstr "ارسال طلب"
 
-#: templates/includes/content/index.html:636
-#: templates/includes/content/index_rus.html:637
-msgid "Best premium real estate in Dubai"
-msgstr "أفضل العقارات الفاخرة في دبي"
-
 #: templates/includes/content/index.html:639
 #: templates/includes/content/index_rus.html:640
 msgid "for Rent"
@@ -1582,7 +1499,7 @@ msgstr "للإيجار"
 #: templates/includes/content/index_rus.html:652
 #: templates/includes/content/index_rus.html:686
 msgid "No Offers Available"
-msgstr ""
+msgstr "لا توجد عروض متاحة"
 
 #: templates/includes/content/index.html:655
 #: templates/includes/content/index_rus.html:656
@@ -1598,7 +1515,7 @@ msgstr "للشراء"
 
 #: templates/includes/content/index.html:804
 msgid "No Review Available"
-msgstr ""
+msgstr "لا توجد مراجعة متاحة"
 
 #: templates/includes/content/index_rus.html:66
 msgid "Why choose "
@@ -1618,23 +1535,23 @@ msgstr ""
 
 #: templates/includes/content/index_rus.html:632
 msgid " calling us "
-msgstr ""
+msgstr "الاتصال بنا"
 
 #: templates/includes/content/index_rus.html:632
 msgid "or "
-msgstr ""
+msgstr "أو"
 
 #: templates/includes/content/index_rus.html:714
 msgid "Services of "
-msgstr ""
+msgstr "خدمات"
 
 #: templates/includes/content/index_rus.html:855
 msgid "Investing with "
-msgstr ""
+msgstr "الاستثمار مع "
 
 #: templates/includes/content/index_rus.html:880
 msgid "We"
-msgstr ""
+msgstr "نحن"
 
 #: templates/includes/content/index_rus.html:914
 #: templates/includes/our_values/our_values.html:33
@@ -1720,7 +1637,7 @@ msgstr "الاسم"
 #: templates/includes/footer/footer.html:126
 #: templates/includes/footer/footer.html:207
 msgid "Write me"
-msgstr ""
+msgstr "اكتب لي"
 
 #: templates/includes/content/index_rus.html:1300
 #: templates/includes/feedback_forms/building_2.html:55
@@ -1729,7 +1646,7 @@ msgstr ""
 #: templates/includes/footer/footer.html:127
 #: templates/includes/footer/footer.html:208
 msgid "Write later"
-msgstr ""
+msgstr "أكتب لاحقا"
 
 #: templates/includes/content/index_rus.html:1301
 #: templates/includes/feedback_forms/building_2.html:56
@@ -1738,30 +1655,27 @@ msgstr ""
 #: templates/includes/footer/footer.html:128
 #: templates/includes/footer/footer.html:209
 msgid "Call later"
-msgstr ""
+msgstr "اتصل لاحقا"
 
 #: templates/includes/content/index_rus.html:1335
 msgid "A short description of the catalog or project, what"
-msgstr ""
+msgstr "وصف موجز للكتالوج أو المشروع، ماذا"
 
 #: templates/includes/content/katalogi.html:12
 msgid "DADI REAL ESTATE"
-msgstr ""
+msgstr "DADI REAL ESTATE"
 
 #: templates/includes/content/katalogi.html:13
 msgid "Real Estate Catalogs in Dubai"
 msgstr "استئجار شقة في دبي"
 
-msgid "Rent an apartment in Dubai"
-msgstr ""
-
 #: templates/includes/content/katalogi.html:30
 msgid "Residential complexes"
-msgstr ""
+msgstr "المجمعات"
 
 #: templates/includes/content/katalogi.html:69
 msgid "Developers"
-msgstr ""
+msgstr "بهم من دادي"
 
 #: templates/includes/dadi_team/dadi_team.html:8
 msgid "DADI team"
@@ -1834,11 +1748,6 @@ msgstr "اترك طلبًا للحصول على"
 msgid "a free consultation"
 msgstr "استشارة مجانية"
 
-#: templates/includes/feedback_forms/building_3.html:69
-#: templates/includes/feedback_forms/building_4.html:66
-msgid ""By submitting the form, you consent to the processing of personal data"
-msgstr "عند تقديم الطلب، فإنك توافق على معالجة البيانات الشخصية"
-
 #: templates/includes/feedback_forms/building_4.html:23
 msgid "Get advice on Developers and best projects"
 msgstr ""
@@ -1848,16 +1757,16 @@ msgid "Leave your details, "
 msgstr "املأ التفاصيل الخاصة بك ،"
 
 msgid "Leave your details and"
-msgstr ""
+msgstr "املأ التفاصيل"
 
 #: templates/includes/feedback_forms/building_4.html:32
 msgid "we will answer to all your questions"
-msgstr ""
+msgstr "الخاصة بك وسوف نقوم بالرد على جميع أسئلتك"
 
 #: templates/includes/feedback_forms/building_4.html:70
 #: templates/includes/feedback_forms/building_4.html:82
 msgid "Write to"
-msgstr ""
+msgstr "التواصل عبر"
 
 #: templates/includes/feedback_forms/footer_feedback.html:14
 #: templates/includes/feedback_forms/rent_single_feedback.html:10
@@ -1875,199 +1784,178 @@ msgstr "احصل على استشارة"
 msgid "Leave a request for"
 msgstr "اترك طلبًا للحصول على"
 
-#: templates/includes/feedback_forms/rent_single_feedback.html:11
-#, fuzzy
-#| msgid "a free consultation"
-msgid "free consultation"
-msgstr "استشارة مجانية"
-
-#: templates/includes/feedback_forms/rent_single_feedback.html:35
-msgid "a free consultation"
-msgstr "استشارة مجانية"
-
-
 msgid "Get free consultation"
-msgstr ""
-
-
-#: templates/includes/feedback_forms/vladislav.html:12
-msgid "We will find the best solution for your request for free"
-msgstr "سنوفر العروض الانسب وفقا لمتطلباتك مجانًا"
+msgstr "احصل على استشارة"
 
 msgid "We will find the most comfortable option based on your budget and desire"
-msgstr ""
+msgstr "سوف نختار شقة مريحة و مناسبة للميزانية "
 
 #: templates/includes/feedback_forms/vladislav.html:13
 msgid "Advise on the best areas for living"
-msgstr ""
-
-#: templates/includes/feedback_forms/vladislav.html:14
-msgid "Book transfer from the airport"
-msgstr "طلب التوصيل من المطار"
-
+msgstr "سوف ننصحك بأفضل المناطق للعيش في دبي"
 
 msgid "Arrange transfer from the airport"
-msgstr ""
+msgstr "سوف نقوم بترتيب التوصيل من المطار"
 
 #: templates/includes/feedback_forms/vladislav.html:67
 msgid "Vladislav"
-msgstr ""
+msgstr "Vladislav"
 
 #: templates/includes/feedback_forms/vladislav.html:68
 msgid "customer service manager"
-msgstr ""
+msgstr "موظف خدمة العملاء"
 
 #: templates/includes/filter/amenities.html:8
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: templates/includes/filter/amenities.html:11
 msgid "Hairdryer"
-msgstr ""
+msgstr "مجفف شعر"
 
 #: templates/includes/filter/amenities.html:14
 msgid "Microwave"
-msgstr ""
+msgstr "المايكرويف"
 
 #: templates/includes/filter/amenities.html:17
 msgid "TV"
-msgstr ""
+msgstr "TV"
 
 #: templates/includes/filter/amenities.html:20
 msgid "Coffee machine"
-msgstr ""
+msgstr "آلة صنع القهوة"
 
 #: templates/includes/filter/amenities.html:23
 msgid "Dishwasher"
-msgstr ""
+msgstr "غسالة الأواني"
 
 #: templates/includes/filter/amenities.html:26
 msgid "A/C"
-msgstr ""
+msgstr "المكيف"
 
 #: templates/includes/filter/amenities.html:32
 msgid "Washing machine"
-msgstr ""
+msgstr "غسالة"
 
 #: templates/includes/filter/amenities.html:35
 msgid "Bathtub"
-msgstr ""
+msgstr "شرفة"
 
 #: templates/includes/filter/amenities.html:38
 msgid "Balcony"
-msgstr ""
+msgstr "شرفة"
 
 #: templates/includes/filter/amenities.html:41
 msgid "Shared pool"
-msgstr ""
+msgstr "مسبح مشترك"
 
 #: templates/includes/filter/amenities.html:44
 msgid "Shower"
-msgstr ""
+msgstr "دش"
 
 #: templates/includes/filter/amenities.html:47
 msgid "Fitness gym"
-msgstr ""
+msgstr "نادي رياضي"
 
 #: templates/includes/filter/amenities.html:50
 msgid "Children’s Play Area"
-msgstr ""
+msgstr "ملعب اطفال"
 
 #: templates/includes/filter/districts.html:9
 msgid "Palm Jumeriah"
-msgstr ""
+msgstr "Palm Jumeriah"
 
 #: templates/includes/filter/districts.html:12
 msgid "Yas Island"
-msgstr ""
+msgstr "Yas Island"
 
 #: templates/includes/filter/districts.html:15
 msgid "Town Square"
-msgstr ""
+msgstr "Town Square"
 
 #: templates/includes/filter/districts.html:18
 msgid "JVC"
-msgstr ""
+msgstr "JVC"
 
 #: templates/includes/filter/districts.html:21
 msgid "Arjan"
-msgstr ""
+msgstr "Arjan"
 
 #: templates/includes/filter/districts.html:24
 msgid "Jebel Ali"
-msgstr ""
+msgstr "Jebel Ali"
 
 #: templates/includes/filter/districts.html:27
 msgid "Dubailand"
-msgstr ""
+msgstr "Dubailand"
 
 #: templates/includes/filter/districts.html:30
 msgid "Production City"
-msgstr ""
+msgstr "Production City"
 
 #: templates/includes/filter/districts.html:33
 msgid "Damac Lagoons"
-msgstr ""
+msgstr "Damac Lagoons"
 
 #: templates/includes/filter/districts.html:36
 msgid "Beachfront"
-msgstr ""
+msgstr "Beachfront"
 
 #: templates/includes/filter/districts.html:39
 msgid "JLT"
-msgstr ""
+msgstr "JLT"
 
 #: templates/includes/filter/districts.html:42
 msgid "Dubai Hils"
-msgstr ""
+msgstr "Dubai Hils"
 
 #: templates/includes/filter/districts.html:45
 msgid "MBR"
-msgstr ""
+msgstr "MBR"
 
 #: templates/includes/filter/districts.html:48
 msgid "Dubai Marina"
-msgstr ""
+msgstr "Dubai Marina"
 
 #: templates/includes/filter/location.html:8
 msgid "High floor"
-msgstr ""
+msgstr "طابق مرتفع"
 
 #: templates/includes/filter/location.html:11
 msgid "Close to metro"
-msgstr ""
+msgstr "بقرب المترو"
 
 #: templates/includes/filter/location.html:14
 msgid "Canal view"
-msgstr ""
+msgstr "مطل على القناة"
 
 #: templates/includes/filter/location.html:17
 msgid "Middle floor"
-msgstr ""
+msgstr "طابق متوسط"
 
 #: templates/includes/filter/location.html:20
 msgid "City view"
-msgstr ""
+msgstr "مطل على المدينة"
 
 #: templates/includes/filter/location.html:23
 msgid "Park view"
-msgstr ""
+msgstr "مطل على حديقة"
 
 #: templates/includes/filter/location.html:26
 msgid "Lower floor"
-msgstr ""
+msgstr "طابق منخفض"
 
 #: templates/includes/filter/location.html:29
 msgid "Sea view"
-msgstr ""
+msgstr "مطل على البحر"
 
 #: templates/includes/filter/location.html:32
 msgid "Burj Khalifa view"
-msgstr ""
+msgstr "مطل على برج خليفة"
 
 #: templates/includes/filter/location.html:35
 msgid "Close to the beach"
-msgstr ""
+msgstr "بقرب الشاطئ"
 
 #: templates/includes/footer/footer.html:17
 msgid "Client&quot;s personal account"
@@ -2082,11 +1970,6 @@ msgstr "الدخول"
 #: templates/includes/header/header.html:49
 msgid "Buy"
 msgstr "الشراء"
-
-#: templates/includes/footer/footer.html:26
-#: templates/includes/header/header.html:51
-msgid "Blog"
-msgstr "المدونة"
 
 #: templates/includes/footer/footer.html:27
 #: templates/includes/header/header.html:52
@@ -2116,12 +1999,7 @@ msgstr "سياسة الخصوصية"
 #: templates/includes/footer/footer.html:104
 #: templates/includes/footer/footer.html:185
 msgid "Consultation with DADI manager"
-msgstr ""
-
-#: templates/includes/footer/footer.html:105
-#: templates/includes/footer/footer.html:186
-msgid "Leave your details, "
-msgstr "املأ التفاصيل الخاصة بك ،"
+msgstr "Get a consultation"
 
 #: templates/includes/footer/footer.html:105
 msgid "our manager will contact you within a day"
@@ -2129,12 +2007,12 @@ msgstr "سيتصل بك احد مستشارينا خلال يوم واحد"
 
 #: templates/includes/footer/footer.html:134
 msgid "Get consultation"
-msgstr ""
+msgstr "Get a consultation"
 
 #: templates/includes/footer/footer.html:143
 #: templates/includes/footer/footer.html:155
 msgid "Write to "
-msgstr ""
+msgstr "التواصل عبر"
 
 #: templates/includes/footer/footer.html:186
 msgid "our agent will contact you during the day"
@@ -2142,7 +2020,7 @@ msgstr "املأ التفاصيل الخاصة بك ،"
 
 #: templates/includes/footer/footer.html:223
 msgid "or write to us at"
-msgstr ""
+msgstr "تواصل معنا عبر"
 
 #: templates/includes/footer/footer.html:246
 msgid "Complete the form to get "
@@ -2158,79 +2036,79 @@ msgstr "ارسال"
 
 #: templates/includes/footer/footer.html:280
 msgid "Registration"
-msgstr ""
+msgstr "تسجيل"
 
 #: templates/includes/footer/footer.html:285
 msgid "Country/region"
-msgstr ""
+msgstr "البلد/المنطقة"
 
 #: templates/includes/footer/footer.html:291
 msgid "We will send you an SMS to confirm your number phone."
-msgstr ""
+msgstr "سوف نرسل لك رسالة نصية قصيرة لتأكيد رقم هاتفك"
 
 #: templates/includes/footer/footer.html:298
 msgid "We will send you a verification code mail."
-msgstr ""
+msgstr "سوف نرسل لك رسالة نصية قصيرة لتأكيد رقم هاتفك"
 
 #: templates/includes/footer/footer.html:302
 msgid "Continue"
-msgstr ""
+msgstr "واصل"
 
 #: templates/includes/footer/footer.html:311
 msgid "Via email"
-msgstr ""
+msgstr "عبر البريد الالكتروني"
 
 #: templates/includes/footer/footer.html:319
 msgid "Using a phone number"
-msgstr ""
+msgstr "باستخدام رقم الهاتف"
 
 #: templates/includes/footer/footer.html:323
 msgid "Already have an account?"
-msgstr ""
+msgstr "هل لديك حساب؟"
 
 #: templates/includes/footer/footer.html:342
 msgid "Confirm your number"
-msgstr ""
+msgstr "قم بتاكيد رقمك"
 
 #: templates/includes/footer/footer.html:343
 msgid "Enter the code sent to the number +7 (9**) ***-**-**"
-msgstr ""
+msgstr "أدخل الرمز المرسل إلى الرقم +* *** ***-**-**"
 
 #: templates/includes/footer/footer.html:351
 #: templates/includes/footer/footer.html:365
 msgid "Didn&quot;t receive the code?"
-msgstr ""
+msgstr "لم تتلق الرمز؟"
 
 #: templates/includes/footer/footer.html:352
 #: templates/includes/footer/footer.html:366
 msgid "Send again"
-msgstr ""
+msgstr "أعد الإرسال"
 
 #: templates/includes/footer/footer.html:356
 msgid "Confirm your email"
-msgstr ""
+msgstr "قم بتأكيد بريدك الإلكتروني"
 
 #: templates/includes/footer/footer.html:357
 msgid "Enter the code sent to the address *******@gmail.com"
-msgstr ""
+msgstr "أدخل الرمز المرسل إلى العنوان *******@gmail.com"
 
 #: templates/includes/footer/footer.html:370
 msgid "Choose another way"
-msgstr ""
+msgstr "اختر طريقة أخرى"
 
 #: templates/includes/header/header.html:50
 msgid "Catalogs"
-msgstr ""
+msgstr "الكتالوجات"
 
 #: templates/includes/header/header.html:56
 msgid "Write to messenger"
-msgstr ""
+msgstr "اكتب للماسنجر"
 
 #: templates/includes/offer_card/offer_card_swiper.html:31
 #: templates/includes/rent_card/index_page_rent_card_swiper.html:31
 msgid "Spec. price"
-msgstr ""
+msgstr "سعر خاص"
 
 #: templates/includes/rent_card/index_page_rent_card_swiper.html:41
 msgid "per day"
-msgstr ""
+msgstr "في اليوم"

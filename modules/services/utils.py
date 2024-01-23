@@ -1,5 +1,8 @@
 import logging
 import telebot
+from datetime import datetime
+from django.utils import timezone
+
 
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)

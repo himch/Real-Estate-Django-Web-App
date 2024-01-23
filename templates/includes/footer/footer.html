@@ -33,15 +33,15 @@
       <div class="footer__top-center margin-center">
         <div class="footer__links flex flex-col">
           <div class="footer__link">
-            <div class="footer__link-title">{% trans 'Phone:' %}<!--Телефон:--></div><a class="footer__link-subtitle" href="tel:+97145859538">+971 4 585 9538</a>
+            <div class="footer__link-title">{% trans 'Phone:' %}<!--Телефон:--></div><a class="footer__link-subtitle" href="tel:{{ our_company.phone }}">{{ our_company.phone }}</a>
           </div>
           <div class="footer__link">
             <div class="footer__link-title">{% trans 'Working hours in Dubai:' %}<!--Время работы по Дубаю:--></div>
-            <div class="footer__link-subtitle">9:00-21:00</div>
+            <div class="footer__link-subtitle">{{ our_company.office_working_hours }}</div>
           </div>
           <div class="footer__link">
             <div class="footer__link-title">{% trans 'Office' %}<!--Офис--></div>
-            <div class="footer__link-subtitle">{% trans 'Al Gurg Tower 3, office 3, Dubai P Floor, UAE' %}<!--Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ--></div>
+            <div class="footer__link-subtitle">{% trans our_company.office_address %}<!--Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ--></div>
           </div>
         </div>
       </div>
@@ -56,29 +56,9 @@
         <div class="footer__copy uppercase"><span>© 2023 All Right Reserved</span><span>{% trans 'Copying materials without the author’s consent is prohibited' %}<!--Копирование материалов без согласия автора запрещено--></span></div>
       </div>
       <div class="footer__bottom-center margin-center">
-        <div class="contacts__socials flex"><a class="contacts__social flex flex-ai-center flex-j-center" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/contacts/whatsapp.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/contacts/whatsapp.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/contacts/telegram.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/contacts/telegram.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/contacts/instagram.webp"/><img class="lazy " width="16" height="16" src="" data-src="/img/main/contacts/instagram.png" alt="" loading="lazy"/>
-            </picture></a></div>
-        <div class="contacts__socials flex contacts__socials_second"><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/contacts/youtube.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/main/contacts/youtube.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/contacts/vk.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/main/contacts/vk.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/contacts/yandex.webp"/><img class="lazy " width="16" height="16" src="" data-src="/img/main/contacts/yandex.png" alt="" loading="lazy"/>
-            </picture></a><a class="contacts__social flex flex-ai-center flex-j-center" href="#!">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/main/contacts/facebook.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/contacts/facebook.png" alt="" loading="lazy"/>
-            </picture></a></div>
+
+      {% include 'includes/social_networks/social_networks_module.html' %}
+
       </div>
       <div class="footer__bottom-right">
         <div class="footer__bottom-links flex flex-col"><a class="footer__bottom-link" href="#!">{% trans 'Privacy policy' %}<!--Политика конфиденциальности--></a><a class="footer__bottom-link" href="#!">Offer contract</a></div>
@@ -86,153 +66,11 @@
     </div>
   </div>
 </footer>
-<div class="modal modal_type modal_type-first">
-  <div class="modal__content relative margin-center">
-    <div class="modal__close absolute">
-      <picture>
-        <source type="image/webp" srcset="" data-srcset="/img/modal/type/close.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/modal/type/close.png" alt="" loading="lazy"/>
-      </picture>
-    </div>
-    <div class="modal_type__content relative">
-      <div class="modal_type__img-left absolute bottom-0 left-0">
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/modal/type/left.webp"/><img class="lazy " width="603" height="579" src="" data-src="/img/modal/type/left.png" alt="" loading="lazy"/>
-        </picture>
-      </div>
-      <form class="relative">
-        <div class="get__item-text relative">
-          <div class="get__item-title">{% trans 'Consultation with DADI manager' %}<!--Консультация менеджера DADI--></div>
-          <div class="get__item-subtitle">{% trans 'Leave your details, ' %}<!--Оставьте свои данные, --><span class="text-c5">{% trans 'our manager will contact you within a day' %}<!--наш менеджер свяжется с вами в течение дня--></span></div>
-          <div class="get__item-inputs flex">
-            <div class="get__item-input form__input">
-              <input type="text" name="name" placeholder="Ваше имя" required="required"/>
-            </div>
-            <div class="get__item-input form__input">
-              <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-            </div>
-            <div class="get__item-input form__input">
-              <div class="p-select relative">
-                <div class="p-select__current flex flex-ai-center flex-j-between">
-                  <input type="hidden" name="request" value="Позвонить мне"/>
-                  <div class="p-select__current-item">{% trans 'Call me' %}<!--Позвонить мне--></div>
-                  <div class="p-select__current-arrow">
-                    <picture>
-                      <source type="image/webp" srcset="" data-srcset="/img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/get/arrow.png" alt="" loading="lazy"/>
-                    </picture>
-                  </div>
-                </div>
-                <div class="p-select__abs absolute flex flex-col">
-                  <div class="p-select__abs-item active" data-value="Позвонить мне">{% trans 'Call me' %}<!--Позвонить мне--></div>
-                  <div class="p-select__abs-item" data-value="Написать мне">{% trans 'Write me' %}<!--Написать мне--></div>
-                  <div class="p-select__abs-item" data-value="Написать позже">{% trans 'Write later' %}<!--Написать позже--></div>
-                  <div class="p-select__abs-item" data-value="Позвонить позже">{% trans 'Call later' %}<!--Позвонить позже--></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="get__item-end">
-            <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Get consultation' %}<!--Получить консультацию--></button>
-            <label class="p-check flex flex-ai-center">
-              <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
-            </label>
-          </div>
-          <div class="modal__socials flex flex-wrap flex-j-end"><a class="modal__socials-item flex flex-ai-center" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
-              <div class="modal__socials-title">{% trans 'Write to ' %}<!--Написать в --><span class="text-underline">WhatsApp</span></div>
-              <div class="modal__socials-svg">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/modal/type/what.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/modal/type/what.png" alt="" loading="lazy"/>
-                </picture>
-              </div></a><a class="modal__socials-item flex flex-ai-center" href="#!">
-              <div class="modal__socials-title">+7 (999)-999-99-99</div>
-              <div class="modal__socials-svg">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/modal/type/call.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/modal/type/call.png" alt="" loading="lazy"/>
-                </picture>
-              </div></a><a class="modal__socials-item flex flex-ai-center" href="#!">
-              <div class="modal__socials-title">{% trans 'Write to ' %}<!--Написать в --><span class="text-underline">Telegram</span></div>
-              <div class="modal__socials-svg">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/modal/type/tel.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/modal/type/tel.png" alt="" loading="lazy"/>
-                </picture>
-              </div></a></div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="modal modal_type modal_type-second">
-  <div class="modal__content relative margin-center">
-    <div class="modal__close absolute">
-      <picture>
-        <source type="image/webp" srcset="" data-srcset="/img/modal/type/close.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/modal/type/close.png" alt="" loading="lazy"/>
-      </picture>
-    </div>
-    <div class="modal_type__content relative">
-      <div class="catalog-cons__item relative">
-        <div class="catalog-cons__img-left absolute bottom-0 left-0 p-img">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/catalogs/cons/left2.webp"/><img class="lazy " width="574" height="586" src="" data-src="/img/catalogs/cons/left2.png" alt="" loading="lazy"/>
-          </picture>
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/catalogs/cons/left2_mb.webp"/><img class="lazy " width="322" height="267" src="" data-src="/img/catalogs/cons/left2_mb.png" alt="" loading="lazy"/>
-          </picture>
-        </div>
-        <form class="relative">
-          <div class="catalog-cons__text relative">
-            <div class="catalog-cons__title">{% trans 'Consultation with DADI manager' %}<!--Консультация менеджера DADI--></div>
-            <div class="catalog-cons__subtitle">{% trans 'Leave your details, ' %}<!--Оставьте свои данные, --><span class="text-c5">{% trans 'our agent will contact you during the day' %}<!--наш агент свяжется с вами в течение дня--></span></div>
-            <div class="catalog-cons__inputs flex">
-              <div class="form__input">
-                <input type="text" name="name" placeholder="Ваше имя" required="required"/>
-              </div>
-              <div class="form__input">
-                <input type="tel" name="tel" placeholder="8 999 999 99 99" required="required"/>
-              </div>
-              <div class="form__input">
-                <div class="p-select relative">
-                  <div class="p-select__current flex flex-ai-center flex-j-between">
-                    <input type="hidden" name="request" value="Позвонить мне"/>
-                    <div class="p-select__current-item">{% trans 'Call me' %}<!--Позвонить мне--></div>
-                    <div class="p-select__current-arrow">
-                      <picture>
-                        <source type="image/webp" srcset="" data-srcset="/img/main/get/arrow.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/main/get/arrow.png" alt="" loading="lazy"/>
-                      </picture>
-                    </div>
-                  </div>
-                  <div class="p-select__abs absolute flex flex-col">
-                    <div class="p-select__abs-item active" data-value="Позвонить мне">{% trans 'Call me' %}<!--Позвонить мне--></div>
-                    <div class="p-select__abs-item" data-value="Написать мне">{% trans 'Write me' %}<!--Написать мне--></div>
-                    <div class="p-select__abs-item" data-value="Написать позже">{% trans 'Write later' %}<!--Написать позже--></div>
-                    <div class="p-select__abs-item" data-value="Позвонить позже">{% trans 'Call later' %}<!--Позвонить позже--></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="get__item-end">
-              <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Receive a consultation' %}<!--Получить консультацию--></button>
-              <label class="p-check flex flex-ai-center">
-                <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                  </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
-              </label>
-            </div>
-            <div class="catalog-cons__end"><span>{% trans 'or write to us at' %}<!--или напишите нам в--></span><span><a class="catalog-cons__end-link flex flex-ai-center" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai."><span class="catalog-cons__end-svg flex-shrink">
-                    <picture>
-                      <source type="image/webp" srcset="" data-srcset="/img/catalogs/cons/whatsapp.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/catalogs/cons/whatsapp.png" alt="" loading="lazy"/>
-                    </picture></span><span class="catalog-cons__end-title text-c3 text-underline">Whatsapp</span></a></span><span>или</span><span><a class="catalog-cons__end-link flex flex-ai-center" href="#!"><span class="catalog-cons__end-svg flex-shrink">
-                    <picture>
-                      <source type="image/webp" srcset="" data-srcset="/img/catalogs/cons/telegram.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/catalogs/cons/telegram.png" alt="" loading="lazy"/>
-                    </picture></span><span class="catalog-cons__end-title text-c3 text-underline">Telegram</span></a></span></div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+
+{% include 'includes/feedback_forms/modal_first.html' %}
+
+{% include 'includes/feedback_forms/modal_second.html' %}
+
 <div class="modal modal_pdf">
   <div class="modal__content relative margin-center">
     <div class="modal__close absolute">

@@ -5,7 +5,7 @@
 
 <div class="type">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3 text-center">{% trans 'Rent' %}<!--Аренда--></div>
+      <div class="section__title font-tenor text-c3 text-center p-animate p-animate__up p-animate__splitt">{% trans 'Rent' %}<!--Аренда--></div>
       <div class="type__row grid">
         <div class="type__item flex flex-ai-center">
           <div class="type__item-left">
@@ -22,7 +22,7 @@
                 <li>{% trans 'availability of apartments and bookings can be done through a convenient calendar' %}<!--бронируйте свободные апартаменты через удобный календарь--></li>
                 <li>{% trans 'use personal profile for payments and communication with our managers' %}<!--оплачивайте, общайтесь с менеджером и отслеживайте информацию в личном кабинете--></li>
               </ul>
-            </div><a class="type__link text-600 text-underline text-c3" href="/arenda">{% trans 'Book an apartment' %}<!--Забронировать квартиру--></a>
+            </div><a class="type__link text-600 text-underline text-c3" href="{% url 'arenda' %}">{% trans 'Book an apartment' %}<!--Забронировать квартиру--></a>
           </div>
         </div>
         <div class="type__item flex flex-col flex-ai-center text-center">
@@ -53,6 +53,6 @@
             <div class="type__link text-600 text-underline modal__show" data-modal="type-second">{% trans 'Leave a long-term lease application' %}<!--Оставить заявку на долгосрочную аренду--></div>
           </div>
         </div>
-      </div><a class="p-btn flex flex-ai-center flex-j-center text-500" href="/arenda">{% trans 'Go to Rent catalogue' %}<!--Перейти в каталог аренды--></a>
+      </div><a class="p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'arenda' %}">{% trans 'Go to Rent catalogue' %}<!--Перейти в каталог аренды--></a>
     </div>
 </div>

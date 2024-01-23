@@ -1,6 +1,9 @@
 {% load i18n %}
 {% load i18n_urls %}
-
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
 <div class="p-lang__current cursor-pointer">{{ LANGUAGE_CODE }}</div>
 <div class="p-lang__abs absolute flex flex-col">
     {% for language in languages %}

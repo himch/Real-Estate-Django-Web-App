@@ -5,11 +5,14 @@ from listings.choices import price_choices, bedroom_choices, state_choices
 
 from listings.models import Listing
 from realtors.models import Realtor
+from our_company.models import OurCompany
 
 
 def index(request):
     print('request.LANGUAGE_CODE:', request.LANGUAGE_CODE)
     page = request.GET.get('page')
+
+    our_company = OurCompany.objects.all().first()
 
     listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
     paginator = Paginator(listings, 6)
@@ -20,6 +23,7 @@ def index(request):
     paged_rent_listings = rent_paginator.get_page(page)
 
     context = {
+        'our_company': our_company,
         'range': range(9),
         'blog_range': range(3),
         'rent_listings': paged_rent_listings,
@@ -36,6 +40,8 @@ def index(request):
 def buy(request):
     page = request.GET.get('page')
 
+    our_company = OurCompany.objects.all().first()
+
     listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
     paginator = Paginator(listings, 6)
     paged_listings = paginator.get_page(page)
@@ -45,6 +51,7 @@ def buy(request):
     paged_rent_listings = rent_paginator.get_page(page)
 
     context = {
+        'our_company': our_company,
         'range': range(9),
         'blog_range': range(3),
         'rent_listings': paged_rent_listings,
@@ -61,11 +68,14 @@ def buy(request):
 def arenda(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
 
+    our_company = OurCompany.objects.all().first()
+
     paginator = Paginator(listings, 9)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
     context = {
+        'our_company': our_company,
         'range': range(9),
         'blog_range': range(3),
         'listings': paged_listings,
@@ -81,11 +91,14 @@ def arenda(request):
 def izbrannoe(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
 
+    our_company = OurCompany.objects.all().first()
+
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
     context = {
+        'our_company': our_company,
         'range': range(9),
         'listings': paged_listings,
         'state_choices': state_choices,
@@ -100,11 +113,14 @@ def izbrannoe(request):
 def sravnenie(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
 
+    our_company = OurCompany.objects.all().first()
+
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
     context = {
+        'our_company': our_company,
         'range': range(9),
         'listings': paged_listings,
         'state_choices': state_choices,
@@ -117,6 +133,8 @@ def sravnenie(request):
 
 
 def about(request):
+    our_company = OurCompany.objects.all().first()
+
     # Get all realtors
     realtors = Realtor.objects.order_by('-hire_date')
 
@@ -124,6 +142,7 @@ def about(request):
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 
     context = {
+        'our_company': our_company,
         'realtors': realtors,
         'mvp_realtors': mvp_realtors
     }
@@ -132,6 +151,8 @@ def about(request):
 
 
 def blog(request):
+    our_company = OurCompany.objects.all().first()
+
     # Get all realtors
     realtors = Realtor.objects.order_by('-hire_date')
 
@@ -139,6 +160,7 @@ def blog(request):
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 
     context = {
+        'our_company': our_company,
         'realtors': realtors,
         'mvp_realtors': mvp_realtors
     }
@@ -147,6 +169,8 @@ def blog(request):
 
 
 def katalogi(request):
+    our_company = OurCompany.objects.all().first()
+
     # Get all realtors
     realtors = Realtor.objects.order_by('-hire_date')
 
@@ -160,6 +184,7 @@ def katalogi(request):
     paged_listings = paginator.get_page(page)
 
     context = {
+        'our_company': our_company,
         'range': range(9),
         'blog_range': range(3),
         'listings': paged_listings,
@@ -171,6 +196,7 @@ def katalogi(request):
 
 
 def article(request):
+    our_company = OurCompany.objects.all().first()
     # Get all realtors
     realtors = Realtor.objects.order_by('-hire_date')
 
@@ -184,6 +210,7 @@ def article(request):
     paged_listings = paginator.get_page(page)
 
     context = {
+        'our_company': our_company,
         'listings': paged_listings,
         'realtors': realtors,
         'mvp_realtors': mvp_realtors
