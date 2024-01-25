@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'modules.services',
     'imagekit',
+    'django_admin_geomap',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import HttpResponse
+from django_admin_geomap import geomap_context
 from listings.choices import price_choices, bedroom_choices, state_choices
 
 from listings.models import Listing
@@ -50,6 +51,8 @@ def buy(request):
     rent_paginator = Paginator(rent_listings, 6)
     paged_rent_listings = rent_paginator.get_page(page)
 
+    geo_context = geomap_context(listings, auto_zoom="20")
+
     context = {
         'our_company': our_company,
         'range': range(9),
@@ -60,6 +63,8 @@ def buy(request):
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices
     }
+
+    context.update(geo_context)
 
     # return render(request, 'pages/index.html', context)
     return render(request, 'includes/content/buy.html', context)

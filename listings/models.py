@@ -10,10 +10,12 @@ from django.utils.translation import gettext_lazy as _
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 from datetime import datetime
+from django_admin_geomap import GeoItem
+
 from realtors.models import Realtor
 
 
-class Listing(models.Model):
+class Listing(models.Model, GeoItem):
     source = models.TextField(default='alnair')
     offer_type = models.TextField(default='sell')
     url = models.URLField(blank=True, null=True)
@@ -49,6 +51,7 @@ class Listing(models.Model):
             return self.planned_completion_at[:7]
         else:
             return None
+
     planned_completion = property(_get_planned_completion)
 
     # ---------------------------------------------------
@@ -84,6 +87,76 @@ class Listing(models.Model):
     # address = models.TextField(blank=True, null=True)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
+
+    @property
+    def geomap_longitude(self):
+        return '' if self.longitude is None else str(self.longitude)
+
+    @property
+    def geomap_latitude(self):
+        return '' if self.latitude is None else str(self.latitude)
+
+    @property
+    def geomap_popup_view(self):
+        html_code = "<a href='/listings/" + str(self.pk) + "'>"
+        html_code += "<div class='p-card__top flex'>"
+        html_code += "<div class='p-card__top-left text-c5'>"
+        html_code += str(self)
+        html_code += "</div></div>"
+        html_code += "<img src='" + str(self.photo_main.url if self.photo_main else None) + "' alt='' loading='lazy' />"
+        html_code += "</a>"
+        html_code += "<div class='p-card__price text-500'>"
+        html_code += (_('from') + ' ' + f"{self.price_a_min:_}".replace("_", " ") + ' '
+                      + str(self.price_a_currency) if self.price_a_min else '')
+        html_code += "</div>"
+        print(str(self.photo_main.url if self.photo_main else None))
+        return html_code
+
+    @property
+    def geomap_icon(self):
+        return self.default_icon
+
+    # function
+    # setMarker(coordinate, info_html, icon)
+    # {
+    #     var
+    # marker = new
+    # ol.Feature({
+    #     geometry: new ol.geom.Point(ol.proj.fromLonLat(coordinate)),
+    #     name: info_html,
+    # });
+    # var
+    # iconBlue = new
+    # ol.style.Style({
+    #     image: new ol.style.Icon({
+    #         anchor: [12, 40],
+    #         anchorXUnits: 'pixels',
+    #         anchorYUnits: 'pixels',
+    #         opacity: 1,
+    #         src: icon
+    #     }),
+    #     text: new
+    # ol.style.Text({
+    #     text: "",
+    #     scale: 1.2,
+    #     fill: new ol.style.Fill({
+    #         color: "#fff"
+    #     }),
+    #     stroke: new
+    # ol.style.Stroke({
+    #     color: "0",
+    #     width: 3
+    # })
+    # })
+    # });
+    # // marker.setStyle(styles.get(icon));
+    # marker.setStyle(iconBlue);
+    # vectorSource.addFeature(marker);
+    # return marker;
+    # }
+
+
+
     listing_album = models.JSONField(blank=True, null=True)
     albums_a_title_a_ru = models.TextField(blank=True, null=True)
     albums_a_title_a_en = models.TextField(blank=True, null=True)
@@ -175,4 +248,13 @@ class Listing(models.Model):
         # do_something_else()
 
     def __str__(self):
-        return self.title_a_en
+        if self.title_a_en is None:
+            if self.title_a_ru is None:
+                if self.title_a_ar is None:
+                    return "TITLE IS NULL"
+                else:
+                    return self.title_a_ar
+            else:
+                return self.title_a_ru
+        else:
+            return self.title_a_en

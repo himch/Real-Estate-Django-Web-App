@@ -12,16 +12,24 @@
   <div class="rent rent_second">
     <div class="container margin-center">
       <div class="rent__subtitle uppercase text-c5">{% trans 'Dadi Properties' %}<!--Dadi Properties--></div>
-      <div class="rent__title text-c3 font-tenor">{% trans 'Purchase of real estate in Dubai' %}<!--Покупка недвижимости в Дубае--></div>
+      <div class="rent__title text-c3 font-tenor p-animate p-animate__up p-animate__splitt">{% trans 'Purchase of real estate in Dubai' %}<!--Покупка недвижимости в Дубае--></div>
       <div class="rent__item-block relative">
-        <div class="rent__item-top absolute">{% trans 'for living and investment' %}<!--для жизни и инвестиций--></div>
-        <div class="rent__item relative bg" style="background-image:url('/img/rent/main/2.webp')">
-          <form class="rent__form flex">
+        <div class="rent__item-top absolute p-animate p-animate__splitt p-animate__splitt-right">{% trans 'for living and investment' %}<!--для жизни и инвестиций--></div>
+        <div class="rent__item relative">
+          <div class="rent__item-bg absolute p-img top-0 left-0">
+                <picture>
+                  <source type="image/webp" srcset="/img/rent/main/2.webp"><img width="1160" height="303" src="/img/rent/main/2.png" alt="" loading="lazy">
+                </picture>
+                <picture>
+                  <source type="image/webp" srcset="/img/rent/main/2_mb.webp"><img width="321" height="478" src="/img/rent/main/2_mb.png" alt="" loading="lazy">
+                </picture>
+          </div>
+          <form class="rent__form flex relative">
             <div class="rent__input relative">
               <div class="rent__form-item">
                 <div class="rent__form-title">{% trans 'Property type' %}<!--Тип недвижимости--></div>
                 <div class="rent__select">
-                  <div class="p-select relative" data-text-default="Выберите тип">
+                  <div class="p-select relative" data-text-default="{% trans 'Select type' %}"><!--Выберите тип-->
                     <div class="p-select__current flex flex-ai-center flex-j-between">
                       <div class="p-select__current-item">{% trans 'Any type' %}<!--Любая--></div>
                       <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,40 +40,40 @@
                     <div class="p-select__abs absolute flex flex-col">
                       <div class="p-checkboxes flex flex-wrap">
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Любая" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Any type' %}<!--Любая--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Any type' %}" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Any type' %}<!--Любая--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Апартаменты"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Apartments' %}<!--Апартаменты--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Apartments' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Apartments' %}<!--Апартаменты--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Пентхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Penthouses' %}<!--Пентхаусы--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Penthouses' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Penthouses' %}<!--Пентхаусы--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Таунхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Townhouses' %}<!--Таунхаусы--></span>
+                          <input type="checkbox" name="type[]" value="Т{% trans 'Townhouses' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Townhouses' %}<!--Таунхаусы--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Дуплексы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Duplexes' %}<!--Дуплексы--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Duplexes' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Duplexes' %}<!--Дуплексы--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Квартиры в отелях"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Hotel apartment' %}<!--Квартиры в отелях--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Hotel apartment' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Hotel apartment' %}<!--Квартиры в отелях--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Виллы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Villas' %}<!--Виллы--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Villas' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Villas' %}<!--Виллы--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Пол этажа"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Half a floor' %}<!--Пол этажа--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Half a floor' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Half a floor' %}<!--Пол этажа--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Целые этажи"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Entire floors' %}<!--Целые этажи--></span>
+                          <input type="checkbox" name="type[]" value="% trans 'Entire floors' %}и"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Entire floors' %}<!--Целые этажи--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Целые здания"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Entire buildings' %}<!--Целые здания--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Entire buildings' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Entire buildings' %}<!--Целые здания--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Коммерческие помещения"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Commercial premises' %}<!--Коммерческие помещения--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Commercial premises' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Commercial premises' %}<!--Коммерческие помещения--></span>
                         </label>
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Земельные участки"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Land plots' %}<!--Земельные участки--></span>
+                          <input type="checkbox" name="type[]" value="{% trans 'Land plots' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Land plots' %}<!--Земельные участки--></span>
                         </label>
                       </div>
                     </div>
@@ -75,18 +83,21 @@
             </div>
             <div class="rent__input relative">
               <div class="rent__form-item">
-                <div class="rent__form-title">{% trans 'Price' %}<!--Цена--></div>
+                <div class="rent__form-title">{% trans 'Price' %}, $<!--Цена--></div>
                 <div class="rent__price flex">
                   <div class="rent__price-left"><span>{% trans 'min' %}<!--от--></span>
                     <input type="number" name="price_min"/>
                   </div>
+
                   <div class="rent__price-right"><span>{% trans 'max' %}<!--до--></span>
                     <input type="number" name="price_min"/>
                   </div>
+
                 </div>
+
               </div>
             </div>
-            <div class="rent__input relative">
+            <div class="rent__input relative rent__input_date">
               <button class="text-500" type="submit">{% trans 'View' %}<!--Посмотреть--> х {% trans 'options' %}<!--вариантов--></button>
             </div>
           </form>
@@ -164,10 +175,10 @@
                         <div class="modal_filter__price-currency flex">
                           <div class="p-checkboxes p-checkboxes_second flex">
                             <label class="p-checkboxes__item flex">
-                              <input type="radio" name="area" value="м2" checked="checked"/><span class="p-checkboxes__item-title">{% trans 'sq. m' %}<!--м2--></span>
+                              <input type="radio" name="area" value="{% trans 'sq. m' %}" checked="checked"/><span class="p-checkboxes__item-title">{% trans 'sq. m' %}<!--м2--></span>
                             </label>
                             <label class="p-checkboxes__item flex">
-                              <input type="radio" name="area" value="фут2"/><span class="p-checkboxes__item-title">{% trans 'sq. ft' %}<!--фут2--></span>
+                              <input type="radio" name="area" value="{% trans 'sq. ft' %}"/><span class="p-checkboxes__item-title">{% trans 'sq. ft' %}<!--фут2--></span>
                             </label>
                           </div>
                         </div>
@@ -288,13 +299,13 @@
                   <div class="modal_filter__item-title text-500 text-c5">{% trans 'Furnishings' %}<!--Отделка--></div>
                   <div class="p-checkboxes flex flex-wrap">
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="Полностью меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'All furnishings' %}<!--Полностью меблированная--></span>
+                      <input type="checkbox" name="finishing[]" value="{% trans 'All furnishings' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'All furnishings' %}<!--Полностью меблированная--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="Частично меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Partly furnished' %}<!--Частично меблированная--></span>
+                      <input type="checkbox" name="finishing[]" value="{% trans 'Partly furnished' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Partly furnished' %}<!--Частично меблированная--></span>
                     </label>
                     <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="Не меблированная"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Unfurnished' %}<!--Не меблированная--></span>
+                      <input type="checkbox" name="finishing[]" value="{% trans 'Unfurnished' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Unfurnished' %}<!--Не меблированная--></span>
                     </label>
                   </div>
                 </div>
@@ -324,7 +335,7 @@
           <div class="filters__m">
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
-                <input type="hidden" name="type" value="кв. м"/>
+                <input type="hidden" name="type" value="{% trans 'sq. m' %}"/>
                 <div class="p-select__current-item">{% trans 'sq. m' %}<!--м2--></div>
                 <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
@@ -332,37 +343,40 @@
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
-                <div class="p-select__abs-item active" data-value="кв. м">{% trans 'sq. m' %}<!--м2--></div>
-                <div class="p-select__abs-item" data-value="км. фут">{% trans 'sq. ft' %}<!--фут2--></div>
+                <div class="p-select__abs-item active" data-value="{% trans 'sq. m' %}">{% trans 'sq. m' %}<!--м2--></div>
+                <div class="p-select__abs-item" data-value="{% trans 'sq. ft' %}">{% trans 'sq. ft' %}<!--фут2--></div>
               </div>
             </div>
           </div>
         </div>
+
+        {% comment %}
+        <!--
         <div class="filters__top-right flex flex-ai-center">
           <div class="filters__sort">
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
-                <input type="hidden" name="sort" value="Cначала новые"/>
-                <div class="p-select__current-item">{% trans 'New first' %}<!--Cначала новые--></div>
+                <input type="hidden" name="sort" value="{% trans 'New first' %}"/>
+                <div class="p-select__current-item">{% trans 'New first' %}</div>
                 <div class="p-select__current-arrow"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15.8536 0.146447C15.6583 -0.0488155 15.3417 -0.0488155 15.1464 0.146447L11.9645 3.32843C11.7692 3.52369 11.7692 3.84027 11.9645 4.03553C12.1597 4.2308 12.4763 4.2308 12.6716 4.03553L15.5 1.20711L18.3284 4.03553C18.5237 4.2308 18.8403 4.2308 19.0355 4.03553C19.2308 3.84027 19.2308 3.52369 19.0355 3.32843L15.8536 0.146447ZM16 21.5V0.5H15V21.5H16Z" fill="black"/>
-<path d="M3.64645 22.3536C3.84171 22.5488 4.15829 22.5488 4.35355 22.3536L7.53553 19.1716C7.7308 18.9763 7.7308 18.6597 7.53553 18.4645C7.34027 18.2692 7.02369 18.2692 6.82843 18.4645L4 21.2929L1.17157 18.4645C0.976311 18.2692 0.659728 18.2692 0.464466 18.4645C0.269204 18.6597 0.269204 18.9763 0.464466 19.1716L3.64645 22.3536ZM4.5 22V1H3.5V22H4.5Z" fill="black"/>
-</svg>
+                  <path d="M15.8536 0.146447C15.6583 -0.0488155 15.3417 -0.0488155 15.1464 0.146447L11.9645 3.32843C11.7692 3.52369 11.7692 3.84027 11.9645 4.03553C12.1597 4.2308 12.4763 4.2308 12.6716 4.03553L15.5 1.20711L18.3284 4.03553C18.5237 4.2308 18.8403 4.2308 19.0355 4.03553C19.2308 3.84027 19.2308 3.52369 19.0355 3.32843L15.8536 0.146447ZM16 21.5V0.5H15V21.5H16Z" fill="black"/>
+                  <path d="M3.64645 22.3536C3.84171 22.5488 4.15829 22.5488 4.35355 22.3536L7.53553 19.1716C7.7308 18.9763 7.7308 18.6597 7.53553 18.4645C7.34027 18.2692 7.02369 18.2692 6.82843 18.4645L4 21.2929L1.17157 18.4645C0.976311 18.2692 0.659728 18.2692 0.464466 18.4645C0.269204 18.6597 0.269204 18.9763 0.464466 19.1716L3.64645 22.3536ZM4.5 22V1H3.5V22H4.5Z" fill="black"/>
+                  </svg>
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
-                <div class="p-select__abs-item active" data-value="Cначала новые">{% trans 'New first' %}<!--Cначала новые--></div>
-                <div class="p-select__abs-item" data-value="Сначала дешевле">{% trans 'Cheaper first' %}<!--Сначала дешевле--></div>
-                <div class="p-select__abs-item" data-value="Сначала дороже">{% trans 'More expensive' %}<!--Сначала дороже--></div>
+                <div class="p-select__abs-item active" data-value="{% trans 'New first' %}">{% trans 'New first' %}</div>
+                <div class="p-select__abs-item" data-value="{% trans 'Cheaper first' %}">{% trans 'Cheaper first' %}</div>
+                <div class="p-select__abs-item" data-value="{% trans 'More expensive' %}">{% trans 'More expensive' %}></div>
               </div>
             </div>
           </div>
           <div class="filters__coub active cursor-pointer"><svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="15.4708" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
-<rect x="15.4708" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
-<rect x="0.65332" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
-<rect x="0.65332" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
-</svg>
+              <rect x="15.4708" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+              <rect x="15.4708" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+              <rect x="0.65332" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+              <rect x="0.65332" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+              </svg>
           </div>
           <div class="filters__map cursor-pointer">
             <picture>
@@ -373,8 +387,14 @@
             </picture>
           </div>
         </div>
+        -->
+      {% endcomment %}
+
       </form>
+
       <div class="filters__content active">
+        {% comment %}
+        <!--
         <div class="filters__content-block flex flex-wrap active">
           {% if rent_listings %}
               {% for listing in rent_listings %}
@@ -386,16 +406,22 @@
                 </div>
           {% endif %}
         </div>
-        <div class="filters__content-load margin-center text-c3 text-underline text-500">{% trans 'Download' %}<!--Загрузить--> <span> 18</span> {% trans 'out of' %}<!--из--> 103</div>
+        <div class="filters__content-load margin-center text-c3 text-underline text-500">{% trans 'Download' %} <span> 18</span> {% trans 'out of' %} 103</div>
+        -->
+      {% endcomment %}
       </div>
-      <div class="filters__content-map">
-        <div class="filters__content-map-item" id="map"></div>
+      <div class="filters__content-map active">
+        <div class="filters__content-map-item" id="map">
+
+          {% include "geomap/common.html" %}
+
+        </div>
       </div>
     </div>
   </div>
   <div class="estate overflow-hidden estate_buy">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3">{% trans 'New projects of DADI partners' %}<!--Новые проекты партнеров DADI--></div>
+      <div class="section__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'New projects of DADI partners' %}<!--Новые проекты партнеров DADI--></div>
       <div class="estate__items flex flex-col">
         <div class="estate__item relative w-full">
           <div class="estate__swiper relative">
@@ -431,7 +457,7 @@
   </div>
   <div class="buy-form">
     <div class="container margin-center">
-      <div class="buy-form__item relative">
+      <div class="buy-form__item relative p-animate p-animate__up-block">
         <div class="buy-form__item-subtitle uppercase">{% trans 'Dadi Properties' %}<!--Dadi Properties--></div>
         <div class="buy-form__item-title text-c3 text-500">{% trans 'Dubai’s Reliable Property Developers Catalogue' %}<!--Каталог надёжных застройщиков Дубая--></div>
         <div class="buy-form__item-desc font-roboto">
@@ -445,7 +471,7 @@
           <div class="buy-form__inner relative">
             <div class="buy-form__inputs flex">
               <div class="form__input">
-                <input type="text" name="name" placeholder="Ваше имя" required="required"/>
+                <input type="text" name="name" placeholder="{% trans 'Your name' %}" required="required"/>
               </div>
               <div class="form__input">
                 <input type="email" name="email" placeholder="Email" required="required"/>
@@ -468,14 +494,14 @@
       </div>
     </div>
   </div>
-  <div class="buy-advs">
+  <div class="buy-advs overflow-hidden">
     <div class="container margin-center">
       <div class="buy-advs__circle sticky flex flex-j-center flex-ai-center flex-col">
         <div class="buy-advs__circle-svg absolute"><svg width="1440" height="1149" viewBox="0 0 1440 1149" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="720.5" cy="326.5" r="305" stroke="#BCBCBC"/>
-<path d="M-34 755.5L1474.5 0" stroke="#BCBCBC" stroke-opacity="0.3"/>
-<path d="M721.832 20.9147L716.508 1221.3" stroke="#BCBCBC" stroke-opacity="0.3"/>
-</svg>
+          <circle cx="720.5" cy="326.5" r="305" stroke="#BCBCBC"/>
+          <path d="M-34 755.5L1474.5 0" stroke="#BCBCBC" stroke-opacity="0.3"/>
+          <path d="M721.832 20.9147L716.508 1221.3" stroke="#BCBCBC" stroke-opacity="0.3"/>
+          </svg>
         </div>
         {% if LANGUAGE_CODE == 'en' %}
           <div class="buy-advs__circle-title font-tenor text-c3 text-center relative">Advantages</div>

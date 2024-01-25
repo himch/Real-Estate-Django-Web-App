@@ -948,6 +948,9 @@ msgstr "قدم2"
 msgid "From"
 msgstr "من"
 
+msgid "from"
+msgstr "من"
+
 #: templates/includes/content/buy.html:186
 #: templates/includes/content/buy.html:204
 msgid "To"

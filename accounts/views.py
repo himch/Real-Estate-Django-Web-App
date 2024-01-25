@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
+from listings.models import Listing
+from our_company.models import OurCompany
 
 
 def register(request):
@@ -69,8 +71,12 @@ def logout(request):
 
 def dashboard(request):
     user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
+    our_company = OurCompany.objects.all().first()
 
     context = {
+        'our_company': our_company,
+        'listings': listings,
         'contacts': user_contacts
     }
     return render(request, 'accounts/dashboard.html', context)

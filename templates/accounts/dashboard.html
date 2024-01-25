@@ -49,13 +49,21 @@
               </thead>
               <tbody>
                 {% for contact in contacts %}
-                  <tr>
-                    <td>{{ contact.id }}</td>
-                    <td>{{ contact.listing }}</td>
-                    <td>
-                      <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
-                    </td>
-                  </tr>
+                  {% if contacts.id %}
+                    <tr>
+                      <td>{{ contact.id }}</td>
+                      <td>{{ contact.listing }}</td>
+                      <td>
+                        <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                      </td>
+                    </tr>
+                  {% else %}
+                    <tr>
+                      <td>{{ contact.contact_date }}</td>
+                      <td>{{ contact.page }}</td>
+                      <td>{{ contact.message }}</td>
+                    </tr>
+                  {% endif %}
                 {% endfor %}
               </tbody>
             </table>
