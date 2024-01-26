@@ -83,7 +83,7 @@ class Listing(models.Model, GeoItem):
     developer_a_title_a_en = models.TextField(blank=True, null=True)
     developer_a_title_a_ar = models.TextField(blank=True, null=True)
     developer_a_logo = models.TextField(blank=True, null=True)
-    districts = models.TextField(blank=True, null=True)
+    listing_districts = models.JSONField(blank=True, null=True)
     # address = models.TextField(blank=True, null=True)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
@@ -154,8 +154,6 @@ class Listing(models.Model, GeoItem):
     # vectorSource.addFeature(marker);
     # return marker;
     # }
-
-
 
     listing_album = models.JSONField(blank=True, null=True)
     albums_a_title_a_ru = models.TextField(blank=True, null=True)
@@ -241,10 +239,45 @@ class Listing(models.Model, GeoItem):
             if not self.photo_4:
                 self.save_image_from_url(photos[3], self.photo_4)
 
+    def save_prices(self):
+        # delete old prices, if exist
+        self.prices_set.all().delete()
+
+        if self.listing_br_prices is not None:
+            prices = json.loads(self.listing_br_prices)
+            for price in prices:
+                price['min_area_m2'] = price['min_area']['m2']
+                price['min_area_ft2'] = price['min_area']['ft2']
+                price['max_area_m2'] = price['max_area']['m2']
+                price['max_area_ft2'] = price['max_area']['ft2']
+                price.pop('min_area', None)
+                price.pop('max_area', None)
+                self.prices_set.create(**price)
+
+    def save_amenities(self):
+        # delete old prices, if exist
+        self.amenities_set.all().delete()
+
+        if self.listing_amenities is not None:
+            amenities = json.loads(self.listing_amenities)
+            for amenity in amenities:
+                self.amenities_set.create(**amenity)
+
+    def save_districts(self):
+        # delete old prices, if exist
+        self.districts_set.all().delete()
+
+        if self.listing_districts is not None:
+            districts = json.loads(self.listing_districts)
+            for district in districts:
+                self.districts_set.create(name=district)
+
     def save(self, **kwargs):
         # do_something()
         self.get_image_from_url()
         super().save(**kwargs)  # Call the "real" save() method.
+        self.save_prices()
+        self.save_amenities()
         # do_something_else()
 
     def __str__(self):
@@ -258,3 +291,32 @@ class Listing(models.Model, GeoItem):
                 return self.title_a_ru
         else:
             return self.title_a_en
+
+
+class Prices(models.Model):
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    # "[{\"key\": \"rooms_2\", \"count\": \"1\", \"min_price\": \"2300888\", \"max_price\": \"2300888\", \"min_price_m2\": \"22152\", \"max_price_m2\": \"22152\", \"currency\": \"AED\", \"min_area\": {\"m2\": \"103.87\", \"ft2\": \"1118.05\"}, \"max_area\": {\"m2\": \"103.87\", \"ft2\": \"1118.05\"}}, {\"key\": \"rooms_3\", \"count\": \"5\", \"min_price\": \"4662888\", \"max_price\": \"4687888\", \"min_price_m2\": \"18205\", \"max_price_m2\": \"18229\", \"currency\": \"AED\", \"min_area\": {\"m2\": \"256.04\", \"ft2\": \"2755.99\"}, \"max_area\": {\"m2\": \"257.25\", \"ft2\": \"2769.01\"}}]"
+    key = models.TextField(blank=True, null=True)
+    count = models.IntegerField(null=True)
+    min_price = models.FloatField(null=True)
+    max_price = models.FloatField(null=True)
+    min_price_m2 = models.FloatField(null=True)
+    max_price_m2 = models.FloatField(null=True)
+    currency = models.TextField(blank=True, null=True)
+    min_area_m2 = models.FloatField(null=True)
+    max_area_m2 = models.FloatField(null=True)
+    min_area_ft2 = models.FloatField(null=True)
+    max_area_ft2 = models.FloatField(null=True)
+
+
+class Amenities(models.Model):
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    ru = models.TextField(blank=True, null=True)
+    en = models.TextField(blank=True, null=True)
+    ar = models.TextField(blank=True, null=True)
+    amenity_svg = models.TextField(blank=True, null=True)
+
+
+class Districts(models.Model):
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    name = models.TextField(blank=True, null=True)

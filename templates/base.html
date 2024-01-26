@@ -33,15 +33,17 @@
   <title> DADI {% block title %}{% endblock %}</title>
 
   <script>
-    window.addEventListener('DOMContentLoaded', function () {
-        let lazyContent = new LazyLoad({
-            use_native: true // <-- there you go
-        });
+      let lazyContent;
+      let lazyBackground;
+      window.addEventListener('DOMContentLoaded', function () {
+          lazyContent = new LazyLoad({
+              use_native: true // <-- there you go
+          });
 
-        let lazyBackground = new LazyLoad({
-            // DON'T PASS use_native: true HERE
-        });
-    })
+          lazyBackground = new LazyLoad({
+              // DON'T PASS use_native: true HERE
+          });
+      })
   </script>
 
 </head>
@@ -56,14 +58,16 @@
 
   {% include 'includes/scripts/scripts-main.html' %}
 
+  {% comment %}
+  <!--
+
   <script src="{% static 'js/libs/swiper-bundle.js' %}"></script>
   <script src="{% static 'js/libs/ScrollTrigger.min.js' %}"></script>
   <script src="{% static 'js/splittext.js' %}"></script>
   <script src="{% static 'js/libs/gsap.min.js' %}"></script>
   <script src="{% static 'js/libs/main.js' %}"></script>
 
-  {% comment %}
-  <!--
+
   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'js/lightbox.min.js' %}"></script>

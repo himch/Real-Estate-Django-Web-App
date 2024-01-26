@@ -392,9 +392,9 @@
 
       </form>
 
-      <div class="filters__content active">
-        {% comment %}
+      {% comment %}
         <!--
+      <div class="filters__content active">
         <div class="filters__content-block flex flex-wrap active">
           {% if rent_listings %}
               {% for listing in rent_listings %}
@@ -407,11 +407,11 @@
           {% endif %}
         </div>
         <div class="filters__content-load margin-center text-c3 text-underline text-500">{% trans 'Download' %} <span> 18</span> {% trans 'out of' %} 103</div>
-        -->
-      {% endcomment %}
       </div>
+      -->
+      {% endcomment %}
       <div class="filters__content-map active">
-        <div class="filters__content-map-item" id="map">
+        <div class="filters__content-map-item">
 
           {% include "geomap/common.html" %}
 
