@@ -9,7 +9,7 @@ import asyncio
 
 
 # from listings.models import Listing
-from loader import Loader
+from loader import Loader, say_my_name
 from realestate.settings import DATABASES
 from utils import is_int, is_float
 
@@ -22,25 +22,31 @@ class Downloader(Loader):
         super().__init__(url)
 
     async def request_xml_db_file(self):
+        say_my_name()
         content = await self.request_content()
-        self.database_dict = xmltodict.parse(content, xml_attribs=True)
-        to_json_keys = [('amenities', 'amenity'),
-                        ('districts', 'district'),
-                        ('albums', 'album'),
-                        ('br_prices', 'br_price'),
-                        ('payment_plans', 'payment_plan'),
-                        ('stocks', 'stock')]
-        for offer in self.database_dict['realty-feed']['offers']:
-            for key, child_key in to_json_keys:
-                if isinstance(offer[key], dict):
-                    if len(offer[key]) == 1:
-                        if isinstance(offer[key][child_key], dict):
-                            offer[key + '_list'] = [offer[key][child_key],]
+        if content:
+            self.database_dict = xmltodict.parse(content, xml_attribs=True)
+            to_json_keys = [('amenities', 'amenity'),
+                            ('districts', 'district'),
+                            ('albums', 'album'),
+                            ('br_prices', 'br_price'),
+                            ('payment_plans', 'payment_plan'),
+                            ('stocks', 'stock')]
+            for offer in self.database_dict['realty-feed']['offers']:
+                for key, child_key in to_json_keys:
+                    if isinstance(offer[key], dict):
+                        if len(offer[key]) == 1:
+                            if isinstance(offer[key][child_key], dict):
+                                offer[key] = [offer[key][child_key],]
+                            else:
+                                offer[key] = offer[key][child_key]
                         else:
-                            offer[key + '_list'] = offer[key][child_key]
-                    else:
-                        offer[key + '_list'] = [offer[key], ]
-        print('ready')
+                            offer[key] = [offer[key], ]
+            print('ready')
+        else:
+            self.database_dict = dict()
+            self.database_dict['realty-feed'] = dict()
+            self.database_dict['realty-feed']['offers'] = []
 
 
 class SQLExecutor:
@@ -54,6 +60,7 @@ class SQLExecutor:
             self.cursor = self.connection.cursor()
 
     async def execute_sql(self, sql, parameters=(), commit=True):
+        say_my_name()
         if not self.cursor:
             self.cursor = self.connection.cursor()
         if parameters:
@@ -65,10 +72,12 @@ class SQLExecutor:
         return q
 
     async def close_connection(self):
+        say_my_name()
         if self.connection:
             self.connection.close()
 
     async def check_table_exist(self, table):
+        say_my_name()
         check_sqlite_table_exist_query = f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}';"
         q = await self.execute_sql(check_sqlite_table_exist_query, commit=False)
         data = q.fetchone()
@@ -76,6 +85,7 @@ class SQLExecutor:
         return table_exist
 
     async def check_column_exist(self, table, column):
+        say_my_name()
         check_sqlite_col_exist_query = f"SELECT name FROM pragma_table_info('{table}') WHERE name='{column}';"
         q = await self.execute_sql(check_sqlite_col_exist_query, commit=False)
         data = q.fetchone()
@@ -83,6 +93,7 @@ class SQLExecutor:
         return column_exist
 
     async def add_column(self, table, column, column_type):
+        say_my_name()
         alter_sqlite_col_query = f"ALTER TABLE {table} ADD COLUMN {column} {column_type};"
         await self.execute_sql(alter_sqlite_col_query)
 
@@ -101,6 +112,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
         SQLExecutor.__init__(self, *args)
 
     async def get_fields(self, table_name, key, item, table_func):
+        say_my_name()
         # возвращает список полей таблицы
         key = key.replace('-', '_')
         if isinstance(item, dict):
@@ -127,6 +139,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
             return (key if key else "value", 'CHAR', item),
 
     async def get_tables(self, item, table_name=TOP_TABLE_NAME, fk=None):
+        say_my_name()
         if item:
             fields = []
             if fk:
@@ -136,6 +149,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                 self.tables[table_name] = fields
 
     async def make_sql_for_create_tables(self):
+        say_my_name()
         types = {'INT': 'INT',
                  'REAL': 'REAL',
                  'CHAR': 'CHAR',
@@ -151,6 +165,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
             print(sql)
 
     async def make_sql_for_insert_record(self):
+        say_my_name()
         for table in self.tables:
             sql = f'''
             INSERT INTO {table} (
@@ -161,6 +176,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
             print(sql)
 
     async def make_python_for_insert_record(self):
+        say_my_name()
         for table in self.tables:
             template = ''
             i = 0
@@ -172,6 +188,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
             # print(template)
 
     async def make_python_for_create_tables(self):
+        say_my_name()
         types = {'INT': 'IntegerField(null=True)',
                  'REAL': 'FloatField(null=True)',
                  'CHAR': 'TextField(blank=True, null=True)',
@@ -187,6 +204,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                 file.write(code)
 
     async def create_tables(self):
+        say_my_name()
         types = {'INT': 'INT',
                  'REAL': 'REAL',
                  'CHAR': 'CHAR',
@@ -206,12 +224,22 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                 await self.execute_sql(self.sql_for_create_table[table])
 
     async def offer_exist(self, complex_id):
+        say_my_name()
         sql = f'SELECT * FROM {self.TOP_TABLE_PREFIX + self.TOP_TABLE_NAME} WHERE complex_id={complex_id};'
         q = await self.execute_sql(sql, commit=False)
         data = q.fetchone()
         return data is not None
 
+    async def offer_updated_at(self, complex_id):
+        say_my_name()
+        sql = f'SELECT updated_at FROM {self.TOP_TABLE_PREFIX + self.TOP_TABLE_NAME} WHERE complex_id={complex_id};'
+        q = await self.execute_sql(sql, commit=False)
+        data = q.fetchone()
+        if data:
+            return data[0]
+
     async def insert_record_sql(self, record, table_name=TOP_TABLE_NAME):
+        say_my_name()
         if record:
             fields = []
             # if fk:
@@ -222,6 +250,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                 await self.execute_sql(self.sql_for_insert_records[table_name], parameters)
 
     async def insert_record_python(self, record, table_name=TOP_TABLE_NAME):
+        say_my_name()
         if record:
             # print('len record =', len(record))
             fields = []
@@ -273,21 +302,27 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                 # exec(code_for_exec, globals(), locals())
 
     async def delete_record(self, complex_id):
+        say_my_name()
         sql = f'DELETE FROM {self.TOP_TABLE_PREFIX + self.TOP_TABLE_NAME} WHERE complex_id={complex_id};'
         q = await self.execute_sql(sql)
 
     async def load_data_into_db(self):
-        for offer in self.database_dict['realty-feed']['offers'][:25]:
-            print('work with offer complex-id', offer['complex-id'])
+        say_my_name()
+        for i, offer in enumerate(self.database_dict['realty-feed']['offers']):
+            if i > 50:
+                break
+            print(f"{i}. work with offer complex-id {offer['complex-id']}")
             if await self.offer_exist(offer['complex-id']):
-                await self.delete_record(offer['complex-id'])
-            # await self.insert_record_sql(offer)
-            await self.get_tables(offer)
-            await self.make_python_for_insert_record()
-            await self.insert_record_python(offer)
-            # break
+                if await self.offer_updated_at(offer['complex-id']) != offer['updated_at']:
+                    await self.delete_record(offer['complex-id'])
+            if not await self.offer_exist(offer['complex-id']):
+                # await self.insert_record_sql(offer)
+                await self.get_tables(offer)
+                await self.make_python_for_insert_record()
+                await self.insert_record_python(offer)
 
     async def run(self):
+        say_my_name()
         await self.request_xml_db_file()
         # await self.get_tables(self.database_dict['realty-feed']['offers'][0])
         # await self.make_sql_for_create_tables()
@@ -299,14 +334,17 @@ class DatabaseDownloader(Downloader, SQLExecutor):
         await self.close_connection()
 
     async def info(self):
+        say_my_name()
         return f"Loaded {len(self.database_dict['realty-feed']['offers'])} records"
 
 
 async def main():
+    say_my_name()
     loader = DatabaseDownloader()
     await loader.run()
     print(await loader.info())
 
 
 if __name__ == "__main__":
+    print('run asyncio')
     asyncio.run(main())

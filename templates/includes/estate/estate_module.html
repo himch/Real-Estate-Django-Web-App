@@ -14,9 +14,7 @@
               <div class="swiper-wrapper">
                 {% if rent_listings %}
                   {% for listing in rent_listings %}
-                  <!-- start listing -->
                     {% include 'includes/rent_card/index_page_rent_card_swiper.html' %}
-                  <!-- end listing -->
                   {% endfor %}
                 {% else %}
                   <div class="col-md-12">
@@ -43,37 +41,9 @@
         </div>
         <div class="estate__item relative w-full">
           <div class="estate__item-title p-animate p-animate__left">{% trans 'for Purchase' %}<!--для Покупки--></div>
-          <div class="estate__swiper relative">
-            <div class="swiper">
-              <div class="swiper-wrapper">
-                {% if listings %}
-                  {% for listing in listings %}
-                  <!-- start listing -->
-                    {% include 'includes/offer_card/offer_card_swiper.html' %}
-                  <!-- end listing -->
-                  {% endfor %}
-                {% else %}
-                  <div class="col-md-12">
-                    <p>{% trans 'No Offers Available' %}</p>
-                  </div>
-                {% endif %}
-                <div class="swiper-slide"><a class="p-card w-full h-full text-center text-c2 bg-c3 p-card__abs flex flex-ai-center flex-j-center" href="{% url 'buy' %}">
-                    <div class="p-card__abs-link margin-center">{% trans 'Go to Purchase catalogue' %}<!--Перейти в каталог Покупки--></div></a></div>
-              </div>
-            </div>
-            <div class="main_swiper-arrows flex absolute">
-              <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-left.png" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-right.png" alt="" loading="lazy"/>
-                </picture>
-              </div>
-            </div>
-          </div>
+
+          {% include 'includes/buy/buy_ribbon.html' with go_to_purchase_catalogue=True %}
+
         </div>
       </div>
     </div>

@@ -6,4 +6,4 @@ from listings.models import Listing
 
 listings = Listing.objects.all()
 for listing in listings:
-    listing.save_albums()
+    listing.save_main_album_images()

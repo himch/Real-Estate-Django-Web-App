@@ -2,6 +2,7 @@ import json
 import os
 from urllib.request import urlopen
 from urllib.parse import urlparse
+from urllib.error import URLError
 
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
@@ -70,7 +71,8 @@ class Listing(models.Model, GeoItem):
     description_a_ru = models.TextField(blank=True, null=True)
     description_a_en = models.TextField(blank=True, null=True)
     description_a_ar = models.TextField(blank=True, null=True)
-    price_on_request = models.IntegerField(null=True)
+    special_price = models.IntegerField(blank=True, null=True, default=1)
+    price_on_request = models.IntegerField(blank=True, null=True)
     status_a_ru = models.TextField(blank=True, null=True)
     status_a_en = models.TextField(blank=True, null=True)
     status_a_ar = models.TextField(blank=True, null=True)
@@ -109,7 +111,7 @@ class Listing(models.Model, GeoItem):
         html_code += (_('from') + ' ' + f"{self.price_a_min:_}".replace("_", " ") + ' '
                       + str(self.price_a_currency) if self.price_a_min else '')
         html_code += "</div>"
-        print(str(self.photo_main.url if self.photo_main else None))
+        # print(str(self.photo_main.url if self.photo_main else None))
         return html_code
 
     @property
@@ -156,10 +158,11 @@ class Listing(models.Model, GeoItem):
     # }
 
     listing_album = models.JSONField(blank=True, null=True)
-    albums_a_title_a_ru = models.TextField(blank=True, null=True)
-    albums_a_title_a_en = models.TextField(blank=True, null=True)
-    albums_a_title_a_ar = models.TextField(blank=True, null=True)
-    listing_albums_a_images = models.JSONField(blank=True, null=True)
+    listing_albums = models.JSONField(blank=True, null=True)
+    # albums_a_title_a_ru = models.TextField(blank=True, null=True)
+    # albums_a_title_a_en = models.TextField(blank=True, null=True)
+    # albums_a_title_a_ar = models.TextField(blank=True, null=True)
+    # listing_albums_a_images = models.JSONField(blank=True, null=True)
     buildings_count = models.IntegerField(null=True)
     for_sale_count = models.IntegerField(null=True)
     price_a_min = models.IntegerField(null=True)
@@ -168,37 +171,38 @@ class Listing(models.Model, GeoItem):
     listing_br_prices = models.JSONField(blank=True, null=True)
     updated_at = models.TextField(blank=True, null=True)
     is_sold_out = models.IntegerField(null=True)
-    payment_plans_a_title_a_ru = models.TextField(blank=True, null=True)
-    payment_plans_a_title_a_en = models.TextField(blank=True, null=True)
-    payment_plans_a_title_a_ar = models.TextField(blank=True, null=True)
-    payment_plans_a_on_booking_percent = models.IntegerField(null=True)
-    payment_plans_a_on_booking_fix = models.TextField(blank=True, null=True)
-    payment_plans_a_on_construction_percent = models.IntegerField(null=True)
-    payment_plans_a_on_construction_fix = models.TextField(blank=True, null=True)
-    payment_plans_a_on_construction_payments_count = models.IntegerField(null=True)
-    payment_plans_a_on_handover_percent = models.TextField(blank=True, null=True)
-    payment_plans_a_on_handover_fix = models.TextField(blank=True, null=True)
-    payment_plans_a_on_handover_payments_count = models.IntegerField(null=True)
-    payment_plans_a_post_handover_percent = models.TextField(blank=True, null=True)
-    payment_plans_a_post_handover_fix = models.TextField(blank=True, null=True)
-    payment_plans_a_on_post_handover_payments_count = models.IntegerField(null=True)
-    payment_plans_a_additional_a_title_a_ru = models.TextField(blank=True, null=True)
-    payment_plans_a_additional_a_title_a_en = models.TextField(blank=True, null=True)
-    payment_plans_a_additional_a_title_a_ar = models.TextField(blank=True, null=True)
-    payment_plans_a_additional_a_percent = models.IntegerField(null=True)
-    payment_plans_a_additional_a_fix = models.TextField(blank=True, null=True)
-    payment_plans_a_additional_percent = models.IntegerField(null=True)
-    payment_plans_a_additional_fix = models.IntegerField(null=True)
-    payment_plans_a_roi_percent = models.TextField(blank=True, null=True)
-    payment_plans_a_roi_fix = models.TextField(blank=True, null=True)
-    payment_plans_a_roi_payments_count = models.IntegerField(null=True)
-    payment_plans_a_currency = models.TextField(blank=True, null=True)
-    payment_plans_a_period_after_handover_a_period = models.TextField(blank=True, null=True)
-    payment_plans_a_period_after_handover_a_count = models.TextField(blank=True, null=True)
-    payment_plans_a_period_after_handover_a_repeat_count = models.TextField(blank=True, null=True)
-    payment_plans_a_period_after_roi_a_period = models.TextField(blank=True, null=True)
-    payment_plans_a_period_after_roi_a_count = models.TextField(blank=True, null=True)
-    payment_plans_a_period_after_roi_a_repeat_count = models.TextField(blank=True, null=True)
+    listing_payment_plans = models.JSONField(blank=True, null=True)
+    # payment_plans_a_title_a_ru = models.TextField(blank=True, null=True)
+    # payment_plans_a_title_a_en = models.TextField(blank=True, null=True)
+    # payment_plans_a_title_a_ar = models.TextField(blank=True, null=True)
+    # payment_plans_a_on_booking_percent = models.IntegerField(null=True)
+    # payment_plans_a_on_booking_fix = models.TextField(blank=True, null=True)
+    # payment_plans_a_on_construction_percent = models.IntegerField(null=True)
+    # payment_plans_a_on_construction_fix = models.TextField(blank=True, null=True)
+    # payment_plans_a_on_construction_payments_count = models.IntegerField(null=True)
+    # payment_plans_a_on_handover_percent = models.TextField(blank=True, null=True)
+    # payment_plans_a_on_handover_fix = models.TextField(blank=True, null=True)
+    # payment_plans_a_on_handover_payments_count = models.IntegerField(null=True)
+    # payment_plans_a_post_handover_percent = models.TextField(blank=True, null=True)
+    # payment_plans_a_post_handover_fix = models.TextField(blank=True, null=True)
+    # payment_plans_a_on_post_handover_payments_count = models.IntegerField(null=True)
+    # payment_plans_a_additional_a_title_a_ru = models.TextField(blank=True, null=True)
+    # payment_plans_a_additional_a_title_a_en = models.TextField(blank=True, null=True)
+    # payment_plans_a_additional_a_title_a_ar = models.TextField(blank=True, null=True)
+    # payment_plans_a_additional_a_percent = models.IntegerField(null=True)
+    # payment_plans_a_additional_a_fix = models.TextField(blank=True, null=True)
+    # payment_plans_a_additional_percent = models.IntegerField(null=True)
+    # payment_plans_a_additional_fix = models.IntegerField(null=True)
+    # payment_plans_a_roi_percent = models.TextField(blank=True, null=True)
+    # payment_plans_a_roi_fix = models.TextField(blank=True, null=True)
+    # payment_plans_a_roi_payments_count = models.IntegerField(null=True)
+    # payment_plans_a_currency = models.TextField(blank=True, null=True)
+    # payment_plans_a_period_after_handover_a_period = models.TextField(blank=True, null=True)
+    # payment_plans_a_period_after_handover_a_count = models.TextField(blank=True, null=True)
+    # payment_plans_a_period_after_handover_a_repeat_count = models.TextField(blank=True, null=True)
+    # payment_plans_a_period_after_roi_a_period = models.TextField(blank=True, null=True)
+    # payment_plans_a_period_after_roi_a_count = models.TextField(blank=True, null=True)
+    # payment_plans_a_period_after_roi_a_repeat_count = models.TextField(blank=True, null=True)
     sales_status_a_ru = models.TextField(blank=True, null=True)
     sales_status_a_en = models.TextField(blank=True, null=True)
     sales_status_a_ar = models.TextField(blank=True, null=True)
@@ -209,35 +213,53 @@ class Listing(models.Model, GeoItem):
     assignment = models.TextField(blank=True, null=True)
 
     def save_image_from_url(self, url, image_field):
+        # print('Download photo:', url)
         path = urlparse(url).path
         ext = os.path.splitext(path)[1]
         img_temp = NamedTemporaryFile(delete=True)
-        img_temp.write(urlopen(url).read())
-        img_temp.flush()
-        image_field.save(f"image_{self.complex_id}" + ext, File(img_temp))
+        try:
+            context = urlopen(url, timeout=1)
+            if context.getcode() == 200:
+                img_temp.write(context.read())
+                img_temp.flush()
+                img_filename = f"image_{self.complex_id}" + ext
+                image_field.save(img_filename, File(img_temp))
+                # print('Ready')
+            else:
+                raise URLError
+        except URLError as e:
+            # print('Error download photo:', str(e))
+            pass
 
-    def get_image_from_url(self):
+    def save_listing_photos(self):
         if self.photo and not self.photo_main:
             self.save_image_from_url(self.photo, self.photo_main)
-            # path = urlparse(self.photo).path
-            # ext = os.path.splitext(path)[1]
-            # img_temp = NamedTemporaryFile(delete=True)
-            # img_temp.write(urlopen(self.photo).read())
-            # img_temp.flush()
-            # self.photo_main.save(f"image_{self.complex_id}" + ext, File(img_temp))
-        photos = json.loads(self.listing_album)
-        if len(photos) >= 1:
+
+        photo_urls = json.loads(self.listing_album)
+        # print(photo_urls)
+        if len(photo_urls) >= 1:
             if not self.photo_1:
-                self.save_image_from_url(photos[0], self.photo_1)
-        if len(photos) >= 2:
+                self.save_image_from_url(photo_urls[0], self.photo_1)
+        if len(photo_urls) >= 2:
             if not self.photo_2:
-                self.save_image_from_url(photos[1], self.photo_2)
-        if len(photos) >= 3:
+                self.save_image_from_url(photo_urls[1], self.photo_2)
+        if len(photo_urls) >= 3:
             if not self.photo_3:
-                self.save_image_from_url(photos[2], self.photo_3)
-        if len(photos) >= 4:
+                self.save_image_from_url(photo_urls[2], self.photo_3)
+        if len(photo_urls) >= 4:
             if not self.photo_4:
-                self.save_image_from_url(photos[3], self.photo_4)
+                self.save_image_from_url(photo_urls[3], self.photo_4)
+
+    def save_main_album_images(self):
+        # delete old, if exist
+        self.mainalbumimage_set.all().delete()
+
+        if self.listing_album is not None:
+            photo_urls = json.loads(self.listing_album)
+            for photo_url in photo_urls:
+                new_image = self.mainalbumimage_set.create(photo=None)
+                new_image.save()
+                self.save_image_from_url(photo_url, new_image.photo)
 
     def save_prices(self):
         # delete old, if exist
@@ -277,18 +299,60 @@ class Listing(models.Model, GeoItem):
         self.album_set.all().delete()
 
         if self.listing_albums is not None:
-            albums = json.loads(self.listing_districts)
+            albums = json.loads(self.listing_albums)
             for album in albums:
-                print(album)
-                # self.district_set.create(name=district)
+                album['title_ru'] = album['title']['ru']
+                album['title_en'] = album['title']['en']
+                album['title_ar'] = album['title']['ar']
+                album.pop('title', None)
+                images = album.pop('images', None)
+                new_album = self.album_set.create(**album)
+                for image_url in images['image']:
+                    new_image = new_album.image_set.create(photo=None)  # self.save_image_from_url(image)
+                    self.save_image_from_url(image_url, new_image.photo)
+
+    def save_payment_plans(self):
+        # delete old, if exist
+        self.paymentplan_set.all().delete()
+
+        if self.listing_payment_plans is not None:
+            payment_plans = json.loads(self.listing_payment_plans)
+            # print(payment_plans)
+            for payment_plan in payment_plans:
+                payment_plan['title_ru'] = payment_plan['title']['ru']
+                payment_plan['title_en'] = payment_plan['title']['en']
+                payment_plan['title_ar'] = payment_plan['title']['ar']
+                payment_plan.pop('title', None)
+                additions = payment_plan.pop('additional', None)
+                if not isinstance(additions, list):
+                    additions = [additions, ]
+                payment_plan['period_after_handover_period'] = payment_plan['period_after_handover']['period']
+                payment_plan['period_after_handover_count'] = payment_plan['period_after_handover']['count']
+                payment_plan['period_after_handover_repeat_count'] = payment_plan['period_after_handover']['repeat_count']
+                payment_plan.pop('period_after_handover', None)
+                payment_plan['period_after_roi_period'] = payment_plan['period_after_roi']['period']
+                payment_plan['period_after_roi_count'] = payment_plan['period_after_roi']['count']
+                payment_plan['period_after_roi_repeat_count'] = payment_plan['period_after_roi']['repeat_count']
+                payment_plan.pop('period_after_roi', None)
+                new_payment_plan = self.paymentplan_set.create(**payment_plan)
+                for additional in additions:
+                    if additional:
+                        additional['title_ru'] = additional['title']['ru']
+                        additional['title_en'] = additional['title']['en']
+                        additional['title_ar'] = additional['title']['ar']
+                        additional.pop('title', None)
+                        new_payment_plan.additional_set.create(**additional)
 
     def save(self, **kwargs):
         # do_something()
-        self.get_image_from_url()
+        self.save_listing_photos()
         super().save(**kwargs)  # Call the "real" save() method.
+        self.save_main_album_images()
         self.save_prices()
         self.save_amenities()
         self.save_districts()
+        self.save_albums()
+        self.save_payment_plans()
         # do_something_else()
 
     def __str__(self):
@@ -302,6 +366,11 @@ class Listing(models.Model, GeoItem):
                 return self.title_a_ru
         else:
             return self.title_a_en
+
+
+class MainAlbumImage(models.Model):
+    album = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
 
 
 class Price(models.Model):
@@ -343,3 +412,42 @@ class Album(models.Model):
 class Image(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+
+
+class PaymentPlan(models.Model):
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    title_ru = models.TextField(blank=True, null=True)
+    title_en = models.TextField(blank=True, null=True)
+    title_ar = models.TextField(blank=True, null=True)
+    on_booking_percent = models.FloatField(null=True)
+    on_booking_fix = models.FloatField(blank=True, null=True)
+    on_construction_percent = models.FloatField(null=True)
+    on_construction_fix = models.FloatField(blank=True, null=True)
+    on_construction_payments_count = models.IntegerField(null=True)
+    on_handover_percent = models.FloatField(blank=True, null=True)
+    on_handover_fix = models.FloatField(blank=True, null=True)
+    on_handover_payments_count = models.IntegerField(null=True)
+    post_handover_percent = models.FloatField(blank=True, null=True)
+    post_handover_fix = models.FloatField(blank=True, null=True)
+    on_post_handover_payments_count = models.IntegerField(null=True)
+    additional_percent = models.FloatField(null=True)
+    additional_fix = models.FloatField(null=True)
+    roi_percent = models.FloatField(blank=True, null=True)
+    roi_fix = models.FloatField(blank=True, null=True)
+    roi_payments_count = models.IntegerField(null=True)
+    currency = models.TextField(blank=True, null=True)
+    period_after_handover_period = models.TextField(blank=True, null=True)
+    period_after_handover_count = models.TextField(blank=True, null=True)
+    period_after_handover_repeat_count = models.TextField(blank=True, null=True)
+    period_after_roi_period = models.TextField(blank=True, null=True)
+    period_after_roi_count = models.TextField(blank=True, null=True)
+    period_after_roi_repeat_count = models.TextField(blank=True, null=True)
+
+
+class Additional(models.Model):
+    payment_plan = models.ForeignKey(PaymentPlan, on_delete=models.CASCADE)
+    title_ru = models.TextField(blank=True, null=True)
+    title_en = models.TextField(blank=True, null=True)
+    title_ar = models.TextField(blank=True, null=True)
+    percent = models.FloatField(null=True)
+    fix = models.FloatField(blank=True, null=True)

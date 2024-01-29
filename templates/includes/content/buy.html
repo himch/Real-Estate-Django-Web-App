@@ -424,33 +424,9 @@
       <div class="section__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'New projects of DADI partners' %}<!--Новые проекты партнеров DADI--></div>
       <div class="estate__items flex flex-col">
         <div class="estate__item relative w-full">
-          <div class="estate__swiper relative">
-            <div class="swiper">
-              <div class="swiper-wrapper">
-                {% if listings %}
-                  {% for listing in listings %}
-                    {% include 'includes/offer_card/offer_card_swiper.html' %}
-                  {% endfor %}
-                {% else %}
-                  <div class="col-md-12">
-                    <p>No Offers Available</p>
-                  </div>
-                {% endif %}
-              </div>
-            </div>
-            <div class="main_swiper-arrows flex absolute">
-              <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-left.png" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-right.png" alt="" loading="lazy"/>
-                </picture>
-              </div>
-            </div>
-          </div>
+
+          {% include 'includes/buy/buy_ribbon.html' with go_to_purchase_catalogue=False %}
+
         </div>
       </div>
     </div>
