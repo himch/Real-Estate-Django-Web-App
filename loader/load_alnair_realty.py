@@ -24,6 +24,23 @@ class Downloader(Loader):
     async def request_xml_db_file(self):
         content = await self.request_content()
         self.database_dict = xmltodict.parse(content, xml_attribs=True)
+        to_json_keys = [('amenities', 'amenity'),
+                        ('districts', 'district'),
+                        ('albums', 'album'),
+                        ('br_prices', 'br_price'),
+                        ('payment_plans', 'payment_plan'),
+                        ('stocks', 'stock')]
+        for offer in self.database_dict['realty-feed']['offers']:
+            for key, child_key in to_json_keys:
+                if isinstance(offer[key], dict):
+                    if len(offer[key]) == 1:
+                        if isinstance(offer[key][child_key], dict):
+                            offer[key + '_list'] = [offer[key][child_key],]
+                        else:
+                            offer[key + '_list'] = offer[key][child_key]
+                    else:
+                        offer[key + '_list'] = [offer[key], ]
+        print('ready')
 
 
 class SQLExecutor:
@@ -276,7 +293,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
         # await self.make_sql_for_create_tables()
         # await self.create_tables()
         # await self.make_sql_for_insert_record()
-        # await self.make_python_for_insert_record()
+        await self.make_python_for_insert_record()
         # await self.make_python_for_create_tables()
         await self.load_data_into_db()
         await self.close_connection()
