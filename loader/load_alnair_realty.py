@@ -259,6 +259,8 @@ class DatabaseDownloader(Downloader, SQLExecutor):
             # fields += await self.get_fields(table_name, '', record, None)
             # print('len fields =', len(fields))
             if True:  # fields
+                complex_id = ''
+                updated_at = ''
                 k = '"' * 3
                 parameters = []
                 for field, field_type, item in self.tables[table_name]:
@@ -276,6 +278,10 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                             parameters.append(f'{field}=None')
                         else:
                             parameters.append(f"{field}='''{k + item + k}'''")
+                    if field == 'complex_id':
+                        complex_id = item
+                    if field == 'updated_at':
+                        updated_at = item + '1'
                 # print('len parameters =', len(parameters))
                 templ = ("import os\n"
                          "from random import choice\n"
@@ -286,10 +292,20 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                          "from realtors.models import Realtor\n"                       
                          "realtor_list = Realtor.objects.all()\n"
                          "realtors_ids = [realtor.id for realtor in realtor_list]\n"
-                         "listing = Listing()\n"
+                         f"listings = Listing.objects.filter(complex_id={complex_id})\n"
+                         "if listings.exists():\n"
+                         "    listing = listings.first()\n"
+                         f"    if listing.updated_at == '{updated_at}':\n"
+                         "        print('exist with the same updated_at')\n"
+                         "        quit()\n"
+                         "    print('exist with different updated_at')\n"
+                         "else:\n"
+                         "    listing = Listing()\n"
+                         "listing.is_fully_loaded = False\n"
                          "listing.source = 'alnair'\n"
                          "listing.offer_type = 'sell'\n"
-                         "listing.realtor_id = choice(realtors_ids)\n")
+                         "listing.realtor_id = choice(realtors_ids)\n"
+                         "print('go')\n")
                 code = self.python_for_insert_records[table_name]
                 command = 'code.format(' + ', '.join(parameters) + ')'
                 # print(command)
@@ -309,17 +325,23 @@ class DatabaseDownloader(Downloader, SQLExecutor):
     async def load_data_into_db(self):
         say_my_name()
         for i, offer in enumerate(self.database_dict['realty-feed']['offers']):
-            if i > 50:
-                break
+            # if i == 5:
+            #     break
             print(f"{i}. work with offer complex-id {offer['complex-id']}")
-            if await self.offer_exist(offer['complex-id']):
-                if await self.offer_updated_at(offer['complex-id']) != offer['updated_at']:
-                    await self.delete_record(offer['complex-id'])
-            if not await self.offer_exist(offer['complex-id']):
-                # await self.insert_record_sql(offer)
-                await self.get_tables(offer)
-                await self.make_python_for_insert_record()
-                await self.insert_record_python(offer)
+            # if await self.offer_exist(offer['complex-id']):
+            #     if await self.offer_updated_at(offer['complex-id']) == offer['updated_at']:
+            #         return
+            await self.get_tables(offer)
+            await self.make_python_for_insert_record()
+            await self.insert_record_python(offer)
+            # if await self.offer_exist(offer['complex-id']):
+            #     if await self.offer_updated_at(offer['complex-id']) != offer['updated_at']:
+            #         await self.delete_record(offer['complex-id'])
+            # if not await self.offer_exist(offer['complex-id']):
+            #     # await self.insert_record_sql(offer)
+            #     await self.get_tables(offer)
+            #     await self.make_python_for_insert_record()
+            #     await self.insert_record_python(offer)
 
     async def run(self):
         say_my_name()

@@ -1,4 +1,6 @@
 import logging
+import traceback
+
 import telebot
 from datetime import datetime
 from django.utils import timezone
@@ -23,3 +25,10 @@ def send_message_to_telegram_service_channel(text):
 
 
 # bot.polling()
+
+
+def say_my_name():
+    stack = traceback.extract_stack()
+    text = 'Исполняется функция {}'.format(stack[-2][2])
+    print(text)
+    logging.info(text)
