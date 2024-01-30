@@ -281,7 +281,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                     if field == 'complex_id':
                         complex_id = item
                     if field == 'updated_at':
-                        updated_at = item + '1'
+                        updated_at = item
                 # print('len parameters =', len(parameters))
                 templ = ("import os\n"
                          "from random import choice\n"
