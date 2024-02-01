@@ -74,7 +74,7 @@
               </div>
             </div>
             <div class="rent__input relative rent__input_date">
-              <button class="text-500" type="submit">{% trans 'View' %}<!--Посмотреть--> х {% trans 'options' %}<!--вариантов--></button>
+              <button class="text-500" type="submit">{% trans 'View' %}<!--Посмотреть--> {{ len_listings }} {% trans 'options' %}<!--вариантов--></button>
             </div>
           </form>
           <div class="rent__item-end text-underline text-c3 text-600 modal__show" data-modal="type-first">{% trans 'Select with manager' %}<!--Подобрать с менеджером--></div>
@@ -239,14 +239,18 @@
               </div>
             </div>
           </div>
+
+
+          {% comment %}
+          <!--
           <div class="filters__currency">
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
                 <input type="hidden" name="currency" value="RUB"/>
                 <div class="p-select__current-item">RUB</div>
                 <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
-</svg>
+                  <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+                  </svg>
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
@@ -260,18 +264,22 @@
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
                 <input type="hidden" name="type" value="{% trans 'sq. m' %}"/>
-                <div class="p-select__current-item">{% trans 'sq. m' %}<!--м2--></div>
+                <div class="p-select__current-item">{% trans 'sq. m' %}</div>
                 <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
-</svg>
+                  <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+                  </svg>
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
-                <div class="p-select__abs-item active" data-value="{% trans 'sq. m' %}">{% trans 'sq. m' %}<!--м2--></div>
-                <div class="p-select__abs-item" data-value="{% trans 'sq. ft' %}">{% trans 'sq. ft' %}<!--фут2--></div>
+                <div class="p-select__abs-item active" data-value="{% trans 'sq. m' %}">{% trans 'sq. m' %}</div>
+                <div class="p-select__abs-item" data-value="{% trans 'sq. ft' %}">{% trans 'sq. ft' %}</div>
               </div>
             </div>
           </div>
+          -->
+          {% endcomment %}
+
+
         </div>
 
         {% comment %}

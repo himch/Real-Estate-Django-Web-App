@@ -14,8 +14,22 @@ from realtors.models import Realtor
 from our_company.models import OurCompany
 
 
-def listing_filter(get_object, queryset, offer_types):
+def listing_filter(get_object, queryset, language_code, offer_types, districts, amenities):
+
     filters = list(Q(type=offer_type) for offer_type in offer_types if get_object.get(offer_type))
+    if filters:
+        q = reduce(operator.or_, filters)
+        print(q)
+        queryset = queryset.filter(q)
+
+    filters = list(Q(district__name=district) for district in districts if get_object.get(district))
+    if filters:
+        q = reduce(operator.or_, filters)
+        print(q)
+        queryset = queryset.filter(q)
+
+    query_specifier = {'amenity__' + language_code: 'amenity'}
+    filters = list(Q(**query_specifier) for amenity in amenities if get_object.get(amenity))
     if filters:
         q = reduce(operator.or_, filters)
         print(q)
@@ -26,9 +40,14 @@ def listing_filter(get_object, queryset, offer_types):
     if price_max:
         q = Q(price_a_min__gte=price_min) & Q(price_a_min__lte=price_max)
     else:
-        q = Q(price_a_min__gte=price_min)
-    result = queryset.filter(q)
-    return result
+        if price_min:
+            q = Q(price_a_min__gte=price_min)
+        else:
+            q = None
+    if q:
+        queryset = queryset.filter(q)
+
+    return queryset
 
 
 def index(request):
@@ -70,7 +89,12 @@ def buy(request):
     amenities = sorted(Amenity.objects.values_list(request.LANGUAGE_CODE, flat=True).distinct())
 
     all_listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
-    listings = listing_filter(request.GET, queryset=all_listings, offer_types=offer_types)
+    listings = listing_filter(request.GET,
+                              queryset=all_listings,
+                              language_code=request.LANGUAGE_CODE,
+                              offer_types=offer_types,
+                              districts=districts,
+                              amenities=amenities)
 
     paginator = Paginator(listings, 6)
     paged_listings = paginator.get_page(page)
@@ -99,6 +123,7 @@ def buy(request):
         'our_company': our_company,
         'range': range(9),
         'blog_range': range(3),
+        'len_listings': len(listings),
         'rent_listings': paged_rent_listings,
         'listings': paged_listings,
         'offer_types_choices': offer_types_choices,
