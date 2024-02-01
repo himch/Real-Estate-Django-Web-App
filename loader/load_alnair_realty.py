@@ -306,6 +306,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                          "listing.offer_type = 'sell'\n"
                          "listing.realtor_id = choice(realtors_ids)\n"
                          "print('go')\n")
+
                 code = self.python_for_insert_records[table_name]
                 command = 'code.format(' + ', '.join(parameters) + ')'
                 # print(command)

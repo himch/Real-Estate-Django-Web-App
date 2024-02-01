@@ -24,11 +24,15 @@
   <script src="{% static 'js/libs/lazyload.min.js' %}"></script>
   <link rel="stylesheet" href="{% static 'css/parts/swiper.css' %}">
   <link rel="stylesheet" href="{% static 'css/flatpickr.min.css' %}">
-  <!--<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">-->
   <link rel="stylesheet" href="{% static 'css/parts/nouislider.css' %}">
   <link rel="stylesheet" href="{% static 'css/parts/main.css' %}">
-  <link rel="stylesheet" href="{% static 'css/parts/en.css' %}">
-  <link rel="stylesheet" href="{% static 'css/parts/arabic.css' %}">
+  {% if LANGUAGE_CODE == 'en' %}
+    <link rel="stylesheet" href="{% static 'css/parts/en.css' %}">
+  {% endif %}
+  {% if LANGUAGE_CODE == 'ar' %}
+    <link rel="stylesheet" href="{% static 'css/parts/arabic.css' %}">
+  {% endif %}
+
 
   <title> DADI {% block title %}{% endblock %}</title>
 
@@ -49,31 +53,19 @@
 </head>
 
 <body class="relative font-manrope text-c1 bg-c2 text-normal">
-  <!--{% include 'partials/_alerts.html' %}-->
   {% include 'includes/header/header.html' %}
 
   {% block content %} {% endblock %}
   {% include 'includes/contacts/contacts.html' %}
   {% include 'includes/footer/footer.html' %}
 
-  {% include 'includes/scripts/scripts-main.html' %}
-
-  {% comment %}
-  <!--
-
   <script src="{% static 'js/libs/swiper-bundle.js' %}"></script>
   <script src="{% static 'js/libs/ScrollTrigger.min.js' %}"></script>
+  <script src="{% static 'js/flatpickr.js' %}"></script>
+  <script src="{% static 'js/libs/nouislider.min.js' %}"></script>
   <script src="{% static 'js/splittext.js' %}"></script>
   <script src="{% static 'js/libs/gsap.min.js' %}"></script>
   <script src="{% static 'js/libs/main.js' %}"></script>
-
-
-  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'js/lightbox.min.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
-  -->
-  {% endcomment %}
 </body>
 
 </html>

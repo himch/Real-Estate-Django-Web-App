@@ -27,6 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['89.38.128.187', 'localhost', '127.0.0.1', 'dadi.ae']
 
+REST_FRAMEWORK = {
+     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.TokenAuthentication', )
+}
+
+PASSWORDLESS_AUTH = {
+   'PASSWORDLESS_AUTH_TYPES': ['EMAIL', ],
+}
+
+
+
+# AUTH_USER_MODEL = 'listings.User'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +58,9 @@ INSTALLED_APPS = [
     'modules.services',
     'imagekit',
     'django_admin_geomap',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drfpasswordless',
 ]
 
 MIDDLEWARE = [
@@ -169,7 +184,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'realestate/static'),
+    # os.path.join(BASE_DIR, 'realestate/static'),
     os.path.join(BASE_DIR, 'dadi-main/app')
 ]
 

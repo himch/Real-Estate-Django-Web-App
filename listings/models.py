@@ -7,6 +7,7 @@ from urllib.error import URLError
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
@@ -15,6 +16,10 @@ from django_admin_geomap import GeoItem
 
 from modules.services.utils import say_my_name
 from realtors.models import Realtor
+
+
+# class User(AbstractUser):
+#     mobile = models.CharField(max_length=30, blank=True)
 
 
 class Listing(models.Model, GeoItem):
@@ -112,10 +117,18 @@ class Listing(models.Model, GeoItem):
         html_code += "</div></div>"
         html_code += "<img src='" + str(self.photo_main.url if self.photo_main else None) + "' alt='' loading='lazy' />"
         html_code += "</a>"
-        html_code += "<div class='p-card__price text-500'>"
-        html_code += (_('from') + ' ' + f"{self.price_a_min:_}".replace("_", " ") + ' '
-                      + str(self.price_a_currency) if self.price_a_min else '')
-        html_code += "</div>"
+        if self.sales_status_a_en:
+            html_code += "<div class='p-card__price text-500'>"
+            html_code += _(self.sales_status_a_en)
+            html_code += "</div>"
+        if self.price_a_min:
+            html_code += "<div class='p-card__price text-500'>"
+            html_code += _('from') + ' ' + f"{self.price_a_min:_}".replace("_", " ") + ' ' + str(self.price_a_currency)
+            html_code += "</div>"
+        if self.status_a_en:
+            html_code += "<div class='p-card__price text-500'>"
+            html_code += _(self.status_a_en)
+            html_code += "</div>"
         # print(str(self.photo_main.url if self.photo_main else None))
         return html_code
 
@@ -164,19 +177,27 @@ class Listing(models.Model, GeoItem):
 
     listing_album = models.JSONField(blank=True, null=True)
     listing_albums = models.JSONField(blank=True, null=True)
+
     buildings_count = models.IntegerField(null=True)
     for_sale_count = models.IntegerField(null=True)
+
     price_a_min = models.IntegerField(null=True)
     price_a_max = models.IntegerField(null=True)
     price_a_currency = models.TextField(blank=True, null=True)
+
     listing_br_prices = models.JSONField(blank=True, null=True)
+
     updated_at = models.TextField(blank=True, null=True)
+
     is_sold_out = models.IntegerField(null=True)
     listing_payment_plans = models.JSONField(blank=True, null=True)
+
     sales_status_a_ru = models.TextField(blank=True, null=True)
     sales_status_a_en = models.TextField(blank=True, null=True)
     sales_status_a_ar = models.TextField(blank=True, null=True)
+
     listing_stocks = models.JSONField(blank=True, null=True)
+
     eoi_a_is_eoi_return = models.TextField(blank=True, null=True)
     eoi_a_eoi_items = models.TextField(blank=True, null=True)
     service_charge = models.TextField(blank=True, null=True)

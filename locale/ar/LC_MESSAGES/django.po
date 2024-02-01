@@ -19,6 +19,34 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+
+msgid "Scheduled"
+msgstr "البناء المقرر"
+
+msgid "In Progress"
+msgstr "تحت التشيد"
+
+msgid "Completed"
+msgstr "منتهى"
+
+
+
+msgid "On Sale"
+msgstr "معروض للبيع"
+
+msgid "Presale (EOI)"
+msgstr "حَجْز مُقَدَّم"
+
+msgid "Launch"
+msgstr "إطلاق جديد"
+
+msgid "Sold Out"
+msgstr "بيعت بالكامل"
+
+msgid "Announcement"
+msgstr "إعلان"
+
+
 #: contacts/views.py:79
 msgid "Your request has been submitted, a realtor will get back to you soon"
 msgstr "لقد تم تقديم طلبك، وسيقوم وكيل العقارات بالرد عليك قريبًا"

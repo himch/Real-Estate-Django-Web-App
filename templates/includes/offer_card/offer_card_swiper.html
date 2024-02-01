@@ -7,6 +7,11 @@
     <a class="p-card p-card_buy relative flex p-card_second" href="/{{ LANGUAGE_CODE }}/listings/{{ listing.id|unlocalize }}">
         <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
           <div class="swiper-wrapper">
+             <div class="swiper-slide img_cover img_full">
+              <picture>
+                <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>
+              </picture>
+            </div>
             {% for image in listing.mainalbumimage_set.all|slice:"5" %}
             <div class="swiper-slide img_cover img_full">
               <picture>

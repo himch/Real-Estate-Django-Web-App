@@ -5,10 +5,13 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.utils.translation import gettext_lazy as _
 
+from rest_framework import generics
+
 from our_company.models import OurCompany
 from .choices import price_choices, bedroom_choices, state_choices
 
 from .models import Listing
+from .serializers import ListingSerializer
 
 
 # def index(request):
@@ -23,6 +26,11 @@ from .models import Listing
 #     }
 #
 #     return render(request, 'listings/listings.html', context)
+
+
+class ListingAPIView(generics.ListAPIView):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
 
 
 def listing(request, listing_id):
@@ -64,7 +72,9 @@ def listing(request, listing_id):
 
     amenities = dict()
     for lang in ('ru', 'en', 'ar'):
-        amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
+        amenities[lang] = []
+        if listing_item.listing_amenities is not None:
+            amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
 
     context = {
         'our_company': our_company,

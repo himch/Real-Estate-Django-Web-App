@@ -4,12 +4,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import include
+from listings.views import *
 
 # admin.autodiscover()
 
 urlpatterns = [
     path('i18n', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
+    path('api/v1/listinglist/', ListingAPIView.as_view()),
+    path('', include('drfpasswordless.urls')),
 ]
 urlpatterns += i18n_patterns(
     path('', include('pages.urls')),
