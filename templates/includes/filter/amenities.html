@@ -1,53 +1,20 @@
 {% load i18n %}
 {% load static %}
 {% load l10n %}
-{% get_current_language as LANGUAGE_CODE %
+{% get_current_language as LANGUAGE_CODE %}
 <!-- start districts -->
-<div class="p-checkboxes flex flex-wrap">
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Wi-Fi" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Wi-Fi' %}<!--Wi-Fi--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Фен" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Hairdryer' %}<!--Фен--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Микроволновая печь" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Microwave' %}<!--Микроволновая печь--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="TV" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'TV' %}<!--TV--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Кофемашина" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Coffee machine' %}<!--Кофемашина--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Посудомоечная машина" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Dishwasher' %}<!--Посудомоечная машина--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Кондиционер" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'A/C' %}<!--Кондиционер--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Парковочное место" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Parking space' %}<!--Парковочное место--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Стиральная машина" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Washing machine' %}<!--Стиральная машина--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Ванна"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Bathtub' %}<!--Ванна--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Балкон"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Balcony' %}<!--Балкон--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Общий бассейн"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Shared pool' %}<!--Общий бассейн--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Душ"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Shower' %}<!--Душ--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Фитнес-зал"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Fitness gym' %}<!--Фитнес-зал--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="ydobstva[]" value="Детская площадка"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Children’s Play Area' %}<!--Детская площадка--></span>
-    </label>
+{% if amenities_choices %}
+<div class="modal_filter__item">
+    <div class="modal_filter__item-title text-500 text-c5">{% trans 'Amenities' %}<!--Удобства--></div>
+    <div class="p-checkboxes flex flex-wrap">
+        {% for key, value in amenities_choices.items %}
+        <label class="p-checkboxes__item flex">
+          <input type="checkbox" name="{{ key }}" value="{{ value }}"  {% if value %} checked="checked"{% endif %}/>
+          <span class="p-checkboxes__item-square"></span>
+          <span class="p-checkboxes__item-title">{% trans key %}</span>
+        </label>
+        {% endfor %}
+    </div>
 </div>
+{% endif %}
 <!-- end amenities -->

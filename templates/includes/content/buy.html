@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load i18n_urls %}
 {% load static %}
 {% load humanize %}
 {% get_current_language as LANGUAGE_CODE %}
@@ -25,6 +26,8 @@
                 </picture>
           </div>
           <form class="rent__form flex relative">
+
+            {% if offer_types_choices %}
             <div class="rent__input relative">
               <div class="rent__form-item">
                 <div class="rent__form-title">{% trans 'Property type' %}<!--Тип недвижимости--></div>
@@ -33,64 +36,37 @@
                     <div class="p-select__current flex flex-ai-center flex-j-between">
                       <div class="p-select__current-item">{% trans 'Any type' %}<!--Любая--></div>
                       <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
-</svg>
+                        <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+                        </svg>
                       </div>
                     </div>
                     <div class="p-select__abs absolute flex flex-col">
                       <div class="p-checkboxes flex flex-wrap">
+                        {% for key, value in offer_types_choices.items %}
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Any type' %}" checked="checked"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Any type' %}<!--Любая--></span>
+                          <input type="checkbox" name="{{ key }}" value="{{ value }}" {% if value %} checked="checked"{% endif %}/>
+                          <span class="p-checkboxes__item-square"></span>
+                          <span class="p-checkboxes__item-title">{% trans key %}<!--Любая--></span>
                         </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Apartments' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Apartments' %}<!--Апартаменты--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Penthouses' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Penthouses' %}<!--Пентхаусы--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="Т{% trans 'Townhouses' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Townhouses' %}<!--Таунхаусы--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Duplexes' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Duplexes' %}<!--Дуплексы--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Hotel apartment' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Hotel apartment' %}<!--Квартиры в отелях--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Villas' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Villas' %}<!--Виллы--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Half a floor' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Half a floor' %}<!--Пол этажа--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="% trans 'Entire floors' %}и"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Entire floors' %}<!--Целые этажи--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Entire buildings' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Entire buildings' %}<!--Целые здания--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Commercial premises' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Commercial premises' %}<!--Коммерческие помещения--></span>
-                        </label>
-                        <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="type[]" value="{% trans 'Land plots' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Land plots' %}<!--Земельные участки--></span>
-                        </label>
+                        {% endfor %}
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            {% endif %}
+
             <div class="rent__input relative">
               <div class="rent__form-item">
-                <div class="rent__form-title">{% trans 'Price' %}, $<!--Цена--></div>
+                <div class="rent__form-title">{% trans 'Price' %}, AED<!--Цена--></div>
                 <div class="rent__price flex">
                   <div class="rent__price-left"><span>{% trans 'min' %}<!--от--></span>
-                    <input type="number" name="price_min"/>
+                    <input type="number" name="price_min" value="{{ vars_filter.price_min }}"/>
                   </div>
 
                   <div class="rent__price-right"><span>{% trans 'max' %}<!--до--></span>
-                    <input type="number" name="price_min"/>
+                    <input type="number" name="price_max" value="{{ vars_filter.price_max }}"/>
                   </div>
 
                 </div>
@@ -240,7 +216,7 @@
                       <div class="modal_filter__price-top flex">
                         <div class="modal_filter__price-title text-500 text-c5">{% trans 'Lease period' %}<!--Срок сдачи--></div>
                       </div>
-                      <div class="modal_filter__range modal_filter__due_date" data-string="[&quot;Сдан&quot;,&quot;5&quot;,&quot;15&quot;, &quot;235&quot;]" data-start="Сдан" data-end="235" data-type="int">
+                      <div class="modal_filter__range modal_filter__due_date" data-string="[&quot;{% trans 'Сompleted' %}&quot;,&quot;5&quot;,&quot;15&quot;, &quot;235&quot;]" data-start="{% trans 'Сompleted' %}" data-end="235" data-type="int">
                         <div class="modal_filter__range-main"></div>
                         <input type="hidden" name="due_date_min"/>
                         <input type="hidden" name="due_date_max"/>
@@ -248,67 +224,15 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Districts' %}<!--Районы--></div>
+
 
                   {% include 'includes/filter/districts.html' %}
 
-                </div>
-                <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Amenities' %}<!--Удобства--></div>
 
-                  {% include 'includes/filter/location.html' %}
 
-                  <!--
-                  <div class="p-checkboxes flex flex-wrap">
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Вид на море"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на море</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Вид на парк"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на парк</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Вид на канал"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на канал</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Вид на Бурдж-Халифа"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на Бурдж-Халифа</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Близко к пляжу"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Близко к пляжу</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Детская площадка"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Детская площадка</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Вид на город"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на город</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Близко к метро"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Близко к метро</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Вид на канал"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Вид на канал</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="ydobstva[]" value="Бассейн"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">Бассейн</span>
-                    </label>
-                  </div>
-                  -->
 
-                </div>
-                <div class="modal_filter__item modal_filter__item_finishing">
-                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Furnishings' %}<!--Отделка--></div>
-                  <div class="p-checkboxes flex flex-wrap">
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="{% trans 'All furnishings' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'All furnishings' %}<!--Полностью меблированная--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="{% trans 'Partly furnished' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Partly furnished' %}<!--Частично меблированная--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="finishing[]" value="{% trans 'Unfurnished' %}"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Unfurnished' %}<!--Не меблированная--></span>
-                    </label>
-                  </div>
-                </div>
+                  {% include 'includes/filter/amenities.html' %}
+
                 <div class="modal_filter__item">
                   <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Apply filters' %}<!--Применить фильтры--></button>
                 </div>

@@ -1,52 +1,20 @@
 {% load i18n %}
 {% load static %}
 {% load l10n %}
-{% get_current_language as LANGUAGE_CODE %
+{% get_current_language as LANGUAGE_CODE %}
 <!-- start districts -->
-
-<div class="p-checkboxes flex flex-wrap">
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Palm Jumeriah"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Palm Jumeriah' %}<!--Palm Jumeriah--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Yas Island"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Yas Island' %}<!--Yas Island--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Town Square"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Town Square' %}<!--Town Square--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="JVC"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'JVC' %}<!--JVC--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Arjan"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Arjan' %}<!--Arjan--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Jebel Ali"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Jebel Ali' %}<!--Jebel Ali--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Dubailand"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Dubailand' %}<!--Dubailand--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Production City"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Production City' %}<!--Production City--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Damac Lagoons"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Damac Lagoons' %}<!--Damac Lagoons--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Beachfront"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Beachfront' %}<!--Beachfront--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="JLT"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'JLT' %}<!--JLT--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Dubai Hils"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Dubai Hils' %}<!--Dubai Hils--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="MBR"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'MBR' %}<!--MBR--></span>
-    </label>
-    <label class="p-checkboxes__item flex">
-      <input type="checkbox" name="raioni[]" value="Dubai Marina"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Dubai Marina' %}<!--Dubai Marina--></span>
-    </label>
+{% if districts_choices %}
+<div class="modal_filter__item">
+    <div class="modal_filter__item-title text-500 text-c5">{% trans 'Districts' %}<!--Районы--></div>
+    <div class="p-checkboxes flex flex-wrap">
+        {% for key, value in districts_choices.items %}
+        <label class="p-checkboxes__item flex">
+          <input type="checkbox" name="{{ key }}" value="{{ value }}"  {% if value %} checked="checked"{% endif %}/>
+          <span class="p-checkboxes__item-square">
+          </span><span class="p-checkboxes__item-title">{% trans key %}</span>
+        </label>
+        {% endfor %}
+    </div>
 </div>
-
+{% endif %}
 <!-- end districts -->

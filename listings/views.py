@@ -40,7 +40,7 @@ def listing(request, listing_id):
 
     realtor = listing_item.realtor
 
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
+    listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
@@ -113,7 +113,7 @@ def rent(request, listing_id):
 
     realtor = listing_item.realtor
 
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
+    listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='rent')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
