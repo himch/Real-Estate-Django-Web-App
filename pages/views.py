@@ -1,53 +1,16 @@
+import itertools
+
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.db.models import Q
-
-from functools import reduce
-import operator
 
 from django_admin_geomap import geomap_context
 from listings.choices import price_choices, bedroom_choices, state_choices
 
 from listings.models import Listing, District, Amenity
+from pages.filters import buy_listing_filter
 from realtors.models import Realtor
 from our_company.models import OurCompany
-
-
-def listing_filter(get_object, queryset, language_code, offer_types, districts, amenities):
-
-    filters = list(Q(type=offer_type) for offer_type in offer_types if get_object.get(offer_type))
-    if filters:
-        q = reduce(operator.or_, filters)
-        print(q)
-        queryset = queryset.filter(q)
-
-    filters = list(Q(district__name=district) for district in districts if get_object.get(district))
-    if filters:
-        q = reduce(operator.or_, filters)
-        print(q)
-        queryset = queryset.filter(q)
-
-    query_specifier = {'amenity__' + language_code: 'amenity'}
-    filters = list(Q(**query_specifier) for amenity in amenities if get_object.get(amenity))
-    if filters:
-        q = reduce(operator.or_, filters)
-        print(q)
-        queryset = queryset.filter(q)
-
-    price_min = get_object.get('price_min') if get_object.get('price_min') else 0
-    price_max = get_object.get('price_max')
-    if price_max:
-        q = Q(price_a_min__gte=price_min) & Q(price_a_min__lte=price_max)
-    else:
-        if price_min:
-            q = Q(price_a_min__gte=price_min)
-        else:
-            q = None
-    if q:
-        queryset = queryset.filter(q)
-
-    return queryset
 
 
 def index(request):
@@ -80,42 +43,54 @@ def index(request):
 
 
 def buy(request):
-    page = request.GET.get('page')
-
+    # информация о собственной компании
     our_company = OurCompany.objects.all().first()
 
-    offer_types = sorted(Listing.objects.values_list('type', flat=True).distinct())
-    districts = sorted(District.objects.values_list('name', flat=True).distinct())
-    amenities = sorted(Amenity.objects.values_list(request.LANGUAGE_CODE, flat=True).distinct())
+    # множество типов недвижимости (например, residential_complex или village)
+    estate_types = list(sorted(Listing.objects.values_list('type', flat=True).distinct()))
+    # множество районов города
+    districts = list(sorted(District.objects.values_list('name', flat=True).distinct()))
+    # множество удобств на обьекте недвижимости
+    am = Amenity.objects.values_list('en', 'ar', 'ru').distinct()
+    amenities = [{'en': en, 'ar': ar, 'ru': ru, } for en, ar, ru in sorted(am)]
 
+    # все обьекты недвижимости для продажи
     all_listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
-    listings = listing_filter(request.GET,
-                              queryset=all_listings,
-                              language_code=request.LANGUAGE_CODE,
-                              offer_types=offer_types,
-                              districts=districts,
-                              amenities=amenities)
+    # отфильтрованные обьекты в соотвествии с заданными на странице фильтрами
+    listings = buy_listing_filter(request.GET,
+                                  queryset=all_listings,
+                                  language_code=request.LANGUAGE_CODE,
+                                  estate_types=estate_types,
+                                  districts=districts,
+                                  amenities=amenities)
 
+    # точки на карте для всех отфильтрованных обьектов недвижимости для продажи
+    geo_context = geomap_context(listings, auto_zoom="20")
+
+    # разбиение обьектов на порции-страницы для отображения в виде списка
+    page = request.GET.get('page')
     paginator = Paginator(listings, 6)
     paged_listings = paginator.get_page(page)
 
+    # обьекты недвижимости для аренды для ленты
+    rent_page = request.GET.get('page')
     rent_listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='rent')
     rent_paginator = Paginator(rent_listings, 6)
-    paged_rent_listings = rent_paginator.get_page(page)
+    paged_rent_listings = rent_paginator.get_page(rent_page)
 
-    geo_context = geomap_context(listings, auto_zoom="20")
 
-    offer_types_choices = {offer_type: request.GET.get(offer_type) for offer_type in offer_types}
-    if not any(offer_types_choices.values()):
-        offer_types_choices = {offer_type: offer_type for offer_type in offer_types}
+    # переменные для отображения состояния фильтров
+    estate_types_choices = {estate_type: request.GET.get(estate_type) for estate_type in estate_types}
+    if not any(estate_types_choices.values()):
+        estate_types_choices = {estate_type: estate_type for estate_type in estate_types}
 
     districts_choices = {district: request.GET.get(district) for district in districts}
     if not any(districts_choices.values()):
         districts_choices = {district: district for district in districts}
 
-    amenities_choices = {amenity: request.GET.get(amenity) for amenity in amenities}
+    amenities_choices = {amenity['en']: request.GET.get(amenity['en']) for amenity in amenities}
     if not any(amenities_choices.values()):
-        amenities_choices = {amenity: amenity for amenity in amenities}
+        amenities_choices = {amenity['en']: amenity for amenity in amenities}
 
     vars_filter = {var: request.GET.get(var) for var in ['price_min', 'price_max']}
 
@@ -126,7 +101,7 @@ def buy(request):
         'len_listings': len(listings),
         'rent_listings': paged_rent_listings,
         'listings': paged_listings,
-        'offer_types_choices': offer_types_choices,
+        'estate_types_choices': estate_types_choices,
         'districts_choices': districts_choices,
         'amenities_choices': amenities_choices,
         'vars_filter': vars_filter,

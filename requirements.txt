@@ -55,3 +55,4 @@ xmltodict==0.13.0
 yarl==1.9.4
 olefile
 djangorestframework~=3.14.0
+django-stubs

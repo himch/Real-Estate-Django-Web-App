@@ -27,7 +27,7 @@
           </div>
           <form class="rent__form flex relative">
 
-            {% if offer_types_choices %}
+            {% if estate_types_choices %}
             <div class="rent__input relative">
               <div class="rent__form-item">
                 <div class="rent__form-title">{% trans 'Property type' %}<!--Тип недвижимости--></div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="p-select__abs absolute flex flex-col">
                       <div class="p-checkboxes flex flex-wrap">
-                        {% for key, value in offer_types_choices.items %}
+                        {% for key, value in estate_types_choices.items %}
                         <label class="p-checkboxes__item flex">
                           <input type="checkbox" name="{{ key }}" value="{{ value }}" {% if value %} checked="checked"{% endif %}/>
                           <span class="p-checkboxes__item-square"></span>
