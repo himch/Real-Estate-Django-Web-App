@@ -12,6 +12,7 @@ from .choices import price_choices, bedroom_choices, state_choices
 
 from .models import Listing
 from .serializers import ListingSerializer
+from .utils import convert
 
 
 # def index(request):
@@ -70,11 +71,12 @@ def listing(request, listing_id):
         min_price_m2_rub = min_price_m2_usd = min_price_m2_eur = None
         min_price_ft2_rub = min_price_ft2_usd = min_price_ft2_eur = None
 
-    amenities = dict()
-    for lang in ('ru', 'en', 'ar'):
-        amenities[lang] = []
-        if listing_item.listing_amenities is not None:
-            amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
+    if listing_item.listing_amenities is not None:
+        amenities = [amenity[request.LANGUAGE_CODE] for amenity in json.loads(listing_item.listing_amenities) if request.LANGUAGE_CODE in amenity]
+    else:
+        amenities = None
+
+    print(amenities)
 
     context = {
         'our_company': our_company,
@@ -94,9 +96,8 @@ def listing(request, listing_id):
         'min_price_ft2_usd': min_price_ft2_usd,
         'min_price_ft2_eur': min_price_ft2_eur,
 
-        'amenities_ru': amenities['ru'],
-        'amenities_en': amenities['en'],
-        'amenities_ar': amenities['ar'],
+        'amenities': amenities,
+
         'listing': listing_item,
         'listings': paged_listings,
         'realtor': realtor
@@ -157,9 +158,12 @@ def rent(request, listing_id):
         min_price_month_rub = min_price_month_usd = min_price_month_eur = None
         max_price_rub = max_price_usd = max_price_eur = None
 
-    amenities = dict()
-    for lang in ('ru', 'en', 'ar'):
-        amenities[lang] = [amenity[lang] for amenity in json.loads(listing_item.listing_amenities) if lang in amenity]
+    if listing_item.listing_amenities is not None:
+        amenities = [amenity[request.LANGUAGE_CODE] for amenity in json.loads(listing_item.listing_amenities) if request.LANGUAGE_CODE in amenity]
+    else:
+        amenities = None
+
+    print(amenities)
 
     context = {
         'our_company': our_company,
@@ -187,9 +191,9 @@ def rent(request, listing_id):
         'min_price_ft2_usd': min_price_ft2_usd,
         'min_price_ft2_eur': min_price_ft2_eur,
 
-        'amenities_ru': amenities['ru'][:9],
-        'amenities_en': amenities['en'][:9],
-        'amenities_ar': amenities['ar'][:9],
+        'amenities_ru': amenities[:9],
+        'amenities_en': amenities[:9],
+        'amenities_ar': amenities[:9],
         'listing': listing_item,
         'listings': paged_listings,
         'realtor': realtor
@@ -245,17 +249,6 @@ def search(request):
 
     return render(request, 'listings/search.html', context)
 
-
-def convert(value, currency1, currency2):
-    courses = {'AEDRUB': 24.76,
-               'AEDUSD': 0.27,
-               'AEDEUR': 0.25,
-               'AEDAED': 1,
-               'RUBUSD': 0.011,
-               'RUBEUR': 0.01,
-               'RUBRUB': 1,
-               }
-    return int(round(value * courses[currency1 + currency2], -1))
 
 # amenities_type = {('air', 'conditioner'): 'air-conditioner',
 #                   ('balcony', ): 'balcony',

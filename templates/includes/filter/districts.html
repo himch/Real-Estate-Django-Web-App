@@ -9,9 +9,9 @@
     <div class="p-checkboxes flex flex-wrap">
         {% for key, value in districts_choices.items %}
         <label class="p-checkboxes__item flex">
-          <input type="checkbox" name="{{ key }}" value="{{ value }}"  {% if value %} checked="checked"{% endif %}/>
+          <input type="checkbox" name="{{ key }}" value="{{ value.value }}"  {% if value.value %} checked="checked"{% endif %}/>
           <span class="p-checkboxes__item-square">
-          </span><span class="p-checkboxes__item-title">{% trans key %}</span>
+          </span><span class="p-checkboxes__item-title">{{ value.title }}</span>
         </label>
         {% endfor %}
     </div>

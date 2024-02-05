@@ -26,7 +26,7 @@
                 </picture>
           </div>
           <form class="rent__form flex relative">
-
+            {% csrf_token %}
             {% if estate_types_choices %}
             <div class="rent__input relative">
               <div class="rent__form-item">
@@ -44,9 +44,9 @@
                       <div class="p-checkboxes flex flex-wrap">
                         {% for key, value in estate_types_choices.items %}
                         <label class="p-checkboxes__item flex">
-                          <input type="checkbox" name="{{ key }}" value="{{ value }}" {% if value %} checked="checked"{% endif %}/>
+                          <input type="checkbox" name="{{ key }}" value="{{ value.value }}" {% if value.value %} checked="checked"{% endif %}/>
                           <span class="p-checkboxes__item-square"></span>
-                          <span class="p-checkboxes__item-title">{% trans key %}<!--Любая--></span>
+                          <span class="p-checkboxes__item-title">{% trans value.title %}<!--Любая--></span>
                         </label>
                         {% endfor %}
                       </div>
@@ -85,161 +85,17 @@
   <div class="filters">
     <div class="container margin-center">
       <form class="filters__top flex flex-ai-center flex-j-between">
+        {% csrf_token %}
         <div class="filters__top-left flex flex-ai-center">
           <div class="filters__main cursor-pointer flex flex-ai-center modal__show" data-modal="filter">
             <div class="filters__main-svg"><svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.02209C0 1.68367 0.135459 1.35912 0.376577 1.11982C0.617695 0.880528 0.944722 0.746094 1.28571 0.746094H28.7143C29.0553 0.746094 29.3823 0.880528 29.6234 1.11982C29.8645 1.35912 30 1.68367 30 2.02209C30 2.3605 29.8645 2.68505 29.6234 2.92435C29.3823 3.16364 29.0553 3.29808 28.7143 3.29808H1.28571C0.944722 3.29808 0.617695 3.16364 0.376577 2.92435C0.135459 2.68505 0 2.3605 0 2.02209ZM0 10.5287C0 10.1903 0.135459 9.86574 0.376577 9.62644C0.617695 9.38715 0.944722 9.25271 1.28571 9.25271H20.1429C20.4839 9.25271 20.8109 9.38715 21.052 9.62644C21.2931 9.86574 21.4286 10.1903 21.4286 10.5287C21.4286 10.8671 21.2931 11.1917 21.052 11.431C20.8109 11.6703 20.4839 11.8047 20.1429 11.8047H1.28571C0.944722 11.8047 0.617695 11.6703 0.376577 11.431C0.135459 11.1917 0 10.8671 0 10.5287ZM0 19.0353C0 18.6969 0.135459 18.3724 0.376577 18.1331C0.617695 17.8938 0.944722 17.7593 1.28571 17.7593H9.85714C10.1981 17.7593 10.5252 17.8938 10.7663 18.1331C11.0074 18.3724 11.1429 18.6969 11.1429 19.0353C11.1429 19.3737 11.0074 19.6983 10.7663 19.9376C10.5252 20.1769 10.1981 20.3113 9.85714 20.3113H1.28571C0.944722 20.3113 0.617695 20.1769 0.376577 19.9376C0.135459 19.6983 0 19.3737 0 19.0353Z" fill="#003B50"/>
-</svg>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.02209C0 1.68367 0.135459 1.35912 0.376577 1.11982C0.617695 0.880528 0.944722 0.746094 1.28571 0.746094H28.7143C29.0553 0.746094 29.3823 0.880528 29.6234 1.11982C29.8645 1.35912 30 1.68367 30 2.02209C30 2.3605 29.8645 2.68505 29.6234 2.92435C29.3823 3.16364 29.0553 3.29808 28.7143 3.29808H1.28571C0.944722 3.29808 0.617695 3.16364 0.376577 2.92435C0.135459 2.68505 0 2.3605 0 2.02209ZM0 10.5287C0 10.1903 0.135459 9.86574 0.376577 9.62644C0.617695 9.38715 0.944722 9.25271 1.28571 9.25271H20.1429C20.4839 9.25271 20.8109 9.38715 21.052 9.62644C21.2931 9.86574 21.4286 10.1903 21.4286 10.5287C21.4286 10.8671 21.2931 11.1917 21.052 11.431C20.8109 11.6703 20.4839 11.8047 20.1429 11.8047H1.28571C0.944722 11.8047 0.617695 11.6703 0.376577 11.431C0.135459 11.1917 0 10.8671 0 10.5287ZM0 19.0353C0 18.6969 0.135459 18.3724 0.376577 18.1331C0.617695 17.8938 0.944722 17.7593 1.28571 17.7593H9.85714C10.1981 17.7593 10.5252 17.8938 10.7663 18.1331C11.0074 18.3724 11.1429 18.6969 11.1429 19.0353C11.1429 19.3737 11.0074 19.6983 10.7663 19.9376C10.5252 20.1769 10.1981 20.3113 9.85714 20.3113H1.28571C0.944722 20.3113 0.617695 20.1769 0.376577 19.9376C0.135459 19.6983 0 19.3737 0 19.0353Z" fill="#003B50"/>
+              </svg>
             </div>
             <div class="filters__main-title">{% trans 'Filters' %}<!--Фильтры--></div>
           </div>
-          <div class="modal modal_filter">
-            <div class="modal__content relative">
-              <div class="modal__close absolute">
-                <picture>
-                  <source type="image/webp" srcset="/img/rent/filters/close.webp"/><img width="21" height="21" src="/img/rent/filters/close.png" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="modal_filter__reset absolute text-underline cursor-pointer">{% trans 'Remove filters' %}<!--Сбросить фильтры--></div>
-              <div class="modal_filter__items flex relative flex-col">
-                <div class="modal_filter__item">
-                  <div class="modal_filter__price-row flex">
-                    <div class="modal_filter__price-item modal_filter__item_change">
-                      <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Price' %}<!--Стоимость--></div>
-                        <div class="modal_filter__price-currency flex">
-                          <div class="p-checkboxes p-checkboxes_second flex">
-                            <label class="p-checkboxes__item flex">
-                              <input type="radio" name="currency" value="₽" checked="checked"/><span class="p-checkboxes__item-title">₽</span>
-                            </label>
-                            <label class="p-checkboxes__item flex">
-                              <input type="radio" name="currency" value="$"/><span class="p-checkboxes__item-title">$</span>
-                            </label>
-                            <label class="p-checkboxes__item flex">
-                              <input type="radio" name="currency" value="€"/><span class="p-checkboxes__item-title">€</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal_filter__range-contents">
-                        <div class="modal_filter__range-content active">
-                          <div class="modal_filter__range modal_filter__price-input" data-min="6.419" data-max="78.251">
-                            <div class="modal_filter__range-main"></div>
-                            <input type="hidden" name="price_rub_min"/>
-                            <input type="hidden" name="price_rub_max"/>
-                          </div>
-                        </div>
-                        <div class="modal_filter__range-content">
-                          <div class="modal_filter__range modal_filter__price-input" data-min="8.419" data-max="100.251">
-                            <div class="modal_filter__range-main"></div>
-                            <input type="hidden" name="price_dollar_min"/>
-                            <input type="hidden" name="price_dollar_max"/>
-                          </div>
-                        </div>
-                        <div class="modal_filter__range-content">
-                          <div class="modal_filter__range modal_filter__price-input" data-min="3.419" data-max="67.251">
-                            <div class="modal_filter__range-main"></div>
-                            <input type="hidden" name="price_euro_min"/>
-                            <input type="hidden" name="price_euro_max"/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal_filter__price-item modal_filter__price-item_area">
-                      <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Total area' %}<!--Общая площадь--></div>
-                        <div class="modal_filter__price-currency flex">
-                          <div class="p-checkboxes p-checkboxes_second flex">
-                            <label class="p-checkboxes__item flex">
-                              <input type="radio" name="area" value="{% trans 'sq. m' %}" checked="checked"/><span class="p-checkboxes__item-title">{% trans 'sq. m' %}<!--м2--></span>
-                            </label>
-                            <label class="p-checkboxes__item flex">
-                              <input type="radio" name="area" value="{% trans 'sq. ft' %}"/><span class="p-checkboxes__item-title">{% trans 'sq. ft' %}<!--фут2--></span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal_filter__area">
-                        <div class="modal_filter__area-item active">
-                          <div class="modal_filter__area-subitems flex">
-                            <div class="modal_filter__area-subitem flex">
-                              <div class="modal_filter__area-left">{% trans 'From' %}<!--От--></div>
-                              <div class="modal_filter__area-input">
-                                <input type="text" name="area_min"/>
-                              </div>
-                              <div class="modal_filter__area-right">{% trans 'sq. m' %}<!--м2--></div>
-                            </div>
-                            <div class="modal_filter__area-subitem flex">
-                              <div class="modal_filter__area-left">{% trans 'To' %}<!--До--></div>
-                              <div class="modal_filter__area-input">
-                                <input type="text" name="area_max"/>
-                              </div>
-                              <div class="modal_filter__area-right">{% trans 'sq. m' %}<!--м2--></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="modal_filter__area-item">
-                          <div class="modal_filter__area-subitems flex">
-                            <div class="modal_filter__area-subitem flex">
-                              <div class="modal_filter__area-left">{% trans 'From' %}<!--От--></div>
-                              <div class="modal_filter__area-input">
-                                <input type="text" name="fut_min"/>
-                              </div>
-                              <div class="modal_filter__area-right">{% trans 'sq. ft' %}<!--фут2--></div>
-                            </div>
-                            <div class="modal_filter__area-subitem flex">
-                              <div class="modal_filter__area-left">{% trans 'To' %}<!--До--></div>
-                              <div class="modal_filter__area-input">
-                                <input type="text" name="fut_max"/>
-                              </div>
-                              <div class="modal_filter__area-right">{% trans 'sq. ft' %}<!--фут2--></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal_filter__item">
-                  <div class="modal_filter__price-row flex">
-                    <div class="modal_filter__price-item">
-                      <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Number or rooms' %}<!--Количество комнат--></div>
-                      </div>
-                      <div class="modal_filter__range modal_filter__bedrooms" data-min="1" data-max="10" data-type="int">
-                        <div class="modal_filter__range-main"></div>
-                        <input type="hidden" name="bedrooms_min"/>
-                        <input type="hidden" name="bedrooms_max"/>
-                      </div>
-                    </div>
-                    <div class="modal_filter__price-item">
-                      <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Lease period' %}<!--Срок сдачи--></div>
-                      </div>
-                      <div class="modal_filter__range modal_filter__due_date" data-string="[&quot;{% trans 'Сompleted' %}&quot;,&quot;5&quot;,&quot;15&quot;, &quot;235&quot;]" data-start="{% trans 'Сompleted' %}" data-end="235" data-type="int">
-                        <div class="modal_filter__range-main"></div>
-                        <input type="hidden" name="due_date_min"/>
-                        <input type="hidden" name="due_date_max"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-
-                  {% include 'includes/filter/districts.html' %}
-
-
-
-
-                  {% include 'includes/filter/amenities.html' %}
-
-                <div class="modal_filter__item">
-                  <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Apply filters' %}<!--Применить фильтры--></button>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          {% include 'includes/filter/buy_big_modal_filter.html' %}
 
           {% comment %}
           <!--
@@ -376,6 +232,7 @@
           <p>{% trans '- Expert Advice' %}<!--- советы экспертов--></p>
         </div>
         <form>
+          {% csrf_token %}
           <div class="buy-form__inner relative">
             <div class="buy-form__inputs flex">
               <div class="form__input">

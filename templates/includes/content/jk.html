@@ -15,7 +15,7 @@
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="/buy">Каталог ЖК и Застройщиков</a>
+    <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="/buy">{% trans 'Catalog of residential complexes and developers' %}<!--Каталог ЖК и Застройщиков--></a>
       <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
       <div class="rent-single__btns flex absolute top-0 right-0">
         <div class="rent-single__compar rent-single__btn flex flex-ai-center flex-j-center bg-c3"><svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,8 +79,8 @@
                 <div class="rent-single__tab-top">€</div>
               </div>
               <div class="rent-single__tab-tops flex overflow-hidden rent-single__tab-tops_second">
-                <div class="rent-single__tab-top active">кв. м</div>
-                <div class="rent-single__tab-top">кв. фут</div>
+                <div class="rent-single__tab-top active">{% trans 'sq. m' %}<!--кв. м--></div>
+                <div class="rent-single__tab-top">{% trans 'sq. ft' %}<!--кв. фут--></div>
               </div>
             </div>
             {% endif %}
@@ -92,8 +92,8 @@
                     <div class="rent-single__day-left">₽{{ min_price_rub }}</div>
                     <div class="rent-single__day-right">
                       <div class="rent-single__day-seconds">
-                        <div class="rent-single__day-second active">₽{{ min_price_m2_rub }} за кв. м</div>
-                        <div class="rent-single__day-second">₽{{ min_price_ft2_rub }} за кв. фут</div>
+                        <div class="rent-single__day-second active">₽{{ min_price_m2_rub }} {% trans 'for sq. m' %}<!--за кв. м--></div>
+                        <div class="rent-single__day-second">₽{{ min_price_ft2_rub }} {% trans 'for sq. ft' %}<!--за кв. фут--></div>
                       </div>
                     </div>
                   </div>
@@ -101,8 +101,8 @@
                     <div class="rent-single__day-left">${{ min_price_usd }}</div>
                     <div class="rent-single__day-right">
                       <div class="rent-single__day-seconds">
-                        <div class="rent-single__day-second active">${{ min_price_m2_usd }} за кв. м</div>
-                        <div class="rent-single__day-second">${{ min_price_ft2_usd }} за кв. фут</div>
+                        <div class="rent-single__day-second active">${{ min_price_m2_usd }} {% trans 'for sq. m' %}<!--за кв. м--></div>
+                        <div class="rent-single__day-second">${{ min_price_ft2_usd }} {% trans 'for sq. ft' %}<!--за кв. фут--></div>
                       </div>
                     </div>
                   </div>
@@ -110,8 +110,8 @@
                     <div class="rent-single__day-left">€{{ min_price_eur }}</div>
                     <div class="rent-single__day-right">
                       <div class="rent-single__day-seconds">
-                        <div class="rent-single__day-second active">€{{ min_price_m2_eur }} за кв. м</div>
-                        <div class="rent-single__day-second">€{{ min_price_ft2_eur }} за кв. фут</div>
+                        <div class="rent-single__day-second active">€{{ min_price_m2_eur }} {% trans 'for sq. m' %}<!--за кв. м--></div>
+                        <div class="rent-single__day-second">€{{ min_price_ft2_eur }} {% trans 'for sq. ft' %}<!--за кв. фут--></div>
                       </div>
                     </div>
                   </div>
@@ -125,8 +125,8 @@
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
-                      <div class="rent-single__edges-title">площадь</div>
-                      <div class="rent-single__edges-subtitle">от {{ min_area_m2 }} кв. м</div>
+                      <div class="rent-single__edges-title">{% trans 'square' %}<!--площадь--></div>
+                      <div class="rent-single__edges-subtitle">{% trans 'from' %} {{ min_area_m2 }} {% trans 'sq. m' %}</div>
                     </div>
                   </div>
                   <div class="rent-single__edges-item flex flex-ai-end">
@@ -136,7 +136,7 @@
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
-                      <div class="rent-single__edges-title">Статус</div>
+                      <div class="rent-single__edges-title">{% trans 'Status' %}<!--Статус--></div>
                       <div class="rent-single__edges-subtitle">{% if listing_status %}{{ listing_status }}{% endif %}</div>
                     </div>
                   </div>
@@ -160,7 +160,7 @@
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
-                      <div class="rent-single__edges-title">Застройщик</div>
+                      <div class="rent-single__edges-title">{% trans 'Developer' %}<!--Застройщик--></div>
                       <div class="rent-single__edges-subtitle">{% if listing_developer_a_title %}{{ listing_developer_a_title }}{% endif %}</div>
                     </div>
                   </div>
@@ -171,12 +171,13 @@
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
-                      <div class="rent-single__edges-title">Сдача</div>
+                      <div class="rent-single__edges-title">{% trans 'Delivery' %}<!--Сдача--></div>
                       <div class="rent-single__edges-subtitle">{% if listing.planned_completion %}{{ listing.planned_completion }}{% else %} {% endif %}</div>
                     </div>
                   </div>
                 </div>
                 <div class="rent-single__desc rent-single__desc_2">{% if listing_description %}{{ listing_description|safe }}{% endif %}</div>
+                <!--
                 <div class="rent-single__floor">
                   <div class="rent-single__floor-title section__title font-tenor text-c3">План этажа</div>
                   <div class="rent-single__floor-row flex">
@@ -235,36 +236,40 @@
                     </div>
                   </div>
                 </div>
-                <div class="rent-single__advs-subtitle section__title font-tenor text-c3">Удобства</div>
-                <div class="rent-single__advs flex flex-wrap rent-single__advs_2">
+                -->
+                {% if amenities %}
+                  <div class="rent-single__advs-subtitle section__title font-tenor text-c3">{% trans 'Amenities' %}<!--Удобства--></div>
+                  <div class="rent-single__advs flex flex-wrap rent-single__advs_2">
 
-                  {% if amenities_ru %}
-                    {% for amenity in amenities_ru %}
-                      {% include 'includes/amenities/amenity.html' %}
-                    {% endfor %}
-                  {% endif %}
+                      {% for amenity in amenities %}
+                        {% include 'includes/amenities/amenity.html' %}
+                      {% endfor %}
+
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% if listing.address %}
+            <div class="rent-single__location">
+              <div class="rent-single__location-title font-tenor section__title text-c3">{% trans 'Location' %}<!--Местоположение--></div>
+              <div class="rent-single__location-item" id="rent-single__map-item"></div>
+
+              <div class="contacts__item">
+                <div class="contacts__item-subtitle">{{ listing.address|safe }}</div>
+                <div class="contacts__item-iframe">
+                  <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="rent-single__location">
-            <div class="rent-single__location-title font-tenor section__title text-c3">Местоположение</div>
-            <div class="rent-single__location-item" id="rent-single__map-item"></div>
-
-            <div class="contacts__item">
-              <div class="contacts__item-subtitle">{% if listing.address %}{{ listing.address|safe }}{% else %} {% endif %}</div>
-              <div class="contacts__item-iframe">
-                <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
+              <!--
+              <div class="rent-single__location-desc">
+                <p>15 мин до аэропорта Название</p>
+                <p>10 мин до метро Название</p>
+                <p>Достопримечательности рядом: Перечисление</p>
               </div>
+              -->
             </div>
-            <!--
-            <div class="rent-single__location-desc">
-              <p>15 мин до аэропорта Название</p>
-              <p>10 мин до метро Название</p>
-              <p>Достопримечательности рядом: Перечисление</p>
-            </div>
-            -->
-          </div>
+          {% endif %}
         </div>
         {% if realtor %}
            {% include 'includes/realtor/realtor_card.html' %}
@@ -343,7 +348,7 @@
   </div>
   <div class="estate overflow-hidden offers">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3">Другие проекты</div>
+      <div class="section__title font-tenor text-c3">{% trans 'Other projects' %}<!--Другие проекты--></div>
       <div class="estate__items flex flex-col">
         <div class="estate__item relative w-full">
 
