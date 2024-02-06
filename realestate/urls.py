@@ -12,6 +12,7 @@ urlpatterns = [
     path('i18n', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
     path('api/v1/listinglist/', ListingAPIView.as_view()),
+    path('api/v1/offers/buy/', OffersBuyAPIView.as_view()),
     path('', include('drfpasswordless.urls')),
 ]
 urlpatterns += i18n_patterns(

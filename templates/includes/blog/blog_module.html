@@ -9,8 +9,8 @@
       <div class="blog__block relative"><a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="{% url 'blog' %}">{% trans 'Go to the blog page' %}<!--Перейти в Блог--></a>
         <div class="blog__items relative flex">
 
-          {% if blog_range %}
-              {% for r in blog_range %}
+          {% if blog_articles %}
+              {% for blog_article in blog_articles %}
                 {% include 'includes/blog/blog_card.html' %}
               {% endfor %}
           {% else %}

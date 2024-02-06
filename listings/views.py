@@ -1,13 +1,19 @@
 import json
 import ast
+from functools import reduce
+import operator
 
+from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.utils.translation import gettext_lazy as _
+from django.db.models import Q
 
-from rest_framework import generics
+from rest_framework import generics, status
+from rest_framework.response import Response
 
 from our_company.models import OurCompany
+from pages.utils import check_number_var
 from .choices import price_choices, bedroom_choices, state_choices
 
 from .models import Listing
@@ -32,6 +38,81 @@ from .utils import convert
 class ListingAPIView(generics.ListAPIView):
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
+
+
+class OffersBuyAPIView(generics.GenericAPIView):
+    # queryset = Listing.objects.all()
+    # serializer_class = ListingSerializer
+
+    # def get_queryset(self, *args, **kwargs):
+    #     queryset = Listing.objects.all()
+    #     return queryset
+
+    def get(self, request, *args, **kwargs):
+        try:
+
+            price_min = check_number_var(request.query_params, 'price_min', result_type_str=False)
+            price_max = check_number_var(request.query_params, 'price_max', result_type_str=False)
+            estate_types = list(sorted(Listing.objects.values_list('type', flat=True).distinct()))
+            filters = list(
+                Q(type=estate_type) for estate_type in estate_types if 'estate_type_' + estate_type in request.query_params)
+
+            queryset = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+            if filters:
+                q = reduce(operator.or_, filters)
+                queryset = queryset.filter(q)
+
+            if price_max:
+                q = Q(price_a_min__gte=price_min) & Q(price_a_min__lte=price_max)
+            else:
+                if price_min:
+                    q = Q(price_a_min__gte=price_min)
+                else:
+                    q = None
+            if q:
+                queryset = queryset.filter(q)
+
+            count = queryset.count()
+            return Response({'count': count}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            print('Exception', e)
+            return Response({'error': str(e)}, status=status.HTTP_404_NOT_FOUND)
+
+
+
+    # def post(self, request):
+    #     listing_data = request.data
+    #     new_listing = Listing.objects.create(
+    #         title=listing_data['title'],
+    #     )
+    #     new_listing.save()
+    #
+    #     serializer = ListingSerializer(new_listing)
+    #     return Response(serializer.data)
+
+    # def put(self, request, *args, **kwargs):
+    #     id = request.query_params["id"]
+    #     listing_object = Listing.objects.get(id=id)
+    #
+    #     data = request.data
+    #
+    #     listing_object.title = data["title"]
+    #     listing_object.save()
+    #
+    #     serializer = ListingSerializer(listing_object)
+    #     return Response(serializer.data)
+
+    # def patch(self, request, *args, **kwargs):
+    #     id = request.query_params["id"]
+    #     listing_object = Listing.objects.get(id=id)
+    #
+    #     data = request.data
+    #
+    #     listing_object.title = data.get('title', listing_object.title)
+    #     listing_object.save()
+    #     serializer = ListingSerializer(listing_object)
+    #     return Response(serializer.data)
 
 
 def listing(request, listing_id):

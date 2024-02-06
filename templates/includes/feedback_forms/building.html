@@ -27,16 +27,11 @@
             <div class="service__form-input w-full form__input">
               <input type="text" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required="required"/>
             </div>
-            <!--
-            <div class="service__form-input w-full form__input">
-              <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
-            </div>
-            -->
             <div class="service__form-input w-full form__input">
               <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
             </div>
           </div>
-          <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit" value="Send">{% trans 'Leave a request' %}<!--Оставить заявку--></button>
+          <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit" value="Send">{% trans 'Leave a request' %}</button>
         </div>
       </form>
 

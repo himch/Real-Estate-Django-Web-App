@@ -6,6 +6,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from django_admin_geomap import geomap_context
+
+from blog.models import Article
+from catalogs.models import Catalog
 from listings.choices import price_choices, bedroom_choices, state_choices
 
 from listings.models import Listing, District, Amenity, Price
@@ -30,10 +33,13 @@ def index(request):
     rent_paginator = Paginator(rent_listings, 6)
     paged_rent_listings = rent_paginator.get_page(page)
 
+    catalogs = Catalog.objects.all()
+    blog_articles = Article.objects.all()
+
     context = {
         'our_company': our_company,
-        'range': range(9),
-        'blog_range': range(3),
+        'catalogs': catalogs,
+        'blog_articles': blog_articles,
         'rent_listings': paged_rent_listings,
         'listings': paged_listings,
         'state_choices': state_choices,
@@ -50,6 +56,9 @@ def buy(request):
 
     # информация о собственной компании
     our_company = OurCompany.objects.all().first()
+
+    # каталоги
+    catalogs = Catalog.objects.all()
 
     # типы валют
     currencies = [{'value': 'usd', 'title': '$'},
@@ -183,7 +192,7 @@ def buy(request):
 
     context = {
         'our_company': our_company,
-        'range': range(9),
+        'catalogs': catalogs,
         'blog_range': range(3),
         'len_listings': len(listings),
         'rent_listings': paged_rent_listings,
@@ -206,6 +215,7 @@ def arenda(request):
     listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='rent')
 
     our_company = OurCompany.objects.all().first()
+    catalogs = Catalog.objects.all()
 
     paginator = Paginator(listings, 9)
     page = request.GET.get('page')
@@ -213,7 +223,7 @@ def arenda(request):
 
     context = {
         'our_company': our_company,
-        'range': range(9),
+        'catalogs': catalogs,
         'blog_range': range(3),
         'listings': paged_listings,
         'state_choices': state_choices,
@@ -229,6 +239,7 @@ def izbrannoe(request):
     listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
 
     our_company = OurCompany.objects.all().first()
+    catalogs = Catalog.objects.all()
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
@@ -236,7 +247,7 @@ def izbrannoe(request):
 
     context = {
         'our_company': our_company,
-        'range': range(9),
+        'catalogs': catalogs,
         'listings': paged_listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
@@ -251,6 +262,7 @@ def sravnenie(request):
     listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
 
     our_company = OurCompany.objects.all().first()
+    catalogs = Catalog.objects.all()
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
@@ -258,7 +270,7 @@ def sravnenie(request):
 
     context = {
         'our_company': our_company,
-        'range': range(9),
+        'catalogs': catalogs,
         'listings': paged_listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
@@ -307,6 +319,7 @@ def blog(request):
 
 def katalogi(request):
     our_company = OurCompany.objects.all().first()
+    catalogs = Catalog.objects.all()
 
     # Get all realtors
     realtors = Realtor.objects.order_by('-hire_date')
@@ -322,7 +335,7 @@ def katalogi(request):
 
     context = {
         'our_company': our_company,
-        'range': range(9),
+        'catalogs': catalogs,
         'blog_range': range(3),
         'listings': paged_listings,
         'realtors': realtors,

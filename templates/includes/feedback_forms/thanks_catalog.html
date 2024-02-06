@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="modal modal_thank" id="modal-thank-catalog">
+    <div class="modal__content relative margin-center">
+      <div class="modal__close absolute">
+            <picture>
+              <source type="image/webp" srcset="" data-srcset="/img/modal/type/close.webp"><img class="lazy " width="14" height="14" src="" data-src="/img/modal/type/close.png" alt="" loading="lazy">
+            </picture>
+      </div>
+      <div class="modal_thank__content">
+        <div class="modal_thank__svg flex flex-j-center">
+            <svg width="67" height="67" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M61.4177 48.0172C61.4177 50.5297 60.7198 52.9025 59.4635 54.9125C57.1464 58.7929 52.9031 61.4171 48.0177 61.4171C43.1323 61.4171 38.861 58.7929 36.5718 54.9125C35.3435 52.9025 34.6177 50.5297 34.6177 48.0172C34.6177 40.6192 40.6198 34.6172 48.0177 34.6172C55.4156 34.6172 61.4177 40.6192 61.4177 48.0172Z" stroke="#156B7F" stroke-width="4.1875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M42.7979 48.0168L46.092 51.3109L53.2387 44.7227" stroke="#156B7F" stroke-width="4.1875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M61.4168 24.2598C61.4168 29.7594 59.9931 34.6168 57.7597 38.8322C55.3031 36.236 51.8414 34.6169 48.0168 34.6169C40.6189 34.6169 34.6168 40.619 34.6168 48.0169C34.6168 51.4506 35.9289 54.5773 38.0506 56.9503C37.0177 57.4248 36.0685 57.8156 35.231 58.0948C34.2818 58.4298 32.7185 58.4298 31.7693 58.0948C23.6735 55.331 5.5835 43.8015 5.5835 24.2598C5.5835 15.6335 12.5347 8.6543 21.1052 8.6543C26.1581 8.6543 30.6806 11.1111 33.5002 14.8798C36.3197 11.1111 40.8422 8.6543 45.8952 8.6543C54.4656 8.6543 61.4168 15.6335 61.4168 24.2598Z" stroke="#156B7F" stroke-width="4.1875" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="modal_thank__title text-500 text-c5 text-center">{% trans 'Thanks for sending!' %}<!--Благодарим за отправку!--></div>
+        <div class="modal_thank__subtitle text-center margin-center">{% trans 'During the day, our manager will send you a catalog to the specified email or WhatsApp!' %}<!--В течение дня наш менеджер пришлёт вам каталог на указанную почту или WhatsApp!--></div>
+      </div>
+    </div>
+</div>

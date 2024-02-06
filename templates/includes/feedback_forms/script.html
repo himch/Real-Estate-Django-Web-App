@@ -14,7 +14,10 @@ $(document).ready(
       url: "{% url 'contact' %}",
       data:  serializedData,
       success: function(data){
-        $("#result").text(data["result"]);
+        $("[class*='modal_type-first']").removeClass('active')
+        $("[class*='modal_type-second']").removeClass('active')
+        $('#modal-thank-catalog').addClass('active');
+        /* $("#result").text(data["result"]); */
       },
     });
   })
