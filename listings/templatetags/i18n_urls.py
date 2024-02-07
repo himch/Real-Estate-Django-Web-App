@@ -14,10 +14,22 @@ def change_lang(context, lang: str, *args, **kwargs):
 @register.simple_tag(takes_context=True)
 def get_attr(context, obj_name: str, attr_name: str, *args, **kwargs):
     """ Returns the value of dynamic_var_name into the context """
+
+    def safe_iterate_get(iterate_object, index, default):
+        try:
+            return iterate_object[index]
+        except IndexError:
+            return default
+
     obj = context.get(obj_name, None)
     if obj:
-        if hasattr(obj, attr_name):
-            # print('get_attr', obj_name, attr_name, getattr(obj, attr_name))
-            return getattr(obj, attr_name)
-    # print('get_attr', obj_name, attr_name, None)
+        for attr in attr_name.split('.'):
+            if attr.isdigit():
+                obj = safe_iterate_get(obj, int(attr), None)
+            else:
+                if hasattr(obj, attr):
+                    obj = getattr(obj, attr)
+                else:
+                    return None
+        return obj
     return None

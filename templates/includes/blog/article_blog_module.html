@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="article-items overflow-hidden">
+    <div class="container margin-center">
+      <div class="article-items__top relative">
+        <div class="section__title font-tenor text-c3">{% trans 'Other articles' %}<!--Другие статьи--></div>
+          <a class="article-items__link text-c3 text-underline absolute text-500 right-0" href="{% url 'blog' %}">{% trans 'Go to Blog' %}<!--Перейти в Блог--></a>
+      </div>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+
+          {% if blog_articles %}
+              {% for blog_article in blog_articles %}
+                {% include 'includes/blog/article_blog_card.html' %}
+              {% endfor %}
+          {% else %}
+            <div class="col-md-12">
+              <p>{% trans 'No Articles Available' %}</p>
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+</div>

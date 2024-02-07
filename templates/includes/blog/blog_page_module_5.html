@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% if page_obj.4 %}
+<div class="articles__item articles__item_5 overflow-hidden flex flex-ai-center">
+    <div class="articles__item-img img_cover img_br">
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="{{ page_obj.4.photo.url }}"/>
+          <img class="lazy " width="288" height="221" src="" data-src="{{ page_obj.4.photo.url }}" alt="" loading="lazy"/>
+      </picture>
+    </div>
+    <div class="articles__item-text relative">
+      <div class="articles__item-title text-c3">{% get_attr 'page_obj' '4.title_'|add:LANGUAGE_CODE %}</div>
+      <div class="articles__item-tags absolute top-0 right-0">
+        {% if page_obj.4.time_update %}
+            <div class="articles__item-date">{{ page_obj.4.time_update|date:'d.m.Y' }}</div>
+            <div class="articles__item-status">{% trans 'updated' %}</div>
+        {% else %}
+            <div class="articles__item-date">{{ page_obj.4.time_create|date:'d.m.Y' }}</div>
+        {% endif %}
+      </div>
+      <div class="articles__item-desc">{% get_attr 'page_obj' '4.category_'|add:LANGUAGE_CODE %}</div>
+        <a class="articles__item-link text-c3 text-underline" href="{% url 'article' page_obj.4.slug %}">{% trans 'Read' %}</a>
+    </div>
+</div>
+{% endif %}

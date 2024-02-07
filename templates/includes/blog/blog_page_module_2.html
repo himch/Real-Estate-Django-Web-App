@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% if page_obj.1 %}
+<div class="articles__item articles__item_2 overflow-hidden bg lazy flex flex-ai-end relative text-c2" data-bg="{{ page_obj.1.photo.url }}">
+    <div class="articles__item-tags absolute top-0 right-0">
+        {% if page_obj.1.time_update %}
+            <div class="articles__item-status">{% trans 'updated' %}</div>
+            <div class="articles__item-date">{{ page_obj.1.time_update|date:'d.m.Y' }}</div>
+        {% else %}
+            <div class="articles__item-date">{{ page_obj.1.time_create|date:'d.m.Y' }}</div>
+        {% endif %}
+    </div>
+    <div class="articles__item-text relative">
+      <div class="articles__item-title">{% get_attr 'page_obj' '1.title_'|add:LANGUAGE_CODE %}</div>
+      <div class="articles__item-desc">{% get_attr 'page_obj' '1.category_'|add:LANGUAGE_CODE %}</div>
+      <a class="articles__item-link text-underline" href="{% url 'article' page_obj.1.slug %}">{% trans 'Read' %}</a>
+    </div>
+</div>
+{% endif %}

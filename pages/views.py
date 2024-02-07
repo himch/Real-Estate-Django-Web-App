@@ -34,12 +34,15 @@ def index(request):
     paged_rent_listings = rent_paginator.get_page(page)
 
     catalogs = Catalog.objects.all()
+
     blog_articles = Article.objects.all()
+    blog_paginator = Paginator(blog_articles, 6)
+    paged_blog_articles = blog_paginator.get_page(1)
 
     context = {
         'our_company': our_company,
         'catalogs': catalogs,
-        'blog_articles': blog_articles,
+        'blog_articles': paged_blog_articles,
         'rent_listings': paged_rent_listings,
         'listings': paged_listings,
         'state_choices': state_choices,
@@ -299,24 +302,6 @@ def about(request):
     return render(request, 'includes/content/dadi.html', context)
 
 
-def blog(request):
-    our_company = OurCompany.objects.all().first()
-
-    # Get all realtors
-    realtors = Realtor.objects.order_by('-hire_date')
-
-    # Get MVP
-    mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
-
-    context = {
-        'our_company': our_company,
-        'realtors': realtors,
-        'mvp_realtors': mvp_realtors
-    }
-
-    return render(request, 'includes/content/blog.html', context)
-
-
 def katalogi(request):
     our_company = OurCompany.objects.all().first()
     catalogs = Catalog.objects.all()
@@ -344,29 +329,6 @@ def katalogi(request):
 
     return render(request, 'includes/content/katalogi.html', context)
 
-
-def article(request):
-    our_company = OurCompany.objects.all().first()
-    # Get all realtors
-    realtors = Realtor.objects.order_by('-hire_date')
-
-    # Get MVP
-    mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
-
-    listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
-
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
-
-    context = {
-        'our_company': our_company,
-        'listings': paged_listings,
-        'realtors': realtors,
-        'mvp_realtors': mvp_realtors
-    }
-
-    return render(request, 'includes/content/article.html', context)
 
 # def arenda_single(request):
 #     # Get all realtors

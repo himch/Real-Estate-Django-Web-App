@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="swiper-slide">
+    <div class="article-items__item articles__item articles__item_1 overflow-hidden flex-shrink">
+      <div class="articles__item-img img_cover img_br">
+        <picture>
+          <source type="image/webp" srcset="" data-srcset="{{ blog_article.photo.url }}"/>
+          <img class="lazy " width="333" height="206" src="" data-src="/{{ blog_article.photo.url }}" alt="" loading="lazy"/>
+        </picture>
+      </div>
+      <div class="articles__item-text relative">
+        <div class="articles__item-title text-c3">{% get_attr 'blog_article' 'title_'|add:LANGUAGE_CODE %}</div>
+        <div class="articles__item-tags absolute top-0 right-0">
+          {% if blog_article.time_update %}
+              <div class="articles__item-date">{{ blog_article.time_update|date:'d.m.Y' }}</div>
+              <div class="articles__item-status">{% trans 'updated' %}</div>
+          {% else %}
+              <div class="articles__item-date">{{ blog_article.time_create|date:'d.m.Y' }}</div>
+          {% endif %}
+        </div>
+        <div class="articles__item-desc">{% get_attr 'blog_article' 'category_'|add:LANGUAGE_CODE %}</div>
+        <a class="articles__item-link text-c3 text-underline" href="{% url 'article' blog_article.slug %}">{% trans 'Read' %}</a>
+      </div>
+    </div>
+</div>

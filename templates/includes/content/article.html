@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load humanize %}
 
 {% block title %} | Article {% endblock %}
@@ -9,66 +9,25 @@
 <main>
   <div class="article">
     <div class="container margin-center">
-      <div class="article__title font-tenor text-c3">Топ-3 новых достопримечательности в октябре</div>
-      <div class="article__img relative"><a class="article__img-link flex flex-ai-center absolute top-0 left-0" href="/blog.html">
+      <div class="article__title font-tenor text-c3">{% get_attr 'article' 'title_'|add:LANGUAGE_CODE %}</div>
+      <div class="article__img relative"><a class="article__img-link flex flex-ai-center absolute top-0 left-0" href="{% url 'blog' %}">
           <div class="article__img-svg flex-shrink"><svg width="30" height="12" viewBox="0 0 30 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28.876 6.53033C29.1689 6.23743 29.1689 5.76256 28.876 5.46967L24.1031 0.696697C23.8102 0.403804 23.3353 0.403804 23.0424 0.696697C22.7495 0.989591 22.7495 1.46446 23.0424 1.75736L27.285 6L23.0424 10.2426C22.7495 10.5355 22.7495 11.0104 23.0424 11.3033C23.3353 11.5962 23.8102 11.5962 24.1031 11.3033L28.876 6.53033ZM0.345703 6.75L28.3457 6.75L28.3457 5.25L0.345703 5.25L0.345703 6.75Z" fill="#282828"/>
-</svg>
+            <path d="M28.876 6.53033C29.1689 6.23743 29.1689 5.76256 28.876 5.46967L24.1031 0.696697C23.8102 0.403804 23.3353 0.403804 23.0424 0.696697C22.7495 0.989591 22.7495 1.46446 23.0424 1.75736L27.285 6L23.0424 10.2426C22.7495 10.5355 22.7495 11.0104 23.0424 11.3033C23.3353 11.5962 23.8102 11.5962 24.1031 11.3033L28.876 6.53033ZM0.345703 6.75L28.3457 6.75L28.3457 5.25L0.345703 5.25L0.345703 6.75Z" fill="#282828"/>
+            </svg>
           </div>
-          <div class="article__img-title">DADI блог</div></a>
+          <div class="article__img-title">{% trans 'DADI Blog' %}></div></a>
         <div class="article__img-main">
           <picture>
-            <source type="image/webp" srcset="" data-srcset="/img/article/1.webp"/><img class="lazy " width="1160" height="337" src="" data-src="/img/article/1.jpg" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="" data-srcset="{{ article.photo.url }}"/>
+            <img class="lazy " width="1160" height="337" src="" data-src="{{ article.photo.url }}" alt="" loading="lazy"/>
           </picture>
         </div>
       </div>
       <div class="article__items flex flex-col">
         <div class="article__item flex">
           <div class="article__item-text">
-            <div class="article__item-title font-tenor text-c3">1. Dubai Miracle Garden</div>
-            <div class="article__item-desc">Парк со 150 млн цветов и 120 видами растений площадью 72 000 м². Здесь представлены огромные цветочные скульптуры: от аэробуса авиакомпании Emirates до 18 м Микки Мауса.</div>
-            <div class="article__item-list">
-              <div class="article__item-li flex"><span class="text-c5 text-500">Адрес:</span> Al Barsha South</div>
-              <div class="article__item-li flex"><span class="text-c5 text-500">Открытие:</span> 1 октября</div>
-              <div class="article__item-li flex"><span class="text-c5 text-500">Билеты:</span> 22 $ для детей, 26 $ для взрослых</div>
-            </div>
-          </div>
-          <div class="article__item-img img_cover img_br flex-shrink">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/article/2.webp"/><img class="lazy " width="500" height="309" src="" data-src="/img/article/2.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-        </div>
-        <div class="article__item flex">
-          <div class="article__item-text">
-            <div class="article__item-title font-tenor text-c3">2. Global Village</div>
-            <div class="article__item-desc">28 сезон предложит 27 павильонов, посвящённых разным странам, живые выступления, детский театр и гастрономические приключения. Впечатляющие фейерверки по пятницам и субботам.</div>
-            <div class="article__item-list">
-              <div class="article__item-li flex"><span class="text-c5 text-500">Адрес:</span> Mohamed Bin Zayed Road</div>
-              <div class="article__item-li flex"><span class="text-c5 text-500">Открытие:</span> 18 октября</div>
-              <div class="article__item-li flex"><span class="text-c5 text-500">Билеты:</span> 5 $ (у ворот), 7 $ (онлайн)</div>
-            </div>
-          </div>
-          <div class="article__item-img img_cover img_br flex-shrink">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/article/3.webp"/><img class="lazy " width="500" height="309" src="" data-src="/img/article/3.jpg" alt="" loading="lazy"/>
-            </picture>
-          </div>
-        </div>
-        <div class="article__item flex">
-          <div class="article__item-text">
-            <div class="article__item-title font-tenor text-c3">3. Al Wasl Plaza и Surreal</div>
-            <div class="article__item-desc">Al Wasl Plaza – это купол диаметром 130 м и высотой 67 м с иммерсивным проекционным экраном с обзором 360°. Surreal – захватывающий аттракцион, объединяющий воду, свет, огонь и музыку. Летом нет световой части шоу.</div>
-            <div class="article__item-list">
-              <div class="article__item-li flex"><span class="text-c5 text-500">Адрес:</span> Expo City</div>
-              <div class="article__item-li flex"><span class="text-c5 text-500">Открытие:</span> октябрь</div>
-              <div class="article__item-li flex"><span class="text-c5 text-500">Билеты:</span> бесплатно</div>
-            </div>
-          </div>
-          <div class="article__item-img img_cover img_br flex-shrink">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/article/4.webp"/><img class="lazy " width="500" height="309" src="" data-src="/img/article/4.jpg" alt="" loading="lazy"/>
-            </picture>
+            <div class="article__item-title font-tenor text-c3">{% get_attr 'article' 'category_'|add:LANGUAGE_CODE %}</div>
+            <div class="article__item-desc">{% get_attr 'article' 'text_'|add:LANGUAGE_CODE %}</div>
           </div>
         </div>
       </div>
@@ -77,9 +36,11 @@
   <div class="telegram">
     <div class="container margin-center">
       <div class="telegram__item relative">
-        <div class="telegram__subtitle text-center relative">со свежими новостями из мира Дубая</div>
-        <div class="section__title font-tenor text-c3 text-center relative">Телеграм канал DADI</div>
-        <div class="telegram__btns flex flex-j-between margin-center relative flex-ai-center"><a class="telegram__btns-link text-c5 text-underline" href="#!">@Название_канала</a><a class="p-btn flex flex-ai-center flex-j-center text-500" href="#!">Перейти в канал</a></div>
+        <div class="telegram__subtitle text-center relative">{% trans 'with the latest news from the world of Dubai' %}<!--со свежими новостями из мира Дубая--></div>
+        <div class="section__title font-tenor text-c3 text-center relative">{% trans 'Telegram channel DADI' %}<!--Телеграм канал DADI--></div>
+        <div class="telegram__btns flex flex-j-between margin-center relative flex-ai-center">
+          <a class="telegram__btns-link text-c5 text-underline" href="{{ our_company.telegram }}" target="_blank">{{ our_company.telegram }}</a>
+          <a class="p-btn flex flex-ai-center flex-j-center text-500" href="{{ our_company.telegram }}!" target="_blank">{% trans 'Go to channel' %}<!--Перейти в канал--></a></div>
         <div class="telegram__img absolute bottom-0">
           <picture>
             <source type="image/webp" srcset="" data-srcset="/img/blog/telegram/iPhone.webp"/><img class="lazy " width="1002" height="484" src="" data-src="/img/blog/telegram/iPhone.jpg" alt="" loading="lazy"/>
@@ -88,118 +49,6 @@
       </div>
     </div>
   </div>
-  <div class="article-items overflow-hidden">
-    <div class="container margin-center">
-      <div class="article-items__top relative">
-        <div class="section__title font-tenor text-c3">Другие статьи</div><a class="article-items__link text-c3 text-underline absolute text-500 right-0" href="/blog.html">Перейти в Блог</a>
-      </div>
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="article-items__item articles__item articles__item_1 overflow-hidden flex-shrink">
-              <div class="articles__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/article/items/1.webp"/><img class="lazy " width="333" height="206" src="" data-src="/img/article/items/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="articles__item-text relative">
-                <div class="articles__item-title text-c3">Дубай: лучшие районы для жизни</div>
-                <div class="articles__item-tags absolute top-0 right-0">
-                  <div class="articles__item-date">21.10.2023</div>
-                  <div class="articles__item-status">обновлено</div>
-                </div>
-                <div class="articles__item-desc">Жизнь в дубае</div><a class="articles__item-link text-c3 text-underline" href="/article.html">Читать</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="article-items__item articles__item articles__item_1 overflow-hidden flex-shrink">
-              <div class="articles__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/article/items/1.webp"/><img class="lazy " width="333" height="206" src="" data-src="/img/article/items/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="articles__item-text relative">
-                <div class="articles__item-title text-c3">Дубай: лучшие районы для жизни</div>
-                <div class="articles__item-tags absolute top-0 right-0">
-                  <div class="articles__item-date">21.10.2023</div>
-                  <div class="articles__item-status">обновлено</div>
-                </div>
-                <div class="articles__item-desc">Жизнь в дубае</div><a class="articles__item-link text-c3 text-underline" href="/article.html">Читать</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="article-items__item articles__item articles__item_1 overflow-hidden flex-shrink">
-              <div class="articles__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/article/items/1.webp"/><img class="lazy " width="333" height="206" src="" data-src="/img/article/items/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="articles__item-text relative">
-                <div class="articles__item-title text-c3">Дубай: лучшие районы для жизни</div>
-                <div class="articles__item-tags absolute top-0 right-0">
-                  <div class="articles__item-date">21.10.2023</div>
-                  <div class="articles__item-status">обновлено</div>
-                </div>
-                <div class="articles__item-desc">Жизнь в дубае</div><a class="articles__item-link text-c3 text-underline" href="/article.html">Читать</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="article-items__item articles__item articles__item_1 overflow-hidden flex-shrink">
-              <div class="articles__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/article/items/1.webp"/><img class="lazy " width="333" height="206" src="" data-src="/img/article/items/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="articles__item-text relative">
-                <div class="articles__item-title text-c3">Дубай: лучшие районы для жизни</div>
-                <div class="articles__item-tags absolute top-0 right-0">
-                  <div class="articles__item-date">21.10.2023</div>
-                  <div class="articles__item-status">обновлено</div>
-                </div>
-                <div class="articles__item-desc">Жизнь в дубае</div><a class="articles__item-link text-c3 text-underline" href="/article.html">Читать</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="article-items__item articles__item articles__item_1 overflow-hidden flex-shrink">
-              <div class="articles__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/article/items/1.webp"/><img class="lazy " width="333" height="206" src="" data-src="/img/article/items/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="articles__item-text relative">
-                <div class="articles__item-title text-c3">Дубай: лучшие районы для жизни</div>
-                <div class="articles__item-tags absolute top-0 right-0">
-                  <div class="articles__item-date">21.10.2023</div>
-                  <div class="articles__item-status">обновлено</div>
-                </div>
-                <div class="articles__item-desc">Жизнь в дубае</div><a class="articles__item-link text-c3 text-underline" href="/article.html">Читать</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="article-items__item articles__item articles__item_1 overflow-hidden flex-shrink">
-              <div class="articles__item-img img_cover img_br">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/article/items/1.webp"/><img class="lazy " width="333" height="206" src="" data-src="/img/article/items/1.jpg" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="articles__item-text relative">
-                <div class="articles__item-title text-c3">Дубай: лучшие районы для жизни</div>
-                <div class="articles__item-tags absolute top-0 right-0">
-                  <div class="articles__item-date">21.10.2023</div>
-                  <div class="articles__item-status">обновлено</div>
-                </div>
-                <div class="articles__item-desc">Жизнь в дубае</div><a class="articles__item-link text-c3 text-underline" href="/article.html">Читать</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% include 'includes/blog/article_blog_module.html' %}
 </main>
 {% endblock %}
