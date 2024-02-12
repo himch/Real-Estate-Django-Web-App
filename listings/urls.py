@@ -1,8 +1,10 @@
 from django.urls import path
 from django.conf.urls.static import static
+from django.contrib.auth.decorators import login_required
 
 from realestate import settings
 from . import views
+
 
 urlpatterns = [
     # path('', views.index, name='listings'),

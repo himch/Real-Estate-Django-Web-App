@@ -242,19 +242,20 @@ def izbrannoe(request):
     listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
 
     our_company = OurCompany.objects.all().first()
-    catalogs = Catalog.objects.all()
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
+    blog_articles = Article.objects.all()
+    blog_paginator = Paginator(blog_articles, 6)
+    paged_blog_articles = blog_paginator.get_page(1)
+
     context = {
         'our_company': our_company,
-        'catalogs': catalogs,
         'listings': paged_listings,
-        'state_choices': state_choices,
-        'bedroom_choices': bedroom_choices,
-        'price_choices': price_choices
+        'rent_listings': paged_listings,
+        'blog_articles': paged_blog_articles,
     }
 
     # return render(request, 'pages/index.html', context)
@@ -277,11 +278,13 @@ def sravnenie(request):
         'listings': paged_listings,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
-        'price_choices': price_choices
+        'price_choices': price_choices,
+
     }
 
     # return render(request, 'pages/index.html', context)
     return render(request, 'includes/content/sravnenie.html', context)
+
 
 
 def about(request):

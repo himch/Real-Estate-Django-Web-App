@@ -3,11 +3,16 @@ import ast
 from functools import reduce
 import operator
 
-from django.http import Http404
+from django.contrib import auth
+from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, render
+from django.views import View
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.utils.translation import gettext_lazy as _
 from django.db.models import Q
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
+
 
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -16,7 +21,7 @@ from our_company.models import OurCompany
 from pages.utils import check_number_var
 from .choices import price_choices, bedroom_choices, state_choices
 
-from .models import Listing
+from .models import Listing, Bookmark, Favorite
 from .serializers import ListingSerializer
 from .utils import convert
 
@@ -55,7 +60,8 @@ class OffersBuyAPIView(generics.GenericAPIView):
             price_max = check_number_var(request.query_params, 'price_max', result_type_str=False)
             estate_types = list(sorted(Listing.objects.values_list('type', flat=True).distinct()))
             filters = list(
-                Q(type=estate_type) for estate_type in estate_types if 'estate_type_' + estate_type in request.query_params)
+                Q(type=estate_type) for estate_type in estate_types if
+                'estate_type_' + estate_type in request.query_params)
 
             queryset = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
             if filters:
@@ -78,8 +84,6 @@ class OffersBuyAPIView(generics.GenericAPIView):
         except Exception as e:
             print('Exception', e)
             return Response({'error': str(e)}, status=status.HTTP_404_NOT_FOUND)
-
-
 
     # def post(self, request):
     #     listing_data = request.data
@@ -153,7 +157,8 @@ def listing(request, listing_id):
         min_price_ft2_rub = min_price_ft2_usd = min_price_ft2_eur = None
 
     if listing_item.listing_amenities is not None:
-        amenities = [amenity[request.LANGUAGE_CODE] for amenity in json.loads(listing_item.listing_amenities) if request.LANGUAGE_CODE in amenity]
+        amenities = [amenity[request.LANGUAGE_CODE] for amenity in json.loads(listing_item.listing_amenities) if
+                     request.LANGUAGE_CODE in amenity]
     else:
         amenities = None
 
@@ -240,7 +245,8 @@ def rent(request, listing_id):
         max_price_rub = max_price_usd = max_price_eur = None
 
     if listing_item.listing_amenities is not None:
-        amenities = [amenity[request.LANGUAGE_CODE] for amenity in json.loads(listing_item.listing_amenities) if request.LANGUAGE_CODE in amenity]
+        amenities = [amenity[request.LANGUAGE_CODE] for amenity in json.loads(listing_item.listing_amenities) if
+                     request.LANGUAGE_CODE in amenity]
     else:
         amenities = None
 
@@ -282,6 +288,31 @@ def rent(request, listing_id):
 
     # return render(request, 'listings/listing.html', context)
     return render(request, 'includes/content/arenda-single.html', context)
+
+
+class BookmarkAPIView(generics.GenericAPIView):
+    model = None
+
+    def post(self, request, listing_id):
+        user = auth.get_user(request)
+        bookmark, created = self.model.objects.get_or_create(user=user, listing_id=listing_id)
+        if not created:
+            bookmark.delete()
+
+        if created:
+            return Response(
+                {"result": created,
+                 "count": self.model.objects.filter(listing_id=listing_id).count(),
+                 'message': 'Контент добавлен в избранное'},
+                status=status.HTTP_201_CREATED
+            )
+        else:
+            return Response(
+                {"result": created,
+                 "count": self.model.objects.filter(listing_id=listing_id).count(),
+                 'message': 'Контент удален из избранного'},
+                status=status.HTTP_200_OK
+            )
 
 
 def search(request):
@@ -329,31 +360,3 @@ def search(request):
     }
 
     return render(request, 'listings/search.html', context)
-
-
-# amenities_type = {('air', 'conditioner'): 'air-conditioner',
-#                   ('balcony', ): 'balcony',
-#                   ('balcony', ): 'bed',
-#                   'celebrate',
-#                   'clock',
-#                   'clothes-hanger',
-#                   'dishwasher',
-#                   'dont-smoke',
-#                   'door',
-#                   'element',
-#                   'farming',
-#                   'guard',
-#                   'key-chain',
-#                   'location-pin',
-#                   'monitor',
-#                   'parking',
-#                   'paw',
-#                   'profile-2user',
-#                   'shower',
-#                   'slider',
-#                   'swimming-pool',
-#                   'tray',
-#                   'wardrobe',
-#                   'weight',
-#                   'wifi'
-#                   }

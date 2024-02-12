@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -13,6 +14,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/listinglist/', ListingAPIView.as_view()),
     path('api/v1/offers/buy/', OffersBuyAPIView.as_view()),
+    path('api/v1/offers/<int:listing_id>/bookmark/', login_required(BookmarkAPIView.as_view(model=Bookmark)), name='listing_bookmark'),
+    path('api/v1/offers/<int:listing_id>/favorite/', login_required(BookmarkAPIView.as_view(model=Favorite)), name='listing_favorite'),
+    path('tinymce/', include('tinymce.urls')),
     path('', include('drfpasswordless.urls')),
 ]
 urlpatterns += i18n_patterns(

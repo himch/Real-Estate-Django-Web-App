@@ -15,7 +15,7 @@
             <path d="M28.876 6.53033C29.1689 6.23743 29.1689 5.76256 28.876 5.46967L24.1031 0.696697C23.8102 0.403804 23.3353 0.403804 23.0424 0.696697C22.7495 0.989591 22.7495 1.46446 23.0424 1.75736L27.285 6L23.0424 10.2426C22.7495 10.5355 22.7495 11.0104 23.0424 11.3033C23.3353 11.5962 23.8102 11.5962 24.1031 11.3033L28.876 6.53033ZM0.345703 6.75L28.3457 6.75L28.3457 5.25L0.345703 5.25L0.345703 6.75Z" fill="#282828"/>
             </svg>
           </div>
-          <div class="article__img-title">{% trans 'DADI Blog' %}></div></a>
+          <div class="article__img-title">{% trans 'DADI Blog' %}</div></a>
         <div class="article__img-main">
           <picture>
             <source type="image/webp" srcset="" data-srcset="{{ article.photo.url }}"/>
@@ -27,7 +27,9 @@
         <div class="article__item flex">
           <div class="article__item-text">
             <div class="article__item-title font-tenor text-c3">{% get_attr 'article' 'category_'|add:LANGUAGE_CODE %}</div>
+            {% autoescape off %}
             <div class="article__item-desc">{% get_attr 'article' 'text_'|add:LANGUAGE_CODE %}</div>
+            {% endautoescape %}
           </div>
         </div>
       </div>
@@ -35,6 +37,7 @@
   </div>
   <div class="telegram">
     <div class="container margin-center">
+      <div class="telegram__item relative">
       <div class="telegram__item relative">
         <div class="telegram__subtitle text-center relative">{% trans 'with the latest news from the world of Dubai' %}<!--со свежими новостями из мира Дубая--></div>
         <div class="section__title font-tenor text-c3 text-center relative">{% trans 'Telegram channel DADI' %}<!--Телеграм канал DADI--></div>

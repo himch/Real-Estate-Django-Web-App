@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'modules.services',
     'imagekit',
+    'tinymce',
     'django_admin_geomap',
     'rest_framework',
     'rest_framework.authtoken',

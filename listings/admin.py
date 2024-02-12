@@ -1,8 +1,7 @@
 from django.contrib import admin
 from rest_framework.authtoken.admin import TokenAdmin
 
-from .models import Listing
-
+from .models import Listing, Bookmark, Favorite
 
 TokenAdmin.raw_id_fields = ['user']
 
@@ -39,3 +38,5 @@ class ListingAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Listing, ListingAdmin)
+admin.site.register(Bookmark)
+admin.site.register(Favorite)

@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
+from tinymce.models import HTMLField
 
 User = get_user_model()
 
@@ -22,9 +23,12 @@ class Article(models.Model):
     category_en = models.CharField(verbose_name='Chapter en', max_length=50)
     category_ru = models.CharField(verbose_name='Chapter ru', max_length=50)
     category_ar = models.CharField(verbose_name='Chapter ar', max_length=50)
-    text_en = models.TextField(verbose_name='Text en')
-    text_ru = models.TextField(verbose_name='Text ru')
-    text_ar = models.TextField(verbose_name='Text ar')
+    text_en = HTMLField()
+    text_ru = HTMLField()
+    text_ar = HTMLField()
+    # text_en = models.TextField(verbose_name='Text en')
+    # text_ru = models.TextField(verbose_name='Text ru')
+    # text_ar = models.TextField(verbose_name='Text ar')
     photo = models.ImageField(
         verbose_name='Post preview photo',
         blank=True,
