@@ -211,7 +211,7 @@ class Listing(models.Model, GeoItem):
         ext = os.path.splitext(path)[1]
         img_temp = NamedTemporaryFile(delete=True)
         try:
-            context = urlopen(url, timeout=1)
+            context = urlopen(url, timeout=10)
             if context.getcode() == 200:
                 img_temp.write(context.read())
                 img_temp.flush()
@@ -223,6 +223,8 @@ class Listing(models.Model, GeoItem):
         except URLError as e:
             print('Error download photo:', str(e))
         except ValueError as e:
+            print('Error download photo:', str(e))
+        except TimeoutError as e:
             print('Error download photo:', str(e))
 
     def save_listing_photos(self):

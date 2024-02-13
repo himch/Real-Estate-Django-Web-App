@@ -16,8 +16,8 @@
   <input type="hidden" name="listing_id" value="{{ listing.id|unlocalize }}">
   <input type="hidden" name="listing" value="{{ listing.title_a_en }}">
   <input type="hidden" name="message" value="Request from: {{ form_title }}">
-  <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
-  <input type="hidden" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% else %} value="None" {% endif %} required="required"/>
+  <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %}/>
+  <input type="hidden" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% else %} value="None" {% endif %}/>
 
   <div class="footer__form">
     <div class="footer__form-title">{{ form_title }}</div>

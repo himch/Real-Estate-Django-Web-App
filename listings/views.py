@@ -123,6 +123,11 @@ def listing(request, listing_id):
     our_company = OurCompany.objects.all().first()
 
     listing_item = get_object_or_404(Listing, pk=listing_id)
+    bookmark = listing_item.bookmark_set.all
+    print(bookmark)
+
+    favorite = listing_item.favorite_set.all
+    print(favorite)
 
     realtor = listing_item.realtor
 

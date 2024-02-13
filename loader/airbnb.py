@@ -8,6 +8,28 @@ from playwright.async_api import async_playwright
 from load_alnair_realty import DatabaseDownloader
 
 
+class TooManyTriesException(BaseException):
+    pass
+
+
+def tries(times):
+    def func_wrapper(f):
+        async def wrapper(*args, **kwargs):
+            for time in range(times):
+                print('times:', time + 1)
+                # noinspection PyBroadException
+                try:
+                    return await f(*args, **kwargs)
+                except Exception as e:
+                    print(str(e))
+            raise TooManyTriesException()
+
+        return wrapper
+
+    return func_wrapper
+
+
+
 class Parser:
     locales = ('ar', 'ru', 'en')
 
@@ -20,6 +42,7 @@ class Parser:
                 await page.mouse.wheel(0, 10)
                 await page.wait_for_timeout(30)
 
+        @tries(times=3)
         async def get_info_from_main_page():
             sep_locales = {'en': ' in ', 'ar': 'في', 'ru': ','}
             print('start parse airbnb main_page')
@@ -34,7 +57,7 @@ class Parser:
                 for locale in self.locales:
                     locale_url = base_url + f'?locale={locale}'
                     print(locale_url)
-                    await page.goto(locale_url)
+                    await page.goto(locale_url, timeout=60000)
                     await wait(page, 50)
                     title[locale] = await page.locator('span._1xxgv6l').inner_text()
                     overview_text = await page.locator('//div[@data-section-id="OVERVIEW_DEFAULT_V2"]').inner_text()
@@ -62,6 +85,7 @@ class Parser:
                         ('address', 'CHAR', address['en']),
                         ('overview', 'CHAR', overview['en'])] + res
 
+        @tries(times=3)
         async def get_description():
             print('start parse airbnb description')
             async with async_playwright() as playwright:
@@ -72,7 +96,7 @@ class Parser:
                 for locale in self.locales:
                     locale_url = f"{base_url}?modal=DESCRIPTION&locale={locale}"
                     print(locale_url)
-                    await page.goto(locale_url)
+                    await page.goto(locale_url, timeout=60000)
                     await wait(page, 25)
                     description_text[locale]: str = await page.locator(
                         '//div[@data-section-id="DESCRIPTION_MODAL"]').inner_text()
@@ -80,8 +104,10 @@ class Parser:
                 await browser.close()
             return [(f'description_a_{locale}', 'CHAR', description_text[locale]) for locale in self.locales]
 
+        @tries(times=3)
         async def get_amenities():
-            locators = {'en': 'div._1seuw5go', 'ar': 'div._17itzz4', 'ru': 'div._1seuw5go'}
+            # locators = {'en': 'div._1seuw5go', 'ar': 'div._17itzz4', 'ru': 'div._1seuw5go'}
+            locators = {'en': 'div._njm7bck', 'ar': 'div._1sbso6hm', 'ru': 'div._njm7bck'}
             print('start parse airbnb amenities')
             async with async_playwright() as playwright:
                 browser = await playwright.chromium.launch()
@@ -108,7 +134,7 @@ class Parser:
                                         {locale: f'{group_name} - {amenity}', 'amenity_svg': svg})
                                 else:
                                     amenities_list[locale].append({locale: f'{group_name} - {amenity}'})
-                    # print(amenities_list)
+                    print(amenities_list)
                 await browser.close()
                 for i, item in enumerate(amenities_list['en']):
                     item['ru'] = amenities_list['ru'][i]['ru']
@@ -117,6 +143,7 @@ class Parser:
                 amenities = json.dumps(amenities_list['en'])
             return [('listing_amenities', 'CHAR', amenities), ]
 
+        @tries(times=3)
         async def get_photos():
             print('start parse airbnb photos')
             async with async_playwright() as playwright:
@@ -125,7 +152,7 @@ class Parser:
                 await page.route("**/*.{png,jpg,jpeg}", lambda route: route.abort())
                 locale_url = f"{base_url}?modal=PHOTO_TOUR_SCROLLABLE&locale=en"
                 print(locale_url)
-                await page.goto(locale_url)
+                await page.goto(locale_url, timeout=60000)
                 await wait(page)
                 html: str = await page.locator('//div[@data-section-id="PHOTO_TOUR_SCROLLABLE_MODAL"]').inner_html()
                 await browser.close()
@@ -199,35 +226,14 @@ class AirbnbDownloader(DatabaseDownloader):
                 os.system('python airbnb_add_record.py')
 
 
-class TooManyTriesException(BaseException):
-    pass
-
-
-def tries(times):
-    def func_wrapper(f):
-        async def wrapper(*args, **kwargs):
-            for time in range(times):
-                print('times:', time + 1)
-                # noinspection PyBroadException
-                try:
-                    return await f(*args, **kwargs)
-                except Exception as exc:
-                    pass
-            raise TooManyTriesException()
-
-        return wrapper
-
-    return func_wrapper
-
-
 @tries(times=3)
 async def airbnb_parse(url):
     parser = Parser()
     result = await parser.airbnb_parse(url)
     print(*result, sep='\n')
     print()
-    adl = AirbnbDownloader()
-    await adl.insert_record_python(result)
+    abnb_loader = AirbnbDownloader()
+    await abnb_loader.insert_record_python(result)
 
 
 if __name__ == "__main__":

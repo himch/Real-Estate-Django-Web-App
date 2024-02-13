@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load static %}
 {% load l10n %}
+{% load listing_filters %}
 {% get_current_language as LANGUAGE_CODE %}
 {% csrf_token %}
 
@@ -19,6 +20,8 @@
     </div>
 </div>
 
+
+
 <script>
 $(document).ready(function () {
         function to_bookmarks()
@@ -33,8 +36,7 @@ $(document).ready(function () {
                 data: {'obj': pk},
 
                 success: function(json) {
-                    console.log("successfully added " + action);
-                    // current.find("[data-count='" + action + "']").text(json.count);
+                    console.log(json.result); // true если добавили, false если удалили
                 }
             });
 
