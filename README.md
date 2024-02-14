@@ -1,19 +1,5 @@
 # Real Estate Django Web App
 
-A real estate listings website built with `python` `django` `bootstrap`.
-
-A simple, reponsive  website. Built with:
-
-- Python 🐍
-- Django 🎸
-- Bootstrap 4 🌈
-- Vanilla JS - ES6
-- JQuery
-
-If you are new to Django, checkout the [Django 2.x Cheat Sheet](https://github.com/TheCaffeineDev/Real-Estate-Django-Web-App/blob/master/django_cheat_sheet.md)
-
-If you want to deploy this Web App In Ubuntu 18.04 Server, Please Follow this [Guide](https://github.com/TheCaffeineDev/Real-Estate-Django-Web-App/blob/master/Django_Deployment_to_Ubuntu_18.04.md) 
-
 ## How to run this project (Ubuntu 18.04)
 
 1. **Clone the project**
@@ -129,40 +115,3 @@ This is the default configuration of Django database.
 For Database I have used Postgres Database Name: real_estate
 
 Note: Please change those gmail credentials from real_estate folder you will get settings.py inside that file you will see username and password mentioned as place your Username and Password. Also do that same thing from Contacts folder views.py you will see YourEmail mentioned on line number 33.
-
-### Screenshots
-
-- **HOME**
-
-![Home](https://github.com/TheCaffeineDev/Real-Estate-Django-Web-App/blob/master/screenshots/s1.JPG)
-
-- **Listings** 
-
-
-![Listings](https://github.com/TheCaffeineDev/Real-Estate-Django-Web-App/blob/master/screenshots/s3list.JPG)
-
-- **Registration** 
-
-![Registration](https://github.com/TheCaffeineDev/Real-Estate-Django-Web-App/blob/master/screenshots/s4reg.JPG)
-
-- **Admin Panel - 1**
-
-![Admin](https://github.com/TheCaffeineDev/Real-Estate-Django-Web-App/blob/master/screenshots/s5adm.JPG)
-
-- **Admin Panel - 2**
-
-![Admin](https://github.com/TheCaffeineDev/Real-Estate-Django-Web-App/blob/master/screenshots/s6r.JPG)
-
-- **About**
-
-![About ](https://github.com/TheCaffeineDev/Real-Estate-Django-Web-App/blob/master/screenshots/s2about.JPG)
-
-
-## Acknowledgments
-
-Many thanks to [@bradtraversy](https://github.com/bradtraversy) for his awesome course.
-
-##### References
-
-1. https://www.traversymedia.com/
-2. https://www.djangoproject.com/
