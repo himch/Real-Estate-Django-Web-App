@@ -33,6 +33,7 @@ REST_FRAMEWORK = {
 
 PASSWORDLESS_AUTH = {
    'PASSWORDLESS_AUTH_TYPES': ['EMAIL', ],
+   'PASSWORDLESS_EMAIL_NOREPLY_ADDRESS': 'Info@dadi.ae',
 }
 
 
@@ -64,6 +65,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'drfpasswordless',
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
@@ -206,3 +208,11 @@ MESSAGE_TAGS = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'info@dadi.ae'
+EMAIL_HOST_PASSWORD = 'wxtt uysl qcjy xixc'

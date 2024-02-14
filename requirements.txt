@@ -56,3 +56,6 @@ yarl==1.9.4
 olefile
 djangorestframework~=3.14.0
 django-stubs
+pytils~=0.4.1
+django-phonenumber-field
+phonenumbers

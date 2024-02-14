@@ -19,5 +19,6 @@ class OurCompany(models.Model):
     facebook = models.CharField(blank=True, null=True, max_length=100)
     linkedin = models.CharField(blank=True, null=True, max_length=100)
 
+
     def __str__(self):
         return self.name

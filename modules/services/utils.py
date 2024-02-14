@@ -4,6 +4,8 @@ import traceback
 import telebot
 from datetime import datetime
 from django.utils import timezone
+from pytils.translit import slugify
+from uuid import uuid4
 
 
 logger = telebot.logger
@@ -32,3 +34,14 @@ def say_my_name():
     text = 'Исполняется функция {}'.format(stack[-2][2])
     print(text)
     logging.info(text)
+
+
+def unique_slugify(instance, slug):
+    """
+    Генератор уникальных SLUG для моделей, в случае существования такого SLUG.
+    """
+    model = instance.__class__
+    unique_slug = slugify(slug)
+    while model.objects.filter(slug=unique_slug).exists():
+        unique_slug = f'{unique_slug}-{uuid4().hex[:8]}'
+    return unique_slug

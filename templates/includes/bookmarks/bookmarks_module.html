@@ -18,6 +18,10 @@
         <path d="M0.807292 19.9773V1.6063C0.807292 1.54319 0.83079 1.49675 0.856472 1.46934C0.881653 1.44245 0.900967 1.4401 0.909179 1.4401H13.6221C13.6334 1.4401 13.6519 1.4433 13.6754 1.46846C13.6999 1.49469 13.724 1.54102 13.724 1.6063V19.9773L7.85562 13.6939L7.26562 13.0622L6.67563 13.6939L0.807292 19.9773Z" stroke="white" stroke-width="1.61458"/>
       </svg>
     </div>
+    {% comment %}
+    {% if listing.bookmark_set.all|user_in:user %}bookmark=true{% endif %}
+    {% if listing.favorite_set.all|user_in:user %}favorite=true{% endif %}
+    {% endcomment %}
 </div>
 
 
