@@ -3,6 +3,11 @@
 # from django.contrib.auth.models import User
 # from contacts.models import Contact
 # from listings.models import Listing
+from typing import Union
+
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import AnonymousUser
+
 from modules.services.mixins import UserIsNotAuthenticated
 from our_company.models import OurCompany
 from django.views.generic import CreateView, View, TemplateView, DetailView, UpdateView
@@ -10,15 +15,18 @@ from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordRes
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth import login, logout
 from django.contrib.auth import get_user_model
-
+from django.contrib import auth
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.contrib.sites.models import Site
 from django.core.mail import send_mail
-
+from django.core import serializers
+import json
+from django.forms.models import model_to_dict
 from django.shortcuts import redirect
-
+from rest_framework import generics, status
+from rest_framework.response import Response
 from django.db import transaction
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
@@ -29,6 +37,30 @@ from .forms import (UserUpdateForm, ProfileUpdateForm, UserRegisterForm, UserLog
                     UserPasswordChangeForm, UserForgotPasswordForm, UserSetNewPasswordForm)
 
 User = get_user_model()
+
+
+class UserProfileAPIView(generics.GenericAPIView):
+    model = User
+
+    def get(self, request):
+        user = auth.get_user(request)
+        if not isinstance(user, AnonymousUser):
+            return Response(
+                {"result": 'success',
+                 'id': user.id,
+                 'username': user.username,
+                 'first_name': user.first_name,
+                 'last_name': user.last_name,
+                 'email': user.email,
+                 'message': 'Current user data'},
+                status=status.HTTP_200_OK
+            )
+        else:
+            return Response(
+                {"result": 'error',
+                 'message': 'User is not authenticated'},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
 
 
 class ProfileDetailView(DetailView):

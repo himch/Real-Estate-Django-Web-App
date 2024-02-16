@@ -5,6 +5,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import include
+
+from accounts.views import UserProfileAPIView
 from listings.views import *
 
 # admin.autodiscover()
@@ -14,8 +16,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/listinglist/', ListingAPIView.as_view()),
     path('api/v1/offers/buy/', OffersBuyAPIView.as_view()),
-    path('api/v1/offers/<int:listing_id>/bookmark/', login_required(BookmarkAPIView.as_view(model=Bookmark)), name='listing_bookmark'),
-    path('api/v1/offers/<int:listing_id>/favorite/', login_required(BookmarkAPIView.as_view(model=Favorite)), name='listing_favorite'),
+    path('api/v1/offers/<int:listing_id>/bookmark/', BookmarkAPIView.as_view(model=Bookmark), name='listing_bookmark'),
+    path('api/v1/offers/<int:listing_id>/favorite/', BookmarkAPIView.as_view(model=Favorite), name='listing_favorite'),
+    path('api/v1/offers/bookmarks/', BookmarksAPIView.as_view(model=Bookmark), name='user_bookmarks'),
+    path('api/v1/offers/favorites/', BookmarksAPIView.as_view(model=Favorite), name='user_favorites'),
+    path('api/v1/user/profile/', UserProfileAPIView.as_view(), name='user_profile'),
     path('tinymce/', include('tinymce.urls')),
     path('', include('drfpasswordless.urls')),
 ]

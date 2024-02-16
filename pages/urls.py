@@ -1,5 +1,5 @@
 from django.urls import path
-
+from django.contrib.auth.decorators import login_required
 from . import views
 
 urlpatterns = [
@@ -10,8 +10,8 @@ urlpatterns = [
     path('arenda', views.arenda, name='arenda'),
     path('buy', views.buy, name='buy'),
     path('katalogi', views.katalogi, name='katalogi'),
-    path('izbrannoe', views.izbrannoe, name='izbrannoe'),
-    path('sravnenie', views.sravnenie, name='sravnenie'),
+    path('izbrannoe', login_required(views.izbrannoe), name='izbrannoe'),
+    path('sravnenie', login_required(views.sravnenie), name='sravnenie'),
     # path('article', views.article, name='article'),
     # path('arenda_single', views.arenda_single, name='arenda_single'),
 ]

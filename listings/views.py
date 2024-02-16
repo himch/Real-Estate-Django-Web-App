@@ -2,8 +2,11 @@ import json
 import ast
 from functools import reduce
 import operator
+from typing import Union
 
 from django.contrib import auth
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import AnonymousUser
 from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.views import View
@@ -12,6 +15,7 @@ from django.utils.translation import gettext_lazy as _
 from django.db.models import Q
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
+from rest_framework import serializers
 
 
 from rest_framework import generics, status
@@ -22,7 +26,7 @@ from pages.utils import check_number_var
 from .choices import price_choices, bedroom_choices, state_choices
 
 from .models import Listing, Bookmark, Favorite
-from .serializers import ListingSerializer
+from .serializers import ListingSerializer, ListingFavoriteSerializer
 from .utils import convert
 
 
@@ -295,28 +299,107 @@ def rent(request, listing_id):
     return render(request, 'includes/content/arenda-single.html', context)
 
 
+# POST /api/v1/offers/<int:listing_id>/bookmark/  - добавить/удалить обьект с указанным id в сравнение для текущего пользователя.
+# Возвращает {"result": ['added' если добавлен, 'deleted' если удален, 'error' если ошибка или пользователь не авторизован],
+# "count": [количество обьектов в сравнении для данного пользователя или 0, если пользователь не авторизован]}
+#
+# GET /api/v1/offers/bookmarks/  - информация об обьектах в сравнении для текущего пользователя.
+# Возвращает {"result": ['success' если успешно, 'error' если ошибка или пользователь не авторизован],
+# "count": [количество обьектов в сравнении для данного пользователя или 0, если пользователь не авторизован]}
+#
+# POST /api/v1/offers/<int:listing_id>/favorite/  - добавить/удалить обьект с указанным id в избранное для текущего пользователя.
+# Возвращает {"result": ['added' если добавлен, 'deleted' если удален, 'error' если ошибка или пользователь не авторизован],
+# "count": [количество обьектов в избранном для данного пользователя или 0, если пользователь не авторизован]}
+#
+# GET /api/v1/offers/favorites/  - информация об обьектах в избранном для текущего пользователя.
+# Возвращает {"result": ['success' если успешно, 'error' если ошибка или пользователь не авторизован],
+# "count": [количество обьектов в избранном для данного пользователя или 0, если пользователь не авторизован]}
+
+
 class BookmarkAPIView(generics.GenericAPIView):
     model = None
 
+    def get_serializer_class(self):
+        return ListingFavoriteSerializer
+
     def post(self, request, listing_id):
         user = auth.get_user(request)
-        bookmark, created = self.model.objects.get_or_create(user=user, listing_id=listing_id)
-        if not created:
-            bookmark.delete()
+        if not isinstance(user, AnonymousUser):
+            bookmark, created = self.model.objects.get_or_create(user=user, listing_id=listing_id)
+            if not created:
+                bookmark.delete()
 
-        if created:
+            if created:
+                return Response(
+                    {"result": 'added',
+                     "count": self.model.objects.filter(user=user).count(),
+                     'message': f'Offer added to {model._meta.verbose_name_plural.title()}'},
+                    status=status.HTTP_201_CREATED
+                )
+            else:
+                return Response(
+                    {"result": 'deleted',
+                     "count": self.model.objects.filter(user=user).count(),
+                     'message': f'Offer deleted from {self.model._meta.verbose_name_plural.title()}'},
+                    status=status.HTTP_200_OK
+                )
+        else:
             return Response(
-                {"result": created,
-                 "count": self.model.objects.filter(listing_id=listing_id).count(),
-                 'message': 'Контент добавлен в избранное'},
-                status=status.HTTP_201_CREATED
+                {"result": 'error',
+                 "count": 0,
+                 'message': 'User is not authenticated'},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+    def get(self, request, listing_id):
+        user = auth.get_user(request)
+        if not isinstance(user, AnonymousUser):
+            try:
+                bookmark = self.model.objects.get(user=user, listing_id=listing_id).first
+            except self.model.DoesNotExist:
+                bookmark = None
+            if bookmark:
+                return Response(
+                    {"result": 'bookmarked',
+                     "count": self.model.objects.filter(user=user).count(),
+                     'message': f'Offer bookmarked in {self.model._meta.verbose_name_plural.title()}'},
+                    status=status.HTTP_200_OK
+                )
+            else:
+                return Response(
+                    {"result": 'not bookmarked',
+                     "count": self.model.objects.filter(user=user).count(),
+                     'message': f'Offer not bookmarked in {self.model._meta.verbose_name_plural.title()}'
+                     },
+                    status=status.HTTP_404_NOT_FOUND
+                )
+        else:
+            return Response(
+                {"result": 'error',
+                 "count": 0,
+                 'message': 'User is not authenticated'},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+
+class BookmarksAPIView(generics.GenericAPIView):
+    model = None
+
+    def get(self, request):
+        user = auth.get_user(request)
+        if not isinstance(user, AnonymousUser):
+            return Response(
+                {"result": 'success',
+                 "count": self.model.objects.filter(user=user).count(),
+                 'message': f'All offers for current user in {self.model._meta.verbose_name_plural.title()}'},
+                status=status.HTTP_200_OK
             )
         else:
             return Response(
-                {"result": created,
-                 "count": self.model.objects.filter(listing_id=listing_id).count(),
-                 'message': 'Контент удален из избранного'},
-                status=status.HTTP_200_OK
+                {"result": 'error',
+                 "count": 0,
+                 'message': 'User is not authenticated'},
+                status=status.HTTP_401_UNAUTHORIZED
             )
 
 
