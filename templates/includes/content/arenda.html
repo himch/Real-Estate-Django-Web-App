@@ -165,22 +165,16 @@
       {% include "geomap/common.html" %}
       <div class="filters__content active">
         <div class="filters__content-block flex flex-wrap active">
-          {% if listings %}
-              {% for listing in listings %}
-                {% include 'includes/rent_card/rent_card_swiper.html' %}
-              {% endfor %}
-              {% else %}
-                <div class="p-card_filter__image relative">
-                  <div class="swiper">
-                    <div class="swiper-wrapper">
-                    </div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="p-card_filter__title text-c5 text-500">{% trans 'No Offers Available' %}</div>
-                </div>
-          {% endif %}
+
+          {% include 'includes/rent/rent_loaded_block.html' %}
+
         </div>
-        <div class="filters__content-load margin-center text-c3 text-underline text-500">{% trans 'Download' %}<!--Загрузить--> <span>18</span> {% trans 'out of' %}<!--из--> 103</div>
+        {% if listings.has_next %}
+          <div class="filters__content-load margin-center text-c3 text-underline text-500" hx-get="?page={{ listings.next_page_number }}" hx-trigger="click" hx-target="previous"  hx-swap="beforeend">
+              {% trans 'Download' %} <span>6</span> {% trans 'out of' %} {{ len_listings }}
+          </div>
+        {% endif %}
+
       </div>
       <div class="filters__content-map">
         <div class="filters__content-map-item" id="map">

@@ -14,7 +14,7 @@ from listings.choices import price_choices, bedroom_choices, state_choices
 from listings.models import Listing, District, Amenity, Price
 from listings.utils import convert
 from pages.filters import buy_listing_filter
-from pages.utils import check_number_var, check_str_var
+from pages.utils import check_number_var, check_str_var, is_htmx
 from realtors.models import Realtor
 from our_company.models import OurCompany
 
@@ -162,6 +162,9 @@ def buy(request):
                                 for estate_type in estate_types}
 
     # переменные для отображения состояния фильтров в buy_big_modal_filter.html
+
+    variables = {var: check_number_var(request.GET, var) for var in ['price_rub_min', 'price_rub_max', 'price_dollar_min', 'price_dollar_max', 'price_euro_min', 'price_euro_max']}
+    vars_filter.update(variables)
 
     vars_filter['currency'] = check_str_var(request.GET, 'currency', currencies[0]['value'])
     vars_filter['area'] = check_str_var(request.GET, 'area', areas[0]['value'])
@@ -323,14 +326,9 @@ def arenda(request):
 
     # разбиение обьектов на порции-страницы для отображения в виде списка
     page = request.GET.get('page')
+    print('page', page)
     paginator = Paginator(listings, 6)
     paged_listings = paginator.get_page(page)
-
-    # обьекты недвижимости для аренды для ленты
-    rent_page = request.GET.get('page')
-    rent_listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='rent')
-    rent_paginator = Paginator(rent_listings, 6)
-    paged_rent_listings = rent_paginator.get_page(rent_page)
 
     # переменные для отображения состояния фильтров в начале страницы
     variables = {var: check_number_var(request.GET, var) for var in ['price_min', 'price_max']}
@@ -349,6 +347,9 @@ def arenda(request):
     # переменные для отображения состояния фильтров в rent_big_modal_filter.html
 
     variables = {var: check_number_var(request.GET, var) for var in ['Bedroom_studio', 'Bedroom_1', 'Bedroom_2', 'Bedroom_3', 'Bedroom_4plus']}
+    vars_filter.update(variables)
+
+    variables = {var: check_number_var(request.GET, var) for var in ['price_rub_min', 'price_rub_max', 'price_dollar_min', 'price_dollar_max', 'price_euro_min', 'price_euro_max']}
     vars_filter.update(variables)
 
     vars_filter['currency'] = check_str_var(request.GET, 'currency', currencies[0]['value'])
@@ -422,6 +423,8 @@ def arenda(request):
 
     context.update(geo_context)
 
+    if is_htmx(request):
+        return render(request, "includes/rent/rent_loaded_block.html", {"listings": paged_listings})
     return render(request, 'includes/content/arenda.html', context)
 
 
