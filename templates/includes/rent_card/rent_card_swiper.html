@@ -38,6 +38,9 @@
         <div class="p-card_filter__content-item"><!--{{ listing.address }}--></div>
         <div class="p-card_filter__content-subitem"><!--Лот 123456789--></div>
       </div>
+
+      {% comment %}
+      <!--
       <div class="p-card_filter__list flex flex-wrap">
         <div class="p-card_filter__list-item flex flex-ai-center">
           <div class="p-card_filter__list-img">
@@ -72,9 +75,13 @@
           <div class="p-card_filter__list-title">1 ванна</div>
         </div>
       </div>
+
+      -->
+      {% endcomment %}
+
       <div class="p-card_filter__price flex flex-wrap flex-j-between flex-ai-end">
         <div class="p-card_filter__price-left"><!--100.000 р в месяц--></div>
-        <div class="p-card_filter__price-right">{% if listing.price_a_min %}{{ listing.price_a_min }} {{ listing.price_a_currency }} в сутки{% else %} {% endif %}</div>
+        <div class="p-card_filter__price-right">{% if listing.price_a_min %}{{ listing.price_a_min }} {{ listing.price_a_currency }} {% trans 'per day' %}<!--в сутки-->{% else %} {% endif %}</div>
       </div>
     </a>
 </div>

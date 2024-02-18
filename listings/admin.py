@@ -3,9 +3,13 @@ from rest_framework.authtoken.admin import TokenAdmin
 from django.http import HttpResponseRedirect
 from django.urls import path
 
-from .models import Listing, Bookmark, Favorite
+from .models import Listing, Bookmark, Favorite, Price
 
 TokenAdmin.raw_id_fields = ['user']
+
+
+class PriceInline(admin.TabularInline):
+    model = Price
 
 
 class ListingAdmin(admin.ModelAdmin):
@@ -39,6 +43,10 @@ class ListingAdmin(admin.ModelAdmin):
     list_per_page = 25
 
     change_list_template = "admin/model_change_list.html"
+
+    inlines = [
+        PriceInline,
+    ]
 
     def get_urls(self):
         urls = super(ListingAdmin, self).get_urls()

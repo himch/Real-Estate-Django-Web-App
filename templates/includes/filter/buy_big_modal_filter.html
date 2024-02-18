@@ -12,50 +12,13 @@
       </div>
       <div class="modal_filter__reset absolute text-underline cursor-pointer">{% trans 'Remove filters' %}<!--Сбросить фильтры--></div>
       <div class="modal_filter__items flex relative flex-col">
+
         <div class="modal_filter__item">
           <div class="modal_filter__price-row flex">
-            <div class="modal_filter__price-item modal_filter__item_change">
-              <div class="modal_filter__price-top flex">
-                <div class="modal_filter__price-title text-500 text-c5">{% trans 'Price' %}<!--Стоимость--></div>
-                <div class="modal_filter__price-currency flex">
-                  <div class="p-checkboxes p-checkboxes_second flex">
-                    {% for currency in currencies %}
-                    <label class="p-checkboxes__item flex">
-                      {% if currency.value == vars_filter.currency %}
-                        <input type="radio" name="currency" value="{{ currency.value }}" checked="checked"/>
-                      {% else %}
-                        <input type="radio" name="currency" value="{{ currency.value }}"/>
-                      {% endif %}
-                      <span class="p-checkboxes__item-title">{{ currency.title }}</span>
-                    </label>
-                    {% endfor %}
-                  </div>
-                </div>
-              </div>
-              <div class="modal_filter__range-contents">
-                <div class="modal_filter__range-content active">
-                  <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_rub }}" data-max="{{ vars_filter.listings_price_max_rub }}">
-                    <div class="modal_filter__range-main"></div>
-                    <input type="hidden" name="price_rub_min"/>
-                    <input type="hidden" name="price_rub_max"/>
-                  </div>
-                </div>
-                <div class="modal_filter__range-content">
-                  <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_usd }}" data-max="{{ vars_filter.listings_price_max_usd }}">
-                    <div class="modal_filter__range-main"></div>
-                    <input type="hidden" name="price_dollar_min"/>
-                    <input type="hidden" name="price_dollar_max"/>
-                  </div>
-                </div>
-                <div class="modal_filter__range-content">
-                  <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_eur }}" data-max="{{ vars_filter.listings_price_max_eur }}">
-                    <div class="modal_filter__range-main"></div>
-                    <input type="hidden" name="price_euro_min"/>
-                    <input type="hidden" name="price_euro_max"/>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+            {% trans "Price" as price_title %}
+            {% include 'includes/filter/price_item.html' with title=price_title %}
+
             <div class="modal_filter__price-item modal_filter__price-item_area">
               <div class="modal_filter__price-top flex">
                 <div class="modal_filter__price-title text-500 text-c5">{% trans 'Total area' %}<!--Общая площадь--></div>

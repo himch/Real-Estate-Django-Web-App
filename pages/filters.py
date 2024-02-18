@@ -7,20 +7,20 @@ from pages.utils import check_number_var
 
 
 def buy_listing_filter(get_object, queryset, language_code, estate_types, districts, amenities):
-
     filters = list(Q(type=estate_type) for estate_type in estate_types if get_object.get('estate_type_' + estate_type))
     if filters:
         q = reduce(operator.or_, filters)
         queryset = queryset.filter(q)
 
-    filters = list(Q(district__name=district) for district in districts if get_object.get('district_' + district))
+    filters = list(Q(districts__name=district) for district in districts if get_object.get('district_' + district))
     if filters:
         q = reduce(operator.or_, filters)
+        print(q)
         queryset = queryset.filter(q)
 
     # query_specifier = {'amenity__' + language_code: 'amenity'}
     # filters = list(Q(**query_specifier) for amenity in amenities if get_object.get(amenity))
-    filters = list(Q(amenity__en=amenity['en']) for amenity in amenities if get_object.get('amenity_' + amenity['en']))
+    filters = list(Q(amenities__en=amenity['en']) for amenity in amenities if get_object.get('amenity_' + amenity['en']))
     if filters:
         q = reduce(operator.or_, filters)
         queryset = queryset.filter(q)
@@ -37,4 +37,4 @@ def buy_listing_filter(get_object, queryset, language_code, estate_types, distri
     if q:
         queryset = queryset.filter(q)
 
-    return queryset
+    return queryset.distinct()

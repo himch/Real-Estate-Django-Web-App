@@ -381,7 +381,7 @@ class Listing(models.Model, GeoItem):
 
 
 class MainAlbumImage(models.Model):
-    album = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    album = models.ForeignKey(Listing, related_name='main_album_images', on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
 
     def __str__(self):
@@ -389,7 +389,7 @@ class MainAlbumImage(models.Model):
 
 
 class Price(models.Model):
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, related_name='prices', on_delete=models.CASCADE)
     # "[{\"key\": \"rooms_2\", \"count\": \"1\", \"min_price\": \"2300888\", \"max_price\": \"2300888\", \"min_price_m2\": \"22152\", \"max_price_m2\": \"22152\", \"currency\": \"AED\", \"min_area\": {\"m2\": \"103.87\", \"ft2\": \"1118.05\"}, \"max_area\": {\"m2\": \"103.87\", \"ft2\": \"1118.05\"}}, {\"key\": \"rooms_3\", \"count\": \"5\", \"min_price\": \"4662888\", \"max_price\": \"4687888\", \"min_price_m2\": \"18205\", \"max_price_m2\": \"18229\", \"currency\": \"AED\", \"min_area\": {\"m2\": \"256.04\", \"ft2\": \"2755.99\"}, \"max_area\": {\"m2\": \"257.25\", \"ft2\": \"2769.01\"}}]"
     key = models.TextField(blank=True, null=True)
     count = models.IntegerField(null=True)
@@ -408,7 +408,7 @@ class Price(models.Model):
 
 
 class Amenity(models.Model):
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, related_name='amenities', on_delete=models.CASCADE)
     ru = models.TextField(blank=True, null=True)
     en = models.TextField(blank=True, null=True)
     ar = models.TextField(blank=True, null=True)
@@ -419,7 +419,7 @@ class Amenity(models.Model):
 
 
 class District(models.Model):
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, related_name='districts', on_delete=models.CASCADE)
     name = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -427,7 +427,7 @@ class District(models.Model):
 
 
 class Album(models.Model):
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, related_name='albums', on_delete=models.CASCADE)
     title_ru = models.TextField(blank=True, null=True)
     title_en = models.TextField(blank=True, null=True)
     title_ar = models.TextField(blank=True, null=True)
@@ -437,7 +437,7 @@ class Album(models.Model):
 
 
 class Image(models.Model):
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, related_name='images', on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
 
     def __str__(self):
@@ -445,7 +445,7 @@ class Image(models.Model):
 
 
 class PaymentPlan(models.Model):
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, related_name='payment_plans', on_delete=models.CASCADE)
     title_ru = models.TextField(blank=True, null=True)
     title_en = models.TextField(blank=True, null=True)
     title_ar = models.TextField(blank=True, null=True)
@@ -478,7 +478,7 @@ class PaymentPlan(models.Model):
 
 
 class Additional(models.Model):
-    payment_plan = models.ForeignKey(PaymentPlan, on_delete=models.CASCADE)
+    payment_plan = models.ForeignKey(PaymentPlan, related_name='additionals', on_delete=models.CASCADE)
     title_ru = models.TextField(blank=True, null=True)
     title_en = models.TextField(blank=True, null=True)
     title_ar = models.TextField(blank=True, null=True)

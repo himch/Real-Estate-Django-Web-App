@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load i18n_urls %}
+{% load static %}
 {% load humanize %}
-
+{% get_current_language as LANGUAGE_CODE %}
 {% block title %} | Rent {% endblock %}
 
 {% block content %}
@@ -18,16 +20,18 @@
           <form class="rent__form flex">
             <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
               <input type="text" name="start" placeholder="Заезд" required="required"/>
-              <div class="rent__input-svg absolute cursor-pointer"><svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4.5 0C4.22386 0 4 0.223858 4 0.5C4 0.776142 3.77614 1 3.5 1H2C0.895431 1 0 1.89543 0 3V20C0 21.6569 1.34315 23 3 23H19C20.6569 23 22 21.6569 22 20V3C22 1.89543 21.1046 1 20 1H18.5C18.2239 1 18 0.776142 18 0.5C18 0.223858 17.7761 0 17.5 0H16.5C16.2239 0 16 0.223858 16 0.5C16 0.776142 15.7761 1 15.5 1H6.5C6.22386 1 6 0.776142 6 0.5C6 0.223858 5.77614 0 5.5 0H4.5ZM2 4C2 3.44772 2.44772 3 3 3H3.5C3.77614 3 4 3.22386 4 3.5C4 3.77614 4.22386 4 4.5 4H5.5C5.77614 4 6 3.77614 6 3.5C6 3.22386 6.22386 3 6.5 3H15.5C15.7761 3 16 3.22386 16 3.5C16 3.77614 16.2239 4 16.5 4H17.5C17.7761 4 18 3.77614 18 3.5C18 3.22386 18.2239 3 18.5 3H19C19.5523 3 20 3.44772 20 4C20 4.55228 19.5523 5 19 5H3C2.44772 5 2 4.55228 2 4ZM2 10C2 8.34315 3.34315 7 5 7H17C18.6569 7 20 8.34315 20 10V18C20 19.6569 18.6569 21 17 21H5C3.34315 21 2 19.6569 2 18V10ZM9 9C8.44771 9 8 9.44771 8 10C8 10.5523 8.44771 11 9 11C9.55229 11 10 10.5523 10 10C10 9.44771 9.55229 9 9 9ZM13 9C12.4477 9 12 9.44771 12 10C12 10.5523 12.4477 11 13 11C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9ZM17 9C16.4477 9 16 9.44771 16 10C16 10.5523 16.4477 11 17 11C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9ZM5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13ZM9 13C8.44771 13 8 13.4477 8 14C8 14.5523 8.44771 15 9 15C9.55229 15 10 14.5523 10 14C10 13.4477 9.55229 13 9 13ZM13 13C12.4477 13 12 13.4477 12 14C12 14.5523 12.4477 15 13 15C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13ZM17 13C16.4477 13 16 13.4477 16 14C16 14.5523 16.4477 15 17 15C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13ZM5 17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19C5.55228 19 6 18.5523 6 18C6 17.4477 5.55228 17 5 17ZM9 17C8.44771 17 8 17.4477 8 18C8 18.5523 8.44771 19 9 19C9.55229 19 10 18.5523 10 18C10 17.4477 9.55229 17 9 17ZM13 17C12.4477 17 12 17.4477 12 18C12 18.5523 12.4477 19 13 19C13.5523 19 14 18.5523 14 18C14 17.4477 13.5523 17 13 17Z" fill="#282828"/>
-</svg>
+              <div class="rent__input-svg absolute cursor-pointer">
+                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.5 0C4.22386 0 4 0.223858 4 0.5C4 0.776142 3.77614 1 3.5 1H2C0.895431 1 0 1.89543 0 3V20C0 21.6569 1.34315 23 3 23H19C20.6569 23 22 21.6569 22 20V3C22 1.89543 21.1046 1 20 1H18.5C18.2239 1 18 0.776142 18 0.5C18 0.223858 17.7761 0 17.5 0H16.5C16.2239 0 16 0.223858 16 0.5C16 0.776142 15.7761 1 15.5 1H6.5C6.22386 1 6 0.776142 6 0.5C6 0.223858 5.77614 0 5.5 0H4.5ZM2 4C2 3.44772 2.44772 3 3 3H3.5C3.77614 3 4 3.22386 4 3.5C4 3.77614 4.22386 4 4.5 4H5.5C5.77614 4 6 3.77614 6 3.5C6 3.22386 6.22386 3 6.5 3H15.5C15.7761 3 16 3.22386 16 3.5C16 3.77614 16.2239 4 16.5 4H17.5C17.7761 4 18 3.77614 18 3.5C18 3.22386 18.2239 3 18.5 3H19C19.5523 3 20 3.44772 20 4C20 4.55228 19.5523 5 19 5H3C2.44772 5 2 4.55228 2 4ZM2 10C2 8.34315 3.34315 7 5 7H17C18.6569 7 20 8.34315 20 10V18C20 19.6569 18.6569 21 17 21H5C3.34315 21 2 19.6569 2 18V10ZM9 9C8.44771 9 8 9.44771 8 10C8 10.5523 8.44771 11 9 11C9.55229 11 10 10.5523 10 10C10 9.44771 9.55229 9 9 9ZM13 9C12.4477 9 12 9.44771 12 10C12 10.5523 12.4477 11 13 11C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9ZM17 9C16.4477 9 16 9.44771 16 10C16 10.5523 16.4477 11 17 11C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9ZM5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13ZM9 13C8.44771 13 8 13.4477 8 14C8 14.5523 8.44771 15 9 15C9.55229 15 10 14.5523 10 14C10 13.4477 9.55229 13 9 13ZM13 13C12.4477 13 12 13.4477 12 14C12 14.5523 12.4477 15 13 15C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13ZM17 13C16.4477 13 16 13.4477 16 14C16 14.5523 16.4477 15 17 15C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13ZM5 17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19C5.55228 19 6 18.5523 6 18C6 17.4477 5.55228 17 5 17ZM9 17C8.44771 17 8 17.4477 8 18C8 18.5523 8.44771 19 9 19C9.55229 19 10 18.5523 10 18C10 17.4477 9.55229 17 9 17ZM13 17C12.4477 17 12 17.4477 12 18C12 18.5523 12.4477 19 13 19C13.5523 19 14 18.5523 14 18C14 17.4477 13.5523 17 13 17Z" fill="#282828"/>
+                </svg>
               </div>
             </div>
             <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
               <input type="text" name="end" placeholder="Выезд" required="required"/>
-              <div class="rent__input-svg absolute cursor-pointer"><svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4.5 0C4.22386 0 4 0.223858 4 0.5C4 0.776142 3.77614 1 3.5 1H2C0.895431 1 0 1.89543 0 3V20C0 21.6569 1.34315 23 3 23H19C20.6569 23 22 21.6569 22 20V3C22 1.89543 21.1046 1 20 1H18.5C18.2239 1 18 0.776142 18 0.5C18 0.223858 17.7761 0 17.5 0H16.5C16.2239 0 16 0.223858 16 0.5C16 0.776142 15.7761 1 15.5 1H6.5C6.22386 1 6 0.776142 6 0.5C6 0.223858 5.77614 0 5.5 0H4.5ZM2 4C2 3.44772 2.44772 3 3 3H3.5C3.77614 3 4 3.22386 4 3.5C4 3.77614 4.22386 4 4.5 4H5.5C5.77614 4 6 3.77614 6 3.5C6 3.22386 6.22386 3 6.5 3H15.5C15.7761 3 16 3.22386 16 3.5C16 3.77614 16.2239 4 16.5 4H17.5C17.7761 4 18 3.77614 18 3.5C18 3.22386 18.2239 3 18.5 3H19C19.5523 3 20 3.44772 20 4C20 4.55228 19.5523 5 19 5H3C2.44772 5 2 4.55228 2 4ZM2 10C2 8.34315 3.34315 7 5 7H17C18.6569 7 20 8.34315 20 10V18C20 19.6569 18.6569 21 17 21H5C3.34315 21 2 19.6569 2 18V10ZM9 9C8.44771 9 8 9.44771 8 10C8 10.5523 8.44771 11 9 11C9.55229 11 10 10.5523 10 10C10 9.44771 9.55229 9 9 9ZM13 9C12.4477 9 12 9.44771 12 10C12 10.5523 12.4477 11 13 11C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9ZM17 9C16.4477 9 16 9.44771 16 10C16 10.5523 16.4477 11 17 11C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9ZM5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13ZM9 13C8.44771 13 8 13.4477 8 14C8 14.5523 8.44771 15 9 15C9.55229 15 10 14.5523 10 14C10 13.4477 9.55229 13 9 13ZM13 13C12.4477 13 12 13.4477 12 14C12 14.5523 12.4477 15 13 15C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13ZM17 13C16.4477 13 16 13.4477 16 14C16 14.5523 16.4477 15 17 15C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13ZM5 17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19C5.55228 19 6 18.5523 6 18C6 17.4477 5.55228 17 5 17ZM9 17C8.44771 17 8 17.4477 8 18C8 18.5523 8.44771 19 9 19C9.55229 19 10 18.5523 10 18C10 17.4477 9.55229 17 9 17ZM13 17C12.4477 17 12 17.4477 12 18C12 18.5523 12.4477 19 13 19C13.5523 19 14 18.5523 14 18C14 17.4477 13.5523 17 13 17Z" fill="#282828"/>
-</svg>
+              <div class="rent__input-svg absolute cursor-pointer">
+                  <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 0C4.22386 0 4 0.223858 4 0.5C4 0.776142 3.77614 1 3.5 1H2C0.895431 1 0 1.89543 0 3V20C0 21.6569 1.34315 23 3 23H19C20.6569 23 22 21.6569 22 20V3C22 1.89543 21.1046 1 20 1H18.5C18.2239 1 18 0.776142 18 0.5C18 0.223858 17.7761 0 17.5 0H16.5C16.2239 0 16 0.223858 16 0.5C16 0.776142 15.7761 1 15.5 1H6.5C6.22386 1 6 0.776142 6 0.5C6 0.223858 5.77614 0 5.5 0H4.5ZM2 4C2 3.44772 2.44772 3 3 3H3.5C3.77614 3 4 3.22386 4 3.5C4 3.77614 4.22386 4 4.5 4H5.5C5.77614 4 6 3.77614 6 3.5C6 3.22386 6.22386 3 6.5 3H15.5C15.7761 3 16 3.22386 16 3.5C16 3.77614 16.2239 4 16.5 4H17.5C17.7761 4 18 3.77614 18 3.5C18 3.22386 18.2239 3 18.5 3H19C19.5523 3 20 3.44772 20 4C20 4.55228 19.5523 5 19 5H3C2.44772 5 2 4.55228 2 4ZM2 10C2 8.34315 3.34315 7 5 7H17C18.6569 7 20 8.34315 20 10V18C20 19.6569 18.6569 21 17 21H5C3.34315 21 2 19.6569 2 18V10ZM9 9C8.44771 9 8 9.44771 8 10C8 10.5523 8.44771 11 9 11C9.55229 11 10 10.5523 10 10C10 9.44771 9.55229 9 9 9ZM13 9C12.4477 9 12 9.44771 12 10C12 10.5523 12.4477 11 13 11C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9ZM17 9C16.4477 9 16 9.44771 16 10C16 10.5523 16.4477 11 17 11C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9ZM5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13ZM9 13C8.44771 13 8 13.4477 8 14C8 14.5523 8.44771 15 9 15C9.55229 15 10 14.5523 10 14C10 13.4477 9.55229 13 9 13ZM13 13C12.4477 13 12 13.4477 12 14C12 14.5523 12.4477 15 13 15C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13ZM17 13C16.4477 13 16 13.4477 16 14C16 14.5523 16.4477 15 17 15C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13ZM5 17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19C5.55228 19 6 18.5523 6 18C6 17.4477 5.55228 17 5 17ZM9 17C8.44771 17 8 17.4477 8 18C8 18.5523 8.44771 19 9 19C9.55229 19 10 18.5523 10 18C10 17.4477 9.55229 17 9 17ZM13 17C12.4477 17 12 17.4477 12 18C12 18.5523 12.4477 19 13 19C13.5523 19 14 18.5523 14 18C14 17.4477 13.5523 17 13 17Z" fill="#282828"/>
+                  </svg>
               </div>
             </div>
             <div class="rent__input relative flex flex-ai-center flex-j-center">
@@ -35,9 +39,10 @@
                 <div class="p-select__current flex flex-ai-center flex-j-between">
                   <input type="hidden" name="guest" value="1 гость"/>
                   <div class="p-select__current-item">1 гость</div>
-                  <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
-</svg>
+                  <div class="p-select__current-arrow">
+                    <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+                    </svg>
                   </div>
                 </div>
                 <div class="p-select__abs absolute flex flex-col">
@@ -49,7 +54,7 @@
               </div>
             </div>
             <div class="rent__input relative">
-              <button class="text-500" type="submit">{% trans 'View' %}<!--Посмотреть--> х {% trans 'options' %}<!--вариантов--></button>
+              <button class="text-500" type="submit">{% trans 'View' %}<!--Посмотреть--> {{ len_listings }} {% trans 'options' %}<!--вариантов--></button>
             </div>
           </form>
           <div class="rent__item-end text-underline text-c3 text-600 modal__show" data-modal="type-first">{% trans 'Select with manager' %}<!--Подобрать с менеджером--></div>
@@ -62,154 +67,45 @@
       <form class="filters__top flex flex-ai-center flex-j-between">
         <div class="filters__top-left flex flex-ai-center">
           <div class="filters__main cursor-pointer flex flex-ai-center modal__show" data-modal="filter">
-            <div class="filters__main-svg"><svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.02209C0 1.68367 0.135459 1.35912 0.376577 1.11982C0.617695 0.880528 0.944722 0.746094 1.28571 0.746094H28.7143C29.0553 0.746094 29.3823 0.880528 29.6234 1.11982C29.8645 1.35912 30 1.68367 30 2.02209C30 2.3605 29.8645 2.68505 29.6234 2.92435C29.3823 3.16364 29.0553 3.29808 28.7143 3.29808H1.28571C0.944722 3.29808 0.617695 3.16364 0.376577 2.92435C0.135459 2.68505 0 2.3605 0 2.02209ZM0 10.5287C0 10.1903 0.135459 9.86574 0.376577 9.62644C0.617695 9.38715 0.944722 9.25271 1.28571 9.25271H20.1429C20.4839 9.25271 20.8109 9.38715 21.052 9.62644C21.2931 9.86574 21.4286 10.1903 21.4286 10.5287C21.4286 10.8671 21.2931 11.1917 21.052 11.431C20.8109 11.6703 20.4839 11.8047 20.1429 11.8047H1.28571C0.944722 11.8047 0.617695 11.6703 0.376577 11.431C0.135459 11.1917 0 10.8671 0 10.5287ZM0 19.0353C0 18.6969 0.135459 18.3724 0.376577 18.1331C0.617695 17.8938 0.944722 17.7593 1.28571 17.7593H9.85714C10.1981 17.7593 10.5252 17.8938 10.7663 18.1331C11.0074 18.3724 11.1429 18.6969 11.1429 19.0353C11.1429 19.3737 11.0074 19.6983 10.7663 19.9376C10.5252 20.1769 10.1981 20.3113 9.85714 20.3113H1.28571C0.944722 20.3113 0.617695 20.1769 0.376577 19.9376C0.135459 19.6983 0 19.3737 0 19.0353Z" fill="#003B50"/>
-</svg>
+            <div class="filters__main-svg">
+                <svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.02209C0 1.68367 0.135459 1.35912 0.376577 1.11982C0.617695 0.880528 0.944722 0.746094 1.28571 0.746094H28.7143C29.0553 0.746094 29.3823 0.880528 29.6234 1.11982C29.8645 1.35912 30 1.68367 30 2.02209C30 2.3605 29.8645 2.68505 29.6234 2.92435C29.3823 3.16364 29.0553 3.29808 28.7143 3.29808H1.28571C0.944722 3.29808 0.617695 3.16364 0.376577 2.92435C0.135459 2.68505 0 2.3605 0 2.02209ZM0 10.5287C0 10.1903 0.135459 9.86574 0.376577 9.62644C0.617695 9.38715 0.944722 9.25271 1.28571 9.25271H20.1429C20.4839 9.25271 20.8109 9.38715 21.052 9.62644C21.2931 9.86574 21.4286 10.1903 21.4286 10.5287C21.4286 10.8671 21.2931 11.1917 21.052 11.431C20.8109 11.6703 20.4839 11.8047 20.1429 11.8047H1.28571C0.944722 11.8047 0.617695 11.6703 0.376577 11.431C0.135459 11.1917 0 10.8671 0 10.5287ZM0 19.0353C0 18.6969 0.135459 18.3724 0.376577 18.1331C0.617695 17.8938 0.944722 17.7593 1.28571 17.7593H9.85714C10.1981 17.7593 10.5252 17.8938 10.7663 18.1331C11.0074 18.3724 11.1429 18.6969 11.1429 19.0353C11.1429 19.3737 11.0074 19.6983 10.7663 19.9376C10.5252 20.1769 10.1981 20.3113 9.85714 20.3113H1.28571C0.944722 20.3113 0.617695 20.1769 0.376577 19.9376C0.135459 19.6983 0 19.3737 0 19.0353Z" fill="#003B50"/>
+                </svg>
             </div>
             <div class="filters__main-title">{% trans 'Filters' %}<!--Фильтры--></div>
           </div>
+
+          {% comment %}
+          <!--
           <div class="modal modal_filter">
             <div class="modal__content relative">
               <div class="modal__close absolute">
-                <picture>
-                  <source type="image/webp" srcset="/img/rent/filters/close.webp"/><img width="21" height="21" src="/img/rent/filters/close.png" alt="" loading="lazy"/>
-                </picture>
+                        <picture>
+                          <source type="image/webp" srcset="img/rent/filters/close.webp"><img width="21" height="21" src="img/rent/filters/close.png" alt="" loading="lazy">
+                        </picture>
               </div>
-              <div class="modal_filter__reset absolute text-underline cursor-pointer">{% trans 'Remove filters' %}<!--Сбросить фильтры--></div>
-              <div class="modal_filter__items flex relative flex-col">
-                <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Property type' %}<!--Тип недвижимости--></div>
-                  <div class="p-checkboxes flex flex-wrap">
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Любая"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Any type' %}<!--Любая--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Таунхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Townhouses' %}<!--Таунхаусы--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Виллы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Villas' %}<!--Виллы--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Апартаменты"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Apartments' %}<!--Апартаменты--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Дуплексы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Duplexes' %}<!--Дуплексы--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Пентхаусы"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Penthouses' %}<!--Пентхаусы--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="type[]" value="Квартиры в отелях"/><span class="p-checkboxes__item-square"></span><span class="p-checkboxes__item-title">{% trans 'Hotel apartment' %}<!--Квартиры в отелях--></span>
-                    </label>
-                  </div>
-                </div>
-                <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Bedroom' %}<!--Комнаты--></div>
-                  <div class="p-checkboxes p-checkboxes_second flex flex-wrap">
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="room[]" value="Студия"/><span class="p-checkboxes__item-title">{% trans 'Studio' %}<!--Студия--></span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="room[]" value="1"/><span class="p-checkboxes__item-title">1</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="room[]" value="2"/><span class="p-checkboxes__item-title">2</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="room[]" value="3"/><span class="p-checkboxes__item-title">3</span>
-                    </label>
-                    <label class="p-checkboxes__item flex">
-                      <input type="checkbox" name="room[]" value="4+"/><span class="p-checkboxes__item-title">4+</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="modal_filter__item">
-                  <div class="modal_filter__price-row flex">
-                    <div class="modal_filter__price-item modal_filter__item_change">
-                      <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Monthly rental cost' %}<!--Стоимость в месяц--></div>
-                        <div class="modal_filter__price-currency flex">
-                          <div class="p-checkboxes p-checkboxes_second flex">
-                            <label class="p-checkboxes__item flex">
-                              <input type="radio" name="currency" value="₽" checked="checked"/><span class="p-checkboxes__item-title">₽</span>
-                            </label>
-                            <label class="p-checkboxes__item flex">
-                              <input type="radio" name="currency" value="$"/><span class="p-checkboxes__item-title">$</span>
-                            </label>
-                            <label class="p-checkboxes__item flex">
-                              <input type="radio" name="currency" value="€"/><span class="p-checkboxes__item-title">€</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal_filter__range-contents">
-                        <div class="modal_filter__range-content active">
-                          <div class="modal_filter__range modal_filter__price-input" data-min="6.419" data-max="78.251">
-                            <div class="modal_filter__range-main"></div>
-                            <input type="hidden" name="price_rub_min"/>
-                            <input type="hidden" name="price_rub_max"/>
-                          </div>
-                        </div>
-                        <div class="modal_filter__range-content">
-                          <div class="modal_filter__range modal_filter__price-input" data-min="8.419" data-max="100.251">
-                            <div class="modal_filter__range-main"></div>
-                            <input type="hidden" name="price_dollar_min"/>
-                            <input type="hidden" name="price_dollar_max"/>
-                          </div>
-                        </div>
-                        <div class="modal_filter__range-content">
-                          <div class="modal_filter__range modal_filter__price-input" data-min="3.419" data-max="67.251">
-                            <div class="modal_filter__range-main"></div>
-                            <input type="hidden" name="price_euro_min"/>
-                            <input type="hidden" name="price_euro_max"/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal_filter__price-item">
-                      <div class="modal_filter__price-top flex">
-                        <div class="modal_filter__price-title text-500 text-c5">{% trans 'Bedrooms' %}<!--Спальни--></div>
-                      </div>
-                      <div class="modal_filter__range modal_filter__bedrooms" data-min="1" data-max="3" data-type="int">
-                        <div class="modal_filter__range-main"></div>
-                        <input type="hidden" name="bedrooms_min"/>
-                        <input type="hidden" name="bedrooms_max"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Location' %}<!--Местоположение--></div>
-
-                  {% include 'includes/filter/location.html' %}
-
-                </div>
-                <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Amenities' %}<!--Удобства--></div>
-
-                  {% include 'includes/filter/amenities.html' %}
-
-                </div>
-                <div class="modal_filter__item">
-                  <div class="modal_filter__item-title text-500 text-c5">{% trans 'Districts' %}<!--Районы--></div>
-
-                  {% include 'includes/filter/districts.html' %}
-
-                </div>
-                <div class="modal_filter__item">
-                  <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Apply filters' %}<!--Применить фильтры--></button>
-                </div>
-              </div>
+              <div class="modal_filter__reset absolute text-underline cursor-pointer">Сбросить фильтры</div>
             </div>
           </div>
+          -->
+          {% endcomment %}
+
+          {% include 'includes/filter/rent_big_modal_filter.html' %}
+
+          {% comment %}
+          <!--
+
+
+
           <div class="filters__currency">
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
                 <input type="hidden" name="currency" value="RUB"/>
                 <div class="p-select__current-item">RUB</div>
-                <div class="p-select__current-arrow"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
-</svg>
+                <div class="p-select__current-arrow">
+                  <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+                  </svg>
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
@@ -219,32 +115,42 @@
               </div>
             </div>
           </div>
+          -->
+          {% endcomment %}
         </div>
         <div class="filters__top-right flex flex-ai-center">
+
+          {% comment %}
+          <!--
           <div class="filters__sort">
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
                 <input type="hidden" name="sort" value="Cначала новые"/>
-                <div class="p-select__current-item">{% trans 'New first' %}<!--Cначала новые--></div>
-                <div class="p-select__current-arrow"><svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15.8536 0.146447C15.6583 -0.0488155 15.3417 -0.0488155 15.1464 0.146447L11.9645 3.32843C11.7692 3.52369 11.7692 3.84027 11.9645 4.03553C12.1597 4.2308 12.4763 4.2308 12.6716 4.03553L15.5 1.20711L18.3284 4.03553C18.5237 4.2308 18.8403 4.2308 19.0355 4.03553C19.2308 3.84027 19.2308 3.52369 19.0355 3.32843L15.8536 0.146447ZM16 21.5V0.5H15V21.5H16Z" fill="black"/>
-<path d="M3.64645 22.3536C3.84171 22.5488 4.15829 22.5488 4.35355 22.3536L7.53553 19.1716C7.7308 18.9763 7.7308 18.6597 7.53553 18.4645C7.34027 18.2692 7.02369 18.2692 6.82843 18.4645L4 21.2929L1.17157 18.4645C0.976311 18.2692 0.659728 18.2692 0.464466 18.4645C0.269204 18.6597 0.269204 18.9763 0.464466 19.1716L3.64645 22.3536ZM4.5 22V1H3.5V22H4.5Z" fill="black"/>
-</svg>
+                <div class="p-select__current-item">{% trans 'New first' %}</div>
+                <div class="p-select__current-arrow">
+                  <svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.8536 0.146447C15.6583 -0.0488155 15.3417 -0.0488155 15.1464 0.146447L11.9645 3.32843C11.7692 3.52369 11.7692 3.84027 11.9645 4.03553C12.1597 4.2308 12.4763 4.2308 12.6716 4.03553L15.5 1.20711L18.3284 4.03553C18.5237 4.2308 18.8403 4.2308 19.0355 4.03553C19.2308 3.84027 19.2308 3.52369 19.0355 3.32843L15.8536 0.146447ZM16 21.5V0.5H15V21.5H16Z" fill="black"/>
+                    <path d="M3.64645 22.3536C3.84171 22.5488 4.15829 22.5488 4.35355 22.3536L7.53553 19.1716C7.7308 18.9763 7.7308 18.6597 7.53553 18.4645C7.34027 18.2692 7.02369 18.2692 6.82843 18.4645L4 21.2929L1.17157 18.4645C0.976311 18.2692 0.659728 18.2692 0.464466 18.4645C0.269204 18.6597 0.269204 18.9763 0.464466 19.1716L3.64645 22.3536ZM4.5 22V1H3.5V22H4.5Z" fill="black"/>
+                  </svg>
                 </div>
               </div>
               <div class="p-select__abs absolute flex flex-col">
-                <div class="p-select__abs-item active" data-value="Cначала новые">{% trans 'New first' %}<!--Cначала новые--></div>
-                <div class="p-select__abs-item" data-value="Сначала дешевле">{% trans 'Cheaper first' %}<!--Сначала дешевле--></div>
-                <div class="p-select__abs-item" data-value="Сначала дороже">{% trans 'More expensive' %}<!--Сначала дороже--></div>
+                <div class="p-select__abs-item active" data-value="Cначала новые">{% trans 'New first' %}</div>
+                <div class="p-select__abs-item" data-value="Сначала дешевле">{% trans 'Cheaper first' %}</div>
+                <div class="p-select__abs-item" data-value="Сначала дороже">{% trans 'More expensive' %}</div>
               </div>
             </div>
           </div>
-          <div class="filters__coub active cursor-pointer"><svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="15.4708" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
-<rect x="15.4708" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
-<rect x="0.65332" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
-<rect x="0.65332" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
-</svg>
+          -->
+          {% endcomment %}
+
+          <div class="filters__coub active cursor-pointer">
+            <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="15.4708" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+              <rect x="15.4708" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+              <rect x="0.65332" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+              <rect x="0.65332" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
+            </svg>
           </div>
           <div class="filters__map cursor-pointer">
             <picture>
@@ -256,6 +162,7 @@
           </div>
         </div>
       </form>
+      {% include "geomap/common.html" %}
       <div class="filters__content active">
         <div class="filters__content-block flex flex-wrap active">
           {% if listings %}
@@ -276,7 +183,10 @@
         <div class="filters__content-load margin-center text-c3 text-underline text-500">{% trans 'Download' %}<!--Загрузить--> <span>18</span> {% trans 'out of' %}<!--из--> 103</div>
       </div>
       <div class="filters__content-map">
-        <div class="filters__content-map-item" id="map"></div>
+        <div class="filters__content-map-item" id="map">
+          map
+          map
+        </div>
       </div>
     </div>
   </div>
