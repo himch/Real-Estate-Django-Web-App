@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<a class="header__like active" href="{% url 'izbrannoe' %}">
+    <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.43 0.597656H0.970395C0.441594 0.597656 0.0078125 0.996966 0.0078125 1.49226V20.256L7.70021 13.1068L15.3926 20.256V1.49226C15.3926 0.996966 14.963 0.597656 14.43 0.597656Z" fill="#003B50"/>
+    </svg>
+    {% if request.user.is_authenticated %}
+        <div class="header__num absolute top-0 right-0 flex flex-ai-center flex-j-center">3</div>
+    {% endif %}
+</a>
