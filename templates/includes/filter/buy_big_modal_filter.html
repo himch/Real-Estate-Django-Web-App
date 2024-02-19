@@ -94,30 +94,11 @@
               <div class="modal_filter__price-top flex">
                 <div class="modal_filter__price-title text-500 text-c5">{% trans 'Lease period' %}<!--Срок сдачи--></div>
               </div>
-              <div class="modal_filter__radio-btns flex flex-wrap">
-                    <div class="modal_filter__radio-btn flex flex-ai-center">
-                        <label class="p-radio__btn flex">
-                            <input type="checkbox" name="srok[]"
-                                   value="Регистрация интереса (EOI)" checked><span
-                                class="p-radio__btn-title">Регистрация интереса (EOI)</span>
-                        </label>
-                        <label class="p-radio__btn flex">
-                            <input type="checkbox" name="srok[]" value="Анонс продаж"><span
-                                class="p-radio__btn-title">Анонс продаж</span>
-                        </label>
-                    </div>
-                    <div class="modal_filter__radio-btn flex flex-ai-center">
-                        <label class="p-radio__btn flex">
-                            <input type="checkbox" name="srok[]" value="Старт продаж"><span
-                                class="p-radio__btn-title">Старт продаж</span>
-                        </label>
-                        <label class="p-radio__btn flex">
-                            <input type="checkbox" name="srok[]"
-                                   value="Сейчас в продаже"><span
-                                class="p-radio__btn-title">Сейчас в продаже</span>
-                        </label>
-                    </div>
-                </div>
+              <div class="modal_filter__range modal_filter__due_date" data-string="[&quot;{% trans 'Сompleted' %}&quot;,&quot;5&quot;,&quot;15&quot;, &quot;235&quot;]" data-start="{% trans 'Сompleted' %}" data-end="235" data-type="int">
+                <div class="modal_filter__range-main"></div>
+                <input type="hidden" name="due_date_min"/>
+                <input type="hidden" name="due_date_max"/>
+              </div>
             </div>
           </div>
         </div>

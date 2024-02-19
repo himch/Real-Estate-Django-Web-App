@@ -6,14 +6,6 @@
 {% if districts_choices %}
 <div class="modal_filter__item">
     <div class="modal_filter__item-title text-500 text-c5">{% trans 'Districts' %}<!--Районы--></div>
-    <div class="modal_filter__marks flex absolute flex-ai-center top-0 right-0 text-c3 text-underline">
-        <div class="modal_filter__mark-item modal_filter__mark-item_add cursor-pointer">
-            отметить все
-        </div>
-        <div class="modal_filter__mark-item modal_filter__mark-item_del cursor-pointer">
-            снять все отметки
-        </div>
-    </div>
     <div class="p-checkboxes flex flex-wrap">
         {% for key, value in districts_choices.items %}
         <label class="p-checkboxes__item flex">
