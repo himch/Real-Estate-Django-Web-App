@@ -473,6 +473,10 @@ def sravnenie(request):
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
+    blog_articles = Article.objects.all()
+    blog_paginator = Paginator(blog_articles, 6)
+    paged_blog_articles = blog_paginator.get_page(1)
+
     context = {
         'our_company': our_company,
         'catalogs': catalogs,
@@ -480,7 +484,7 @@ def sravnenie(request):
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
-
+        'blog_articles': paged_blog_articles,
     }
 
     # return render(request, 'pages/index.html', context)

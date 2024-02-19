@@ -21,14 +21,9 @@
       </div>
     </div>
   </div>
+
   <div class="modal_filter__range-contents">
-    <div class="modal_filter__range-content active">
-      <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_rub }}" data-max="{{ vars_filter.listings_price_max_rub }}">
-        <div class="modal_filter__range-main"></div>
-        <input type="hidden" name="price_rub_min" value="{{ vars_filter.price_rub_min }}"/>
-        <input type="hidden" name="price_rub_max" value="{{ vars_filter.price_rub_max }}"/>
-      </div>
-    </div>
+
     <div class="modal_filter__range-content">
       <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_usd }}" data-max="{{ vars_filter.listings_price_max_usd }}">
         <div class="modal_filter__range-main"></div>
@@ -36,6 +31,7 @@
         <input type="hidden" name="price_dollar_max" value="{{ vars_filter.price_dollar_max }}"/>
       </div>
     </div>
+
     <div class="modal_filter__range-content">
       <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_eur }}" data-max="{{ vars_filter.listings_price_max_eur }}">
         <div class="modal_filter__range-main"></div>
@@ -43,5 +39,15 @@
         <input type="hidden" name="price_euro_max" value="{{ vars_filter.price_euro_max }}"/>
       </div>
     </div>
+
+    <div class="modal_filter__range-content active">
+      <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_rub }}" data-max="{{ vars_filter.listings_price_max_rub }}">
+        <div class="modal_filter__range-main"></div>
+        <input type="hidden" name="price_rub_min" value="{{ vars_filter.price_rub_min }}"/>
+        <input type="hidden" name="price_rub_max" value="{{ vars_filter.price_rub_max }}"/>
+      </div>
+    </div>
+
   </div>
+
 </div>

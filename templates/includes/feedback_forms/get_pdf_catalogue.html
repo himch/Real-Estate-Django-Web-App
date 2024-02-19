@@ -34,7 +34,7 @@
               <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
             </div>
             <div class="get__item-input form__input">
-              <input type="email" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
+              <input type="email" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value=""{% endif %} required="required"/>
             </div>
           </div>
           <div class="get__item-end">

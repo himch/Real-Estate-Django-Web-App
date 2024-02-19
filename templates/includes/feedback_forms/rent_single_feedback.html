@@ -44,13 +44,21 @@
       </form>
 
       <div class="rent-single__faq-end flex flex-ai-center">
-        <div class="rent-single__socials flex flex-ai-center"><a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" href="https://wa.me/971524476830?text=Hello! I’m interested in a real estate in Dubai.">
+        <div class="rent-single__socials flex flex-ai-center">
+          <a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" target="_blank" href="https://wa.me/{{ our_company.whatsapp }}?text=Hello! I’m interested in a real estate in Dubai.">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/whatsapp.webp"/><img class="lazy " width="15" height="15" src="" data-src="/img/rent/single/faq/whatsapp.png" alt="" loading="lazy"/>
-            </picture></a><a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" href="#!">
+              <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/whatsapp.webp"/>
+              <img class="lazy " width="15" height="15" src="" data-src="/img/rent/single/faq/whatsapp.png" alt="" loading="lazy"/>
+            </picture>
+          </a>
+          <a class="rent-single__socials-item flex flex-ai-center flex-j-center bg-c2" target="_blank" href="{{ our_company.telegram }}>
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/telegram.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/rent/single/faq/telegram.png" alt="" loading="lazy"/>
-            </picture></a></div><a class="rent-single__socials-phone" href="tel:+79999999999">+971 4 585 9538</a>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/single/faq/telegram.webp"/>
+              <img class="lazy " width="14" height="14" src="" data-src="/img/rent/single/faq/telegram.png" alt="" loading="lazy"/>
+            </picture>
+          </a>
+        </div>
+        <a class="rent-single__socials-phone" href="tel:{{ our_company.phone }}">{{ our_company.phone }}</a>
       </div>
     </div>
     <div class="rent-single__faq-right">

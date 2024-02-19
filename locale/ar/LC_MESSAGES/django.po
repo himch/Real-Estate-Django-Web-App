@@ -19,6 +19,9 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+
+
+
 msgid "residential_complex"
 msgstr "مجمع سكني"
 
@@ -75,9 +78,9 @@ msgstr "أين أفضل مكان للعيش: ما الفرق بين مناطق �
 msgid "Read"
 msgstr "قراءة"
 
-#: templates/includes/blog/blog_module.html:8
-#, fuzzy
-#| msgid "Blog about Dubai&quot;s real estate and news"
+msgid "Blog about Dubai&quot;s real estate and news"
+msgstr "مدونة دبي للعقارات والأخبار"
+
 msgid "Blog about Dubai’s real estate and news"
 msgstr "مدونة دبي للعقارات والأخبار"
 
@@ -234,8 +237,9 @@ msgid "Catalog name"
 msgstr "الاسم"
 
 #: templates/includes/catalog/catalog_card.html:16
-#, fuzzy
-#| msgid "A short description of the catalog or project, what&quot;s inside"
+msgid "A short description of the catalog or project, what&quot;s inside"
+msgstr "وصف مختصر للكتالوج أو المشروع وما بداخله"
+
 msgid "A short description of the catalog or project, what’s inside"
 msgstr "وصف مختصر للكتالوج أو المشروع وما بداخله"
 
@@ -270,8 +274,9 @@ msgid "Al Gurg Tower 3, office 3, Dubai P Floor, UAE"
 msgstr "برج القرق 3، مكتب 3، الطابق P دبي، الإمارات العربية المتحدة"
 
 #: templates/includes/content/arenda-single.html:16
-#, fuzzy
-#| msgid "Go to Purchase catalogue"
+msgid "Go to Purchase catalogue"
+msgstr "انتقل إلى كتالوج الشراء"
+
 msgid "Purchase catalogue"
 msgstr "انتقل إلى كتالوج الشراء"
 
@@ -351,8 +356,6 @@ msgid "Services of DADI"
 msgstr "خدمات DADI"
 
 #: templates/includes/content/arenda-single.html:214
-#, fuzzy
-#| msgid "Client&quot;s personal account"
 msgid "Client’s personal account"
 msgstr "الحساب الشخصي للعميل"
 
@@ -365,14 +368,10 @@ msgid "Personalized choice"
 msgstr "الاختيار الفردي"
 
 #: templates/includes/content/arenda-single.html:226
-#, fuzzy
-#| msgid "of property for rent or purchase based on your request"
 msgid "of property for rent or purchase basen on your request"
 msgstr "عقارات للإيجار أو الشراء حسب طلبك"
 
 #: templates/includes/content/arenda-single.html:236
-#, fuzzy
-#| msgid "Personal assistant in&nbsp;the country"
 msgid "Personal assistant in the country"
 msgstr "مساعد شخصي في البلد"
 
@@ -395,11 +394,6 @@ msgid "Legal support"
 msgstr "الدعم القانوني"
 
 #: templates/includes/content/arenda-single.html:248
-#, fuzzy
-#| msgid ""
-#| "in case of leasehold term starting from 3 months we will take care of "
-#| "checking all document and concluding the contract of rent with the "
-#| "proprietor"
 msgid "عند الاستئجار لمدة تزيد عن 3 أشهر ، سنساعدك في التحقق من المستندات وإبرام اتفاقية مع المالك"
 "In case of leasehold term starting from 3 months we will take care of "
 "checking all document and concluding the contract of rent with the proprietor"
@@ -901,7 +895,7 @@ msgstr ""
 
 #: templates/includes/content/blog.html:107
 msgid "with fresh news in Dubai"
-msgstr "مع آخر الأخبار من عالم دبي"
+msgstr "مع أخبار جديدة في دبي"
 
 #: templates/includes/content/blog.html:108
 msgid "Telegram channel DADI"
@@ -1201,15 +1195,6 @@ msgstr "عرض الحالات"
 #: templates/includes/content/index_rus.html:797
 msgid "Purchase"
 msgstr "الشراء"
-
-#: templates/includes/content/dadi.html:69
-#: templates/includes/content/index.html:689
-#: templates/includes/content/index.html:723
-#: templates/includes/content/index_rus.html:690
-#: templates/includes/content/index_rus.html:884
-#: templates/includes/content/katalogi.html:46
-msgid "Go to Purchase catalogue"
-msgstr "انتقل إلى كتالوج الشراء"
 
 #: templates/includes/content/index.html:23
 #: templates/includes/content/index_rus.html:23
@@ -1820,8 +1805,6 @@ msgid "Get a consultation"
 msgstr "احصل على استشارة"
 
 #: templates/includes/feedback_forms/rent_single_feedback.html:11
-#, fuzzy
-#| msgid "Leave a request for "
 msgid "Leave a request for"
 msgstr "اترك طلبًا للحصول على"
 

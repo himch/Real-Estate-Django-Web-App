@@ -64,7 +64,10 @@
       <div class="telegram__item relative">
         <div class="telegram__subtitle text-center relative">{% trans 'with fresh news in Dubai' %}<!--со свежими новостями из мира Дубая--></div>
         <div class="section__title font-tenor text-c3 text-center relative">{% trans 'Telegram channel DADI' %}<!--Телеграм канал DADI--></div>
-        <div class="telegram__btns flex flex-j-between margin-center relative flex-ai-center"><a class="telegram__btns-link text-c5 text-underline" href="#!">@channel_name</a><a class="p-btn flex flex-ai-center flex-j-center text-500" href="#!">{% trans 'Go to Telegram channel' %}<!--Перейти в канал--></a></div>
+        <div class="telegram__btns flex flex-j-between margin-center relative flex-ai-center">
+            <a class="telegram__btns-link text-c5 text-underline" target="_blank" href="{{ our_company.telegram }}">{{ our_company.telegram }}</a>
+            <a class="p-btn flex flex-ai-center flex-j-center text-500" target="_blank" href="{{ our_company.telegram }}">{% trans 'Go to Telegram channel' %}<!--Перейти в канал--></a>
+        </div>
         <div class="telegram__img absolute bottom-0">
           <picture>
             <source type="image/webp" srcset="" data-srcset="/img/blog/telegram/iPhone.webp"/><img class="lazy " width="1002" height="484" src="" data-src="/img/blog/telegram/iPhone.jpg" alt="" loading="lazy"/>

@@ -28,7 +28,7 @@
           <div class="article__item-text">
             <div class="article__item-title font-tenor text-c3">{% get_attr 'article' 'category_'|add:LANGUAGE_CODE %}</div>
             {% autoescape off %}
-            <div class="article__item-desc">{% get_attr 'article' 'text_'|add:LANGUAGE_CODE %}</div>
+            <div class="article__item-desc">{% get_attr 'article' 'text_'|add:LANGUAGE_CODE|safe %}</div>
             {% endautoescape %}
           </div>
         </div>

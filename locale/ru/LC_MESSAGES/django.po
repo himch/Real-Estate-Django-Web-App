@@ -20,6 +20,12 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+msgid "Useful articles about life and real estate in Dubai"
+msgstr "Полезные статьи о жизни и недвижимости в Дубае"
+
+msgid "DADI Blog"
+msgstr "DADI блог"
+
 msgid "residential_complex"
 msgstr "Жилой комплекс"
 
@@ -267,9 +273,7 @@ msgid "Al Gurg Tower 3, office 3, Dubai P Floor, UAE"
 msgstr "Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ"
 
 #: templates/includes/content/arenda-single.html:16
-#, fuzzy
-#| msgid "Go to Purchase catalogue"
-msgid "Purchase catalogue"
+msgid "Go to Purchase catalogue"
 msgstr "Перейти в каталог Покупки"
 
 #: templates/includes/content/arenda-single.html:64
@@ -301,9 +305,7 @@ msgid "Check in after 15:00"
 msgstr "Прибытие после 15:00"
 
 #: templates/includes/content/arenda-single.html:130
-#, fuzzy
-#| msgid "2 guests"
-msgid "Maximum 2 guests"
+msgid "2 guests"
 msgstr "2 гостя"
 
 #: templates/includes/content/arenda-single.html:138
@@ -335,9 +337,7 @@ msgid "Cancellation policy"
 msgstr "Правила отмены"
 
 #: templates/includes/content/arenda-single.html:184
-#, fuzzy
-#| msgid "Leave an application"
-msgid "leave an application"
+msgid "Leave an application"
 msgstr "Оставить заявку"
 
 #: templates/includes/content/arenda-single.html:185
@@ -356,9 +356,7 @@ msgid "Services of DADI"
 msgstr "Услуги DADI"
 
 #: templates/includes/content/arenda-single.html:214
-#, fuzzy
-#| msgid "Client&quot;s personal account"
-msgid "Client’s personal account"
+msgid "Client&quot;s personal account"
 msgstr "Личный кабинет клиента"
 
 #: templates/includes/content/arenda-single.html:215
@@ -370,15 +368,11 @@ msgid "Personalized choice"
 msgstr "Индивидуальный подбор"
 
 #: templates/includes/content/arenda-single.html:226
-#, fuzzy
-#| msgid "of property for rent or purchase based on your request"
-msgid "of property for rent or purchase basen on your request"
+msgid "of property for rent or purchase based on your request"
 msgstr "недвижимости для аренды или покупки под ваши запросы"
 
 #: templates/includes/content/arenda-single.html:236
-#, fuzzy
-#| msgid "Personal assistant in&nbsp;the country"
-msgid "Personal assistant in the country"
+msgid "Personal assistant in&nbsp;the country"
 msgstr "Личный ассистент в стране"
 
 #: templates/includes/content/arenda-single.html:237
@@ -400,14 +394,10 @@ msgid "Legal support"
 msgstr "Юридическое сопровождение"
 
 #: templates/includes/content/arenda-single.html:248
-#, fuzzy
-#| msgid ""
-#| "in case of leasehold term starting from 3 months we will take care of "
-#| "checking all document and concluding the contract of rent with the "
-#| "proprietor"
 msgid ""
-"In case of leasehold term starting from 3 months we will take care of "
-"checking all document and concluding the contract of rent with the proprietor"
+"in case of leasehold term starting from 3 months we will take care of "
+"checking all document and concluding the contract of rent with the "
+"proprietor"
 msgstr ""
 "при аренде на срок более 3 месяцев, поможем проверить документы и заключить "
 "выгодный договор с собственником"
@@ -464,12 +454,6 @@ msgstr "Всего (без учета налогов)"
 msgid "More offers"
 msgstr "Другие предложения"
 
-#: templates/includes/content/arenda-single.html:361
-#, fuzzy
-#| msgid "Go to the blog page"
-msgid "Back to the Rent page"
-msgstr "Перейти в Блог"
-
 #: templates/includes/content/arenda.html:13
 msgid "Dadi holiday"
 msgstr ""
@@ -481,10 +465,6 @@ msgstr "Аренда недвижимости в Дубае"
 #: templates/includes/content/arenda.html:16
 msgid "apartment with 5* hotel service"
 msgstr "апартаменты с сервисом отеля 5*"
-
-#: templates/includes/content/arenda.html:45
-msgid "2 guests"
-msgstr "2 гостя"
 
 #: templates/includes/content/arenda.html:46
 msgid "3 guests"
@@ -810,31 +790,11 @@ msgstr ""
 msgid "Book an apartment"
 msgstr "Забронировать квартиру"
 
-#: templates/includes/content/arenda.html:554
-#: templates/includes/content/index.html:155
-#: templates/includes/content/index.html:413
-#: templates/includes/content/index_rus.html:155
-#: templates/includes/content/index_rus.html:413
-#: templates/includes/content/index_rus.html:773
-#: templates/includes/rent/rent_module.html:37
-msgid "Personal assistant in&nbsp;the country"
-msgstr "Личный ассистент в стране"
-
 #: templates/includes/content/arenda.html:556
 #: templates/includes/content/index_rus.html:775
 #: templates/includes/rent/rent_module.html:39
 msgid "Book transfer from the airport"
 msgstr "Заказать трансфер из аэропорта"
-
-#: templates/includes/content/arenda.html:569
-#: templates/includes/content/index_rus.html:788
-#: templates/includes/rent/rent_module.html:52
-msgid ""
-"in case of leasehold term starting from 3 months we will take care of "
-"checking all document and concluding the contract of rent with the proprietor"
-msgstr ""
-"при аренде на срок более 3 месяцев, поможем проверить документы и заключить "
-"выгодный договор с собственником"
 
 #: templates/includes/content/arenda.html:570
 #: templates/includes/content/index_rus.html:789
@@ -848,16 +808,6 @@ msgstr "Оставить заявку на долгосрочную аренду
 msgid "Individual selection"
 msgstr "Индивидуальный подбор"
 
-#: templates/includes/content/arenda.html:583
-#: templates/includes/content/index_rus.html:716
-#: templates/includes/feedback_forms/building.html:11
-msgid "of property for rent or purchase based on your request"
-msgstr "недвижимости для аренды или покупки под ваши запросы"
-
-#: templates/includes/content/arenda.html:584
-msgid "Leave an application"
-msgstr "Оставить заявку"
-
 #: templates/includes/content/arenda.html:591
 msgid "We will help you find an apartment for rent"
 msgstr "Поможем подобрать квартиру в аренду"
@@ -870,15 +820,11 @@ msgid "Find real estate"
 msgstr "Подобрать квартиру"
 
 #: templates/includes/content/blog.html:14
-#, fuzzy
-#| msgid "Blog"
-msgid "DADI Blog"
+msgid "Blog"
 msgstr "Блог"
 
 #: templates/includes/content/blog.html:15
-#, fuzzy
-#| msgid "Purchase of real estate in Dubai"
-msgid "Useful articles about life and real estate in Dubai"
+msgid "Purchase of real estate in Dubai"
 msgstr "Покупка недвижимости в Дубае"
 
 #: templates/includes/content/blog.html:30
@@ -921,10 +867,8 @@ msgid "xxx"
 msgstr ""
 
 #: templates/includes/content/blog.html:107
-#, fuzzy
-#| msgid "Purchase of real estate in Dubai"
 msgid "with fresh news in Dubai"
-msgstr "Покупка недвижимости в Дубае"
+msgstr "со свежими новостями из мира Дубая"
 
 #: templates/includes/content/blog.html:108
 msgid "Telegram channel DADI"
@@ -944,10 +888,6 @@ msgstr "Получите консультацию от&nbsp;Профессион
 #: templates/includes/content/buy.html:435
 msgid "Dadi Properties"
 msgstr "Dadi Properties"
-
-#: templates/includes/content/buy.html:15
-msgid "Purchase of real estate in Dubai"
-msgstr "Покупка недвижимости в Дубае"
 
 #: templates/includes/content/buy.html:17
 msgid "for living and investment"
@@ -1213,23 +1153,12 @@ msgid ""
 "our customers"
 msgstr "Прогрессивное агентство недвижимости с акцентом на сервис и комфорт наших клиентов"
 
-#: templates/includes/content/dadi.html:40
-#, fuzzy
-#| msgid "Dadi Properties"
-msgid "Dadi properties"
-msgstr "Dadi Properties"
-
 #: templates/includes/content/dadi.html:41
 msgid ""
 "Full cycle of real estate management: valuation, sale, purchase, rental "
 "management and service, legal support"
 msgstr "Полный цикл управления недвижимостью: оценка, продажа, покупка, арендное управление и обслуживание, юридическое сопровождение"
 
-#: templates/includes/content/dadi.html:44
-#, fuzzy
-#| msgid "Services of DADI HOLIDAY"
-msgid "DADI HOLIDAYS"
-msgstr "Услуги DADI HOLIDAY"
 
 #: templates/includes/content/dadi.html:45
 msgid ""
@@ -1258,15 +1187,6 @@ msgstr "Смотреть кейсы"
 #: templates/includes/content/index_rus.html:797
 msgid "Purchase"
 msgstr "Покупка"
-
-#: templates/includes/content/dadi.html:69
-#: templates/includes/content/index.html:689
-#: templates/includes/content/index.html:723
-#: templates/includes/content/index_rus.html:690
-#: templates/includes/content/index_rus.html:884
-#: templates/includes/content/katalogi.html:46
-msgid "Go to Purchase catalogue"
-msgstr "Перейти в каталог Покупки"
 
 #: templates/includes/content/index.html:23
 #: templates/includes/content/index_rus.html:23
@@ -1653,36 +1573,6 @@ msgstr "Нет отзывов"
 msgid "Why choose "
 msgstr "Почему выбирают "
 
-#: templates/includes/content/index_rus.html:541
-#, fuzzy
-#| msgid "Seeking out Distress Deal acquisitions"
-msgid ">Seeking out Distress Deal acquisitions"
-msgstr "Поиск сделок Distress Deal"
-
-#: templates/includes/content/index_rus.html:621
-#, fuzzy
-#| msgid "on quality to provide"
-msgid " on quality to provide "
-msgstr "над качеством и предоставляем "
-
-#: templates/includes/content/index_rus.html:623
-#, fuzzy
-#| msgid "the best service "
-msgid " the best service "
-msgstr "лучший сервис на рынке "
-
-#: templates/includes/content/index_rus.html:632
-#, fuzzy
-#| msgid " calling us"
-msgid " calling us "
-msgstr " позвонив нам"
-
-#: templates/includes/content/index_rus.html:632
-#, fuzzy
-#| msgid " or "
-msgid "or "
-msgstr " или "
-
 #: templates/includes/content/index_rus.html:714
 msgid "Services of "
 msgstr "Услуги "
@@ -1802,20 +1692,12 @@ msgid "Call later"
 msgstr "Позвонить позже"
 
 #: templates/includes/content/index_rus.html:1335
-#, fuzzy
-#| msgid "A short description of the catalog or project, what\\"
-msgid "A short description of the catalog or project, what"
+msgid "A short description of the catalog or project, what\\"
 msgstr "Короткое описание каталога или проекта, что внутри"
 
 #: templates/includes/content/katalogi.html:12
 msgid "DADI REAL ESTATE"
 msgstr ""
-
-#: templates/includes/content/katalogi.html:13
-#, fuzzy
-#| msgid "of real estate purchase in Dubai"
-msgid "Real Estate Catalogs in Dubai"
-msgstr "покупки недвижимости в Дубае в 2023"
 
 #: templates/includes/content/katalogi.html:30
 msgid "Residential complexes"
@@ -1864,20 +1746,6 @@ msgstr ""
 "перспективу: сопровождаем наших клиентов в новых проектах, делимся новостями "
 "и становимся друзьями."
 
-#: templates/includes/feedback_forms/building.html:24
-#: templates/includes/feedback_forms/building.html:32
-#: templates/includes/feedback_forms/building_2.html:29
-#: templates/includes/feedback_forms/building_3.html:32
-#: templates/includes/feedback_forms/building_4.html:28
-#: templates/includes/feedback_forms/footer_feedback.html:19
-#: templates/includes/feedback_forms/rent_single_feedback.html:25
-#: templates/includes/feedback_forms/vladislav.html:28
-#: templates/includes/feedback_forms/vladislav.html:36
-#, fuzzy
-#| msgid "E-mail"
-msgid "Email"
-msgstr "Эл.почта"
-
 #: templates/includes/feedback_forms/building.html:28
 #: templates/includes/feedback_forms/building_2.html:36
 #: templates/includes/feedback_forms/building_3.html:38
@@ -1900,23 +1768,12 @@ msgstr "Оставьте заявку на "
 msgid "a free consultation"
 msgstr "бесплатную консультацию"
 
-#: templates/includes/feedback_forms/building_3.html:69
-#: templates/includes/feedback_forms/building_4.html:66
-#, fuzzy
-#| msgid ""
-#| "By submitting the form, you consent to the processing of personal data"
-msgid ""
-"By submitting the form, you consent to the processing of personal data</span>"
-msgstr "Отправляя форму, вы даёте согласие на обработку персональных данных"
-
 #: templates/includes/feedback_forms/building_4.html:23
 msgid "Get advice on Developers and best projects"
 msgstr "Получите консультацию по Застройщикам и лучшим проектам"
 
 #: templates/includes/feedback_forms/building_4.html:32
-#, fuzzy
-#| msgid "Leave your details, "
-msgid "Leave your details and"
+msgid "Leave your details, "
 msgstr "Оставьте свои данные, "
 
 #: templates/includes/feedback_forms/building_4.html:32
@@ -1925,9 +1782,7 @@ msgstr "мы&nbsp;ответим на все вопросы"
 
 #: templates/includes/feedback_forms/building_4.html:70
 #: templates/includes/feedback_forms/building_4.html:82
-#, fuzzy
-#| msgid "Write to "
-msgid "Write to"
+msgid "Write to "
 msgstr "Написать в "
 
 #: templates/includes/feedback_forms/footer_feedback.html:14
@@ -1939,24 +1794,6 @@ msgstr "Задать вопрос"
 #: templates/includes/feedback_forms/footer_feedback.html:27
 msgid "Get a consultation"
 msgstr "Получить консультацию"
-
-#: templates/includes/feedback_forms/rent_single_feedback.html:11
-#, fuzzy
-#| msgid "Leave a request for "
-msgid "Leave a request for"
-msgstr "Оставьте заявку на "
-
-#: templates/includes/feedback_forms/rent_single_feedback.html:11
-#, fuzzy
-#| msgid "a free consultation"
-msgid "free consultation"
-msgstr "бесплатную консультацию"
-
-#: templates/includes/feedback_forms/rent_single_feedback.html:35
-#, fuzzy
-#| msgid "a free consultation"
-msgid "Get free consultation"
-msgstr "бесплатную консультацию"
 
 #: templates/includes/feedback_forms/vladislav.html:12
 msgid ""
@@ -2131,10 +1968,6 @@ msgstr "Вид на Бурдж-Халиф"
 msgid "Close to the beach"
 msgstr "Близко к пляжу"
 
-#: templates/includes/footer/footer.html:17
-msgid "Client&quot;s personal account"
-msgstr "Личный кабинет клиента"
-
 #: templates/includes/footer/footer.html:18
 #: templates/includes/footer/footer.html:324
 msgid "Log in"
@@ -2144,11 +1977,6 @@ msgstr "Войти"
 #: templates/includes/header/header.html:49
 msgid "Buy"
 msgstr "Покупка"
-
-#: templates/includes/footer/footer.html:26
-#: templates/includes/header/header.html:51
-msgid "Blog"
-msgstr "Блог"
 
 #: templates/includes/footer/footer.html:27
 #: templates/includes/header/header.html:52
@@ -2181,22 +2009,12 @@ msgid "Consultation with DADI manager"
 msgstr "Консультация менеджера DADI"
 
 #: templates/includes/footer/footer.html:105
-#: templates/includes/footer/footer.html:186
-msgid "Leave your details, "
-msgstr "Оставьте свои данные, "
-
-#: templates/includes/footer/footer.html:105
 msgid "our manager will contact you within a day"
 msgstr "наш менеджер свяжется с вами в течение дня"
 
 #: templates/includes/footer/footer.html:134
 msgid "Get consultation"
 msgstr "Получить консультацию"
-
-#: templates/includes/footer/footer.html:143
-#: templates/includes/footer/footer.html:155
-msgid "Write to "
-msgstr "Написать в "
 
 #: templates/includes/footer/footer.html:186
 msgid "our agent will contact you during the day"
