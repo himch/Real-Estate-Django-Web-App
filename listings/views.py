@@ -333,7 +333,7 @@ class BookmarkAPIView(generics.GenericAPIView):
                 return Response(
                     {"result": 'added',
                      "count": self.model.objects.filter(user=user).count(),
-                     'message': f'Offer added to {model._meta.verbose_name_plural.title()}'},
+                     'message': f'Offer added to {self.model._meta.verbose_name_plural.title()}'},
                     status=status.HTTP_201_CREATED
                 )
             else:
