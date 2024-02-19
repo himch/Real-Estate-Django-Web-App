@@ -1,4 +1,4 @@
-{% load i18n %}
+% load i18n %}
 {% load l10n %}
 {% load static %}
 {% get_current_language as LANGUAGE_CODE %}
@@ -6,36 +6,13 @@
 <div class="blog">
     <div class="container margin-center">
       <div class="section__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'Blog about Dubai’s real estate and news' %}</div>
-      <div class="blog__block relative">
-        <a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="{% url 'blog' %}">{% trans 'Go to the blog page' %}</a>
-          <div class="main_swiper-arrows flex absolute">
-                    <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
-                        <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-left.webp">
-                            <img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-left.png"
-                                 alt="" loading="lazy">
-                        </picture>
-                    </div>
-                    <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
-                        <picture>
-                            <source type="image/webp" srcset="" data-srcset="img/main/estate/arrow-right.webp">
-                            <img class="lazy " width="18" height="18" src="" data-src="img/main/estate/arrow-right.png"
-                                 alt="" loading="lazy">
-                        </picture>
-                    </div>
-                </div>
+      <div class="blog__block relative"><a class="blog__link text-c5 absolute top-0 right-0 text-underline text-500" href="{% url 'blog' %}">{% trans 'Go to the blog page' %}</a>
         <div class="blog__items relative flex">
 
           {% if blog_articles %}
-            <div class="swiper">
-                  <div class="swiper-wrapper">
-                      {% for blog_article in blog_articles %}
-                        <div class="swiper-slide">
-                            {% include 'includes/blog/blog_card.html' %}
-                        </div>
-                      {% endfor %}
-                 </div>
-            </div>
+              {% for blog_article in blog_articles %}
+                {% include 'includes/blog/blog_card.html' %}
+              {% endfor %}
           {% else %}
             <div class="col-md-12">
               <p>{% trans 'No Articles Available' %}</p>
