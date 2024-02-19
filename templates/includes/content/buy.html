@@ -143,9 +143,10 @@
 
         </div>
 
-        {% comment %}
-        <!--
+
         <div class="filters__top-right flex flex-ai-center">
+          {% comment %}
+           <!--
           <div class="filters__sort">
             <div class="p-select relative">
               <div class="p-select__current flex flex-ai-center flex-j-between">
@@ -164,6 +165,8 @@
               </div>
             </div>
           </div>
+          -->
+          {% endcomment %}
           <div class="filters__coub active cursor-pointer"><svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="15.4708" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
               <rect x="15.4708" y="15.6172" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
@@ -180,34 +183,16 @@
             </picture>
           </div>
         </div>
-        -->
-      {% endcomment %}
-
       </form>
 
-      {% comment %}
-        <!--
       <div class="filters__content active">
-        <div class="filters__content-block flex flex-wrap active">
-          {% if rent_listings %}
-              {% for listing in rent_listings %}
-                {% include 'includes/rent_card/rent_card_swiper.html' %}
-              {% endfor %}
-              {% else %}
-                <div class="col-md-12">
-                  <p>{% trans 'No Offers Available' %}</p>
-                </div>
-          {% endif %}
-        </div>
-        <div class="filters__content-load margin-center text-c3 text-underline text-500">{% trans 'Download' %} <span> 18</span> {% trans 'out of' %} 103</div>
+
+        {% include 'includes/buy/buy_loaded_block.html' %}
+
       </div>
-      -->
-      {% endcomment %}
-      <div class="filters__content-map active">
-        <div class="filters__content-map-item">
-
+      <div class="filters__content-map">
+        <div class="filters__content-map-item" id="map">
           {% include "geomap/common.html" %}
-
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@
 <div class="filters__content-block flex flex-wrap active" id="offer_cards" hx-swap-oob="beforeend">
   {% if listings %}
     {% for listing in listings %}
-      {% include 'includes/rent_card/rent_card_swiper.html' %}
+      {% include 'includes/offer_card/offer_card_swiper.html' %}
     {% endfor %}
     {% else %}
       <div class="p-card_filter__image relative">

@@ -238,7 +238,13 @@ def buy(request):
     }
 
     context.update(geo_context)
-
+    if is_htmx(request):
+        return render(request,
+                      "includes/buy/buy_loaded_block.html",
+                      {"listings": paged_listings,
+                       'len_listings': len(listings)
+                       }
+                      )
     return render(request, 'includes/content/buy.html', context)
 
 
@@ -424,7 +430,12 @@ def arenda(request):
     context.update(geo_context)
 
     if is_htmx(request):
-        return render(request, "includes/rent/rent_loaded_block.html", {"listings": paged_listings})
+        return render(request,
+                      "includes/rent/rent_loaded_block.html",
+                      {"listings": paged_listings,
+                       'len_listings': len(listings)
+                       }
+                      )
     return render(request, 'includes/content/arenda.html', context)
 
 

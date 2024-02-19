@@ -7,7 +7,9 @@
       <div class="swiper-wrapper">
         {% if listings %}
           {% for listing in listings %}
-            {% include 'includes/offer_card/offer_card_swiper.html' %}
+            <div class="swiper-slide">
+                {% include 'includes/offer_card/offer_card_swiper.html' %}
+            </div>
           {% endfor %}
         {% else %}
           <div class="swiper-slide">
