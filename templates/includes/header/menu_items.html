@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load i18n_urls %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+<li><a href="{% url 'arenda' %}">{% trans 'Rent' %}<!--Аренда--></a></li>
+<li><a href="{% url 'buy' %}">{% trans 'Buy' %}<!--Покупка--></a></li>
+<li><a href="{% url 'katalogi' %}">{% trans 'Catalogs' %}<!--Каталоги--></a></li>
+<li><a href="{% url 'blog' %}">{% trans 'Blog' %}<!--Блог--></a></li>
+<li><a href="{% url 'dadi' %}">{% trans 'About DADI' %}<!--О DADI--></a></li>

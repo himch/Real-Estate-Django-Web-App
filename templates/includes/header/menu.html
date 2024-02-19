@@ -1,0 +1,32 @@
+{% load i18n %}
+{% load i18n_urls %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+<!-- Modal menu Header -->
+<div class="modal modal_menu">
+    <div class="modal__content relative margin-center">
+        <div class="modal_menu__content">
+            <div class="modal__close absolute">
+                <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.625065 0.153629C0.411227 0.263289 0.285118 0.378433 0.164491 0.575822C0.0164491 0.817075 0 0.882872 0 1.31603C0 1.74919 0.0164491 1.81499 0.164491 2.05624C0.285118 2.25363 0.411227 2.36877 0.625065 2.47843L0.915666 2.63196H10.5H20.0843L20.3749 2.47843C20.5888 2.36877 20.7149 2.25363 20.8355 2.05624C20.9836 1.81499 21 1.74919 21 1.31603C21 0.882872 20.9836 0.817075 20.8355 0.575822C20.7149 0.378433 20.5888 0.263289 20.3749 0.153629L20.0843 0.000104189H10.5H0.915666L0.625065 0.153629Z" fill="#003B50"/>
+                    <path d="M0.625065 6.29462C0.411227 6.40428 0.285118 6.51942 0.164491 6.71681C0.0164491 6.95807 0 7.02386 0 7.45702C0 7.89018 0.0164491 7.95598 0.164491 8.19723C0.285118 8.39462 0.411227 8.50976 0.625065 8.61942L0.915666 8.77295H10.5H20.0843L20.3749 8.61942C20.5888 8.50976 20.7149 8.39462 20.8355 8.19723C20.9836 7.95598 21 7.89018 21 7.45702C21 7.02386 20.9836 6.95807 20.8355 6.71681C20.7149 6.51942 20.5888 6.40428 20.3749 6.29462L20.0843 6.1411H10.5H0.915666L0.625065 6.29462Z" fill="#003B50"/>
+                    <path d="M0.625065 12.4357C0.411227 12.5454 0.285118 12.6605 0.164491 12.8579C0.0164491 13.0992 0 13.165 0 13.5981C0 14.0313 0.0164491 14.0971 0.164491 14.3383C0.285118 14.5357 0.411227 14.6509 0.625065 14.7605L0.915666 14.9141H10.5H20.0843L20.3749 14.7605C20.5888 14.6509 20.7149 14.5357 20.8355 14.3383C20.9836 14.0971 21 14.0313 21 13.5981C21 13.165 20.9836 13.0992 20.8355 12.8579C20.7149 12.6605 20.5888 12.5454 20.3749 12.4357L20.0843 12.2822H10.5H0.915666L0.625065 12.4357Z" fill="#003B50"/>
+                </svg>
+            </div>
+            <div class="modal_menu__list">
+                <ul>
+                    {% include 'includes/header/menu_items.html' %}
+                </ul>
+            </div>
+            {% include 'includes/header/phone_icon.html' %}
+            <div class="modal_menu__right flex flex-ai-center">
+                {% include 'includes/header/sravnenie_icon.html' %}
+                {% include 'includes/header/izbrannoe_icon.html' %}
+                {% include 'includes/header/profile_icon.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end header -->

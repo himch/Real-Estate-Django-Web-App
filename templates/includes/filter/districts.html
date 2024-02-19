@@ -6,6 +6,7 @@
 {% if districts_choices %}
 <div class="modal_filter__item">
     <div class="modal_filter__item-title text-500 text-c5">{% trans 'Districts' %}<!--Районы--></div>
+    {% include 'includes/filter/otmetki.html' %}
     <div class="p-checkboxes flex flex-wrap">
         {% for key, value in districts_choices.items %}
         <label class="p-checkboxes__item flex">

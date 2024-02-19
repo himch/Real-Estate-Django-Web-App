@@ -6,6 +6,7 @@
 {% if amenities_choices %}
 <div class="modal_filter__item">
     <div class="modal_filter__item-title text-500 text-c5">{% trans 'Amenities' %}<!--Удобства--></div>
+    {% include 'includes/filter/otmetki.html' %}
     <div class="p-checkboxes flex flex-wrap">
         {% for key, value in amenities_choices.items %}
         <label class="p-checkboxes__item flex">

@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="modal_filter__marks flex absolute flex-ai-center top-0 right-0 text-c3 text-underline">
+    <div class="modal_filter__mark-item modal_filter__mark-item_add cursor-pointer">{% trans 'select all' %}<!--отметить все--></div>
+    <div class="modal_filter__mark-item modal_filter__mark-item_del cursor-pointer">{% trans 'uncheck all marks' %}<!--снять все отметки--></div>
+</div>

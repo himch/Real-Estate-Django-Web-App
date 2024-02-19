@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="header__phone flex flex-col flex-ai-end">
+    <a class="header__phone-link" href="tel:{{ our_company.phone }}">{{ our_company.phone }}</a>
+    <a class="header__phone-write text-c3" target="_blank" href="https://wa.me/{{ our_company.whatsapp }}?text=Hello! I’m interested in a real estate in Dubai.">{% trans 'Write to messenger' %}<!--Написать в мессенджер--></a>
+</div>
