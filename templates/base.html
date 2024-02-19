@@ -81,6 +81,28 @@
             headers: { "X-CSRFToken": getCookie("csrftoken") }
         });
     });
+    document.addEventListener('htmx:afterRequest', function(evt) {
+      lazyContent.update();
+      lazyBackground.update();
+      ScrollTrigger.refresh();
+      const pCardFilters = document.querySelectorAll('.p-card_filter');
+      if (pCardFilters[0]) {
+          pCardFilters.forEach((pCard) => {
+              const _swiper = pCard.querySelector('.swiper');
+              const swiper = new Swiper(_swiper, {
+                  slidesPerView: 'auto',
+                  pagination: {
+                      clickable: true,
+                      el: pCard.querySelector('.swiper-pagination'),
+                  },
+                  mousewheel: {
+                      forceToAxis: true,
+                  },
+              });
+          })
+      }
+    });
+
   </script>
 
 </head>
