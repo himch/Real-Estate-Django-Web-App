@@ -116,10 +116,14 @@
     });
 
   // код чтобы обновить карту
-  const btnMap = document.querySelector('.filters__map');
-    btnMap.addEventListener('click', () => {
-      $('#map').render();
-  })
+
+    let btnMapp = document.querySelector('.filters__map');
+    if (btnMapp){
+        btnMapp.addEventListener('click', () => {
+             console.log('test');
+        })
+    }
+
 
 
   </script>

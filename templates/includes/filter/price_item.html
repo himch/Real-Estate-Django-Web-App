@@ -11,9 +11,9 @@
         {% for currency in currencies %}
         <label class="p-checkboxes__item flex">
           {% if currency.value == vars_filter.currency %}
-            <input type="radio" name="currency" value="{{ currency.value }}" checked="checked"/>
+            <input type="radio" name="currency" value="{{ currency.value|unlocalize }}" checked="checked"/>
           {% else %}
-            <input type="radio" name="currency" value="{{ currency.value }}"/>
+            <input type="radio" name="currency" value="{{ currency.value|unlocalize }}"/>
           {% endif %}
           <span class="p-checkboxes__item-title">{{ currency.title }}</span>
         </label>
@@ -25,26 +25,26 @@
   <div class="modal_filter__range-contents">
 
     <div class="modal_filter__range-content">
-      <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_usd }}" data-max="{{ vars_filter.listings_price_max_usd }}" data-type="int">
+      <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_usd|unlocalize }}" data-max="{{ vars_filter.listings_price_max_usd|unlocalize }}" data-type="int">
         <div class="modal_filter__range-main"></div>
-        <input type="hidden" name="price_dollar_min" value="{{ vars_filter.price_dollar_min }}"/>
-        <input type="hidden" name="price_dollar_max" value="{{ vars_filter.price_dollar_max }}"/>
+        <input type="hidden" name="price_dollar_min" value="{{ vars_filter.price_dollar_min|unlocalize }}"/>
+        <input type="hidden" name="price_dollar_max" value="{{ vars_filter.price_dollar_max|unlocalize }}"/>
       </div>
     </div>
 
     <div class="modal_filter__range-content">
-      <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_eur }}" data-max="{{ vars_filter.listings_price_max_eur }}" data-type="int">
+      <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_eur|unlocalize }}" data-max="{{ vars_filter.listings_price_max_eur|unlocalize }}" data-type="int">
         <div class="modal_filter__range-main"></div>
-        <input type="hidden" name="price_euro_min" value="{{ vars_filter.price_euro_min }}"/>
-        <input type="hidden" name="price_euro_max" value="{{ vars_filter.price_euro_max }}"/>
+        <input type="hidden" name="price_euro_min" value="{{ vars_filter.price_euro_min|unlocalize }}"/>
+        <input type="hidden" name="price_euro_max" value="{{ vars_filter.price_euro_max|unlocalize }}"/>
       </div>
     </div>
 
     <div class="modal_filter__range-content active">
-      <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_rub }}" data-max="{{ vars_filter.listings_price_max_rub }}" data-type="int">
+      <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_rub|unlocalize }}" data-max="{{ vars_filter.listings_price_max_rub|unlocalize }}" data-type="int">
         <div class="modal_filter__range-main"></div>
-        <input type="hidden" name="price_rub_min" value="{{ vars_filter.price_rub_min }}"/>
-        <input type="hidden" name="price_rub_max" value="{{ vars_filter.price_rub_max }}"/>
+        <input type="hidden" name="price_rub_min" value="{{ vars_filter.price_rub_min|unlocalize }}"/>
+        <input type="hidden" name="price_rub_max" value="{{ vars_filter.price_rub_max|unlocalize }}"/>
       </div>
     </div>
 
