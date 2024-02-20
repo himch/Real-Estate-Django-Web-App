@@ -19,6 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+msgid "Daily rental cost"
+msgstr "تكلفة الإيجار اليومي"
+
+msgid "select all"
+msgstr "اختر الكل"
+
+msgid "uncheck all marks"
+msgstr "قم بإلغاء تحديد كافة العلامات"
+
 msgid "Check-in"
 msgstr "تحقق في"
 
@@ -94,7 +103,7 @@ msgstr "إلى المدونة"
 
 #: templates/includes/blog/blog_module.html:18
 msgid "No Articles Available"
-msgstr ""
+msgstr "لا توجد مقالات متاحة"
 
 #: templates/includes/buy/buy_row.html:14
 #: templates/includes/content/index_rus.html:806
@@ -253,15 +262,15 @@ msgid "Dubai’s Best Property Catalogs 2023-2024"
 msgstr "كتالوجات أفضل العقارات في دبي 2023-2024"
 
 msgid "No Catalogs Available"
-msgstr ""
+msgstr "لا توجد كتالوجات متاحة"
 
 #: templates/includes/contacts/contacts.html:6
 msgid "Contacts"
-msgstr ""
+msgstr "جهات الاتصال"
 
 #: templates/includes/contacts/contacts.html:11
 msgid "Customer service department"
-msgstr ""
+msgstr "قسم خدمة العملاء"
 
 #: templates/includes/contacts/contacts.html:14
 msgid "E-mail"
@@ -554,15 +563,15 @@ msgstr "شقق فندقية"
 
 #: templates/includes/content/arenda.html:107
 msgid "Bedroom"
-msgstr ""
+msgstr "غرف"
 
 #: templates/includes/content/arenda.html:110
 msgid "Studio"
-msgstr ""
+msgstr "استوديو"
 
 #: templates/includes/content/arenda.html:130
 msgid "Monthly rental cost"
-msgstr ""
+msgstr "تكلفة الإيجار الشهري"
 
 #: templates/includes/content/arenda.html:171
 msgid "Bedrooms"
@@ -678,7 +687,7 @@ msgstr "واي فاي مجاني وتلفزيون"
 
 #: templates/includes/content/arenda.html:406
 msgid "with streaming capability"
-msgstr ""
+msgstr "مع القدرة على التدفق"
 
 #: templates/includes/content/arenda.html:407
 msgid ""
@@ -721,23 +730,23 @@ msgstr "تجمع شققنا بين راحة الفندق                     و�
 
 #: templates/includes/content/arenda.html:448
 msgid "the comfort and convenience of the hotel"
-msgstr ""
+msgstr "الراحة والملاءمة في الفندق"
 
 #: templates/includes/content/arenda.html:449
 msgid "with the spaciousness and &nbsp;"
-msgstr ""
+msgstr "بالرحابة و&nbsp;"
 
 #: templates/includes/content/arenda.html:449
 msgid "autonomy of your own home"
-msgstr ""
+msgstr "الحكم الذاتي في منزلك"
 
 #: templates/includes/content/arenda.html:450
 msgid "making your stay"
-msgstr ""
+msgstr "جعل إقامتك"
 
 #: templates/includes/content/arenda.html:451
 msgid "&nbsp;unforgettable and satisfying all your needs."
-msgstr ""
+msgstr "&nbsp;لا تنسى وتلبي جميع احتياجاتك."
 
 #: templates/includes/content/arenda.html:518
 #: templates/includes/content/index_rus.html:1307
@@ -1130,10 +1139,8 @@ msgid ""
 msgstr "الوضع المحايد لدولة الإمارات العربية المتحدة في النزاعات العالمية وغياب العقوبات وعدم التدخل في السياسة العالمية يؤكد الاستقرار السياسي ."
 
 #: templates/includes/content/buy.html:548
-msgid ""
-"The UAE remained neutral in international conflicts, absence of sanctions "
-"and non-interference in world politics confirms political stability."
-msgstr ""
+msgid "The UAE remained neutral in international conflicts, absence of sanctions and non-interference in world politics confirms political stability."
+msgstr "ظلت الإمارات محايدة في الصراعات الدولية، وغياب العقوبات وعدم التدخل في السياسة العالمية يؤكد الاستقرار السياسي."
 
 #: templates/includes/content/buy.html:557
 msgid "No real estate tax"
@@ -1486,20 +1493,20 @@ msgstr "نحن نحب عملنا، ونعمل كل يوم على الجودة و
 #: templates/includes/content/index.html:622
 #: templates/includes/content/index_rus.html:618
 msgid " are always working "
-msgstr ""
+msgstr " يعملون دائما "
 
 #: templates/includes/content/index.html:625
 msgid "on quality to provide"
-msgstr ""
+msgstr "على الجودة لتقديم"
 
 #: templates/includes/content/index.html:627
 msgid "the best service "
-msgstr ""
+msgstr " أفضل خدمة "
 
 #: templates/includes/content/index.html:629
 #: templates/includes/content/index_rus.html:625
 msgid " on the Dubai real estate market"
-msgstr ""
+msgstr " في سوق العقارات في دبي "
 
 #: templates/includes/content/index.html:631
 #: templates/includes/content/index_rus.html:632
@@ -1557,11 +1564,11 @@ msgstr ">دعم المستشارين"
 
 #: templates/includes/content/index_rus.html:621
 msgid " on quality to provide "
-msgstr ""
+msgstr " على الجودة لتقديم "
 
 #: templates/includes/content/index_rus.html:623
 msgid " the best service "
-msgstr ""
+msgstr " أفضل خدمة "
 
 #: templates/includes/content/index_rus.html:632
 msgid " calling us "
@@ -1764,7 +1771,7 @@ msgstr ""
 #: templates/includes/feedback_forms/rent_single_feedback.html:26
 #: templates/includes/feedback_forms/vladislav.html:32
 msgid "Your name"
-msgstr ""
+msgstr "Your name"
 
 #: templates/includes/feedback_forms/building_3.html:17
 msgid "The best property according to your criteria"
@@ -1780,7 +1787,7 @@ msgstr "استشارة مجانية"
 
 #: templates/includes/feedback_forms/building_4.html:23
 msgid "Get advice on Developers and best projects"
-msgstr ""
+msgstr "احصل على المشورة بشأن المطورين وأفضل المشاريع"
 
 #: templates/includes/feedback_forms/building_4.html:32
 msgid "Leave your details, "

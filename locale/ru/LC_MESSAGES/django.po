@@ -20,6 +20,15 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+msgid "Daily rental cost"
+msgstr "Стоимость аренды посуточно"
+
+msgid "select all"
+msgstr "выбрать все"
+
+msgid "uncheck all marks"
+msgstr "снять все отметки"
+
 msgid "Check-in"
 msgstr "Заезд"
 
