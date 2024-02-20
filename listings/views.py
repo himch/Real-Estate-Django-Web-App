@@ -198,8 +198,8 @@ def listing(request, listing_id):
         'listings': paged_listings,
         'realtor': realtor,
 
-        'bookmark_bookmarked': listing_item in user.profile.bookmarks.all(),
-        'favorites_bookmarked': listing_item in user.profile.favorites.all(),
+        'bookmark_bookmarked': listing_item in user.profile.bookmarks.all() if hasattr(user, 'profile') else False,
+        'favorites_bookmarked': listing_item in user.profile.favorites.all() if hasattr(user, 'profile') else False,
     }
 
     # return render(request, 'listings/listing.html', context)
@@ -300,8 +300,8 @@ def rent(request, listing_id):
         'listings': paged_listings,
         'realtor': realtor,
 
-        'bookmark_bookmarked': listing_item in user.profile.bookmarks.all(),
-        'favorites_bookmarked': listing_item in user.profile.favorites.all(),
+        'bookmark_bookmarked': listing_item in user.profile.bookmarks.all() if hasattr(user, 'profile') else False,
+        'favorites_bookmarked': listing_item in user.profile.favorites.all() if hasattr(user, 'profile') else False,
     }
 
     # return render(request, 'listings/listing.html', context)
