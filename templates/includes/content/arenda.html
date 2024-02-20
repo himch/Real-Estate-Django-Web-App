@@ -13,52 +13,69 @@
   <div class="rent">
     <div class="container margin-center">
       <div class="rent__subtitle uppercase text-c5">{% trans 'Dadi holiday' %}<!--Dadi holiday--></div>
-      <div class="rent__title text-c3 font-tenor">{% trans 'Dubai property rental' %}<!--Аренда недвижимости в Дубае--></div>
+      <div class="rent__title text-c3 font-tenor p-animate p-animate__up p-animate__splitt">{% trans 'Dubai property rental' %}<!--Аренда недвижимости в Дубае--></div>
       <div class="rent__item-block relative">
-        <div class="rent__item-top absolute">{% trans 'apartment with 5* hotel service' %}<!--апартаменты с сервисом отеля 5*--></div>
-        <div class="rent__item relative bg" style="background-image:url('/img/rent/main/1.webp')">
-          <form class="rent__form flex">
-            <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
-              <input type="text" name="start" placeholder="Заезд" required="required"/>
-              <div class="rent__input-svg absolute cursor-pointer">
-                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4.5 0C4.22386 0 4 0.223858 4 0.5C4 0.776142 3.77614 1 3.5 1H2C0.895431 1 0 1.89543 0 3V20C0 21.6569 1.34315 23 3 23H19C20.6569 23 22 21.6569 22 20V3C22 1.89543 21.1046 1 20 1H18.5C18.2239 1 18 0.776142 18 0.5C18 0.223858 17.7761 0 17.5 0H16.5C16.2239 0 16 0.223858 16 0.5C16 0.776142 15.7761 1 15.5 1H6.5C6.22386 1 6 0.776142 6 0.5C6 0.223858 5.77614 0 5.5 0H4.5ZM2 4C2 3.44772 2.44772 3 3 3H3.5C3.77614 3 4 3.22386 4 3.5C4 3.77614 4.22386 4 4.5 4H5.5C5.77614 4 6 3.77614 6 3.5C6 3.22386 6.22386 3 6.5 3H15.5C15.7761 3 16 3.22386 16 3.5C16 3.77614 16.2239 4 16.5 4H17.5C17.7761 4 18 3.77614 18 3.5C18 3.22386 18.2239 3 18.5 3H19C19.5523 3 20 3.44772 20 4C20 4.55228 19.5523 5 19 5H3C2.44772 5 2 4.55228 2 4ZM2 10C2 8.34315 3.34315 7 5 7H17C18.6569 7 20 8.34315 20 10V18C20 19.6569 18.6569 21 17 21H5C3.34315 21 2 19.6569 2 18V10ZM9 9C8.44771 9 8 9.44771 8 10C8 10.5523 8.44771 11 9 11C9.55229 11 10 10.5523 10 10C10 9.44771 9.55229 9 9 9ZM13 9C12.4477 9 12 9.44771 12 10C12 10.5523 12.4477 11 13 11C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9ZM17 9C16.4477 9 16 9.44771 16 10C16 10.5523 16.4477 11 17 11C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9ZM5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13ZM9 13C8.44771 13 8 13.4477 8 14C8 14.5523 8.44771 15 9 15C9.55229 15 10 14.5523 10 14C10 13.4477 9.55229 13 9 13ZM13 13C12.4477 13 12 13.4477 12 14C12 14.5523 12.4477 15 13 15C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13ZM17 13C16.4477 13 16 13.4477 16 14C16 14.5523 16.4477 15 17 15C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13ZM5 17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19C5.55228 19 6 18.5523 6 18C6 17.4477 5.55228 17 5 17ZM9 17C8.44771 17 8 17.4477 8 18C8 18.5523 8.44771 19 9 19C9.55229 19 10 18.5523 10 18C10 17.4477 9.55229 17 9 17ZM13 17C12.4477 17 12 17.4477 12 18C12 18.5523 12.4477 19 13 19C13.5523 19 14 18.5523 14 18C14 17.4477 13.5523 17 13 17Z" fill="#282828"/>
-                </svg>
-              </div>
+        <div class="rent__item-top absolute p-animate p-animate__splitt-right p-animate__splitt">{% trans 'apartment with 5* hotel service' %}<!--апартаменты с сервисом отеля 5*--></div>
+
+        <div class="rent__item relative">
+            <div class="rent__item-bg absolute p-img top-0 left-0">
+                <picture>
+                    <source type="image/webp" srcset="/img/rent/main/3.webp">
+                    <img width="1160" height="303" src="/img/rent/main/3.png" alt="" loading="lazy">
+                </picture>
+                <picture>
+                    <source type="image/webp" srcset="/img/rent/main/3_mb.webp">
+                    <img width="321" height="478" src="/img/rent/main/3_mb.png" alt="" loading="lazy">
+                </picture>
             </div>
-            <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
-              <input type="text" name="end" placeholder="Выезд" required="required"/>
-              <div class="rent__input-svg absolute cursor-pointer">
-                  <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.5 0C4.22386 0 4 0.223858 4 0.5C4 0.776142 3.77614 1 3.5 1H2C0.895431 1 0 1.89543 0 3V20C0 21.6569 1.34315 23 3 23H19C20.6569 23 22 21.6569 22 20V3C22 1.89543 21.1046 1 20 1H18.5C18.2239 1 18 0.776142 18 0.5C18 0.223858 17.7761 0 17.5 0H16.5C16.2239 0 16 0.223858 16 0.5C16 0.776142 15.7761 1 15.5 1H6.5C6.22386 1 6 0.776142 6 0.5C6 0.223858 5.77614 0 5.5 0H4.5ZM2 4C2 3.44772 2.44772 3 3 3H3.5C3.77614 3 4 3.22386 4 3.5C4 3.77614 4.22386 4 4.5 4H5.5C5.77614 4 6 3.77614 6 3.5C6 3.22386 6.22386 3 6.5 3H15.5C15.7761 3 16 3.22386 16 3.5C16 3.77614 16.2239 4 16.5 4H17.5C17.7761 4 18 3.77614 18 3.5C18 3.22386 18.2239 3 18.5 3H19C19.5523 3 20 3.44772 20 4C20 4.55228 19.5523 5 19 5H3C2.44772 5 2 4.55228 2 4ZM2 10C2 8.34315 3.34315 7 5 7H17C18.6569 7 20 8.34315 20 10V18C20 19.6569 18.6569 21 17 21H5C3.34315 21 2 19.6569 2 18V10ZM9 9C8.44771 9 8 9.44771 8 10C8 10.5523 8.44771 11 9 11C9.55229 11 10 10.5523 10 10C10 9.44771 9.55229 9 9 9ZM13 9C12.4477 9 12 9.44771 12 10C12 10.5523 12.4477 11 13 11C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9ZM17 9C16.4477 9 16 9.44771 16 10C16 10.5523 16.4477 11 17 11C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9ZM5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13ZM9 13C8.44771 13 8 13.4477 8 14C8 14.5523 8.44771 15 9 15C9.55229 15 10 14.5523 10 14C10 13.4477 9.55229 13 9 13ZM13 13C12.4477 13 12 13.4477 12 14C12 14.5523 12.4477 15 13 15C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13ZM17 13C16.4477 13 16 13.4477 16 14C16 14.5523 16.4477 15 17 15C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13ZM5 17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19C5.55228 19 6 18.5523 6 18C6 17.4477 5.55228 17 5 17ZM9 17C8.44771 17 8 17.4477 8 18C8 18.5523 8.44771 19 9 19C9.55229 19 10 18.5523 10 18C10 17.4477 9.55229 17 9 17ZM13 17C12.4477 17 12 17.4477 12 18C12 18.5523 12.4477 19 13 19C13.5523 19 14 18.5523 14 18C14 17.4477 13.5523 17 13 17Z" fill="#282828"/>
-                  </svg>
-              </div>
-            </div>
-            <div class="rent__input relative flex flex-ai-center flex-j-center">
-              <div class="p-select relative">
-                <div class="p-select__current flex flex-ai-center flex-j-between">
-                  <input type="hidden" name="guest" value="1 гость"/>
-                  <div class="p-select__current-item">1 гость</div>
-                  <div class="p-select__current-arrow">
-                    <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
-                    </svg>
-                  </div>
+            <form class="rent__form flex relative">
+                <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
+                    <input type="text" name="start" placeholder="{% trans 'Check-in' %}" required>
+                    <div class="rent__input-svg absolute cursor-pointer">
+                        <svg width="22" height="23" viewBox="0 0 22 23" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.5 0C4.22386 0 4 0.223858 4 0.5C4 0.776142 3.77614 1 3.5 1H2C0.895431 1 0 1.89543 0 3V20C0 21.6569 1.34315 23 3 23H19C20.6569 23 22 21.6569 22 20V3C22 1.89543 21.1046 1 20 1H18.5C18.2239 1 18 0.776142 18 0.5C18 0.223858 17.7761 0 17.5 0H16.5C16.2239 0 16 0.223858 16 0.5C16 0.776142 15.7761 1 15.5 1H6.5C6.22386 1 6 0.776142 6 0.5C6 0.223858 5.77614 0 5.5 0H4.5ZM2 4C2 3.44772 2.44772 3 3 3H3.5C3.77614 3 4 3.22386 4 3.5C4 3.77614 4.22386 4 4.5 4H5.5C5.77614 4 6 3.77614 6 3.5C6 3.22386 6.22386 3 6.5 3H15.5C15.7761 3 16 3.22386 16 3.5C16 3.77614 16.2239 4 16.5 4H17.5C17.7761 4 18 3.77614 18 3.5C18 3.22386 18.2239 3 18.5 3H19C19.5523 3 20 3.44772 20 4C20 4.55228 19.5523 5 19 5H3C2.44772 5 2 4.55228 2 4ZM2 10C2 8.34315 3.34315 7 5 7H17C18.6569 7 20 8.34315 20 10V18C20 19.6569 18.6569 21 17 21H5C3.34315 21 2 19.6569 2 18V10ZM9 9C8.44771 9 8 9.44771 8 10C8 10.5523 8.44771 11 9 11C9.55229 11 10 10.5523 10 10C10 9.44771 9.55229 9 9 9ZM13 9C12.4477 9 12 9.44771 12 10C12 10.5523 12.4477 11 13 11C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9ZM17 9C16.4477 9 16 9.44771 16 10C16 10.5523 16.4477 11 17 11C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9ZM5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13ZM9 13C8.44771 13 8 13.4477 8 14C8 14.5523 8.44771 15 9 15C9.55229 15 10 14.5523 10 14C10 13.4477 9.55229 13 9 13ZM13 13C12.4477 13 12 13.4477 12 14C12 14.5523 12.4477 15 13 15C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13ZM17 13C16.4477 13 16 13.4477 16 14C16 14.5523 16.4477 15 17 15C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13ZM5 17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19C5.55228 19 6 18.5523 6 18C6 17.4477 5.55228 17 5 17ZM9 17C8.44771 17 8 17.4477 8 18C8 18.5523 8.44771 19 9 19C9.55229 19 10 18.5523 10 18C10 17.4477 9.55229 17 9 17ZM13 17C12.4477 17 12 17.4477 12 18C12 18.5523 12.4477 19 13 19C13.5523 19 14 18.5523 14 18C14 17.4477 13.5523 17 13 17Z" fill="#282828"/>
+                        </svg>
+                    </div>
                 </div>
-                <div class="p-select__abs absolute flex flex-col">
-                  <div class="p-select__abs-item active" data-value="1 гость">{% trans '1 guest' %}<!--1 гость--></div>
-                  <div class="p-select__abs-item" data-value="2 гостя">{% trans '2 guests' %}<!--2 гостя--></div>
-                  <div class="p-select__abs-item" data-value="3 гостя">{% trans '3 guests' %}<!--3 гостя--></div>
-                  <div class="p-select__abs-item" data-value="Более 3 гостей">{% trans 'More than 3 guests' %}<!--Более 3 гостей--></div>
+                <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
+                    <input type="text" name="end" placeholder="{% trans 'Check-out' %}" required>
+                    <div class="rent__input-svg absolute cursor-pointer">
+                        <svg width="22" height="23" viewBox="0 0 22 23" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.5 0C4.22386 0 4 0.223858 4 0.5C4 0.776142 3.77614 1 3.5 1H2C0.895431 1 0 1.89543 0 3V20C0 21.6569 1.34315 23 3 23H19C20.6569 23 22 21.6569 22 20V3C22 1.89543 21.1046 1 20 1H18.5C18.2239 1 18 0.776142 18 0.5C18 0.223858 17.7761 0 17.5 0H16.5C16.2239 0 16 0.223858 16 0.5C16 0.776142 15.7761 1 15.5 1H6.5C6.22386 1 6 0.776142 6 0.5C6 0.223858 5.77614 0 5.5 0H4.5ZM2 4C2 3.44772 2.44772 3 3 3H3.5C3.77614 3 4 3.22386 4 3.5C4 3.77614 4.22386 4 4.5 4H5.5C5.77614 4 6 3.77614 6 3.5C6 3.22386 6.22386 3 6.5 3H15.5C15.7761 3 16 3.22386 16 3.5C16 3.77614 16.2239 4 16.5 4H17.5C17.7761 4 18 3.77614 18 3.5C18 3.22386 18.2239 3 18.5 3H19C19.5523 3 20 3.44772 20 4C20 4.55228 19.5523 5 19 5H3C2.44772 5 2 4.55228 2 4ZM2 10C2 8.34315 3.34315 7 5 7H17C18.6569 7 20 8.34315 20 10V18C20 19.6569 18.6569 21 17 21H5C3.34315 21 2 19.6569 2 18V10ZM9 9C8.44771 9 8 9.44771 8 10C8 10.5523 8.44771 11 9 11C9.55229 11 10 10.5523 10 10C10 9.44771 9.55229 9 9 9ZM13 9C12.4477 9 12 9.44771 12 10C12 10.5523 12.4477 11 13 11C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9ZM17 9C16.4477 9 16 9.44771 16 10C16 10.5523 16.4477 11 17 11C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9ZM5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13ZM9 13C8.44771 13 8 13.4477 8 14C8 14.5523 8.44771 15 9 15C9.55229 15 10 14.5523 10 14C10 13.4477 9.55229 13 9 13ZM13 13C12.4477 13 12 13.4477 12 14C12 14.5523 12.4477 15 13 15C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13ZM17 13C16.4477 13 16 13.4477 16 14C16 14.5523 16.4477 15 17 15C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13ZM5 17C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19C5.55228 19 6 18.5523 6 18C6 17.4477 5.55228 17 5 17ZM9 17C8.44771 17 8 17.4477 8 18C8 18.5523 8.44771 19 9 19C9.55229 19 10 18.5523 10 18C10 17.4477 9.55229 17 9 17ZM13 17C12.4477 17 12 17.4477 12 18C12 18.5523 12.4477 19 13 19C13.5523 19 14 18.5523 14 18C14 17.4477 13.5523 17 13 17Z" fill="#282828"/>
+                        </svg>
+                    </div>
                 </div>
-              </div>
+                <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_select">
+                    <div class="p-select relative">
+                        <div class="p-select__current flex flex-ai-center flex-j-between">
+                            <input type="hidden" name="guest" value="{% trans '1 guest' %}">
+                            <div class="p-select__current-item">{% trans '1 guest' %}</div>
+                            <div class="p-select__current-arrow">
+                                <svg width="13" height="10" viewBox="0 0 13 10" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.5 10L0.870834 0.25H12.1292L6.5 10Z" fill="#282828"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-select__abs absolute flex flex-col">
+                            <div class="p-select__abs-item active" data-value="{% trans '1 guest' %}">{% trans '1 guest' %}</div>
+                            <div class="p-select__abs-item" data-value="{% trans '2 guests' %}">{% trans '2 guests' %}</div>
+                            <div class="p-select__abs-item" data-value="{% trans '3 guests' %}">{% trans '3 guests' %}</div>
+                            <div class="p-select__abs-item" data-value="{% trans 'More than 3 guests' %}">{% trans 'More than 3 guests' %}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rent__input relative rent__input_date">
+                    <button class="text-500" type="submit">{% trans 'View' %} {{ len_listings }} {% trans 'options' %}</button>
+                </div>
+            </form>
+            <div class="rent__item-end text-underline text-c3 text-600 modal__show relative"
+                 data-modal="type-first">{% trans 'Select with manager' %}
             </div>
-            <div class="rent__input relative">
-              <button class="text-500" type="submit">{% trans 'View' %}<!--Посмотреть--> {{ len_listings }} {% trans 'options' %}<!--вариантов--></button>
-            </div>
-          </form>
-          <div class="rent__item-end text-underline text-c3 text-600 modal__show" data-modal="type-first">{% trans 'Select with manager' %}<!--Подобрать с менеджером--></div>
         </div>
+
       </div>
     </div>
   </div>

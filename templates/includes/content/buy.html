@@ -26,9 +26,9 @@
                 </picture>
           </div>
           <form class="rent__form flex relative">
-            {% csrf_token %}
             {% if estate_types_choices %}
             <div class="rent__input relative">
+              {% csrf_token %}
               <div class="rent__form-item">
                 <div class="rent__form-title">{% trans 'Property type' %}<!--Тип недвижимости--></div>
                 <div class="rent__select">
@@ -55,6 +55,8 @@
                 </div>
               </div>
             </div>
+            {% else %}
+              {% csrf_token %}
             {% endif %}
 
             <div class="rent__input relative">
@@ -184,7 +186,6 @@
           </div>
         </div>
       </form>
-      {% include "geomap/common.html" %}
       <div class="filters__content active">
 
         {% include 'includes/buy/buy_loaded_block.html' %}
