@@ -16,14 +16,13 @@ from django.db.models import Q
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 from rest_framework import serializers
-
+from django_htmx.http import retarget, reswap, trigger_client_event
 
 from rest_framework import generics, status
 from rest_framework.response import Response
 
 from our_company.models import OurCompany
-from pages.utils import check_number_var
-from .choices import price_choices, bedroom_choices, state_choices
+from pages.utils import check_number_var, is_htmx
 
 from .models import Listing, Bookmark, Favorite
 from .serializers import ListingSerializer, ListingFavoriteSerializer
@@ -124,6 +123,8 @@ class OffersBuyAPIView(generics.GenericAPIView):
 
 
 def listing(request, listing_id):
+    user = auth.get_user(request)
+
     our_company = OurCompany.objects.all().first()
 
     listing_item = get_object_or_404(Listing, pk=listing_id)
@@ -195,7 +196,10 @@ def listing(request, listing_id):
 
         'listing': listing_item,
         'listings': paged_listings,
-        'realtor': realtor
+        'realtor': realtor,
+
+        'bookmark_bookmarked': listing_item in user.profile.bookmarks.all(),
+        'favorites_bookmarked': listing_item in user.profile.favorites.all(),
     }
 
     # return render(request, 'listings/listing.html', context)
@@ -203,6 +207,8 @@ def listing(request, listing_id):
 
 
 def rent(request, listing_id):
+    user = auth.get_user(request)
+
     our_company = OurCompany.objects.all().first()
 
     listing_item = get_object_or_404(Listing, pk=listing_id)
@@ -287,12 +293,15 @@ def rent(request, listing_id):
         'min_price_ft2_usd': min_price_ft2_usd,
         'min_price_ft2_eur': min_price_ft2_eur,
 
-        'amenities_ru': amenities[:9],
-        'amenities_en': amenities[:9],
-        'amenities_ar': amenities[:9],
+        'amenities_ru': amenities,
+        'amenities_en': amenities,
+        'amenities_ar': amenities,
         'listing': listing_item,
         'listings': paged_listings,
-        'realtor': realtor
+        'realtor': realtor,
+
+        'bookmark_bookmarked': listing_item in user.profile.bookmarks.all(),
+        'favorites_bookmarked': listing_item in user.profile.favorites.all(),
     }
 
     # return render(request, 'listings/listing.html', context)
@@ -395,6 +404,160 @@ class BookmarksAPIView(generics.GenericAPIView):
                 status=status.HTTP_200_OK
             )
         else:
+            return Response(
+                {"result": 'error',
+                 "count": 0,
+                 'message': 'User is not authenticated'},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+
+class BookmarkHTMXAPIView(generics.GenericAPIView):
+    # добавляем или удаляем обьект из закладок и возвращаем код для символа на карточке товара
+    model = None
+
+    def get_serializer_class(self):
+        return ListingFavoriteSerializer
+
+    def post(self, request, complex_id):
+        user = auth.get_user(request)
+        template_name = "includes/bookmarks/icon_mark.html"
+
+        if not isinstance(user, AnonymousUser):
+            listing_object = Listing.objects.get(complex_id=complex_id)
+            try:
+                if self.model == 'Bookmark':
+                    bookmark = user.profile.bookmarks.all().get(complex_id=complex_id)
+                elif self.model == 'Favorite':
+                    bookmark = user.profile.favorites.all().get(complex_id=complex_id)
+                else:
+                    return Response(
+                        {"result": 'error',
+                         "bookmarked": False,
+                         'message': 'ManyToMany field not found'},
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
+            except Listing.DoesNotExist:
+                bookmark = None
+
+            if bookmark:
+                if self.model == 'Bookmark':
+                    user.profile.bookmarks.remove(listing_object)
+                elif self.model == 'Favorite':
+                    user.profile.favorites.remove(listing_object)
+                user.profile.favorites.remove(listing_object)
+                created = False
+            else:
+                if self.model == 'Bookmark':
+                    user.profile.bookmarks.add(listing_object)
+                elif self.model == 'Favorite':
+                    user.profile.favorites.add(listing_object)
+                created = True
+
+            if is_htmx(request):
+                response = render(request,
+                                  template_name,
+                                  {"user": user, "bookmarked": created}
+                                  )
+                trigger_client_event(response, "updateBookmarks", {}, )
+                return response
+
+            if created:
+                return Response(
+                    {"result": 'added',
+                     "bookmarked": created,
+                     'message': f'Offer added to {self.model}'},
+                    status=status.HTTP_201_CREATED
+                )
+            else:
+                return Response(
+                    {"result": 'deleted',
+                     "bookmarked": created,
+                     'message': f'Offer deleted from {self.model}'},
+                    status=status.HTTP_200_OK
+                )
+        else:
+            return Response(
+                {"result": 'error',
+                 "bookmarked": False,
+                 'message': 'User is not authenticated'},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+    def get(self, request, complex_id):
+        user = auth.get_user(request)
+        if not isinstance(user, AnonymousUser):
+            listing_object = Listing.objects.get(complex_id=complex_id)
+            try:
+                if self.model == 'Bookmark':
+                    bookmark = user.profile.bookmarks.all().get(complex_id=complex_id)
+                elif self.model == 'Favorite':
+                    bookmark = user.profile.favorites.all().get(complex_id=complex_id)
+                else:
+                    return Response(
+                        {"result": 'error',
+                         "bookmarked": False,
+                         'message': 'ManyToMany field not found'},
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
+            except Listing.DoesNotExist:
+                bookmark = None
+            if bookmark:
+                return Response(
+                    {"result": 'bookmarked',
+                     "bookmarked": True,
+                     'message': f'Offer bookmarked in {self.model}'},
+                    status=status.HTTP_200_OK
+                )
+            else:
+                return Response(
+                    {"result": 'not bookmarked',
+                     "bookmarked": False,
+                     'message': f'Offer not bookmarked in {self.model}'
+                     },
+                    status=status.HTTP_404_NOT_FOUND
+                )
+        else:
+            return Response(
+                {"result": 'error',
+                 "bookmarked": 0,
+                 'message': 'User is not authenticated'},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+
+class BookmarksHTMXAPIView(generics.GenericAPIView):
+    # возвращаем html c количеством bookmarks для шапки сайта
+    model = None
+
+    def get(self, request):
+        user = auth.get_user(request)
+        template_name = "includes/header/icon_count.html"
+
+        if not isinstance(user, AnonymousUser):
+            if self.model == 'Bookmark':
+                count = user.profile.bookmarks.all().count()
+            elif self.model == 'Favorite':
+                count = user.profile.favorites.all().count()
+            else:
+                count = 0
+            if is_htmx(request):
+                return render(request,
+                              template_name,
+                              {"user": user, "count": count}
+                              )
+            return Response(
+                {"result": 'success',
+                 "count": count,
+                 'message': f'All offers for current user in {self.model}'},
+                status=status.HTTP_200_OK
+            )
+        else:
+            if is_htmx(request):
+                return render(request,
+                              template_name,
+                              {"count": 0}
+                              )
             return Response(
                 {"result": 'error',
                  "count": 0,

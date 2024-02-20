@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 from django.core.validators import FileExtensionValidator
 from django.urls import reverse
 from datetime import date, timedelta
+
+from listings.models import Listing
 from modules.services.utils import unique_slugify
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -13,7 +15,7 @@ User = get_user_model()
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     slug = models.SlugField(verbose_name='URL', max_length=255, blank=True, unique=True)
     phone = PhoneNumberField(null=True, blank=True, unique=False)
     avatar = models.ImageField(
@@ -24,6 +26,8 @@ class Profile(models.Model):
         validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'jpeg', 'webp'))])
     bio = models.TextField(max_length=500, blank=True, verbose_name='Bio')
     birth_date = models.DateField(null=True, blank=True, verbose_name='Birth date')
+    favorites = models.ManyToManyField(Listing, related_name='favorited_by')
+    bookmarks = models.ManyToManyField(Listing, related_name='bookmarked_by')
 
     class Meta:
         """

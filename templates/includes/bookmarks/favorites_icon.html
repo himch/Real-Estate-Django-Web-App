@@ -1,0 +1,10 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="rent-single__fav rent-single__btn flex flex-ai-center flex-j-center bg-c3" hx-trigger="click" hx-post="/api/v1/htmx/offers/{{ listing.complex_id|unlocalize }}/favorite/" hx-target="find div" data-action="favorite" data-id="{{ listing.id|unlocalize }}">
+    <svg width="15" height="22" viewBox="0 0 15 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.807292 19.3659V1.69249C0.807292 1.59792 0.876599 1.56217 0.909179 1.56217H13.6221C13.6563 1.56217 13.724 1.59563 13.724 1.69249V19.3659L7.84518 13.3033L7.26562 12.7056L6.68606 13.3033L0.807292 19.3659Z" stroke="#003B50" stroke-width="1.61458"/>
+    </svg>
+    {% include 'includes/bookmarks/icon_mark.html' with bookmarked=favorites_bookmarked %}
+</div>

@@ -176,7 +176,7 @@
               <rect x="0.65332" y="0.798828" width="11.7007" height="10.6423" rx="0.5" stroke="#156B7F"/>
               </svg>
           </div>
-          <div class="filters__map cursor-pointer">
+          <div class="filters__map cursor-pointer" id="filters__map">
             <picture>
               <source type="image/webp" srcset="/img/rent/filters/map.webp"/><img width="38" height="38" src="/img/rent/filters/map.png" alt="" loading="lazy"/>
             </picture>
@@ -186,12 +186,13 @@
           </div>
         </div>
       </form>
-      <div class="filters__content active">
+
+      <div class="filters__content active" id="filters__content">
 
         {% include 'includes/buy/buy_loaded_block.html' %}
 
       </div>
-      <div class="filters__content-map">
+      <div class="filters__content-map" id="filters__content-map">
         <div class="filters__content-map-item">
           {% include "geomap/common.html" %}
         </div>

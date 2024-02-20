@@ -19,7 +19,7 @@
     <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="/buy">{% trans 'Catalog of residential complexes and developers' %}<!--Каталог ЖК и Застройщиков--></a>
       <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
 
-      {% include 'includes/bookmarks/bookmarks_module.html' %}
+      {% include 'includes/bookmarks/bookmarks_favorites_module.html' %}
 
       <div class="rent-single__top flex flex-wrap rent-single__top_2">
         <div class="rent-single__top-title text-c5 text-500">{% if listing.address %}{{ listing.address }}{% endif %}</div>

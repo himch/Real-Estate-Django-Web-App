@@ -15,18 +15,19 @@
   <div class="rent-single">
     <div class="container margin-center"><a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">{% trans 'Purchase catalogue' %}<!--Каталог аренды--></a>
       <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
+      {% include 'includes/bookmarks/favorites_module.html' %}
       <div class="rent-single__top flex flex-wrap">
         <div class="rent-single__top-area text-c3 text-500 relative"><span>{{ listing.address }}</span>
           <div class="rent-single__top-svg absolute w-full"><svg width="61" height="2" viewBox="0 0 61 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 1H61" stroke="url(#paint0_linear_347_3834)"/>
-<defs>
-<linearGradient id="paint0_linear_347_3834" x1="0" y1="1" x2="61" y2="1" gradientUnits="userSpaceOnUse">
-<stop stop-color="#4B97A1" stop-opacity="0"/>
-<stop offset="0.5" stop-color="#156B7F"/>
-<stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
+            <path d="M0 1H61" stroke="url(#paint0_linear_347_3834)"/>
+            <defs>
+            <linearGradient id="paint0_linear_347_3834" x1="0" y1="1" x2="61" y2="1" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4B97A1" stop-opacity="0"/>
+            <stop offset="0.5" stop-color="#156B7F"/>
+            <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+            </linearGradient>
+            </defs>
+            </svg>
           </div>
         </div>
         <div class="rent-single__top-title"><!--Название ЖК--></div>
@@ -73,7 +74,9 @@
                     <div class="rent-single__day-right">€{{ min_price_eur }} {% trans 'per night' %}<!--в сутки--></div>
                   </div>
                 </div>
+                {% autoescape off %}
                 <div class="rent-single__desc">{% if listing.description_a_en %}{{ listing_description|linebreaks|safe }}{% endif %}</div>
+                {% endautoescape %}
                 <ul class="rent-single__list flex flex-wrap" data-count="8" data-status="true">
 
                   {% if amenities_ru %}
@@ -82,7 +85,7 @@
                     {% endfor %}
                   {% endif %}
 
-                  <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center rent-single__list-li_more text-c3 text-underline" data-text-show="ещё" data-text-hide="скрыть">ещё</li>
+                  <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center rent-single__list-li_more text-c3 text-underline" data-text-show="{% trans 'more' %}" data-text-hide="{% trans 'hide' %}">{% trans 'more' %}</li>
                 </ul>
                 <div class="rent-single__rules">
                   <div class="rent-single__rules-title font-tenor text-c3">{% trans 'House rules' %}<!--Правила дома--></div>

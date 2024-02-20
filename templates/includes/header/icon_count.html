@@ -1,0 +1,10 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div>
+    {% if user.is_authenticated %}
+        <div class="header__num absolute top-0 right-0 flex flex-ai-center flex-j-center">{{ count }}</div>
+    {% endif %}
+</div>
+

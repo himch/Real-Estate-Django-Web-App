@@ -4,19 +4,21 @@ from django.core.paginator import Paginator
 from django.db.models import Min, Max
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.contrib.auth import get_user_model
 from django_admin_geomap import geomap_context
-
+from django.contrib import auth
 from blog.models import Article
 from catalogs.models import Catalog
-from listings.choices import price_choices, bedroom_choices, state_choices
 
-from listings.models import Listing, District, Amenity, Price
+from listings.models import Listing, District, Amenity, Price, Favorite
 from listings.utils import convert
 from pages.filters import buy_listing_filter
 from pages.utils import check_number_var, check_str_var, is_htmx
 from realtors.models import Realtor
 from our_company.models import OurCompany
+
+
+User = get_user_model()
 
 
 def index(request):
@@ -44,10 +46,7 @@ def index(request):
         'catalogs': catalogs,
         'blog_articles': paged_blog_articles,
         'rent_listings': paged_rent_listings,
-        'listings': paged_listings,
-        'state_choices': state_choices,
-        'bedroom_choices': bedroom_choices,
-        'price_choices': price_choices
+        'listings': paged_listings
     }
 
     # return render(request, 'pages/index.html', context)
@@ -440,13 +439,14 @@ def arenda(request):
 
 
 def izbrannoe(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+    user = auth.get_user(request)
+
+    favorites = user.profile.favorites.all()
+
+    listings = favorites.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+    rent_listings = favorites.order_by('-list_date').filter(is_fully_loaded=True, offer_type='rent')
 
     our_company = OurCompany.objects.all().first()
-
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
 
     blog_articles = Article.objects.all()
     blog_paginator = Paginator(blog_articles, 6)
@@ -454,8 +454,8 @@ def izbrannoe(request):
 
     context = {
         'our_company': our_company,
-        'listings': paged_listings,
-        'rent_listings': paged_listings,
+        'listings': listings,
+        'rent_listings': rent_listings,
         'blog_articles': paged_blog_articles,
     }
 
@@ -464,14 +464,13 @@ def izbrannoe(request):
 
 
 def sravnenie(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+    user = auth.get_user(request)
+
+    bookmarks = user.profile.bookmarks.all()
+    listings = bookmarks.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
 
     our_company = OurCompany.objects.all().first()
     catalogs = Catalog.objects.all()
-
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
 
     blog_articles = Article.objects.all()
     blog_paginator = Paginator(blog_articles, 6)
@@ -480,16 +479,12 @@ def sravnenie(request):
     context = {
         'our_company': our_company,
         'catalogs': catalogs,
-        'listings': paged_listings,
-        'state_choices': state_choices,
-        'bedroom_choices': bedroom_choices,
-        'price_choices': price_choices,
+        'listings': listings,
         'blog_articles': paged_blog_articles,
     }
 
     # return render(request, 'pages/index.html', context)
     return render(request, 'includes/content/sravnenie.html', context)
-
 
 
 def about(request):

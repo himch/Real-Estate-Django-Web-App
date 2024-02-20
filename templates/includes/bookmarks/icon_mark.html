@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div>
+    {% if bookmarked %}
+        <div class="header__profile-active"></div>
+    {% endif %}
+</div>
