@@ -33,7 +33,7 @@
           </svg>
         </div>
     </div>
-    <a class="p-card_filter__text" href="/listings/rent/{{ listing.id|unlocalize }}">
+    <a class="p-card_filter__text" href="/{{ LANGUAGE_CODE }}/listings/rent/{{ listing.id|unlocalize }}">
       <div class="p-card_filter__title text-c5 text-500">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</div>
       <div class="p-card_filter__content flex flex-wrap flex-ai-center">
         <div class="p-card_filter__content-item text-c5">{{ listing.address }}</div>

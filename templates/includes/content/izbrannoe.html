@@ -40,86 +40,12 @@
             </svg>
         </div>
       </div>
-      <div class="estate_fav__items hidden">
-        <div class="estate_fav__item active">
-          <div class="estate_fav__item-cards flex flex-wrap">
-            {% if rent_listings %}
-              {% for listing in rent_listings %}
-                {% include 'includes/rent_card/rent_card_swiper.html' %}
-              {% endfor %}
-              {% else %}
-                <div class="p-card_filter__image relative">
-                  <div class="swiper">
-                    <div class="swiper-wrapper">
-                    </div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="p-card_filter__title text-c5 text-500">{% trans 'No Offers Available' %}</div>
-                </div>
-           {% endif %}
-
-          </div>
-          <div class="p-pagination flex flex-j-center">
-            <div class="p-pagination__item p-pagination__item_arrow p-pagination__item_prev">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/pagination/down-arrow.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/pagination/down-arrow.png" alt="" loading="lazy"/>
-              </picture>
-            </div>
-            <div class="p-pagination__item active">1</div>
-            <div class="p-pagination__item">2</div>
-            <div class="p-pagination__item">3</div>
-            <div class="p-pagination__item">4</div>
-            <div class="p-pagination__item">5</div>
-            <div class="p-pagination__item p-pagination__item_arrow p-pagination__item_next">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/pagination/down-arrow.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/pagination/down-arrow.png" alt="" loading="lazy"/>
-              </picture>
-            </div>
-          </div>
-        </div>
-        <div class="estate_fav__item">
-          <div class="estate_fav__item-cards flex flex-wrap">
-            {% if rent_listings %}
-              {% for listing in rent_listings %}
-                {% include 'includes/rent_card/rent_card_swiper.html' %}
-              {% endfor %}
-              {% else %}
-                <div class="p-card_filter__image relative">
-                  <div class="swiper">
-                    <div class="swiper-wrapper">
-                    </div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="p-card_filter__title text-c5 text-500">{% trans 'No Offers Available' %}</div>
-                </div>
-           {% endif %}
-          </div>
-          <div class="p-pagination flex flex-j-center">
-            <div class="p-pagination__item p-pagination__item_arrow p-pagination__item_prev">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/pagination/down-arrow.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/pagination/down-arrow.png" alt="" loading="lazy"/>
-              </picture>
-            </div>
-            <div class="p-pagination__item active">1</div>
-            <div class="p-pagination__item">2</div>
-            <div class="p-pagination__item">3</div>
-            <div class="p-pagination__item">4</div>
-            <div class="p-pagination__item">5</div>
-            <div class="p-pagination__item p-pagination__item_arrow p-pagination__item_next">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/pagination/down-arrow.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/pagination/down-arrow.png" alt="" loading="lazy"/>
-              </picture>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="estate__items flex flex-col">
         <div class="estate__item relative w-full">
           <div class="estate__item-title">{% trans 'Rent' %}<!--Аренда--></div>
           <div class="estate__swiper relative">
             <div class="swiper">
               <div class="swiper-wrapper">
-
                 {% if rent_listings %}
                   {% for listing in rent_listings %}
                     {% include 'includes/rent_card/rent_card_swiper.html' %}
@@ -141,13 +67,10 @@
         </div>
         <div class="estate__item relative w-full">
           <div class="estate__item-title">{% trans 'Buy' %}<!--Покупка--></div>
-
-          {% include 'includes/buy/buy_ribbon.html' with go_to_purchase_catalogue=False %}
-
+            {% include 'includes/buy/buy_ribbon.html' with go_to_purchase_catalogue=False %}
+          </div>
         </div>
-      </div>
-
-              <div class="rent-single__location">
+        <div class="rent-single__location">
           <div class="rent-single__location-title font-tenor section__title text-c3">{% trans 'Location' %}</div>
           <div class="contacts__item">
             <div class="contacts__item-subtitle"></div>

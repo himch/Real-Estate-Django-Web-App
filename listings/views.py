@@ -453,10 +453,14 @@ class BookmarkHTMXAPIView(generics.GenericAPIView):
                     user.profile.favorites.add(listing_object)
                 created = True
 
+            geo_context = geomap_context((user.profile.bookmarks.all(),), auto_zoom="20")
+
             if is_htmx(request):
+                context = {"user": user, "bookmarked": created}
+                context.update(geo_context)
                 response = render(request,
                                   template_name,
-                                  {"user": user, "bookmarked": created}
+                                  context
                                   )
                 trigger_client_event(response, "updateBookmarks", {}, )
                 return response
