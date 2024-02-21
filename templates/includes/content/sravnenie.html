@@ -151,8 +151,22 @@
       <div class="compar__row-scroll hidden">
         <div class="compar__row-scroll-inner"></div>
       </div>
+
+        <div class="rent-single__location">
+          <div class="rent-single__location-title font-tenor section__title text-c3">{% trans 'Location' %}</div>
+          <div class="contacts__item">
+            <div class="contacts__item-subtitle"></div>
+            <div class="contacts__item-iframe">
+              {% include "geomap/common.html" %}
+            </div>
+          </div>
+        </div>
+
     </div>
   </div>
+
+
+
 
   {% include 'includes/feedback_forms/favorites.html' %}
 

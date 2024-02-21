@@ -8,38 +8,4 @@
 <div class="rent-single__btns flex absolute top-0 right-0">
     {% include 'includes/bookmarks/bookmarks_icon.html' %}
     {% include 'includes/bookmarks/favorites_icon.html' %}
-
-    {% comment %}
-    {% if listing.bookmark_set.all|user_in:user %}bookmark=true{% endif %}
-    {% if listing.favorite_set.all|user_in:user %}favorite=true{% endif %}
-    {% endcomment %}
 </div>
-
-
-<!--
-<script>
-$(document).ready(function () {
-        function to_bookmarks()
-        {
-            var current = $(this);
-            var pk = current.data('id');
-            var action = current.data('action');
-
-            $.ajax({
-                url: "/api/v1/offers/" + pk + "/" + action + "/",
-                type: 'POST',
-                data: {'obj': pk},
-
-                success: function(json) {
-                    console.log(json.result); // true если добавили, false если удалили
-                }
-            });
-
-            return false;
-        }
-
-        $('[data-action="bookmark"]').click(to_bookmarks);
-        $('[data-action="favorite"]').click(to_bookmarks);
-    });
-</script>
--->

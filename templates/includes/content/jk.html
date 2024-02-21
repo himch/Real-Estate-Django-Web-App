@@ -23,7 +23,7 @@
 
       <div class="rent-single__top flex flex-wrap rent-single__top_2">
         <div class="rent-single__top-title text-c5 text-500">{% if listing.address %}{{ listing.address }}{% endif %}</div>
-        <div class="rent-single__top-title text-c5 text-500">{% if listing.districts %}{{ listing.districts }}{% endif %}</div>
+        <div class="rent-single__top-title text-c5 text-500">{{ listing.districts.all|join:", " }}</div>
       </div>
       <div class="rent-single__images grid rent-single__images_2">
         <div class="rent-single__image img_cover img_full img_br">
@@ -110,6 +110,7 @@
                 </div>
                 {% endif %}
                 <div class="rent-single__edges flex flex-wrap rent-single__edges_2">
+                  {% if min_area_m2 %}
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
@@ -121,6 +122,8 @@
                       <div class="rent-single__edges-subtitle">{% trans 'from' %} {{ min_area_m2 }} {% trans 'sq. m' %}</div>
                     </div>
                   </div>
+                  {% endif %}
+                  {% if listing_status %}
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
@@ -129,9 +132,10 @@
                     </div>
                     <div class="rent-single__edges-text">
                       <div class="rent-single__edges-title">{% trans 'Status' %}<!--Статус--></div>
-                      <div class="rent-single__edges-subtitle">{% if listing_status %}{{ listing_status }}{% endif %}</div>
+                      <div class="rent-single__edges-subtitle">{{ listing_status }}</div>
                     </div>
                   </div>
+                  {% endif %}
                   <!--
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
@@ -145,6 +149,7 @@
                     </div>
                   </div>
                   -->
+                  {% if listing_developer_a_title %}
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
@@ -153,9 +158,11 @@
                     </div>
                     <div class="rent-single__edges-text">
                       <div class="rent-single__edges-title">{% trans 'Developer' %}<!--Застройщик--></div>
-                      <div class="rent-single__edges-subtitle">{% if listing_developer_a_title %}{{ listing_developer_a_title }}{% endif %}</div>
+                      <div class="rent-single__edges-subtitle">{{ listing_developer_a_title }}</div>
                     </div>
                   </div>
+                  {% endif %}
+                  {% if listing.planned_completion %}
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
                       <picture>
@@ -164,9 +171,10 @@
                     </div>
                     <div class="rent-single__edges-text">
                       <div class="rent-single__edges-title">{% trans 'Delivery' %}<!--Сдача--></div>
-                      <div class="rent-single__edges-subtitle">{% if listing.planned_completion %}{{ listing.planned_completion }}{% else %} {% endif %}</div>
+                      <div class="rent-single__edges-subtitle">{{ listing.planned_completion }}</div>
                     </div>
                   </div>
+                  {% endif %}
                 </div>
                 <div class="rent-single__desc rent-single__desc_2">{% if listing_description %}{{ listing_description|safe }}{% endif %}</div>
                 <!--
@@ -232,11 +240,9 @@
                 {% if amenities %}
                   <div class="rent-single__advs-subtitle section__title font-tenor text-c3">{% trans 'Amenities' %}<!--Удобства--></div>
                   <div class="rent-single__advs flex flex-wrap rent-single__advs_2">
-
                       {% for amenity in amenities %}
                         {% include 'includes/amenities/amenity.html' %}
                       {% endfor %}
-
                   </div>
                 {% endif %}
               </div>
@@ -250,7 +256,7 @@
               <div class="contacts__item">
                 <div class="contacts__item-subtitle">{{ listing.address|safe }}</div>
                 <div class="contacts__item-iframe">
-                  <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
+                  {% include "geomap/common.html" %}
                 </div>
               </div>
               <!--

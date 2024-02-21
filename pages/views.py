@@ -442,6 +442,7 @@ def izbrannoe(request):
     user = auth.get_user(request)
 
     favorites = user.profile.favorites.all()
+    geo_context = geomap_context(favorites, auto_zoom="20")
 
     listings = favorites.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
     rent_listings = favorites.order_by('-list_date').filter(is_fully_loaded=True, offer_type='rent')
@@ -458,7 +459,7 @@ def izbrannoe(request):
         'rent_listings': rent_listings,
         'blog_articles': paged_blog_articles,
     }
-
+    context.update(geo_context)
     # return render(request, 'pages/index.html', context)
     return render(request, 'includes/content/izbrannoe.html', context)
 
@@ -468,6 +469,7 @@ def sravnenie(request):
 
     bookmarks = user.profile.bookmarks.all()
     listings = bookmarks.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+    geo_context = geomap_context(listings, auto_zoom="20")
 
     our_company = OurCompany.objects.all().first()
     catalogs = Catalog.objects.all()
@@ -482,7 +484,7 @@ def sravnenie(request):
         'listings': listings,
         'blog_articles': paged_blog_articles,
     }
-
+    context.update(geo_context)
     # return render(request, 'pages/index.html', context)
     return render(request, 'includes/content/sravnenie.html', context)
 

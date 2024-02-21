@@ -20,6 +20,40 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+
+msgid "Favorites"
+msgstr "Избранное"
+
+msgid "We will help you analyze and choose the best"
+msgstr "Поможем проанализировать и выбрать лучшее"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Developer"
+msgstr "Застройщик"
+
+msgid "Property comparison"
+msgstr "Сравнение недвижимости"
+
+msgid "Leave your details and"
+msgstr "Оставьте свои данные и"
+
+msgid "Real Estate Catalogs in Dubai"
+msgstr "Каталоги недвижимости в Дубае"
+
+msgid "Other projects"
+msgstr "Другие проекты"
+
+msgid "Catalog of residential complexes and developers"
+msgstr "Каталог покупки"
+
+msgid "Maximum 2 guests"
+msgstr "Максимум 2 гостя"
+
+msgid "more"
+msgstr "ещё"
+
 msgid "Daily rental cost"
 msgstr "Стоимость аренды посуточно"
 
@@ -291,6 +325,9 @@ msgstr "Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ"
 msgid "Go to Purchase catalogue"
 msgstr "Перейти в каталог Покупки"
 
+msgid "Purchase catalogue"
+msgstr "Каталог Покупки"
+
 #: templates/includes/content/arenda-single.html:64
 #: templates/includes/content/arenda-single.html:68
 #: templates/includes/content/arenda-single.html:72
@@ -322,6 +359,9 @@ msgstr "Прибытие после 15:00"
 #: templates/includes/content/arenda-single.html:130
 msgid "2 guests"
 msgstr "2 гостя"
+
+msgid "guests"
+msgstr "гостя"
 
 #: templates/includes/content/arenda-single.html:138
 msgid "Check out before 11:00"
@@ -374,6 +414,15 @@ msgstr "Услуги DADI"
 msgid "Client&quot;s personal account"
 msgstr "Личный кабинет клиента"
 
+msgid "Client’s personal account"
+msgstr "Личный кабинет клиента"
+
+msgid "Personal assistant in the country"
+msgstr "Персональный ассистент"
+
+msgid "of property for rent or purchase basen on your request"
+msgstr "недвижимости для аренды или покупки под ваши запросы"
+
 #: templates/includes/content/arenda-single.html:215
 msgid "for tracking booking and payment"
 msgstr "для отслеживания бронирования и оплаты"
@@ -417,6 +466,14 @@ msgstr ""
 "при аренде на срок более 3 месяцев, поможем проверить документы и заключить "
 "выгодный договор с собственником"
 
+msgid ""
+"In case of leasehold term starting from 3 months we will take care of "
+"checking all document and concluding the contract of rent with the "
+"proprietor"
+msgstr ""
+"при аренде на срок более 3 месяцев, поможем проверить документы и заключить "
+"выгодный договор с собственником"
+
 #: templates/includes/content/arenda-single.html:252
 #: templates/includes/content/arenda-single.html:317
 #: templates/includes/content/index_rus.html:727
@@ -440,6 +497,9 @@ msgstr "Для кого"
 #: templates/includes/content/arenda.html:44
 msgid "1 guest"
 msgstr "1 гость"
+
+msgid "guest"
+msgstr "гость"
 
 #: templates/includes/content/arenda-single.html:296
 msgid "Adults"
@@ -1779,8 +1839,14 @@ msgstr "Лучшая недвижимость по вашим критериям
 msgid "Leave a request for "
 msgstr "Оставьте заявку на "
 
+msgid "Leave a request for"
+msgstr "Оставьте заявку на "
+
 #: templates/includes/feedback_forms/building_3.html:18
 msgid "a free consultation"
+msgstr "бесплатную консультацию"
+
+msgid "free consultation"
 msgstr "бесплатную консультацию"
 
 #: templates/includes/feedback_forms/building_4.html:23
@@ -1799,6 +1865,9 @@ msgstr "мы&nbsp;ответим на все вопросы"
 #: templates/includes/feedback_forms/building_4.html:82
 msgid "Write to "
 msgstr "Написать в "
+
+msgid "Write to"
+msgstr "Написать в"
 
 #: templates/includes/feedback_forms/footer_feedback.html:14
 #: templates/includes/feedback_forms/rent_single_feedback.html:10

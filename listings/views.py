@@ -3,7 +3,7 @@ import ast
 from functools import reduce
 import operator
 from typing import Union
-
+from django_admin_geomap import geomap_context
 from django.contrib import auth
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import AnonymousUser
@@ -129,10 +129,10 @@ def listing(request, listing_id):
 
     listing_item = get_object_or_404(Listing, pk=listing_id)
     bookmark = listing_item.bookmark_set.all
-    print(bookmark)
-
     favorite = listing_item.favorite_set.all
-    print(favorite)
+
+    # точка на карте для обьекта недвижимости
+    geo_context = geomap_context((listing_item,), auto_zoom="12")
 
     realtor = listing_item.realtor
 
@@ -144,7 +144,6 @@ def listing(request, listing_id):
 
     if listing_item.listing_br_prices:
         br_prices = json.loads(listing_item.listing_br_prices)
-        print(type(br_prices), br_prices)
         br_price = br_prices[0]
         currency = br_price['currency']
         min_price = float(br_price['min_price'])
@@ -171,8 +170,6 @@ def listing(request, listing_id):
                      request.LANGUAGE_CODE in amenity]
     else:
         amenities = None
-
-    print(amenities)
 
     context = {
         'our_company': our_company,
@@ -201,6 +198,7 @@ def listing(request, listing_id):
         'bookmark_bookmarked': listing_item in user.profile.bookmarks.all() if hasattr(user, 'profile') else False,
         'favorites_bookmarked': listing_item in user.profile.favorites.all() if hasattr(user, 'profile') else False,
     }
+    context.update(geo_context)
 
     # return render(request, 'listings/listing.html', context)
     return render(request, 'includes/content/jk.html', context)
@@ -212,6 +210,7 @@ def rent(request, listing_id):
     our_company = OurCompany.objects.all().first()
 
     listing_item = get_object_or_404(Listing, pk=listing_id)
+    geo_context = geomap_context((listing_item,), auto_zoom="12")
 
     realtor = listing_item.realtor
 
@@ -303,7 +302,7 @@ def rent(request, listing_id):
         'bookmark_bookmarked': listing_item in user.profile.bookmarks.all() if hasattr(user, 'profile') else False,
         'favorites_bookmarked': listing_item in user.profile.favorites.all() if hasattr(user, 'profile') else False,
     }
-
+    context.update(geo_context)
     # return render(request, 'listings/listing.html', context)
     return render(request, 'includes/content/arenda-single.html', context)
 
@@ -477,6 +476,13 @@ class BookmarkHTMXAPIView(generics.GenericAPIView):
                     status=status.HTTP_200_OK
                 )
         else:
+            if is_htmx(request):
+                response = render(request,
+                                  template_name,
+                                  {"user": user, "bookmarked": False}
+                                  )
+                trigger_client_event(response, "updateBookmarks", {}, )
+                return response
             return Response(
                 {"result": 'error',
                  "bookmarked": False,

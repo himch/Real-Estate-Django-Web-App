@@ -19,6 +19,33 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+msgid "Favorites"
+msgstr "المفضلة"
+
+msgid "We will help you analyze and choose the best"
+msgstr "سنساعدك على التحليل واختيار الأفضل"
+
+msgid "Type"
+msgstr "يكتب"
+
+msgid "Developer"
+msgstr "مطور"
+
+msgid "Property comparison"
+msgstr "مقارنة الممتلكات"
+
+msgid "Other projects"
+msgstr "مشاريع أخرى"
+
+msgid "Catalog of residential complexes and developers"
+msgstr "كتالوج المجمعات السكنية والمطورين"
+
+msgid "Maximum 2 guests"
+msgstr "الحد الأقصى 2 ضيوف"
+
+msgid "more"
+msgstr "أكثر"
+
 msgid "Daily rental cost"
 msgstr "تكلفة الإيجار اليومي"
 
@@ -321,9 +348,6 @@ msgstr "إيجار طويل الأجل (من 3 أشهر)"
 msgid "Check in after 15:00"
 msgstr "الوصول بعد الساعة 00: 15"
 
-#: templates/includes/content/arenda-single.html:130
-msgid "Maximum 2 guests"
-msgstr "الحد الأقصى لعدد الضيوف 2"
 
 #: templates/includes/content/arenda-single.html:138
 msgid "Check out before 11:00"
@@ -407,9 +431,7 @@ msgid "Legal support"
 msgstr "الدعم القانوني"
 
 #: templates/includes/content/arenda-single.html:248
-msgid "عند الاستئجار لمدة تزيد عن 3 أشهر ، سنساعدك في التحقق من المستندات وإبرام اتفاقية مع المالك"
-"In case of leasehold term starting from 3 months we will take care of "
-"checking all document and concluding the contract of rent with the proprietor"
+msgid "In case of leasehold term starting from 3 months we will take care of checking all document and concluding the contract of rent with the proprietor"
 msgstr "عند الاستئجار لمدة تزيد عن 3 أشهر ، سنساعدك في التحقق من المستندات وإبرام اتفاقية مع المالك"
 "عند الاستئجار لمدة تزيد عن 3 أشهر، سنساعدك على التحقق من صحة المستندات "
 "وإبرام اتفاقية مربحة مع المالك"
@@ -437,6 +459,9 @@ msgstr "عدد الضيوف"
 #: templates/includes/content/arenda.html:44
 msgid "1 guest"
 msgstr "1 ضيف"
+
+msgid "guest"
+msgstr "ضيف"
 
 #: templates/includes/content/arenda-single.html:296
 msgid "Adults"
@@ -484,6 +509,9 @@ msgstr "شقق مع خدمات فندقية 5*"
 #: templates/includes/content/arenda.html:45
 msgid "2 guests"
 msgstr "ضيف 2"
+
+msgid "guests"
+msgstr "ضيف"
 
 #: templates/includes/content/arenda.html:46
 msgid "3 guests"
@@ -1783,6 +1811,9 @@ msgstr "اترك طلبًا للحصول على"
 
 #: templates/includes/feedback_forms/building_3.html:18
 msgid "a free consultation"
+msgstr "استشارة مجانية"
+
+msgid "free consultation"
 msgstr "استشارة مجانية"
 
 #: templates/includes/feedback_forms/building_4.html:23

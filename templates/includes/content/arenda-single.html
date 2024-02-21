@@ -199,7 +199,7 @@
             <div class="contacts__item">
               <div class="contacts__item-subtitle">{% if listing.address %}{{ listing.address|safe }}{% endif %}</div>
               <div class="contacts__item-iframe">
-                <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
+                {% include "geomap/common.html" %}
               </div>
             </div>
 
@@ -267,7 +267,7 @@
           </div>
           <div class="rent-single__subitem sticky">
             <div class="rent-single__price font-roboto">
-              <del><span class="rent-single__price-old">₽{{ max_price_rub }}</span><span>₽</span></del><ins><span class="rent-single__price-new">₽{{ min_price_rub }}</span><span>₽</span>&nbsp;ночь</ins>
+              <del><span class="rent-single__price-old">₽{{ max_price_rub }}</span><span>₽</span></del><ins><span class="rent-single__price-new">₽{{ min_price_rub }}</span><span>₽</span>&nbsp;{% trans 'per night' %}</ins>
             </div>
             <div class="rent-single__cols flex flex-col font-roboto">
               <div class="rent-single__col flex">
@@ -300,7 +300,7 @@
                             <div class="rent-single__select-subdesc">{% trans 'From 13 years old' %}<!--От 13 лет--></div>
                           </div>
                           <div class="rent-single__select-right">
-                            <div class="rent-single__quantity flex flex-ai-center" data-texts="[&quot;гость&quot;,&quot;гостя&quot;,&quot;гостей&quot;]">
+                            <div class="rent-single__quantity flex flex-ai-center" data-texts="[&quot;{% trans 'guest' %}&quot;,&quot;{% trans 'guests' %}&quot;,&quot;{% trans 'guests' %}&quot;]">
                               <div class="rent-single__quantity-item rent-single__quantity-minus flex flex-ai-center flex-j-center"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><path d="m.75 6.75h10.5v-1.5h-10.5z"></path></svg></div>
                               <div class="rent-single__quantity-input">
                                 <input type="text" name="adults" value="1" disabled="disabled"/>
