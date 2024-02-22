@@ -16,7 +16,7 @@
       <div class="rent-single__name-title text-c3">{% get_attr 'realtor' 'name_'|add:LANGUAGE_CODE %}</div>
       <div class="rent-single__name-subtitle">{% get_attr 'realtor' 'job_title_'|add:LANGUAGE_CODE %}</div>
       <div class="rent-single__name-btns flex flex-ai-center">
-        <div class="rent-single__name-btn p-btn flex flex-ai-center flex-j-center text-500">{% trans 'Leave a request' %}<!--Оставить заявку--></div>
+        <div class="rent-single__name-btn p-btn flex flex-ai-center flex-j-center text-500 modal__show" data-modal="type-first">{% trans 'Leave a request' %}<!--Оставить заявку--></div>
         <div class="rent-single__name-socials flex flex-ai-center">
           <a class="rent-single__name-social flex flex-ai-center flex-j-center bg-c3" href="tel:{{ our_company.phone }}">
             <picture>

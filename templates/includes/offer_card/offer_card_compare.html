@@ -1,21 +1,22 @@
 {% load i18n %}
+{% load i18n_urls %}
 {% load static %}
 {% load l10n %}
 {% get_current_language as LANGUAGE_CODE %}
 <!-- start listing -->
-<div class="compar__subitem" id="item">
+<div class="compar__subitem" id="id_{{ listing.id|unlocalize }}_card">
     {% include 'includes/offer_card/item_close.html' %}
     <div class="swiper">
       <div class="swiper-wrapper">
         <a href="/{{ LANGUAGE_CODE }}/listings/{{ listing.id|unlocalize }}">
-            <div class="swiper-slide img_cover img_full">
+            <div class="swiper-slide">
               <picture>
                 <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main.url }}"/>
                 <img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>
               </picture>
             </div>
-            {% for image in listing.mainalbumimage_set.all|slice:"5" %}
-                <div class="swiper-slide img_cover img_full">
+            {% for image in no_listing.main_album_images.all|slice:"5" %}
+                <div class="swiper-slide">
                   <picture>
                     <source type="image/webp" srcset="" data-srcset="{{ image.photo.url }}"/>
                     <img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>

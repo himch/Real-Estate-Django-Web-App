@@ -10,7 +10,7 @@ urlpatterns = [
     # path('', views.index, name='listings'),
     path('<int:listing_id>', views.listing, name='listing'),
     path('rent/<int:listing_id>', views.rent, name='rent'),
-    path('search', views.search, name='search'),
+    # path('search', views.search, name='search'),
 ]
 
 if settings.DEBUG:

@@ -255,7 +255,7 @@ class Listing(models.Model, GeoItem):
         if self.listing_album is not None:
             photo_urls = json.loads(self.listing_album)
             for photo_url in photo_urls:
-                new_image = self.mainalbumimage_set.create(photo=None)
+                new_image = self.main_album_images.create(photo=None)
                 new_image.save()
                 self.save_image_from_url(photo_url, new_image.photo)
 

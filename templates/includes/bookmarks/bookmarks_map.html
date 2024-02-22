@@ -1,8 +1,10 @@
 {% load i18n %}
-{% load static %}
+{% load i18n_urls %}
 {% load l10n %}
+{% load static %}
+{% load humanize %}
 {% get_current_language as LANGUAGE_CODE %}
 
-<div id="offers_map" hx-swap-oob="true">
+<div id="offers_map">
     {% include "geomap/common.html" %}
 </div>

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load l10n %}
 {% load i18n %}
 {% load i18n_urls %}
 {% load static %}
@@ -13,6 +14,7 @@
     <div class="container margin-center">
       <div class="section__title font-tenor text-c3">{% trans 'Property comparison' %}<!--Сравнение недвижимости--></div>
       <div class="compar__row flex flex-col">
+        <!-- card -->
         <div class="compar__item flex">
           <div class="compar__subitem"></div>
           {% if listings %}
@@ -24,16 +26,16 @@
               {% trans 'No Offers Available' %}
             </div>
           {% endif %}
-
-
         </div>
+
+        <!-- type -->
         <div class="compar__item flex">
           <div class="compar__subitem">
-            <div class="compar__subitem-title">{% trans 'Type' %}<!--Тип--></div>
+            <div class="compar__subitem-title">{% trans 'Type' %}</div>
           </div>
           {% if listings %}
             {% for listing in listings %}
-              <div class="compar__subitem">
+              <div class="compar__subitem" id="id_{{ listing.id|unlocalize }}_type">
                 <div class="compar__subitem-subtitle">{% trans listing.type %}</div>
               </div>
             {% endfor %}
@@ -43,6 +45,43 @@
             </div>
           {% endif %}
         </div>
+
+        <!-- price -->
+        <div class="compar__item flex">
+          <div class="compar__subitem">
+            <div class="compar__subitem-title">{% trans 'Price' %}</div>
+          </div>
+          {% if listings %}
+            {% for listing in listings %}
+              <div class="compar__subitem" id="id_{{ listing.id|unlocalize }}_price">
+                <div class="compar__subitem-subtitle">{% if listing.price_a_min %}{% trans 'from' %} {{ listing.price_a_min }} {{ listing.price_a_currency }}{% else %} {% endif %}</div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="compar__subitem">
+              <div class="compar__subitem-subtitle"></div>
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- developer -->
+        <div class="compar__item flex">
+          <div class="compar__subitem">
+            <div class="compar__subitem-title">{% trans 'Developer' %}</div>
+          </div>
+          {% if listings %}
+            {% for listing in listings %}
+              <div class="compar__subitem" id="id_{{ listing.id|unlocalize }}_developer">
+                <div class="compar__subitem-subtitle">{% get_attr 'listing' 'developer_a_title_a_'|add:LANGUAGE_CODE %}</div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="compar__subitem">
+              <div class="compar__subitem-subtitle"></div>
+            </div>
+          {% endif %}
+        </div>
+
         <!--
         <div class="compar__item flex">
           <div class="compar__subitem">
@@ -61,22 +100,6 @@
           {% endif %}
         </div>
         -->
-        <div class="compar__item flex">
-          <div class="compar__subitem">
-            <div class="compar__subitem-title">{% trans 'Price' %}<!--Цена--></div>
-          </div>
-          {% if listings %}
-            {% for listing in listings %}
-              <div class="compar__subitem">
-                <div class="compar__subitem-subtitle">{% if listing.price_a_min %}{% trans 'from' %} {{ listing.price_a_min }} {{ listing.price_a_currency }}{% else %} {% endif %}</div>
-              </div>
-            {% endfor %}
-          {% else %}
-            <div class="compar__subitem">
-              <div class="compar__subitem-subtitle"></div>
-            </div>
-          {% endif %}
-        </div>
         <!--
         <div class="compar__item flex">
           <div class="compar__subitem">
@@ -131,22 +154,8 @@
           {% endif %}
         </div>
         -->
-        <div class="compar__item flex">
-          <div class="compar__subitem">
-            <div class="compar__subitem-title">{% trans 'Developer' %}<!--Застройщик--></div>
-          </div>
-          {% if listings %}
-            {% for listing in listings %}
-              <div class="compar__subitem">
-                <div class="compar__subitem-subtitle">{% get_attr 'listing' 'developer_a_title_a_'|add:LANGUAGE_CODE %}</div>
-              </div>
-            {% endfor %}
-          {% else %}
-            <div class="compar__subitem">
-              <div class="compar__subitem-subtitle"></div>
-            </div>
-          {% endif %}
-        </div>
+
+
       </div>
       <div class="compar__row-scroll hidden">
         <div class="compar__row-scroll-inner"></div>
