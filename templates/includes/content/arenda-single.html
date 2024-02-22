@@ -13,7 +13,7 @@
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center"><a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">{% trans 'Purchase catalogue' %}<!--Каталог аренды--></a>
+    <div class="container margin-center"><a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">{% trans 'Rent catalogue' %}<!--Каталог аренды--></a>
       <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
       {% include 'includes/bookmarks/favorites_module.html' %}
       <div class="rent-single__top flex flex-wrap">
@@ -180,11 +180,11 @@
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Free cancellation before 19th of october' %}<!--Бесплатная отмена до 19 октября--></div>
                         </div>
-                      </div><a class="rent-single__rules-btn p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'policy' %}">{% trans 'Cancellation policy' %}<!--Правила отмены--></a>
+                      </div><a class="rent-single__rules-btn p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'otmena' %}">{% trans 'Cancellation policy' %}<!--Правила отмены--></a>
                     </div>
                     <div class="rent-single__rules-content">
                       <form class="rent-single__form bg lazy" data-bg="/img/rent/single/form/1.webp">
-                        <div class="rent-single__form-btn p-btn flex flex-ai-center flex-j-center text-500">{% trans 'leave an application' %}<!--оставьте заявку--></div>
+                        <div class="rent-single__form-btn p-btn flex flex-ai-center flex-j-center text-500 modal__show" data-modal="type-first">{% trans 'Leave an application' %}<!--оставьте заявку--></div>
                         <div class="rent-single__form-subtitle text-500 text-c5">{% trans 'for a discount on number of months of rent and contract with the owner' %}<!--на скидку за количество месяцев аренды и заключения договора с собственником--></div>
                       </form>
                     </div>
@@ -252,7 +252,7 @@
                 </div>
               </div>
             </div>
-            <div class="rent-single__service-btn p-btn flex flex-ai-center flex-j-center text-500">{% trans 'Leave a request' %}<!--Оставить заявку--></div>
+            <div class="rent-single__service-btn p-btn flex flex-ai-center flex-j-center text-500 modal__show" data-modal="type-first">{% trans 'Leave a request' %}<!--Оставить заявку--></div>
           </div>
 
           {% include 'includes/feedback_forms/rent_single_feedback.html' %}

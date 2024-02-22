@@ -25,15 +25,7 @@
       <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
     </div>
     <button class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500" type="submit" value="Send">{% trans 'Get a consultation' %}<!--Получить консультацию--></button>
-      <label class="p-check flex flex-ai-center">
-      <input type="checkbox" name="consent_processing_personal_data" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/main/get/check-white.webp"/>
-          <img class="lazy " width="15" height="15" src="" data-src="/img/main/get/check-white.png" alt="" loading="lazy"/>
-        </picture>
-      </span>
-      <span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на&nbsp;обработку персональных данных--></span>
-    </label>
+      {% include 'includes/feedback_forms/item_end.html' %}
   </div>
 </form>
 

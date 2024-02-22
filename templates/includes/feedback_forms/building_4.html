@@ -43,12 +43,7 @@
         </div>
         <div class="get__item-end">
           <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit" value="Send">{% trans 'Receive a consultation' %}</button>
-          <label class="p-check flex flex-ai-center">
-            <input type="checkbox" name="check" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-              </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}</span>
-          </label>
+          {% include 'includes/feedback_forms/item_end.html' %}
         </div>
         {% include 'includes/feedback_forms/feedback_social.html' %}
       </div>

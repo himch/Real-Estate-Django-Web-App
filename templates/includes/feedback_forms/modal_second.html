@@ -51,12 +51,7 @@
             </div>
             <div class="get__item-end">
               <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Receive a consultation' %}<!--Получить консультацию--></button>
-              <label class="p-check flex flex-ai-center">
-                <input type="checkbox" name="consent_processing_personal_data" checked="checked"/><span class="p-check__square flex flex-j-center flex-ai-center flex-shrink">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/main/get/check.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/main/get/check.png" alt="" loading="lazy"/>
-                  </picture></span><span class="p-check__title">{% trans 'By submitting the form, you consent to the processing of personal data' %}<!--Отправляя форму, вы даёте согласие на обработку персональных данных--></span>
-              </label>
+              {% include 'includes/feedback_forms/item_end.html' %}
             </div>
             <div class="catalog-cons__end">
                 <span>{% trans 'or write to us at' %}<!--или напишите нам в--></span>

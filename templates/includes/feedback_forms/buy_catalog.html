@@ -1,0 +1,54 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="container margin-center">
+  <div class="buy-form__item relative p-animate p-animate__up-block">
+    <div class="buy-form__item-subtitle uppercase">{% trans 'Dadi Properties' %}<!--Dadi Properties--></div>
+    <div class="buy-form__item-title text-c3 text-500">{% trans 'Dubai’s Reliable Property Developers Catalogue' as form_title %}{{ form_title }}<!--Каталог надёжных застройщиков Дубая--></div>
+    <div class="buy-form__item-desc font-roboto">
+      <p>{% trans 'Inside:' %}<!--Внутри:--></p>
+      <p>{% trans '- new objects with detailed description of characteristics' %}<!--- новые объекты с подробным описанием характеристик--></p>
+      <p>{% trans '- apartments at special price' %}<!--- апартаменты по специальной цене--></p>
+      <p>{% trans '- ideas for improvement' %}<!--- идеи по обустройству--></p>
+      <p>{% trans '- Expert Advice' %}<!--- советы экспертов--></p>
+    </div>
+    <form method="post" id="post-form-buy-catalog">
+      {% csrf_token %}
+      {% if user.is_authenticated %}
+        <input type="hidden" name="user_id" value="{{ user.id }}">
+      {% else %}
+        <input type="hidden" name="user_id" value="0">
+      {% endif %}
+      <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+      <input type="hidden" name="listing_id" value="{{ listing.id|unlocalize }}">
+      <input type="hidden" name="listing" value="{{ listing.title_a_en }}">
+      <input type="hidden" name="message" value="Request from: {{ form_title }}">
+      <input type="hidden" name="phone" value="">
+
+      <div class="buy-form__inner relative">
+        <div class="buy-form__inputs flex">
+          <div class="form__input">
+            <input type="text" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required="required"/>
+          </div>
+          <div class="form__input">
+            <input type="email" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value=""{% endif %} required="required"/>
+          </div>
+        </div>
+        <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Download' %}<!--Скачать--></button>
+        {% include 'includes/feedback_forms/item_end.html' %}
+      </div>
+    </form>
+    <div class="buy-form__img absolute bottom-0 right-0">
+      <picture>
+        <source type="image/webp" srcset="" data-srcset="/img/buy/form/1.webp"/>
+        <img class="lazy " width="776" height="554" src="" data-src="/img/buy/form/1.png" alt="" loading="lazy"/>
+      </picture>
+    </div>
+  </div>
+</div>
+
+
+{% include 'includes/feedback_forms/script.html' with post_form_id='post-form-buy-catalog' %}
+
