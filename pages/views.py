@@ -535,6 +535,24 @@ def katalogi(request):
     return render(request, 'includes/content/katalogi.html', context)
 
 
+def policy(request):
+    our_company = OurCompany.objects.all().first()
+    context = {
+        'our_company': our_company,
+    }
+
+    return render(request, 'includes/content/policy.html', context)
+
+
+def otmena(request):
+    our_company = OurCompany.objects.all().first()
+    context = {
+        'our_company': our_company,
+    }
+
+    return render(request, 'includes/content/otmena.html', context)
+
+
 # def arenda_single(request):
 #     # Get all realtors
 #     realtors = Realtor.objects.order_by('-hire_date')

@@ -24,12 +24,7 @@
       </div>
 
       <div class="header__logo flex flex-ai-center">
-          <a href="{% url 'index' %}">
-              <picture>
-                <source type="image/webp" srcset="{% static '/img/logo.webp' %}">
-                  <img width="98" height="54" src="{% static '/img/logo.png' %}" alt="" loading="lazy"/>
-              </picture>
-          </a>
+          {% include 'includes/header/headerLogo.html' %}
 
         <div class="p-lang text-600 text-c3 uppercase relative">
             {% include 'includes/header/languages_switcher.html' %}

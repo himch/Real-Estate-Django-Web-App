@@ -8,11 +8,7 @@
       <div class="footer__top-left">
         <div class="footer__block flex flex-j-between">
           <div class="footer__left">
-            <div class="footer__logo">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/footer/logo.webp"/><img class="lazy " width="149" height="84" src="" data-src="/img/footer/logo.png" alt="" loading="lazy"/>
-              </picture>
-            </div>
+            {% include 'includes/footer/footerLogo.html' %}
             <div class="footer__cabinet">
               <div class="footer__cabinet-title">{% trans 'Client&quot;s personal account' %}<!--Личный кабинет клиента--></div>
               <div class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500 modal__show" data-modal="register">{% trans 'Log in' %}<!--Войти--></div>
@@ -61,7 +57,7 @@
 
       </div>
       <div class="footer__bottom-right">
-        <div class="footer__bottom-links flex flex-col"><a class="footer__bottom-link" href="#!">{% trans 'Privacy policy' %}<!--Политика конфиденциальности--></a><a class="footer__bottom-link" href="#!">Offer contract</a></div>
+        <div class="footer__bottom-links flex flex-col"><a class="footer__bottom-link" href="{% url 'policy' %}">{% trans 'Privacy policy' %}<!--Политика конфиденциальности--></a><a class="footer__bottom-link" href="#!">Offer contract</a></div>
       </div>
     </div>
   </div>

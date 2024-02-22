@@ -12,6 +12,8 @@ urlpatterns = [
     path('katalogi', views.katalogi, name='katalogi'),
     path('izbrannoe', login_required(views.izbrannoe), name='izbrannoe'),
     path('sravnenie', login_required(views.sravnenie), name='sravnenie'),
+    path('policy', views.policy, name='policy'),
+    path('otmena', views.otmena, name='otmena'),
     # path('article', views.article, name='article'),
     # path('arenda_single', views.arenda_single, name='arenda_single'),
 ]
