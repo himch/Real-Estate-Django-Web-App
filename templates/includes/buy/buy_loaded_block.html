@@ -19,7 +19,7 @@
   {% endif %}
   <div {% if listings.has_next %} class="filters__content-load margin-center text-c3 text-underline text-500" hx-get="?page={{ listings.next_page_number }}" hx-trigger="click" hx-target="this"  hx-swap="outerHTML" {% endif %}>
     {% if listings.has_next %}
-      {% trans 'Download' %} <span>6</span> {% trans 'out of' %} {{ len_listings }}
+      {% trans 'Load more' %}
     {% endif %}
   </div>
 </div>

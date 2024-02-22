@@ -8,13 +8,15 @@
       <div class="swiper-wrapper">
          <div class="swiper-slide img_cover img_full">
           <picture>
-            <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main.url }}"/>
+              <img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>
           </picture>
         </div>
-        {% for image in listing.mainalbumimage_set.all|slice:"5" %}
+        {% for image in listing.main_album_images.all|slice:"5" %}
         <div class="swiper-slide img_cover img_full">
           <picture>
-            <source type="image/webp" srcset="" data-srcset="{{ image.photo.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="" data-srcset="{{ image.photo.url }}"/>
+              <img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>
           </picture>
         </div>
         {% endfor %}

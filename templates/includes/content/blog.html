@@ -35,21 +35,21 @@
                 <ul style="list-style-type: none;">
                     {% if page_obj.has_previous %}
                       <li style="float: left;" class="page-num">
-                               <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+                               <a href="?page={{ page_obj.previous_page_number }}">&nbsp;&lt;&nbsp;</a>
                       </li>
                     {% endif %}
                       {% for p in paginator.page_range %}
                          {% if page_obj.number == p %}
-                            <li style="float: left;" class="page-num page-num-selected">{{ p }}</li>
+                            <li style="float: left;" class="page-num page-num-selected">&nbsp;{{ p }}&nbsp;</li>
                          {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
                             <li style="float: left;" class="page-num">
-                                <a href="?page={{ p }}">{{ p }}</a>
+                                <a href="?page={{ p }}">&nbsp;{{ p }}&nbsp;</a>
                             </li>
                          {% endif %}
                       {% endfor %}
                     {% if page_obj.has_next %}
                       <li style="float: left;" class="page-num">
-                               <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                               <a href="?page={{ page_obj.next_page_number }}">&nbsp;&gt;&nbsp;</a>
                       </li>
                     {% endif %}
                 </ul>

@@ -24,7 +24,7 @@
 
   <div class="modal_filter__range-contents">
 
-    <div class="modal_filter__range-content">
+    <div class="modal_filter__range-content active">
       <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_usd|unlocalize }}" data-max="{{ vars_filter.listings_price_max_usd|unlocalize }}" data-type="int">
         <div class="modal_filter__range-main"></div>
         <input type="hidden" name="price_dollar_min" value="{{ vars_filter.price_dollar_min|unlocalize }}"/>
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="modal_filter__range-content active">
+    <div class="modal_filter__range-content">
       <div class="modal_filter__range modal_filter__price-input" data-min="{{ vars_filter.listings_price_min_rub|unlocalize }}" data-max="{{ vars_filter.listings_price_max_rub|unlocalize }}" data-type="int">
         <div class="modal_filter__range-main"></div>
         <input type="hidden" name="price_rub_min" value="{{ vars_filter.price_rub_min|unlocalize }}"/>
