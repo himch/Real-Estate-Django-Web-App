@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %} | User profile details {% endblock %}
 {% block content %}
-    <div class="card mb-3 border-0 nth-shadow">
-        <div class="card-body">
-            <div class="card-title nth-card-title">
+<div class="cabinet">
+    <div class="container margin-center">
+      <div class="cabinet__top relative">
+          <div class="cabinet__top-title text-500 text-c5">
                 <h4>Страница пользователя</h4>
             </div>
             <form method="post" action="{% url 'register' %}" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-dark mt-2">Ok</button>
+                {% for field in form %}
+                    <div class="modal_register__input form__input">
+                        {{ field.errors }}
+                        {{ field.label_tag }}: {{ field }}
+                    </div>
+                {% endfor %}
+                <button class="cabinet__top-link p-btn flex flex-ai-center flex-j-center text-500 cursor-pointer">{% trans 'Ok' %}</button>
             </form>
-        </div>
+      </div>
     </div>
+</div>
 {% endblock %}

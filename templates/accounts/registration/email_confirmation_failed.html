@@ -1,7 +1,18 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %} | Email confirmation failed {% endblock %}
 {% block content %}
-<div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading">Ошибка подтверждения по электронной почте</h4>
-    <p>Ссылка для подтверждения по электронной почте недействительна или срок ее действия истек. Пожалуйста, зарегистрируйтесь снова.</p>
+<div class="cabinet">
+    <div class="container margin-center">
+          <div class="cabinet__top relative">
+              <div class="cabinet__top-title text-500 text-c5">
+                    <h4 class="alert-heading">Ошибка подтверждения по электронной почте</h4>
+              </div>
+              <p>Ссылка для подтверждения по электронной почте недействительна или срок ее действия истек. Пожалуйста, зарегистрируйтесь снова.</p>
+          </div>
+    </div>
 </div>
 {% endblock %}

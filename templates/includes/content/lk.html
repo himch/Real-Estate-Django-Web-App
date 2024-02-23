@@ -1,78 +1,51 @@
+{% extends 'base.html' %}
+{% load l10n %}
+{% load i18n %}
+{% load i18n_urls %}
+{% load static %}
+{% load humanize %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %} | Personal Area {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
 
 <main>
   <div class="cabinet">
     <div class="container margin-center">
       <div class="cabinet__top relative">
-        <div class="cabinet__top-title text-500 text-c5">Имя Фамилия</div>
-        <div class="cabinet__top-mail">email@gmail.com</div>
-        <div class="cabinet__top-tel">+7 9**-***-**-**</div>
-        <div class="cabinet__top-right absolute flex flex-ai-center"><a class="cabinet__top-link p-btn flex flex-ai-center flex-j-center text-500 cursor-pointer" href="#!">Редактировать</a>
-          <div class="cabinet__top-icon"><svg width="21" height="4" viewBox="0 0 21 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.351562" width="4" height="4" rx="2" fill="#282828"/>
-<rect x="8.35156" width="4" height="4" rx="2" fill="#282828"/>
-<rect x="16.3516" width="4" height="4" rx="2" fill="#282828"/>
-</svg>
+        <div class="cabinet__top-title text-500 text-c5">{{ user.first_name }} {{ user.last_name }}</div>
+        <div class="cabinet__top-mail">{{ user.email }}</div>
+        {% if user.profile.phone %}
+          <div class="cabinet__top-tel">{{ user.profile.phone }}</div>
+        {% endif %}
+        <div class="cabinet__top-right absolute flex flex-ai-center">
+          <a class="cabinet__top-link p-btn flex flex-ai-center flex-j-center text-500 cursor-pointer" href="#!">{% trans 'Edit' %}</a>
+          <div class="cabinet__top-icon">
+              <svg width="21" height="4" viewBox="0 0 21 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.351562" width="4" height="4" rx="2" fill="#282828"/>
+                  <rect x="8.35156" width="4" height="4" rx="2" fill="#282828"/>
+                  <rect x="16.3516" width="4" height="4" rx="2" fill="#282828"/>
+              </svg>
           </div>
         </div>
       </div>
-      <div class="cabinet__items-title text-500 text-c3">Бронирования</div>
+      <div class="cabinet__items-title text-500 text-c3">{% trans 'Reservations' %}</div>
+
       <div class="cabinet__items flex flex-wrap">
-        <div class="cabinet__item">
-          <div class="cabinet__item-top flex">
-            <div class="cabinet__item-img">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="img/lk/1.webp"/><img class="lazy " width="225" height="129" src="" data-src="img/lk/1.png" alt="" loading="lazy"/>
-              </picture>
-            </div>
-            <div class="cabinet__item-text">
-              <div class="cabinet__item-title text-c5">Квартира 50 кв.м с видом на море</div>
-              <div class="cabinet__item-contents flex flex-wrap flex-ai-center">
-                <div class="cabinet__item-content">2 комнаты</div>
-                <div class="cabinet__item-content"><svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="3" height="3" rx="1.5" fill="#888888"/>
-</svg>
-                </div>
-                <div class="cabinet__item-content">1 ванная</div>
-              </div>
-              <div class="cabinet__item-date">17 ноября — 20 декабря</div>
+        {% if reservations %}
+            {% for reservation in reservations %}
+                {% include 'includes/reservations/reservation_card.html' %}
+            {% endfor %}
+        {% else %}
+          <div class="cabinet__item">
+            <div class="cabinet__item-top flex">
+              {% trans 'No reservations' %}
             </div>
           </div>
-          <div class="cabinet__item-bottom">
-            <div class="cabinet__price flex flex-ai-center flex-j-between text-500">
-              <div class="cabinet__price-left"><span>Стоимость:</span><span>5 000 руб. х 25 ночей</span></div>
-              <div class="cabinet__price-right text-c3">120 000 руб.</div>
-            </div>
-            <div class="cabinet__item-change p-btn flex flex-ai-center flex-j-center text-500">Изменить бронирование</div>
-          </div>
-        </div>
-        <div class="cabinet__item">
-          <div class="cabinet__item-top flex">
-            <div class="cabinet__item-img">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="img/lk/1.webp"/><img class="lazy " width="225" height="129" src="" data-src="img/lk/1.png" alt="" loading="lazy"/>
-              </picture>
-            </div>
-            <div class="cabinet__item-text">
-              <div class="cabinet__item-title text-c5">Квартира 50 кв.м с видом на море</div>
-              <div class="cabinet__item-contents flex flex-wrap flex-ai-center">
-                <div class="cabinet__item-content">2 комнаты</div>
-                <div class="cabinet__item-content"><svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="3" height="3" rx="1.5" fill="#888888"/>
-</svg>
-                </div>
-                <div class="cabinet__item-content">1 ванная</div>
-              </div>
-              <div class="cabinet__item-date">17 ноября — 20 декабря</div>
-            </div>
-          </div>
-          <div class="cabinet__item-bottom">
-            <div class="cabinet__price flex flex-ai-center flex-j-between text-500">
-              <div class="cabinet__price-left"><span>Стоимость:</span><span>5 000 руб. х 25 ночей</span></div>
-              <div class="cabinet__price-right text-c3">120 000 руб.</div>
-            </div><a class="cabinet__item-change p-btn flex flex-ai-center flex-j-center text-500" href="#!">Изменить бронирование</a>
-          </div>
-        </div>
+        {% endif %}
       </div>
     </div>
   </div>
 </main>
+{% endblock %}

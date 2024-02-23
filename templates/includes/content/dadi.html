@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load l10n %}
 {% load i18n %}
+{% load i18n_urls %}
+{% load static %}
 {% load humanize %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block title %} | About {% endblock %}
 

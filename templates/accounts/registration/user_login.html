@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %} | Authorization {% endblock %}
 {% block content %}
-    <div class="card mb-3 border-0 nth-shadow">
-        <div class="card-body">
-            <div class="card-title nth-card-title">
-                <h4>Авторизация на сайте</h4>
-            </div>
+<div class="cabinet">
+    <div class="container margin-center">
+      <div class="cabinet__top relative">
+          <div class="cabinet__top-title text-500 text-c5">
+              <h4>Авторизация на сайте</h4>
+          </div>
             <form method="post" action="{% url 'login' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <div class="d-grid gap-2 d-md-block mt-2">
-                <button type="submit" class="btn btn-dark">Авторизоваться</button>
-             </div>
+                {% for field in form %}
+                    <div class="modal_register__input form__input">
+                        {{ field.errors }}
+                        {{ field.label_tag }}: {{ field }}
+                    </div>
+                {% endfor %}
+                <div class="cabinet__top-right flex flex-ai-center">
+                  <button class="cabinet__top-link p-btn flex flex-ai-center flex-j-center text-500 cursor-pointer">{% trans 'Login' %}</button>
+                </div>
             </form>
         </div>
     </div>
+</div>
 {% endblock %}

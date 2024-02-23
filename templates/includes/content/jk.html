@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-{% load i18n %}
-{% load static %}
 {% load l10n %}
+{% load i18n %}
+{% load i18n_urls %}
+{% load static %}
 {% load humanize %}
-
+{% get_current_language as LANGUAGE_CODE %}
 {% block title %} | Buy | {{ listing.title_a_en }} {% endblock %}
 
 {% block content %}
-{% get_current_language as LANGUAGE_CODE %}
 {% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE as listing_title %}
 {% get_attr 'listing' 'description_a_'|add:LANGUAGE_CODE as listing_description %}
 {% get_attr 'listing' 'status_a_'|add:LANGUAGE_CODE as listing_status %}

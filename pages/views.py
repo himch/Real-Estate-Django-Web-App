@@ -553,6 +553,24 @@ def otmena(request):
     return render(request, 'includes/content/otmena.html', context)
 
 
+def lk(request):
+    our_company = OurCompany.objects.all().first()
+    context = {
+        'our_company': our_company,
+    }
+
+    return render(request, 'includes/content/lk.html', context)
+
+
+def developer(request, slug):
+    our_company = OurCompany.objects.all().first()
+    context = {
+        'our_company': our_company,
+    }
+
+    return render(request, 'includes/content/zastroischik.html', context)
+
+
 # def arenda_single(request):
 #     # Get all realtors
 #     realtors = Realtor.objects.order_by('-hire_date')

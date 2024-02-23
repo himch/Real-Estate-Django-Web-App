@@ -69,7 +69,7 @@ class ProfileDetailView(DetailView):
     """
     model = Profile
     context_object_name = 'profile'
-    template_name = 'accounts/profile_detail.html'
+    template_name = 'includes/content/lk.html'
     queryset = model.objects.all().select_related('user')
 
     def get_context_data(self, **kwargs):

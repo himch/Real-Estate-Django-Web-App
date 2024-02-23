@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
+    'developers.apps.DevelopersConfig',
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
     'our_company.apps.OurCompanyConfig',

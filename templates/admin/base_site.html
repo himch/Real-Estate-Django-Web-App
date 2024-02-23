@@ -3,7 +3,8 @@
 
 {% block branding %}
   <h1 id="head">
-    <img src="{% static 'img/logo.png' %}" alt="Real Estate" height="50" width="80" class="brand_img"> Admin Area
+    {% include 'includes/footer/footerLogo.html' %}
+    <span>Admin Area</span> - <span>المنطقة الادارية</span> - <span>Административная панель</span>
   </h1>
 {% endblock %}
 {% block extrastyle %}

@@ -18,13 +18,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     slug = models.SlugField(verbose_name='URL', max_length=255, blank=True, unique=True)
     phone = PhoneNumberField(null=True, blank=True, unique=False)
-    avatar = models.ImageField(
-        verbose_name='Avatar',
-        upload_to='avatars/%Y/%m/%d/',
-        default='avatars/default_avatar.webp',
-        blank=True,
-        validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'jpeg', 'webp'))])
-    bio = models.TextField(max_length=500, blank=True, verbose_name='Bio')
     birth_date = models.DateField(null=True, blank=True, verbose_name='Birth date')
     favorites = models.ManyToManyField(Listing, related_name='favorited_by')
     bookmarks = models.ManyToManyField(Listing, related_name='bookmarked_by')

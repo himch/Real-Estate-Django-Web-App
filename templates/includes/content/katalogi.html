@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
+{% load l10n %}
 {% load i18n %}
+{% load i18n_urls %}
+{% load static %}
 {% load humanize %}
-
+{% get_current_language as LANGUAGE_CODE %}
 {% block title %} | Catalogs {% endblock %}
 
 {% block content %}
@@ -37,95 +40,10 @@
       </div>
     </div>
   </div>
-  <div class="devs overflow-hidden">
-    <div class="container margin-center">
-      <div class="section__title font-tenor text-c3 text-center">{% trans 'Developers' %}<!--Застройщики--></div>
-    </div>
-    <div class="devs__items flex flex-col">
-      <div class="devs__item flex img_cover img_br">
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/1.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/1.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/2.webp"/><img class="lazy " width="128" height="126" src="" data-src="/img/catalogs/devs/2.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/3.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/3.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/4.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/4.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/5.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/5.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/6.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/6.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/7.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/7.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/1.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/1.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/2.webp"/><img class="lazy " width="128" height="126" src="" data-src="/img/catalogs/devs/2.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/3.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/3.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/4.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/4.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/5.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/5.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/6.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/6.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/7.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/7.jpg" alt="" loading="lazy"/>
-        </picture>
-      </div>
-      <div class="devs__item devs__item_reverse flex img_cover img_br">
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/8.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/8.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/9.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/9.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/10.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/10.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/11.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/11.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/12.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/12.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/13.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/13.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/8.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/8.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/9.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/9.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/10.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/10.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/11.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/11.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/12.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/12.jpg" alt="" loading="lazy"/>
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/catalogs/devs/13.webp"/><img class="lazy " width="300" height="126" src="" data-src="/img/catalogs/devs/13.jpg" alt="" loading="lazy"/>
-        </picture>
-      </div>
-    </div>
-  </div>
+
+
+  {% include 'includes/developers/developers_module.html' %}
+
   <div class="catalog-cons">
 
     {% include 'includes/feedback_forms/building_4.html' %}

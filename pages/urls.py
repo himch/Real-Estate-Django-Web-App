@@ -14,6 +14,8 @@ urlpatterns = [
     path('sravnenie', login_required(views.sravnenie), name='sravnenie'),
     path('policy', views.policy, name='policy'),
     path('otmena', views.otmena, name='otmena'),
+    path('lk', login_required(views.lk), name='lk'),
+    path('developer/<str:slug>/', views.developer, name='developer'),
     # path('article', views.article, name='article'),
     # path('arenda_single', views.arenda_single, name='arenda_single'),
 ]

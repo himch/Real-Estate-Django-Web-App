@@ -28,7 +28,7 @@
       <input type="hidden" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value="None"{% endif %} required="required"/>
 
       <div class="catalog-cons__text relative">
-        <div class="catalog-cons__title">{{ form_title }}}<!--Получите консультацию по Застройщикам и лучшим проектам--></div>
+        <div class="catalog-cons__title">{{ form_title }}<!--Получите консультацию по Застройщикам и лучшим проектам--></div>
         <div class="catalog-cons__subtitle">{% trans 'Leave your details and' %}<!--Оставьте свои данные и-->&nbsp;<span class="text-c5">{% trans 'we will answer to all your questions' %}<!--мы&nbsp;ответим на все вопросы--></span></div>
         <div class="catalog-cons__inputs flex">
           <div class="form__input">
