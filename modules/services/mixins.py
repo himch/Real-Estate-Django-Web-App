@@ -8,7 +8,8 @@ class UserIsNotAuthenticated(UserPassesTestMixin):
 	def test_func(self):
 		if self.request.user.is_authenticated:
 			messages.info(self.request, 'Вы уже авторизованы. Вы не можете посетить эту страницу.')
-			raise PermissionDenied
+			return False
+			# raise PermissionDenied
 		return True
 
 	def handle_no_permission(self):

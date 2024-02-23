@@ -43,11 +43,11 @@
       <div class="estate__items flex flex-col">
         <div class="estate__item relative w-full">
           <div class="estate__item-title">{% trans 'Rent' %}<!--Аренда--></div>
-            {% include 'includes/rent/rent_ribbon.html' with go_to_rent_catalogue=False %}
+            {% include 'includes/rent/rent_ribbon.html' with go_to_rent_catalogue=False item_close=True %}
         </div>
         <div class="estate__item relative w-full">
           <div class="estate__item-title">{% trans 'Buy' %}<!--Покупка--></div>
-            {% include 'includes/buy/buy_ribbon.html' with go_to_purchase_catalogue=False %}
+            {% include 'includes/buy/buy_ribbon.html' with go_to_purchase_catalogue=False item_close=True %}
           </div>
         </div>
         <div class="rent-single__location">

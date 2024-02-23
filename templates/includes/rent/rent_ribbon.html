@@ -6,9 +6,11 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         {% if rent_listings %}
-          {% for listing in rent_listings %}
-            {% include 'includes/rent_card/index_page_rent_card_swiper.html' %}
-          {% endfor %}
+              {% for listing in rent_listings %}
+                <div class="swiper-slide">
+                    {% include 'includes/rent_card/index_page_rent_card_swiper.html' %}
+                </div>
+              {% endfor %}
         {% else %}
           <div class="swiper-slide">
             <div class="p-card__abs-link margin-center">{% trans 'No Offers Available' %}</div>

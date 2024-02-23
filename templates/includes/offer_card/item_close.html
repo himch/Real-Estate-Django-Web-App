@@ -6,15 +6,9 @@
 
 <div class="compar__subitem-close"
      hx-trigger="click"
-     hx-delete="/api/v1/htmx/offers/{{ listing.complex_id|unlocalize }}/bookmark/"
+     hx-delete="/api/v1/htmx/offers/{{ listing.complex_id|unlocalize }}/{{ target }}/"
      hx-swap="none"
-     hx-target="#offers_map"
-     hx-on::after-request="document.getElementById('id_{{ listing.id|unlocalize }}_type').remove();
-                           document.getElementById('id_{{ listing.id|unlocalize }}_price').remove();
-                           document.getElementById('id_{{ listing.id|unlocalize }}_developer').remove();
-                           document.getElementById('id_{{ listing.id|unlocalize }}_card').remove();
-                           location.reload();
-                          "
+     hx-on::after-request="location.reload();"
      >
     <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <rect x="0.789062" width="11" height="11" fill="url(#pattern0)"/>
@@ -31,3 +25,21 @@
       </defs>
     </svg>
 </div>
+
+
+<!--
+
+<div class="compar__subitem-close"
+     hx-trigger="click"
+     hx-delete="/api/v1/htmx/offers/{{ listing.complex_id|unlocalize }}/bookmark/"
+     hx-swap="none"
+     hx-target="#offers_map"
+     hx-on::after-request="document.getElementById('id_{{ listing.id|unlocalize }}_type').remove();
+                           document.getElementById('id_{{ listing.id|unlocalize }}_price').remove();
+                           document.getElementById('id_{{ listing.id|unlocalize }}_developer').remove();
+                           document.getElementById('id_{{ listing.id|unlocalize }}_card').remove();
+                           location.reload();
+                          "
+     >
+
+-->

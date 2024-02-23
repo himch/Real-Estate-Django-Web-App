@@ -5,26 +5,13 @@
 {% get_current_language as LANGUAGE_CODE %}
 <!-- start listing -->
 <div class="compar__subitem" id="id_{{ listing.id|unlocalize }}_card">
-    {% include 'includes/offer_card/item_close.html' %}
+    {% include 'includes/offer_card/item_close.html' with target='bookmark' %}
     <div class="swiper">
-      <div class="swiper-wrapper">
         <a href="/{{ LANGUAGE_CODE }}/listings/{{ listing.id|unlocalize }}">
-            <div class="swiper-slide">
-              <picture>
-                <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main.url }}"/>
-                <img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>
-              </picture>
+            <div class="swiper-wrapper">
+                {% include 'includes/offer_card/photo_items.html' %}
             </div>
-            {% for image in no_listing.main_album_images.all|slice:"5" %}
-                <div class="swiper-slide">
-                  <picture>
-                    <source type="image/webp" srcset="" data-srcset="{{ image.photo.url }}"/>
-                    <img class="lazy " width="281" height="417" src="" data-src="{{ image.photo.url }}" alt="" loading="lazy"/>
-                  </picture>
-                </div>
-            {% endfor %}
         </a>
-      </div>
     </div>
     <div class="swiper-pagination"></div>
     <div class="compar__item-subtitle text-c3">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</div>

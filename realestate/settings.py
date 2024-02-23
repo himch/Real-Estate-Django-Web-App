@@ -219,3 +219,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info@dadi.ae'
 EMAIL_HOST_PASSWORD = 'wxtt uysl qcjy xixc'
+
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1"]

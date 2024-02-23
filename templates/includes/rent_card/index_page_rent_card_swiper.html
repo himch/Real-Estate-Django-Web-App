@@ -3,42 +3,27 @@
 {% load l10n %}
 {% get_current_language as LANGUAGE_CODE %}
 <!-- start rent -->
-<div class="swiper-slide"><a class="p-card relative flex p-card_second" href="/listings/rent/{{ listing.id|unlocalize }}">
-    <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide img_cover img_full">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ listing.photo_main.url }}" alt="" loading="lazy"/>
-          </picture>
+<div class="p-card relative flex p-card_second">
+    {% if item_close %}
+        {% include 'includes/offer_card/item_close.html' with target='favorite' %}
+    {% endif %}
+    <a href="/{{ LANGUAGE_CODE }}/listings/rent/{{ listing.id|unlocalize }}">
+        <div class="swiper absolute top-0 left-0 w-full h-full p-card__swiper">
+            <div class="swiper-wrapper">
+                {% include 'includes/offer_card/photo_items.html' %}
+            </div>
         </div>
-        <div class="swiper-slide img_cover img_full">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="{{ listing.photo_1.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ listing.photo_1.url }}" alt="" loading="lazy"/>
-          </picture>
-        </div>
-        <div class="swiper-slide img_cover img_full">
-          <picture>
-            <source type="image/webp" srcset="" data-srcset="{{ listing.photo_2.url }}"/><img class="lazy " width="281" height="417" src="" data-src="{{ listing.photo_2.url }}" alt="" loading="lazy"/>
-          </picture>
-        </div>
-      </div>
-    </div>
-    <div class="p-card__sale flex flex-ai-center bg-c2 absolute">
-      <div class="p-card__sale-svg"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.8599 7.02728C10.6628 6.77019 10.4229 6.54737 10.2001 6.32456C9.62589 5.81036 8.97458 5.44186 8.42611 4.90196C7.1492 3.65076 6.86639 1.58542 7.68053 0C6.86639 0.197107 6.15509 0.64274 5.54663 1.13122C3.32704 2.91375 2.45291 6.05889 3.49844 8.7584C3.53272 8.84409 3.56699 8.92979 3.56699 9.0412C3.56699 9.22974 3.43845 9.40114 3.26705 9.46969C3.06994 9.55539 2.86427 9.50397 2.70144 9.36686C2.65251 9.3264 2.61178 9.27695 2.58146 9.22117C1.61307 7.99568 1.45881 6.23886 2.11012 4.8334C0.678953 5.9989 -0.100904 7.96997 0.0105039 9.82963C0.061923 10.2581 0.113342 10.6866 0.25903 11.1151C0.379008 11.6293 0.610394 12.1435 0.86749 12.5977C1.79303 14.0803 3.3956 15.1429 5.11814 15.3572C6.95209 15.5886 8.91459 15.2543 10.32 13.986C11.8883 12.5634 12.4368 10.2838 11.6312 8.3299L11.5198 8.10709C11.3399 7.71287 10.8599 7.02728 10.8599 7.02728ZM8.15187 12.4263C7.91191 12.632 7.5177 12.8548 7.20919 12.9405C6.24936 13.2833 5.28954 12.8034 4.72393 12.2378C5.74374 11.9978 6.3522 11.2437 6.53217 10.4809C6.67785 9.79535 6.40362 9.22974 6.29221 8.56986C6.18937 7.93569 6.20651 7.39579 6.4379 6.80447C6.60073 7.13012 6.77212 7.45578 6.9778 7.71287C7.63768 8.56986 8.67463 8.94693 8.89745 10.1124C8.93173 10.2324 8.94887 10.3524 8.94887 10.4809C8.97458 11.1837 8.66606 11.955 8.15187 12.4263Z" fill="#FF5B50"/>
-</svg>
-      </div>
-      <div class="p-card__sale-title text-500">{% trans 'Spec. price' %}<!--Спец. цена--></div>
-    </div>
+    </a>
+    {% include 'includes/offer_card/special_price.html' %}
     <div class="p-card__text bg-c2 bottom-0 left-0 absolute">
-      <div class="swiper-pagination p-card__swiper-pagination"></div>
-      <div class="p-card__title text-500">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</div>
-      <div class="p-card__top flex">
-        <div class="p-card__top-left text-c5"><!--{{ listing.address }}--></div>
-        <div class="p-card__top-right"><!--Лот 1111111--></div>
-      </div>
-      <div class="p-card__price text-500">{% if listing.price_a_min %}от {{ listing.price_a_min }} {{ listing.price_a_currency }}{% endif %}</div>
-      <div class="p-card__price p-card__price_old">{% trans 'per day' %}<!--в сутки--></div>
-    </div></a>
+          <div class="swiper-pagination p-card__swiper-pagination"></div>
+          <div class="p-card__title text-500">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</div>
+          <div class="p-card__top flex">
+                <div class="p-card__top-left text-c5"><!--{{ listing.address }}--></div>
+                <div class="p-card__top-right"><!--Лот 1111111--></div>
+          </div>
+          <div class="p-card__price text-500">{% if listing.price_a_min %}от {{ listing.price_a_min }} {{ listing.price_a_currency }}{% endif %}</div>
+          <div class="p-card__price p-card__price_old">{% trans 'per day' %}<!--в сутки--></div>
+    </div>
 </div>
 <!-- end rent -->
