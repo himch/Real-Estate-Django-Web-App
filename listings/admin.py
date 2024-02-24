@@ -3,6 +3,7 @@ from rest_framework.authtoken.admin import TokenAdmin
 from django.http import HttpResponseRedirect
 from django.urls import path
 
+from loader.scan_for_developers import scan_developers
 from .models import Listing, Bookmark, Favorite, Price
 
 TokenAdmin.raw_id_fields = ['user']
@@ -57,6 +58,15 @@ class ListingAdmin(admin.ModelAdmin):
         # import_custom = ImportCustom()
         # count = import_custom.import_data()
         count = 0
+        if 'airbnb' in request.POST:
+            pass
+
+        elif 'alnair' in request.POST:
+            pass
+
+        elif 'developers' in request.POST:
+            count = scan_developers()
+
         self.message_user(request, f"создано {count} новых записей")
         return HttpResponseRedirect("../")
 

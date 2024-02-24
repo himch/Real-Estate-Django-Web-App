@@ -16,7 +16,7 @@
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="/buy">{% trans 'Catalog of residential complexes and developers' %}<!--Каталог ЖК и Застройщиков--></a>
+    <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="{% url 'buy' %}">{% trans 'Catalog of residential complexes and developers' %}</a>
       <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
 
       {% include 'includes/bookmarks/bookmarks_favorites_module.html' %}
@@ -275,41 +275,7 @@
       </div>
     </div>
   </div>
-  <!--
-  <div class="rent-dev">
-    <div class="container margin-center">
-      <div class="rent-dev__title section__title font-tenor text-c3">Застройщик</div>
-      <div class="rent-dev__row flex">
-        <div class="rent-dev__left">
-          <div class="rent-dev__img flex-shrink img_cover img_br">
-            <picture>
-              <source type="image/webp" srcset="{{ listing.developer_a_logo }}" data-srcset=""/><img class="lazy " width="284" height="289" src="" data-src="{{ listing.developer_a_logo }}" alt="" loading="lazy"/>
-            </picture>
-          </div>
-        </div>
-        <div class="rent-dev__right">
-          <div class="rent-dev__text">
-            <div class="rent-dev__desc">Damac Properties — дубайская девелоперская компания, работающая на рынке элитной недвижимости с 2002 года. В ее портфеле жилые комплексы премиум-класса, офисные здания и 5-звёздочные отели в Арабских Эмиратах, Китае, Ливанской республике, Иордании и Великобритании.</div>
-            <div class="rent-dev__list flex">
-              <div class="rent-dev__list-li">
-                <div class="rent-dev__list-num text-c5 text-500">2001</div>
-                <div class="rent-dev__list-title">год основания</div>
-              </div>
-              <div class="rent-dev__list-li">
-                <div class="rent-dev__list-num text-c5 text-500">81 дом</div>
-                <div class="rent-dev__list-title">сдан в 18 ЖК</div>
-              </div>
-              <div class="rent-dev__list-li">
-                <div class="rent-dev__list-num text-c5 text-500">10 домов</div>
-                <div class="rent-dev__list-title">10 домов</div>
-              </div>
-            </div><a class="rent-dev__btn p-btn flex flex-ai-center flex-j-center text-500" href="/zastroischik">Подробнее о застройщике</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  -->
+  {% include 'includes/developers/developer_card.html' %}
   <!--
   <div class="rent-single__plan rent-single__plan_second">
     <div class="container margin-center">

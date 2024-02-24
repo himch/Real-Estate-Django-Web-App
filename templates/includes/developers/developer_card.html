@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="rent-dev">
+  <div class="container margin-center">
+    <div class="rent-dev__title section__title font-tenor text-c3">{% trans 'Developer' %}</div>
+    <div class="rent-dev__row flex">
+      <div class="rent-dev__left">
+        <div class="rent-dev__img flex-shrink img_cover img_br">
+          <picture>
+            <source type="image/webp" srcset="{{ developer.logo }}" data-srcset=""/>
+            <img class="lazy " width="284" height="289" src="" data-src="{{ developer.logo }}" alt="" loading="lazy"/>
+          </picture>
+        </div>
+      </div>
+      <div class="rent-dev__right">
+        <div class="rent-dev__text">
+          {% autoescape off %}
+            <div class="rent-dev__desc">{% get_attr 'developer' 'text_'|add:LANGUAGE_CODE|safe %}</div>
+          {% endautoescape %}
+          <div class="rent-dev__list flex">
+            <div class="rent-dev__list-li">
+              <div class="rent-dev__list-num text-c5 text-500">{{ developer.year_of_foundation }}</div>
+              <div class="rent-dev__list-title">{% trans 'year of foundation' %}</div>
+            </div>
+            <div class="rent-dev__list-li">
+              <div class="rent-dev__list-num text-c5 text-500">{% trans 'houses' %}: {{ developer.buildings_finished }}</div>
+              <div class="rent-dev__list-title">{% trans 'delivered in' %} {{ developer.complexes_finished }} {% trans 'residential complexes' %}</div>
+            </div>
+            <div class="rent-dev__list-li">
+              <div class="rent-dev__list-num text-c5 text-500">{% trans 'houses' %}: {{ developer.buildings_in_progress }}</div>
+              <div class="rent-dev__list-title">{% trans 'is being built in' %} {{ developer.complexes_in_progress }} {% trans 'residential complexes' %}</div>
+            </div>
+          </div><a class="rent-dev__btn p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'developer' slug=developer.slug %}">{% trans 'More about the developer' %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

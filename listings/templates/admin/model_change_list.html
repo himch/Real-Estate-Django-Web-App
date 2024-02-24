@@ -2,8 +2,9 @@
 {% block object-tools %}
   <form action="import/" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Import from Airbnb" />
-    <input type="submit" value="Import from Alnair" />
+    <input type="submit" name="airbnb" value="Import from Airbnb" />
+    <input type="submit" name="alnair" value="Import from Alnair" />
+    <input type="submit" name="developers" value="Parse database for Developers" />
   </form>
     {{ block.super }}
 {% endblock %}

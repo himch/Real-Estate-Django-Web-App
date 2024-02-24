@@ -80,6 +80,7 @@ def listing(request, listing_id):
         'listing': listing_item,
         'listings': paged_listings,
         'realtor': realtor,
+        'developer': listing_item.developer,
 
         'bookmark_bookmarked': listing_item in user.profile.bookmarks.all() if hasattr(user, 'profile') else False,
         'favorites_bookmarked': listing_item in user.profile.favorites.all() if hasattr(user, 'profile') else False,

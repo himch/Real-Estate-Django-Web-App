@@ -16,6 +16,7 @@ from imagekit.processors import ResizeToFill
 from datetime import datetime
 from django_admin_geomap import GeoItem
 
+from developers.models import Developer
 from modules.services.utils import say_my_name
 from realtors.models import Realtor
 
@@ -27,7 +28,8 @@ class Listing(models.Model, GeoItem):
     source = models.TextField(default='alnair')
     offer_type = models.TextField(default='sell')
     url = models.URLField(blank=True, null=True)
-    realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
+    realtor = models.ForeignKey(Realtor, blank=True, null=True, on_delete=models.DO_NOTHING)
+    developer = models.ForeignKey(Developer, on_delete=models.DO_NOTHING)
     # title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     # city = models.CharField(max_length=100)
