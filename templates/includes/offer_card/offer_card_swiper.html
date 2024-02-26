@@ -19,7 +19,11 @@
           <div class="swiper-pagination p-card__swiper-pagination"></div>
           <div class="p-card__title text-500">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</div>
           <div class="p-card__top flex">
-             <div class="p-card__top-left text-c5">{% if listing.developer_a_title_a_en %}{% get_attr 'listing' 'developer_a_title_a_'|add:LANGUAGE_CODE %}{% endif %}</div>
+              <div class="p-card__top-left text-c5">
+                  {% if listing.developer %}
+                    <a href="{% url 'developer' slug=listing.developer.slug %}">{% get_attr 'listing' 'developer.title_'|add:LANGUAGE_CODE %}</a>
+                  {% endif %}
+              </div>
           </div>
           <div class="p-card__price text-500">{% if listing.price_a_min %}{% trans 'from' %} {{ listing.price_a_min }} {{ listing.price_a_currency }}{% else %} {% endif %}</div>
           <div class="p-card__price text-500">{% trans listing.type %}, {% if listing.status_a_en %}{% get_attr 'listing' 'status_a_'|add:LANGUAGE_CODE %}{% else %}{% trans 'Completed' %}{% endif %}</div>
