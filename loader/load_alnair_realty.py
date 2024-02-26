@@ -334,7 +334,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
     async def load_data_into_db(self):
         say_my_name()
         for i, offer in enumerate(self.database_dict['realty-feed']['offers']):
-            if i == 100:
+            if i == 50:
                 break
             print(f"{i}. work with offer complex-id {offer['complex-id']}")
             # if await self.offer_exist(offer['complex-id']):
@@ -344,11 +344,12 @@ class DatabaseDownloader(Downloader, SQLExecutor):
             # await self.make_python_for_insert_record()
             # await self.insert_record_python(offer)
             if await self.offer_exist(offer['complex-id']):
-                if await self.offer_updated_at(offer['complex-id']) != offer['updated_at']:
+                offer_updated_at = await self.offer_updated_at(offer['complex-id'])
+                if offer_updated_at != offer['updated_at']:
                     await self.delete_record(offer['complex-id'])
-                    print(f"Offer with complex-id {offer['complex-id']} exist with the different updated_at, deleted")
+                    print(f"Offer with complex-id {offer['complex-id']} exist with the different updated_at {offer_updated_at} != {offer['updated_at']}, deleted")
                 else:
-                    print(f"Offer with complex-id {offer['complex-id']} exist with the same updated_at")
+                    print(f"Offer with complex-id {offer['complex-id']} exist with the same updated_at {offer['updated_at']}")
             if not await self.offer_exist(offer['complex-id']):
                 # await self.insert_record_sql(offer)
                 await self.get_tables(offer)

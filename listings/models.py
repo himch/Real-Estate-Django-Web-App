@@ -17,6 +17,7 @@ from datetime import datetime
 from django_admin_geomap import GeoItem
 
 from developers.models import Developer
+from listings.utils import fix_description
 from modules.services.utils import say_my_name
 from realtors.models import Realtor
 
@@ -391,6 +392,9 @@ class Listing(models.Model, GeoItem):
 
     def save(self, **kwargs):
         say_my_name()
+        self.description_a_en = fix_description(self.description_a_en)
+        self.description_a_ru = fix_description(self.description_a_ru)
+        self.description_a_ar = fix_description(self.description_a_ar)
         if self.is_fully_loaded:
             print(f'save is_fully_loaded for complex-id = {self.complex_id}')
             super().save(**kwargs)  # Call the "real" save() method.
