@@ -2,7 +2,7 @@
 {% load static %}
 {% load l10n %}
 {% get_current_language as LANGUAGE_CODE %}
-<div class="filters__content-block flex flex-wrap active rent-single__projects-row" id="offer_cards" hx-swap-oob="beforeend">
+<div class="filters__content-block flex flex-wrap active rent-single__projects-row active" id="offer_cards" hx-swap-oob="beforeend">
   {% if listings %}
     {% for listing in listings %}
       {% include 'includes/offer_card/offer_card_swiper.html' %}
