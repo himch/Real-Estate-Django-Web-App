@@ -110,6 +110,19 @@
                 </div>
                 {% endif %}
                 <div class="rent-single__edges flex flex-wrap rent-single__edges_2">
+                  {% if listing.type %}
+                  <div class="rent-single__edges-item flex flex-ai-end">
+                    <div class="rent-single__edges-img">
+                      <picture>
+                        <source type="image/webp" srcset="" data-srcset="/img/rent/single/edges/6.webp"/><img class="lazy " width="27" height="27" src="" data-src="/img/rent/single/edges/6.png" alt="" loading="lazy"/>
+                      </picture>
+                    </div>
+                    <div class="rent-single__edges-text">
+                      <div class="rent-single__edges-title">{% trans 'Type' %}</div>
+                      <div class="rent-single__edges-subtitle">{% trans listing.type %}</div>
+                    </div>
+                  </div>
+                  {% endif %}
                   {% if min_area_m2 %}
                   <div class="rent-single__edges-item flex flex-ai-end">
                     <div class="rent-single__edges-img">
@@ -118,7 +131,7 @@
                       </picture>
                     </div>
                     <div class="rent-single__edges-text">
-                      <div class="rent-single__edges-title">{% trans 'square' %}<!--площадь--></div>
+                      <div class="rent-single__edges-title">{% trans 'Square' %}<!--площадь--></div>
                       <div class="rent-single__edges-subtitle">{% trans 'from' %} {{ min_area_m2 }} {% trans 'sq. m' %}</div>
                     </div>
                   </div>

@@ -22,7 +22,7 @@
              <div class="p-card__top-left text-c5">{% if listing.developer_a_title_a_en %}{% get_attr 'listing' 'developer_a_title_a_'|add:LANGUAGE_CODE %}{% endif %}</div>
           </div>
           <div class="p-card__price text-500">{% if listing.price_a_min %}{% trans 'from' %} {{ listing.price_a_min }} {{ listing.price_a_currency }}{% else %} {% endif %}</div>
-          <div class="p-card__price text-500">{% if listing.status_a_en %}{% get_attr 'listing' 'status_a_'|add:LANGUAGE_CODE %}{% else %} {% endif %}</div>
+          <div class="p-card__price text-500">{% trans listing.type %}, {% if listing.status_a_en %}{% get_attr 'listing' 'status_a_'|add:LANGUAGE_CODE %}{% else %}{% trans 'Completed' %}{% endif %}</div>
     </div>
 </div>
 

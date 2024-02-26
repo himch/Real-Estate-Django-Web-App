@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drfpasswordless',
     "phonenumber_field",
+    'django_cleanup.apps.CleanupConfig',  # Add django_cleanup to the bottom of INSTALLED_APPS in settings.py
 ]
 
 SITE_ID = 1

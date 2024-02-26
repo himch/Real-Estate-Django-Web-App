@@ -9,10 +9,10 @@ from developers.models import Developer
 from loader.get_developer import developer_get_or_add
 realtor_list = Realtor.objects.all()
 realtors_ids = [realtor.id for realtor in realtor_list]
-listings = Listing.objects.filter(complex_id=1114)
+listings = Listing.objects.filter(complex_id=1574)
 if listings.exists():
     listing = listings.first()
-    if listing.updated_at == '2024-02-26T22:28:04+04:00':
+    if listing.updated_at == '2024-02-26T21:28:06+04:00':
         print('exist with the same updated_at')
         quit()
     print('exist with different updated_at')
@@ -23,44 +23,44 @@ listing.source = 'alnair'
 listing.offer_type = 'sell'
 listing.realtor_id = choice(realtors_ids)
 print('go')
-listing.complex_id = 1114
+listing.complex_id = 1574
 listing.type = """residential_complex"""
-listing.logo = """https://files.alnair.ae/uploads/2023/3/2c/98/2c980a9670195fdb257ad136bbb69ea4.png"""
-listing.photo = """https://files.alnair.ae/uploads/2023/3/ec/fb/ecfbd289b5e0de89a62ea830e89644c6.jpg"""
-listing.title_a_ru = """Seascape"""
-listing.title_a_en = """Seascape"""
-listing.title_a_ar = """المناظر البحرية"""
-listing.description_a_ru = """<p>Seascape at Rashid Yachts &amp; Marina - это новый комплекс от Emaar Properties, предлагающий прибрежные апартаменты и таунхаусы с 1-3 спальнями, расположенные в Мина-Рашид. Насладитесь новой роскошью на берегу моря в четырех многоэтажных зданиях, где эти современные резиденции предлагают изысканные удобства и спокойную обстановку с захватывающей розничной торговлей и аттракционами.</p>"""
-listing.description_a_en = """<p>Seascape atRashid Yachts &amp; Marina is a new development byEmaar Properties, offering 1 to 3-bedroom waterfront apartments &amp; townhouses located withinMina Rashid. Experience the redefined seafront luxury in the four multi-storey buildings, where these contemporary residences offer sophisticated amenities, and tranquil surroundings with exciting retail and attraction.</p>"""
-listing.description_a_ar = """<p>المناظر البحرية في راشد لليخوت والمارينا هو تطوير جديد من قبل إعمار العقارية ، ويقدم شقق ومنازل من 1 إلى 3 غرف نوم على الواجهة البحرية تقع داخل ميناء راشد. جرب الفخامة المعاد تعريفها على الواجهة البحرية في المباني الأربعة متعددة الطوابق ، حيث توفر هذه المساكن المعاصرة وسائل راحة متطورة ومحيطا هادئا مع متاجر التجزئة والجذب المثيرة.</p>"""
+listing.logo = """https://files.alnair.ae/uploads/2023/10/4f/51/4f512a686762fe3c3bdd59862437290f.jpg"""
+listing.photo = """https://files.alnair.ae/uploads/2023/10/5c/88/5c88bd0ad1b754e881d22a44c1ae3c5a.jpg"""
+listing.title_a_ru = """Damac Casa"""
+listing.title_a_en = """Damac Casa"""
+listing.title_a_ar = """كازا"""
+listing.description_a_ru = """<p>Башня Damac Casa в Аль-Суфухе стала маяком роскоши благодаря апартаментам с 1-5 спальнями и супер-роскошным пентхаусам, разработанным компанией Damac Properties. Это высотное архитектурное чудо обещает гармоничное сочетание изысканности и захватывающих дух видов на знаменитую Пальму Джумейра и готово по-новому определить стандарты роскошной жизни в Дубае. Расположенный в процветающем районе Аль-Суфух, он приглашает людей с утонченным вкусом окунуться в необыкновенный мир жизни.</p>"""
+listing.description_a_en = """<p>Damac Casa Tower atAl Sufouh emerges as a beacon of opulence with 1 to 5 bedroom apartments and super luxury penthouses, developed byDamac Properties. This high-rise architectural marvel promises a harmonious blend of sophistication and breathtaking views of the iconic Palm Jumeirah and is poised to redefine the standards of luxury living in Dubai. Located in the flourishing Al Sufouh district, it summons those with discerning tastes to indulge in an extraordinary living experience.</p>"""
+listing.description_a_ar = """<p>يبرز برج داماك كازا في الصفوح كمنارة للفخامة مع شقق من غرفة نوم واحدة إلى 5 غرف نوم وشقق بنتهاوس فائقة الفخامة، تم تطويرها بواسطة داماك العقارية. تعد هذه الأعجوبة المعمارية الشاهقة بمزيج متناغم من الرقي والمناظر الخلابة لنخلة جميرا الشهيرة، وتستعد لإعادة تعريف معايير المعيشة الفاخرة في دبي. تقع في منطقة الصفوح المزدهرة، وهي تستدعي أصحاب الأذواق المميزة للاستمتاع بتجربة معيشية غير عادية.</p>"""
 listing.price_on_request = 0
-listing.status_a_ru = """Запланировано"""
-listing.status_a_en = """Scheduled"""
-listing.status_a_ar = """البناء المقرر"""
-listing.construction_start_at = """2023-04-13T18:12:48+04:00"""
-listing.construction_progress = 1.89
-listing.planned_completion_at = """2026-11-30T18:12:48+04:00"""
-listing.predicted_completion_at = """2026-11-30T18:12:48+04:00"""
-listing.listing_amenities = """[{"ru": "Общий бассейн", "en": "Shared Pool", "ar": "بركة مشتركه"}, {"ru": "Консьерж-сервис", "en": "Concierge Service", "ar": "خدمة الكونسيرج"}, {"ru": "Охрана", "en": "Security", "ar": "حماية"}, {"ru": "Лобби", "en": "Lobby", "ar": "ردهة"}]"""
-listing.developer_a_title_a_ru = """Emaar"""
-listing.developer_a_title_a_en = """Emaar"""
-listing.developer_a_title_a_ar = """إمار"""
-listing.developer_a_logo = """https://files.alnair.ae/uploads/2023/3/59/74/5974dd50e1f85b5a56cdcef99f37eafe.png"""
-listing.listing_districts = """["Madinat Dubai Al Melaheyah", "Mina Rashid"]"""
-listing.address = """Rashid Yachts & Marina - Seascape - Dubai"""
-listing.latitude = 25.25765398
-listing.longitude = 55.27753102
-listing.listing_album = """["https://files.alnair.ae/uploads/2023/3/3c/33/3c33d387b877039335f869e1a76a18f1.jpg", "https://files.alnair.ae/uploads/2023/3/67/45/6745e2b6c4fece7cb4ffd697e4a1bc2a.jpg", "https://files.alnair.ae/uploads/2023/3/39/3c/393cf2bdf03c6a64a54a3b897cdbf885.jpg", "https://files.alnair.ae/uploads/2023/3/ef/43/ef43023e98b1e30efbe2d9186a7541c7.jpg", "https://files.alnair.ae/uploads/2023/12/ac/bf/acbf1b2b69a01aadb61194909c4d3c18.jpg"]"""
-listing.listing_albums = """[{"title": {"ru": "Примеры отделки", "en": "Finishing examples", "ar": "أمثلة على التشطيب"}, "images": {"image": ["https://files.alnair.ae/uploads/2023/3/d9/ae/d9ae9ce42ad05930884e61e0ea0d91a3.jpg", "https://files.alnair.ae/uploads/2023/3/ae/c5/aec51f0318e43db56fcac04707692a37.jpg", "https://files.alnair.ae/uploads/2023/3/a6/9d/a69dc81c2c605cb65017fbeefb1588c5.jpg"]}}]"""
-listing.buildings_count = 4
-listing.for_sale_count = 1
-listing.price_a_min = 5228888
-listing.price_a_max = 5228888
+listing.status_a_ru = """Строится"""
+listing.status_a_en = """In Progress"""
+listing.status_a_ar = """تحت التشيد"""
+listing.construction_start_at = """2023-12-26T18:12:50+04:00"""
+listing.construction_progress = 0.0
+listing.planned_completion_at = """2028-05-31T00:00:00+04:00"""
+listing.predicted_completion_at = """2028-05-31T00:00:00+04:00"""
+listing.listing_amenities = """[{"ru": "Общий бассейн", "en": "Shared Pool", "ar": "بركة مشتركه"}, {"ru": "Консьерж-сервис", "en": "Concierge Service", "ar": "خدمة الكونسيرج"}, {"ru": "Детский бассейн", "en": "Children’s pool", "ar": "حمام سباحة للأطفال"}, {"ru": "Охрана", "en": "Security", "ar": "حماية"}, {"ru": "Лобби", "en": "Lobby", "ar": "ردهة"}]"""
+listing.developer_a_title_a_ru = """Damac"""
+listing.developer_a_title_a_en = """Damac"""
+listing.developer_a_title_a_ar = """داماك"""
+listing.developer_a_logo = """https://files.alnair.ae/uploads/2023/2/87/11/8711de4977ea543b20637d56aae008a7.jpg"""
+listing.listing_districts = """["Dubai Media City", "Al Safouh Second"]"""
+listing.address = """Casa, Al Sufouh, Dubai"""
+listing.latitude = 25.09744591
+listing.longitude = 55.15582883
+listing.listing_album = """["https://files.alnair.ae/uploads/2023/10/56/26/5626f30312e8696de2e977e7b7d3d962.jpg", "https://files.alnair.ae/uploads/2023/10/ca/c1/cac1c3792b3e9c3153ec4b083c89921c.jpg", "https://files.alnair.ae/uploads/2023/10/71/18/7118527314872d2a438e0bf4175d757a.jpg", "https://files.alnair.ae/uploads/2023/10/36/8c/368c8aaeb95e93bd0c377480789cc59e.jpg", "https://files.alnair.ae/uploads/2023/10/86/78/86781296d2776e7d503e2898811d098a.jpg", "https://files.alnair.ae/uploads/2023/10/d9/d6/d9d695e5a77e62a7d5c427f2646fac84.jpg", "https://files.alnair.ae/uploads/2023/10/02/ee/02ee02447309ab3137015f771298311b.jpg", "https://files.alnair.ae/uploads/2023/10/e7/8d/e78d3a4fbf9b7f70a51db7725af7304a.jpg", "https://files.alnair.ae/uploads/2023/10/55/f2/55f244268cd02734334d75aee711037c.jpg", "https://files.alnair.ae/uploads/2023/10/97/79/97792a391b61c1a66f3835d1652000f1.jpg"]"""
+listing.listing_albums = """[{"title": {"ru": "Примеры отделки", "en": "Finishing examples", "ar": "أمثلة على التشطيب"}, "images": {"image": ["https://files.alnair.ae/uploads/2023/10/60/13/601353f0ff6f70ffa379e1c2821b797c.jpg", "https://files.alnair.ae/uploads/2023/10/89/c7/89c754a23d5d0282700019a3413dce69.jpg", "https://files.alnair.ae/uploads/2023/10/a7/9b/a79be1da4aad56ace66d4514df275e6d.jpg", "https://files.alnair.ae/uploads/2023/10/3a/8a/3a8a48ed5c56edc6945ed88c4efc2bb8.jpg", "https://files.alnair.ae/uploads/2023/10/5e/33/5e33a4f6bf4bde39ae307ad038b139c8.jpg", "https://files.alnair.ae/uploads/2023/10/d9/75/d975d49a311eff267233150d2aeb2965.jpg", "https://files.alnair.ae/uploads/2023/10/a9/6f/a96f66c70eac371b4cac3c1001fb2520.jpg", "https://files.alnair.ae/uploads/2023/10/77/b3/77b3ebd199492a309b4c4049003349db.jpg", "https://files.alnair.ae/uploads/2023/10/9f/55/9f5511712b69204cb989c845d18195ae.jpg", "https://files.alnair.ae/uploads/2023/10/30/56/3056d5eb1ff001b8312fa832e4618dd2.jpg", "https://files.alnair.ae/uploads/2023/10/8f/fa/8ffa169062c539753a24ed7dba67a763.jpg", "https://files.alnair.ae/uploads/2023/10/85/44/8544a4cd8c9b02c9913c7394ffa97f18.jpg"]}}]"""
+listing.buildings_count = 1
+listing.for_sale_count = 56
+listing.price_a_min = 2650000
+listing.price_a_max = 24807000
 listing.price_a_currency = """AED"""
-listing.listing_br_prices = """[{"key": "rooms_3", "count": "1", "min_price": "5228888", "max_price": "5228888", "min_price_m2": "18874", "max_price_m2": "18874", "currency": "AED", "min_area": {"m2": "277.04", "ft2": "2982.03"}, "max_area": {"m2": "277.04", "ft2": "2982.03"}}]"""
-listing.updated_at = """2024-02-26T22:28:04+04:00"""
+listing.listing_br_prices = """[{"key": "rooms_1", "count": "17", "min_price": "2650000", "max_price": "3467000", "min_price_m2": "30409", "max_price_m2": "33964", "currency": "AED", "min_area": {"m2": "85.01", "ft2": "915.04"}, "max_area": {"m2": "102.08", "ft2": "1098.78"}}, {"key": "rooms_2", "count": "15", "min_price": "4055000", "max_price": "9987000", "min_price_m2": "27082", "max_price_m2": "36580", "currency": "AED", "min_area": {"m2": "133.81", "ft2": "1440.32"}, "max_area": {"m2": "273.43", "ft2": "2943.17"}}, {"key": "rooms_3", "count": "16", "min_price": "5747000", "max_price": "14379000", "min_price_m2": "30358", "max_price_m2": "40241", "currency": "AED", "min_area": {"m2": "189.31", "ft2": "2037.71"}, "max_area": {"m2": "359.79", "ft2": "3872.74"}}, {"key": "rooms_4", "count": "3", "min_price": "18048000", "max_price": "19840000", "min_price_m2": "40706", "max_price_m2": "41961", "currency": "AED", "min_area": {"m2": "443.37", "ft2": "4772.39"}, "max_area": {"m2": "472.84", "ft2": "5089.60"}}, {"key": "rooms_5", "count": "5", "min_price": "23615000", "max_price": "24807000", "min_price_m2": "42339", "max_price_m2": "43169", "currency": "AED", "min_area": {"m2": "550.98", "ft2": "5930.69"}, "max_area": {"m2": "577.44", "ft2": "6215.51"}}]"""
+listing.updated_at = """2024-02-26T21:28:06+04:00"""
 listing.is_sold_out = 0
-listing.listing_payment_plans = """[{"id": "511", "title": {"ru": "План оплаты", "en": "Payment plan", "ar": "خطة الدفع 90/10"}, "on_booking_percent": "10", "on_booking_fix": null, "on_construction_percent": "70", "on_construction_fix": null, "on_construction_payments_count": "7", "on_handover_percent": "20", "on_handover_fix": null, "on_handover_payments_count": "1", "post_handover_percent": null, "post_handover_fix": null, "on_post_handover_payments_count": "0", "additional": {"title": {"ru": "DLD Fee", "en": "DLD Fee", "ar": "رسوم DLD"}, "percent": "4", "fix": null}, "additional_percent": "4", "additional_fix": "0", "roi_percent": null, "roi_fix": null, "roi_payments_count": "0", "currency": "AED", "period_after_handover": {"period": null, "count": null, "repeat_count": null}, "period_after_roi": {"period": null, "count": null, "repeat_count": null}}]"""
+listing.listing_payment_plans = """[{"id": "574", "title": {"ru": "План платежей", "en": "Payment Plan", "ar": "خطة الدفع"}, "on_booking_percent": "20", "on_booking_fix": null, "on_construction_percent": "80", "on_construction_fix": null, "on_construction_payments_count": "17", "on_handover_percent": null, "on_handover_fix": null, "on_handover_payments_count": "0", "post_handover_percent": null, "post_handover_fix": null, "on_post_handover_payments_count": "0", "additional": {"title": {"ru": "DLD Fee", "en": "DLD Fee", "ar": "DLD Fee"}, "percent": "4", "fix": null}, "additional_percent": "4", "additional_fix": "0", "roi_percent": null, "roi_fix": null, "roi_payments_count": "0", "currency": "AED", "period_after_handover": {"period": null, "count": null, "repeat_count": null}, "period_after_roi": {"period": null, "count": null, "repeat_count": null}}]"""
 listing.sales_status_a_ru = """В продаже"""
 listing.sales_status_a_en = """On Sale"""
 listing.sales_status_a_ar = """معروض للبيع"""
