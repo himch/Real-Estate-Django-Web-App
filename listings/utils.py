@@ -21,3 +21,12 @@ def convert(value, currency1, currency2):
                }
     print('convert', value, currency1 + currency2)
     return int(round(value * courses[currency1 + currency2], -1))
+
+
+def fix_description(text: str):
+    run = True
+    while run:
+        len_old = len(text)
+        text = text.replace('<p></p>', '')
+        run = len_old != len(text)
+    return text

@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from our_company.models import OurCompany
 from listings.models import Listing, Bookmark, Favorite
-from listings.utils import convert
+from listings.utils import convert, fix_description
 
 
 def listing(request, listing_id):
@@ -14,8 +14,11 @@ def listing(request, listing_id):
     our_company = OurCompany.objects.all().first()
 
     listing_item = get_object_or_404(Listing, pk=listing_id)
-    bookmark = listing_item.bookmark_set.all
-    favorite = listing_item.favorite_set.all
+
+    listing_item.description_a_en = fix_description(listing_item.description_a_en)
+    listing_item.description_a_ru = fix_description(listing_item.description_a_ru)
+    listing_item.description_a_ar = fix_description(listing_item.description_a_ar)
+    listing_item.save()
 
     # точка на карте для обьекта недвижимости
     geo_context = geomap_context((listing_item,), auto_zoom="12")
@@ -97,6 +100,12 @@ def rent(request, listing_id):
     our_company = OurCompany.objects.all().first()
 
     listing_item = get_object_or_404(Listing, pk=listing_id)
+
+    listing_item.description_a_en = fix_description(listing_item.description_a_en)
+    listing_item.description_a_ru = fix_description(listing_item.description_a_ru)
+    listing_item.description_a_ar = fix_description(listing_item.description_a_ar)
+    listing_item.save()
+
     geo_context = geomap_context((listing_item,), auto_zoom="12")
 
     realtor = listing_item.realtor

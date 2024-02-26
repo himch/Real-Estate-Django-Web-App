@@ -19,7 +19,7 @@ def developer(request, slug):
 
     # разбиение обьектов на порции-страницы для отображения в виде списка
     page = request.GET.get('page')
-    paginator = Paginator(listings, 6)
+    paginator = Paginator(listings, 8)
     paged_listings = paginator.get_page(page)
 
     # точки на карте для обьектов недвижимости
