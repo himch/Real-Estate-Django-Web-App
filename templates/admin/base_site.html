@@ -2,8 +2,10 @@
 {% load static %}
 
 {% block branding %}
-  <h1 id="head">
-    {% include 'includes/footer/footerLogo.html' %}
+<h1 id="head" xmlns="http://www.w3.org/1999/html">
+    <a href="{% url 'index' %}">
+      {% include 'includes/footer/footerLogo.html' %}
+    </a>
     <span>Admin Area</span> - <span>المنطقة الادارية</span> - <span>Административная панель</span>
   </h1>
 {% endblock %}

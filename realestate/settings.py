@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
     'developers.apps.DevelopersConfig',
+    'reservations.apps.ReservationsConfig',
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
     'our_company.apps.OurCompanyConfig',
@@ -63,6 +64,7 @@ INSTALLED_APPS = [
     'modules.services',
     'imagekit',
     'tinymce',
+    'djmoney',
     'django_admin_geomap',
     'rest_framework',
     'rest_framework.authtoken',
@@ -222,3 +224,6 @@ EMAIL_HOST_USER = 'info@dadi.ae'
 EMAIL_HOST_PASSWORD = 'wxtt uysl qcjy xixc'
 
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1"]
+
+
+CURRENCIES = ('USD', 'EUR', 'AED', 'RUB')

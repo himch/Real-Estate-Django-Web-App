@@ -2,7 +2,7 @@
 {% load static %}
 {% load l10n %}
 {% get_current_language as LANGUAGE_CODE %}
-<div class="filters__content-block flex flex-wrap active" id="offer_cards" hx-swap-oob="beforeend">
+<div class="filters__content-block flex flex-wrap active rent-single__projects-row" id="offer_cards" hx-swap-oob="beforeend">
   {% if listings %}
     {% for listing in listings %}
       {% include 'includes/offer_card/offer_card_swiper.html' %}
@@ -18,7 +18,7 @@
       </div>
   {% endif %}
   <div {% if listings.has_next %}
-         class="filters__content-load margin-center text-c3 text-underline text-500"
+         class="filters__content-load margin-center text-c3 text-underline text-500 w-full text-center"
          hx-get="?page={{ listings.next_page_number }}"
          hx-trigger="click"
          hx-target="this"

@@ -9,7 +9,7 @@
     <div class="container margin-center">
       <div class="cabinet__top relative">
           <div class="cabinet__top-title text-500 text-c5">
-              <h4>Авторизуйтесь на сайте</h4><h4>или перейдите к <a href="{% url 'register' %}">регистрации</a</h4>
+              <h4>Авторизуйтесь на сайте</h4>
           </div>
             <form method="post" action="{% url 'login' %}">
                 {% csrf_token %}
@@ -23,6 +23,9 @@
                   <button class="cabinet__top-link p-btn flex flex-ai-center flex-j-center text-500 cursor-pointer">{% trans 'Login' %}</button>
                 </div>
             </form>
+          <div class="cabinet__top-title text-500 text-c5">
+            <h4>или перейдите к <a href="{% url 'register' %}">регистрации</a</h4>
+          </div>
         </div>
     </div>
 </div>
