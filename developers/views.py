@@ -15,6 +15,7 @@ def developer(request, slug):
     realtor = developer_item.realtor
 
     listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, developer=developer_item.pk)
+    len_listings = listings.count()
 
     # разбиение обьектов на порции-страницы для отображения в виде списка
     page = request.GET.get('page')
@@ -22,7 +23,7 @@ def developer(request, slug):
     paged_listings = paginator.get_page(page)
 
     # точки на карте для обьектов недвижимости
-    geo_context = geomap_context(listings, auto_zoom="20")
+    geo_context = geomap_context(listings, auto_zoom="12" if len_listings == 1 else "15")
 
     context = {
         'our_company': our_company,
@@ -37,7 +38,7 @@ def developer(request, slug):
         return render(request,
                       "includes/buy/buy_loaded_block.html",
                       {"listings": paged_listings,
-                       'len_listings': len(listings)
+                       'len_listings': len_listings
                        }
                       )
     return render(request, 'includes/content/zastroischik.html', context)

@@ -20,6 +20,39 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+msgid "Location of complexes in the UAE"
+msgstr "Расположение комплексов в ОАЭ"
+
+msgid "Projects"
+msgstr "Проекты"
+
+msgid "market valuation"
+msgstr "рыночная оценка"
+
+msgid "employees"
+msgstr "сотрудников"
+
+msgid "main office"
+msgstr "главный офис"
+
+msgid "is being built in"
+msgstr "строится в"
+
+msgid "residential complexes"
+msgstr "ЖК"
+
+msgid "were built in"
+msgstr "построено в"
+
+msgid "houses"
+msgstr "домов"
+
+msgid "year of foundation"
+msgstr "год основания"
+
+msgid "More about the developer"
+msgstr "Подробнее о застройщике"
+
 msgid "Load more"
 msgstr "Загрузить еще"
 

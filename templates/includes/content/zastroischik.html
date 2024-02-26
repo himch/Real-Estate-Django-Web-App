@@ -5,65 +5,54 @@
 {% load static %}
 {% load humanize %}
 {% get_current_language as LANGUAGE_CODE %}
-{% block title %} | Developer {% endblock %}
+{% block title %} | Developer | {{ developer.title_en }}{% endblock %}
 
 {% block content %}
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="{% url 'buy' %}">{% trans 'Catalog of residential complexes and developers' %}</a>
+    <div class="container margin-center relative">
+      <a class="rent-single__link text-underline flex" href="{% url 'buy' %}">{% trans 'Catalog of residential complexes and developers' %}</a>
       <div class="rent-single__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">
           {% get_attr 'developer' 'title_'|add:LANGUAGE_CODE %}
       </div>
-      <div class="rent-single__dev-img img_br img_cover">
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/single/dev/bg.webp">
-                <img class="lazy " width="1160" height="317" src="" data-src="/img/rent/single/dev/bg.jpg" alt="" loading="lazy">
-            </picture>
-            <picture>
-              <source type="image/webp" srcset="" data-srcset="{{ developer.logo }}">
-                <img class="lazy " width="1160" height="317" src="" data-src="{{ developer.logo }}" alt="" loading="lazy">
-            </picture>
-      </div>
-      <div class="rent-single__row flex rent-single__row_3">
-        <div class="rent-single__left">
-          <div class="rent-single__dev-list flex flex-wrap">
-            <div class="rent-single__dev-li">
-              <div class="rent-single__dev-num text-c5 text-500">{{ developer.year_of_foundation }}</div>
-              <div class="rent-single__dev-title">{% trans 'year of foundation' %}</div>
+      <div class="rent-dev">
+        <div class="container margin-center">
+          <div class="rent-dev__title section__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'Developer' %}</div>
+          <div class="rent-dev__row flex">
+            <div class="rent-dev__left">
+              <div class="rent-dev__img flex-shrink img_cover img_br">
+                    <picture>
+                      <source type="image/webp" srcset="" data-srcset="{{ developer.logo }}">
+                      <img class="lazy " width="284" height="289" src="" data-src="{{ developer.logo }}" alt="" loading="lazy">
+                    </picture>
+              </div>
             </div>
-            <div class="rent-single__dev-li">
-              <div class="rent-single__dev-num text-c5 text-500">{% trans 'houses' %}: {{ developer.buildings_finished }}</div>
-              <div class="rent-single__dev-title">{% trans 'delivered in' %} {{ developer.complexes_finished }} {% trans 'residential complexes' %}</div>
+            <div class="rent-dev__right">
+              <div class="rent-dev__text">
+                <div class="rent-dev__desc">
+                  {% autoescape off %}
+                    {% get_attr 'developer' 'text_'|add:LANGUAGE_CODE|safe %}
+                  {% endautoescape %}
+                </div>
+                <div class="rent-dev__list flex">
+                  <div class="rent-dev__list-li">
+                    <div class="rent-dev__list-num text-c5 text-500">{{ developer.year_of_foundation }}</div>
+                    <div class="rent-dev__list-title">{% trans 'year of foundation' %}</div>
+                  </div>
+                  <div class="rent-dev__list-li">
+                    <div class="rent-dev__list-num text-c5 text-500">{% trans 'houses' %}: {{ developer.buildings_finished }}</div>
+                    <div class="rent-dev__list-title">{% trans 'were built in' %} {{ developer.complexes_finished }} {% trans 'residential complexes' %}</div>
+                  </div>
+                  <div class="rent-dev__list-li">
+                    <div class="rent-dev__list-num text-c5 text-500">{% trans 'houses' %}: {{ developer.buildings_in_progress }}</div>
+                    <div class="rent-dev__list-title">{% trans 'is being built in' %} {{ developer.complexes_in_progress }} {% trans 'residential complexes' %}</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="rent-single__dev-li">
-              <div class="rent-single__dev-num text-c5 text-500">{% trans 'houses' %}: {{ developer.buildings_in_progress }}</div>
-              <div class="rent-single__dev-title">{% trans 'is being built in' %} {{ developer.complexes_in_progress }} {% trans 'residential complexes' %}</div>
-            </div>
-            <div class="rent-single__dev-li">
-              <div class="rent-single__dev-num text-c5 text-500">{{ developer.main_office }}</div>
-              <div class="rent-single__dev-title">{% trans 'main office' %}</div>
-            </div>
-            <div class="rent-single__dev-li">
-              <div class="rent-single__dev-num text-c5 text-500">{{ developer.number_of_employees }}</div>
-              <div class="rent-single__dev-title">{% trans 'employees' %}</div>
-            </div>
-            <div class="rent-single__dev-li">
-              <div class="rent-single__dev-num text-c5 text-500">{{ developer.stock_valuation }} million $</div>
-              <div class="rent-single__dev-title">{% trans 'market valuation' %}</div>
-            </div>
-          </div>
-          <div class="rent-single__desc p-animate p-animate__up p-animate__splitt">
-            {% autoescape off %}
-                {% get_attr 'developer' 'text_'|add:LANGUAGE_CODE|safe %}
-            {% endautoescape %}
           </div>
         </div>
-
-        {% if realtor %}
-           {% include 'includes/realtor/realtor_card.html' %}
-        {% endif %}
-
       </div>
     </div>
   </div>

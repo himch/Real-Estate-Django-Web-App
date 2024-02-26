@@ -19,6 +19,39 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+msgid "Location of complexes in the UAE"
+msgstr "موقع المجمعات في دولة الإمارات العربية المتحدة"
+
+msgid "Projects"
+msgstr "المشاريع"
+
+msgid "market valuation"
+msgstr "تقييم السوق"
+
+msgid "employees"
+msgstr "موظفين"
+
+msgid "main office"
+msgstr "المكتب الرئيسي"
+
+msgid "is being built in"
+msgstr "يجري بناؤها في"
+
+msgid "residential complexes"
+msgstr "المجمعات السكنية"
+
+msgid "were built in"
+msgstr "تم بناؤها في"
+
+msgid "houses"
+msgstr "منازل"
+
+msgid "year of foundation"
+msgstr "سنة الأساس"
+
+msgid "More about the developer"
+msgstr "المزيد عن المطور"
+
 msgid "Load more"
 msgstr "تحميل المزيد"
 
