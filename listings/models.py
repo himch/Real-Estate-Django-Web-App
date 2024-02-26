@@ -337,9 +337,13 @@ class Listing(models.Model, GeoItem):
                     album.pop('title', None)
                     images = album.pop('images', None)
                     new_album = self.albums.create(**album)
-                    for image_url in images['image']:
+                    if isinstance(images['image'], str):
                         new_image = new_album.images.create(photo=None)  # self.save_image_from_url(image)
-                        self.save_image_from_url(image_url, new_image.photo)
+                        self.save_image_from_url(images['image'], new_image.photo)
+                    else:
+                        for image_url in images['image']:
+                            new_image = new_album.images.create(photo=None)  # self.save_image_from_url(image)
+                            self.save_image_from_url(image_url, new_image.photo)
             except json.decoder.JSONDecodeError:
                 print('Error - Cant create albums')
 

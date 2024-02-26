@@ -9,10 +9,10 @@ from developers.models import Developer
 from loader.get_developer import developer_get_or_add
 realtor_list = Realtor.objects.all()
 realtors_ids = [realtor.id for realtor in realtor_list]
-listings = Listing.objects.filter(complex_id=1094)
+listings = Listing.objects.filter(complex_id=1098)
 if listings.exists():
     listing = listings.first()
-    if listing.updated_at == '2024-02-26T22:55:18+04:00':
+    if listing.updated_at == '2024-02-26T22:31:04+04:00':
         print('exist with the same updated_at')
         quit()
     print('exist with different updated_at')
@@ -23,44 +23,44 @@ listing.source = 'alnair'
 listing.offer_type = 'sell'
 listing.realtor_id = choice(realtors_ids)
 print('go')
-listing.complex_id = 1094
+listing.complex_id = 1098
 listing.type = """residential_complex"""
-listing.logo = """https://files.alnair.ae/uploads/2024/1/d7/cb/d7cb66fd7055b0effae142b49d983a27.jpg"""
-listing.photo = """https://files.alnair.ae/uploads/2024/1/74/73/74730e4f36e54462276586e8764f3e38.jpg"""
-listing.title_a_ru = """Riviera Azure"""
-listing.title_a_en = """Riviera Azure"""
-listing.title_a_ar = """ريفييرا أزور"""
-listing.description_a_ru = """<p>Яркий, изысканный и сделанный на заказ отель Riviera Azure - это воплощение жизни на берегу моря высокого класса. Великолепная кристально чистая лагуна, оживленный бульвар и бесконечное множество развлекательных мероприятий - вот лишь некоторые из удобств, предлагаемых вам в Riviera Azure. Спроектированный с использованием солнечных панелей и вертикальной зелени, вдохновленной движением воды по лагуне, этот архитектурный шедевр является высшим выражением роскоши и комфорта.</p><p>Отель Azizi Riviera, расположенный в самом сердце Meydan в MBR City, является единственным в своем роде местом назначения с мегаинтегрированным торговым районом, оживленным 5-звездочным отелем и представительским бизнес-центром. Azizi Riviera воплощает классический образ жизни средиземноморской Ривьеры в современном стиле. Долгие прогулки по бульвару, оформленному во французском стиле, красивые закаты в кристальной лагуне, бесконечные походы по магазинам и застолья в изысканных ресторанах - все, что вам нужно для идеального образа жизни.</p><p></p><p></p><p></p><p></p><p></p>"""
-listing.description_a_en = """<p>Striking, exquisite and bespoke, Riviera Azure is a statement of high-end beachfront living. An outstanding crystal lagoon, a vibrant boulevard, and an endless array of recreational activities are just some of the amenities offered to you at Riviera Azure. Designed with solar panels and vertical greenery inspired by the water movement across the lagoon, this architectural masterpiece is the ultimate expression of luxury and comfort.</p><p>Located in the heart of Meydan in MBR City, Azizi Riviera is a one-of-a-kind destination, featuring a mega-integrated retail district, a vibrant 5-star hotel, and an executive business center. Azizi Riviera evokes the classic Mediterranean Riviera lifestyle with a modern and contemporary touch. Long strolls on the French-inspired boulevard, beautiful sunsets at the crystal lagoon, endless shopping experiences, and ﬁne-dining feasts are all that you need for the ultimate lifestyle.</p><p></p><p></p><p></p><p></p><p></p>"""
-listing.description_a_ar = """<p>ريفييرا أزور هو مشروع فاخر جديد من المطور عزيزي للتطوير العقاري ، والمعروف بنهجه في تنظيم مساحة معيشة مريحة ومتميزة. والمشروع الجديد هو أفضل دليل على هذا النهج.</p>"""
+listing.logo = """https://files.alnair.ae/uploads/2023/3/bc/b8/bcb861af73968e57eb0e53b1ecc572bb.jpg"""
+listing.photo = """https://files.alnair.ae/uploads/2023/3/56/54/5654f73984c36b9819079d73a9f1cb0a.jpg"""
+listing.title_a_ru = """Gemz"""
+listing.title_a_en = """Gemz"""
+listing.title_a_ar = """جيمز"""
+listing.description_a_ru = """<p>GEMZ - новый проект Danube переосмысливает роскошную жизнь в самом сердце Аль-Фурджана. Этот уникальный проект с потрясающей архитектурой в форме пирамиды является предстоящей достопримечательностью. Построенный в отличном месте, проект предлагает просторные апартаменты, первоклассные удобства, легкий доступ к общественному транспорту и торговым центрам и многое другое</p>"""
+listing.description_a_en = """<p>GEMZ - a new project by Danube is redefining luxury living in the heart of Al Furjan. This unique project with a stunning pyramid shaped architecture is the upcoming landmark. Built on the prime location, the project offers spacious apartments, top-of-the line amenities, easy access to public transport and malls, and a lot more<p><a href="https://danubeproperties.ae/gemz-by-danube#!"></a></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p></p>"""
+listing.description_a_ar = """<p>جيمز-مشروع جديد من قبل الدانوب يعيد تعريف الحياة الفاخرة في قلب الفرجان. هذا المشروع الفريد ذو الهندسة المعمارية المذهلة على شكل هرم هو المعلم القادم. تم بناء المشروع في موقع متميز ، ويوفر شققا واسعة ، ووسائل راحة عالية ، وسهولة الوصول إلى وسائل النقل العام ومراكز التسوق ، وغير ذلك الكثير</p>"""
 listing.price_on_request = 0
 listing.status_a_ru = """Строится"""
 listing.status_a_en = """In Progress"""
 listing.status_a_ar = """تحت التشيد"""
-listing.construction_start_at = """2022-11-08T18:12:48+04:00"""
-listing.construction_progress = 40.19
-listing.planned_completion_at = """2024-12-31T18:12:48+04:00"""
-listing.predicted_completion_at = """2024-12-31T18:12:48+04:00"""
-listing.listing_amenities = """[{"ru": "Общий бассейн", "en": "Shared Pool", "ar": "بركة مشتركه"}, {"ru": "Консьерж-сервис", "en": "Concierge Service", "ar": "خدمة الكونسيرج"}, {"ru": "Охрана", "en": "Security", "ar": "حماية"}, {"ru": "Прачечная", "en": "Laundry Room", "ar": "غسيل"}, {"ru": "Детская игровая площадка", "en": "Kids Play Area", "ar": "منطقة لعب الأطفال"}, {"ru": "Лобби", "en": "Lobby", "ar": "ردهة"}, {"ru": "Общий SPA", "en": "Shared SPA", "ar": "صالون سبا مشترك"}, {"ru": "Детский бассейн", "en": "Children’s pool", "ar": "حمام سباحة للأطفال"}, {"ru": "Домашние животные разрешены", "en": "Pets Allowed", "ar": "مسموح بدخول الحيوانات الأليفة"}]"""
-listing.developer_a_title_a_ru = """Azizi"""
-listing.developer_a_title_a_en = """Azizi"""
-listing.developer_a_title_a_ar = """عزيزي"""
-listing.developer_a_logo = """https://files.alnair.ae/uploads/2023/2/61/96/61960833617390084dcf04c2b55fa878.jpg"""
-listing.listing_districts = """["Al Merkadh", "Meydan", "Sobha Hartland", "Mohammed Bin Rashid City (MBR)"]"""
-listing.address = """Riviera Azure , Meydan , Dubai"""
-listing.latitude = 25.17505402
-listing.longitude = 55.31358115
-listing.listing_album = """["https://files.alnair.ae/uploads/2023/2/f3/d5/f3d5c400728e2a326b5444d3faf1fb21.jpg", "https://files.alnair.ae/uploads/2023/2/3f/76/3f769b7bf5a5c2adf5d2ea016df6a492.jpg", "https://files.alnair.ae/uploads/2024/1/13/42/13420aae8ede8e4d51c8b89f173a794a.jpg", "https://files.alnair.ae/uploads/2024/1/90/04/900452264064f13f57dbb362b7534c8f.jpg"]"""
-listing.listing_albums = """[{"title": {"ru": "Примеры отделки", "en": "Finishing examples", "ar": "أمثلة على التشطيب"}, "images": {"image": ["https://files.alnair.ae/uploads/2023/2/fd/f3/fdf36563635f12f924eb65d5eae19edb.jpg", "https://files.alnair.ae/uploads/2023/2/df/21/df2134790a14907625831280811696f1.jpg", "https://files.alnair.ae/uploads/2023/2/6a/2d/6a2d4a2de7eca2ef98eb565f8b301b25.jpg", "https://files.alnair.ae/uploads/2023/2/33/5e/335e64065b4e14c6897ae7b26039c09b.jpg", "https://files.alnair.ae/uploads/2023/2/c7/b5/c7b5ddf3ef63f1e6e5a04e21a5c07979.jpg"]}}, {"title": {"ru": "Инфраструктура", "en": "Infrastructure", "ar": "بنية تحتية"}, "images": {"image": ["https://files.alnair.ae/uploads/2024/1/6b/0c/6b0ce120c5b68ecb8085e77d02502640.jpg", "https://files.alnair.ae/uploads/2024/1/3a/9b/3a9bb4a58bd9988f0638767750578cb4.jpg", "https://files.alnair.ae/uploads/2024/1/c9/e9/c9e9c1dd731d05b7a2247bb43b6a53d1.jpg", "https://files.alnair.ae/uploads/2024/1/16/e3/16e325ef671f2899ca6116d11f956a51.jpg", "https://files.alnair.ae/uploads/2024/1/b7/de/b7dea59ce84d44b32a36e104090548d3.jpg", "https://files.alnair.ae/uploads/2024/1/34/7b/347b1bbc82f3a5ba2d85939f9fac825d.jpg", "https://files.alnair.ae/uploads/2024/1/0f/26/0f26a1c6590fabf0baaa6473d00b5c2c.jpg"]}}]"""
+listing.construction_start_at = """2022-11-01T18:12:48+04:00"""
+listing.construction_progress = 38.46
+listing.planned_completion_at = """2025-03-31T18:12:48+04:00"""
+listing.predicted_completion_at = """2025-03-31T18:12:48+04:00"""
+listing.listing_amenities = """[{"ru": "Общий бассейн", "en": "Shared Pool", "ar": "بركة مشتركه"}, {"ru": "Консьерж-сервис", "en": "Concierge Service", "ar": "خدمة الكونسيرج"}, {"ru": "Охрана", "en": "Security", "ar": "حماية"}, {"ru": "Детская игровая площадка", "en": "Kids Play Area", "ar": "منطقة لعب الأطفال"}, {"ru": "Лобби", "en": "Lobby", "ar": "ردهة"}]"""
+listing.developer_a_title_a_ru = """Danube"""
+listing.developer_a_title_a_en = """Danube"""
+listing.developer_a_title_a_ar = """نهر الدانوب"""
+listing.developer_a_logo = """https://files.alnair.ae/uploads/2023/3/ce/cf/cecfd137a1c39320cc6947dac2f6a78a.jpg"""
+listing.listing_districts = """["Jabal Ali First", "Al Furjan"]"""
+listing.address = """Gemz ,Al Fujairah, Dubai"""
+listing.latitude = 25.018224
+listing.longitude = 55.14058391
+listing.listing_album = """["https://files.alnair.ae/uploads/2023/3/be/d0/bed0e99be9c91afdbf90fa1aac4ee288.jpg", "https://files.alnair.ae/uploads/2023/3/f9/27/f92775474667eba88846f113aa13c03d.jpg", "https://files.alnair.ae/uploads/2023/3/e0/50/e0505d4e1280101423c842229ff38f0e.jpg", "https://files.alnair.ae/uploads/2023/3/fd/ae/fdaeb65116bac3dc3fee80199e99c0d5.jpg", "https://files.alnair.ae/uploads/2023/3/14/6f/146f4d975d8b1767011f38c48a62871f.jpg", "https://files.alnair.ae/uploads/2023/3/7e/c2/7ec26518ecc858594f885145ddceb276.jpg", "https://files.alnair.ae/uploads/2023/3/ff/69/ff69e8ebb4b1d0fbc0cec8e13e19f6b0.jpg", "https://files.alnair.ae/uploads/2023/3/e3/24/e324dc22b5a73d38d913749021d843f1.jpg", "https://files.alnair.ae/uploads/2023/3/17/fe/17fe035694a2bb15278a057b9ec38342.jpg"]"""
+listing.listing_albums = """[{"title": {"ru": "Примеры отделки", "en": "Finishing examples", "ar": "أمثلة على التشطيب"}, "images": {"image": ["https://files.alnair.ae/uploads/2023/3/51/73/51736f4f84a480eb9a652d3472854678.jpg", "https://files.alnair.ae/uploads/2023/3/1f/b6/1fb6d1a5a6d4150149d72b1fd546e9df.jpg", "https://files.alnair.ae/uploads/2023/3/a5/2d/a52d0d8100f9aacc0e89a92e51aaf681.jpg", "https://files.alnair.ae/uploads/2023/3/63/fe/63fe5237d9f4bed6dcf86ca1f5180d02.jpg", "https://files.alnair.ae/uploads/2023/3/8d/e6/8de6dadb71f3fdb810d7b6a0c9f36e1d.jpg", "https://files.alnair.ae/uploads/2023/3/ed/e2/ede2d4da20b5c6f0ad36f5fdb59fa22c.jpg", "https://files.alnair.ae/uploads/2023/3/42/d7/42d77067ebbfeaf8c756a26b8c400427.jpg", "https://files.alnair.ae/uploads/2023/3/fb/ec/fbecef070d8a7425124e8270d8d3ebd2.jpg", "https://files.alnair.ae/uploads/2023/3/50/68/5068d7c1c436396ef028fc9aee670171.jpg", "https://files.alnair.ae/uploads/2023/3/13/53/1353896a299b8ed6e4289ebd37283672.jpg", "https://files.alnair.ae/uploads/2023/3/e1/63/e163787fb4f855c09f7a996a150d9905.jpg", "https://files.alnair.ae/uploads/2023/3/25/d9/25d96f443eaed96273136074f1894943.jpg", "https://files.alnair.ae/uploads/2023/3/c0/58/c0580be03701594e507ed2c904d1d45d.jpg", "https://files.alnair.ae/uploads/2023/3/64/46/6446b4647b2cf0b3c84c428218a795f1.jpg", "https://files.alnair.ae/uploads/2023/3/e4/ea/e4eadee2976749eeceadedda97868c5b.jpg", "https://files.alnair.ae/uploads/2023/3/9a/e6/9ae6bbf07bc863c3300dd31d01ed92e0.jpg", "https://files.alnair.ae/uploads/2023/3/cd/0d/cd0d8ac81e3962a803298aac0b579eeb.jpg", "https://files.alnair.ae/uploads/2023/3/dd/31/dd319277f82070d8e6af311851521376.jpg"]}}]"""
 listing.buildings_count = 1
-listing.for_sale_count = 26
-listing.price_a_min = 2371000
-listing.price_a_max = 39301000
+listing.for_sale_count = 3
+listing.price_a_min = 993000
+listing.price_a_max = 1836000
 listing.price_a_currency = """AED"""
-listing.listing_br_prices = """[{"key": "rooms_1", "count": "23", "min_price": "2371000", "max_price": "2652000", "min_price_m2": "37429", "max_price_m2": "38237", "currency": "AED", "min_area": {"m2": "62.11", "ft2": "668.55"}, "max_area": {"m2": "70.85", "ft2": "762.62"}}, {"key": "rooms_3", "count": "3", "min_price": "35546000", "max_price": "39301000", "min_price_m2": "53205", "max_price_m2": "54710", "currency": "AED", "min_area": {"m2": "652.98", "ft2": "7028.61"}, "max_area": {"m2": "718.35", "ft2": "7732.25"}}]"""
-listing.updated_at = """2024-02-26T22:55:18+04:00"""
+listing.listing_br_prices = """[{"key": "rooms_1", "count": "1", "min_price": "993000", "max_price": "993000", "min_price_m2": "12913", "max_price_m2": "12913", "currency": "AED", "min_area": {"m2": "76.90", "ft2": "827.74"}, "max_area": {"m2": "76.90", "ft2": "827.74"}}, {"key": "rooms_3", "count": "2", "min_price": "1831000", "max_price": "1836000", "min_price_m2": "12376", "max_price_m2": "12376", "currency": "AED", "min_area": {"m2": "147.95", "ft2": "1592.52"}, "max_area": {"m2": "148.35", "ft2": "1596.82"}}]"""
+listing.updated_at = """2024-02-26T22:31:04+04:00"""
 listing.is_sold_out = 0
-listing.listing_payment_plans = """[{"id": "44", "title": {"ru": "План оплаты 40/60", "en": "Payment plan 40/60", "ar": "خطة الدفع 40/60"}, "on_booking_percent": "10", "on_booking_fix": null, "on_construction_percent": "30", "on_construction_fix": null, "on_construction_payments_count": "3", "on_handover_percent": "60", "on_handover_fix": null, "on_handover_payments_count": "1", "post_handover_percent": null, "post_handover_fix": null, "on_post_handover_payments_count": "0", "additional": [{"title": {"ru": "Admin fee", "en": "Admin fee", "ar": "رسوم المشرف"}, "percent": null, "fix": "5250"}, {"title": {"ru": "DLD fee", "en": "DLD fee", "ar": "رسوم DLD"}, "percent": "4", "fix": null}], "additional_percent": "4", "additional_fix": "5250", "roi_percent": null, "roi_fix": null, "roi_payments_count": "0", "currency": "AED", "period_after_handover": {"period": null, "count": null, "repeat_count": null}, "period_after_roi": {"period": null, "count": null, "repeat_count": null}}]"""
+listing.listing_payment_plans = """[{"id": "21", "title": {"ru": "План оплаты", "en": "Payment plan", "ar": "خطة الدفع 60/40"}, "on_booking_percent": "10", "on_booking_fix": null, "on_construction_percent": "49", "on_construction_fix": null, "on_construction_payments_count": "11", "on_handover_percent": "1", "on_handover_fix": null, "on_handover_payments_count": "1", "post_handover_percent": "40", "post_handover_fix": null, "on_post_handover_payments_count": "40", "additional": [{"title": {"ru": "Registration Charges", "en": "Registration Charges", "ar": "رسوم التسجيل"}, "percent": null, "fix": "1092"}, {"title": {"ru": "DLD Fee", "en": "DLD Fee", "ar": "DLD Fee"}, "percent": "4", "fix": null}], "additional_percent": "4", "additional_fix": "1092", "roi_percent": null, "roi_fix": null, "roi_payments_count": "0", "currency": "AED", "period_after_handover": {"period": "month", "count": "1", "repeat_count": "40"}, "period_after_roi": {"period": null, "count": null, "repeat_count": null}}]"""
 listing.sales_status_a_ru = """В продаже"""
 listing.sales_status_a_en = """On Sale"""
 listing.sales_status_a_ar = """معروض للبيع"""
