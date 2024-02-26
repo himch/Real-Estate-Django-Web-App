@@ -334,7 +334,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
     async def load_data_into_db(self):
         say_my_name()
         for i, offer in enumerate(self.database_dict['realty-feed']['offers']):
-            if i == 200:
+            if i == 250:
                 break
             print(f"{i}. work with offer complex-id {offer['complex-id']}")
             # if await self.offer_exist(offer['complex-id']):

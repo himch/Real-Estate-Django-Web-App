@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.contrib.auth import get_user_model
 from django_admin_geomap import geomap_context
 from django.contrib import auth
+from django.urls import resolve
 from blog.models import Article
 from catalogs.models import Catalog
 
@@ -238,6 +239,8 @@ def buy(request):
 
     context.update(geo_context)
     if is_htmx(request):
+        current_url = resolve(request.path_info).url_name
+        print('current_url', current_url, request.GET)
         return render(request,
                       "includes/buy/buy_loaded_block.html",
                       {"listings": paged_listings,
