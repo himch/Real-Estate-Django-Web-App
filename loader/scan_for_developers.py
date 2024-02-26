@@ -16,6 +16,7 @@ def scan_developers():
                                                                            'logo': '/img/unknown.jpeg',
                                                                            'realtor_id': choice(realtors_ids)})
     count = 0
+    return count
     for listing in listings:
         titles = [listing.developer_a_title_a_en, listing.developer_a_title_a_ru, listing.developer_a_title_a_ar]
         titles = list(filter(None, titles))

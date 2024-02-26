@@ -234,120 +234,156 @@ class Listing(models.Model, GeoItem):
         if self.photo and not self.photo_main:
             self.save_image_from_url(self.photo, self.photo_main, save=False)
 
-        photo_urls = json.loads(self.listing_album)
-        # print(photo_urls)
-        if len(photo_urls) >= 1:
-            if not self.photo_1:
-                self.save_image_from_url(photo_urls[0], self.photo_1, save=False)
-        if len(photo_urls) >= 2:
-            if not self.photo_2:
-                self.save_image_from_url(photo_urls[1], self.photo_2, save=False)
-        if len(photo_urls) >= 3:
-            if not self.photo_3:
-                self.save_image_from_url(photo_urls[2], self.photo_3, save=False)
-        if len(photo_urls) >= 4:
-            if not self.photo_4:
-                self.save_image_from_url(photo_urls[3], self.photo_4, save=False)
+        if self.listing_album is not None:
+            try:
+                photo_urls = json.loads(self.listing_album)
+                # print(photo_urls)
+                if len(photo_urls) >= 1:
+                    if not self.photo_1:
+                        self.save_image_from_url(photo_urls[0], self.photo_1, save=False)
+                if len(photo_urls) >= 2:
+                    if not self.photo_2:
+                        self.save_image_from_url(photo_urls[1], self.photo_2, save=False)
+                if len(photo_urls) >= 3:
+                    if not self.photo_3:
+                        self.save_image_from_url(photo_urls[2], self.photo_3, save=False)
+                if len(photo_urls) >= 4:
+                    if not self.photo_4:
+                        self.save_image_from_url(photo_urls[3], self.photo_4, save=False)
+            except json.decoder.JSONDecodeError:
+                print('Error - Cant create photos')
 
     def save_main_album_images(self):
         say_my_name()
         # delete old, if exist
-        self.mainalbumimage_set.all().delete()
+        for obj in self.main_album_images.all():
+            obj.delete()
 
         if self.listing_album is not None:
-            photo_urls = json.loads(self.listing_album)
-            for photo_url in photo_urls:
+            try:
+                photo_urls = json.loads(self.listing_album)
+                for photo_url in photo_urls:
+                    new_image = self.main_album_images.create(photo=None)
+                    new_image.save()
+                    self.save_image_from_url(photo_url, new_image.photo)
+            except json.decoder.JSONDecodeError:
                 new_image = self.main_album_images.create(photo=None)
                 new_image.save()
-                self.save_image_from_url(photo_url, new_image.photo)
+                self.save_image_from_url(self.listing_album, new_image.photo)
 
     def save_prices(self):
         say_my_name()
         # delete old, if exist
-        self.price_set.all().delete()
+        for obj in self.prices.all():
+            obj.delete()
 
         if self.listing_br_prices is not None:
-            prices = json.loads(self.listing_br_prices)
-            for price in prices:
-                price['min_area_m2'] = price['min_area']['m2']
-                price['min_area_ft2'] = price['min_area']['ft2']
-                price['max_area_m2'] = price['max_area']['m2']
-                price['max_area_ft2'] = price['max_area']['ft2']
-                price.pop('min_area', None)
-                price.pop('max_area', None)
-                self.price_set.create(**price)
+            try:
+                prices = json.loads(self.listing_br_prices)
+                for price in prices:
+                    price['min_area_m2'] = price['min_area']['m2']
+                    price['min_area_ft2'] = price['min_area']['ft2']
+                    price['max_area_m2'] = price['max_area']['m2']
+                    price['max_area_ft2'] = price['max_area']['ft2']
+                    price.pop('min_area', None)
+                    price.pop('max_area', None)
+                    self.prices.create(**price)
+            except json.decoder.JSONDecodeError:
+                print('Error - Cant create prices')
 
     def save_amenities(self):
         say_my_name()
         # delete old, if exist
-        self.amenity_set.all().delete()
+        for obj in self.amenities.all():
+            obj.delete()
 
         if self.listing_amenities is not None:
-            amenities = json.loads(self.listing_amenities)
-            for amenity in amenities:
-                self.amenity_set.create(**amenity)
+            try:
+                amenities = json.loads(self.listing_amenities)
+                for amenity in amenities:
+                    self.amenities.create(**amenity)
+            except json.decoder.JSONDecodeError:
+                print('Error - Cant create amenities')
 
     def save_districts(self):
         say_my_name()
         # delete old, if exist
-        self.district_set.all().delete()
+        for obj in self.districts.all():
+            obj.delete()
 
         if self.listing_districts is not None:
-            districts = json.loads(self.listing_districts)
-            for district in districts:
-                self.district_set.create(name=district)
+            try:
+                districts = json.loads(self.listing_districts)
+                for district in districts:
+                    self.districts.create(name=district)
+            except json.decoder.JSONDecodeError:
+                self.districts.create(name=self.listing_districts)
 
     def save_albums(self):
         say_my_name()
         # delete old, if exist
-        self.album_set.all().delete()
+        for album in self.albums.all():
+            for obj in album.images.all():
+                obj.delete()
+            album.delete()
 
         if self.listing_albums is not None:
-            albums = json.loads(self.listing_albums)
-            for album in albums:
-                album['title_ru'] = album['title']['ru']
-                album['title_en'] = album['title']['en']
-                album['title_ar'] = album['title']['ar']
-                album.pop('title', None)
-                images = album.pop('images', None)
-                new_album = self.album_set.create(**album)
-                for image_url in images['image']:
-                    new_image = new_album.image_set.create(photo=None)  # self.save_image_from_url(image)
-                    self.save_image_from_url(image_url, new_image.photo)
+            try:
+                albums = json.loads(self.listing_albums)
+                for album in albums:
+                    album['title_ru'] = album['title']['ru']
+                    album['title_en'] = album['title']['en']
+                    album['title_ar'] = album['title']['ar']
+                    album.pop('title', None)
+                    images = album.pop('images', None)
+                    new_album = self.albums.create(**album)
+                    for image_url in images['image']:
+                        new_image = new_album.images.create(photo=None)  # self.save_image_from_url(image)
+                        self.save_image_from_url(image_url, new_image.photo)
+            except json.decoder.JSONDecodeError:
+                print('Error - Cant create albums')
 
     def save_payment_plans(self):
         say_my_name()
         # delete old, if exist
-        self.paymentplan_set.all().delete()
+        for payment_plan in self.payment_plans.all():
+            for obj in payment_plan.additionals.all():
+                obj.delete()
+            payment_plan.delete()
 
         if self.listing_payment_plans is not None:
-            payment_plans = json.loads(self.listing_payment_plans)
-            # print(payment_plans)
-            for payment_plan in payment_plans:
-                payment_plan['title_ru'] = payment_plan['title']['ru']
-                payment_plan['title_en'] = payment_plan['title']['en']
-                payment_plan['title_ar'] = payment_plan['title']['ar']
-                payment_plan.pop('title', None)
-                additions = payment_plan.pop('additional', None)
-                if not isinstance(additions, list):
-                    additions = [additions, ]
-                payment_plan['period_after_handover_period'] = payment_plan['period_after_handover']['period']
-                payment_plan['period_after_handover_count'] = payment_plan['period_after_handover']['count']
-                payment_plan['period_after_handover_repeat_count'] = payment_plan['period_after_handover'][
-                    'repeat_count']
-                payment_plan.pop('period_after_handover', None)
-                payment_plan['period_after_roi_period'] = payment_plan['period_after_roi']['period']
-                payment_plan['period_after_roi_count'] = payment_plan['period_after_roi']['count']
-                payment_plan['period_after_roi_repeat_count'] = payment_plan['period_after_roi']['repeat_count']
-                payment_plan.pop('period_after_roi', None)
-                new_payment_plan = self.paymentplan_set.create(**payment_plan)
-                for additional in additions:
-                    if additional:
-                        additional['title_ru'] = additional['title']['ru']
-                        additional['title_en'] = additional['title']['en']
-                        additional['title_ar'] = additional['title']['ar']
-                        additional.pop('title', None)
-                        new_payment_plan.additional_set.create(**additional)
+            try:
+                payment_plans = json.loads(self.listing_payment_plans)
+                # print(payment_plans)
+                for payment_plan in payment_plans:
+                    payment_plan['alnair_id'] = payment_plan['id']
+                    payment_plan.pop('id', None)
+                    payment_plan['title_ru'] = payment_plan['title']['ru']
+                    payment_plan['title_en'] = payment_plan['title']['en']
+                    payment_plan['title_ar'] = payment_plan['title']['ar']
+                    payment_plan.pop('title', None)
+                    additions = payment_plan.pop('additional', None)
+                    if not isinstance(additions, list):
+                        additions = [additions, ]
+                    payment_plan['period_after_handover_period'] = payment_plan['period_after_handover']['period']
+                    payment_plan['period_after_handover_count'] = payment_plan['period_after_handover']['count']
+                    payment_plan['period_after_handover_repeat_count'] = payment_plan['period_after_handover'][
+                        'repeat_count']
+                    payment_plan.pop('period_after_handover', None)
+                    payment_plan['period_after_roi_period'] = payment_plan['period_after_roi']['period']
+                    payment_plan['period_after_roi_count'] = payment_plan['period_after_roi']['count']
+                    payment_plan['period_after_roi_repeat_count'] = payment_plan['period_after_roi']['repeat_count']
+                    payment_plan.pop('period_after_roi', None)
+                    new_payment_plan = self.payment_plans.create(**payment_plan)
+                    for additional in additions:
+                        if additional:
+                            additional['title_ru'] = additional['title']['ru']
+                            additional['title_en'] = additional['title']['en']
+                            additional['title_ar'] = additional['title']['ar']
+                            additional.pop('title', None)
+                            new_payment_plan.additionals.create(**additional)
+            except json.decoder.JSONDecodeError:
+                print('Error - Cant create payment_plan')
 
     def save(self, **kwargs):
         say_my_name()
@@ -448,6 +484,7 @@ class Image(models.Model):
 
 class PaymentPlan(models.Model):
     listing = models.ForeignKey(Listing, related_name='payment_plans', on_delete=models.CASCADE)
+    alnair_id = models.IntegerField(null=True)
     title_ru = models.TextField(blank=True, null=True)
     title_en = models.TextField(blank=True, null=True)
     title_ar = models.TextField(blank=True, null=True)

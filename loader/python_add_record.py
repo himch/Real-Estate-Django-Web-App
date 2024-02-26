@@ -1,10 +1,41 @@
 import os
 from random import choice
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'realestate.settings')
 import django
 django.setup()
 from listings.models import Listing
 from realtors.models import Realtor
+from developers.models import Developer
+from get_developer import developer_get_or_add
+
+# def developer_get_or_add(title_en, title_ru, title_ar, logo):
+#     realtor_list = Realtor.objects.all()
+#     realtors_ids = [realtor.id for realtor in realtor_list]
+#     unknown_developer, created = Developer.objects.get_or_create(slug='unknown',
+#                                                                  defaults={'title_en': 'The Unknown',
+#                                                                            'title_ru': 'The Unknown',
+#                                                                            'title_ar': 'The Unknown',
+#                                                                            'logo': '/img/unknown.jpeg',
+#                                                                            'realtor_id': choice(realtors_ids)})
+#
+#     titles = [title_en, title_ru, title_ar]
+#     titles = list(filter(None, titles))
+#     if titles:
+#         title_en = title_en if title_en else titles[0]
+#         title_ru = title_ru if title_ru else titles[0]
+#         title_ar = title_ar if title_ar else titles[0]
+#         developer, created = Developer.objects.get_or_create(title_en=title_en,
+#                                                              defaults={'title_en': title_en,
+#                                                                        'title_ru': title_ru,
+#                                                                        'title_ar': title_ar,
+#                                                                        'logo': logo,
+#                                                                        'realtor_id': choice(realtors_ids)})
+#     else:
+#         developer = unknown_developer
+#     return developer
+
+
 realtor_list = Realtor.objects.all()
 realtors_ids = [realtor.id for realtor in realtor_list]
 listings = Listing.objects.filter(complex_id=1550)
@@ -67,4 +98,5 @@ listing.eoi_a_is_eoi_return = None
 listing.eoi_a_eoi_items = None
 listing.service_charge = None
 listing.assignment = None
+listing.developer_id = developer_get_or_add(listing.developer_a_title_a_en, listing.developer_a_title_a_ru, listing.developer_a_title_a_ar, listing.developer_a_logo, Realtor, Developer)
 listing.save()

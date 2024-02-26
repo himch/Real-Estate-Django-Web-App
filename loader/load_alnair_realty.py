@@ -148,6 +148,12 @@ class DatabaseDownloader(Downloader, SQLExecutor):
             if fields:
                 self.tables[table_name] = fields
 
+            if table_name == self.TOP_TABLE_NAME:
+                for i, el in enumerate(self.tables[table_name]):
+                    field, field_type, item = el
+                    if field in ['amenities', 'districts', 'album', 'albums', 'br_prices', 'payment_plans', 'stocks']:
+                        self.tables[table_name][i] = ('listing_' + field, field_type, item)
+
     async def make_sql_for_create_tables(self):
         say_my_name()
         types = {'INT': 'INT',
@@ -179,11 +185,8 @@ class DatabaseDownloader(Downloader, SQLExecutor):
         say_my_name()
         for table in self.tables:
             template = ''
-            i = 0
             for field, field_type, item in self.tables[table]:
                 template += f'listing.{field} = {{{field}}}\n'
-                i += 1
-            template += 'listing.save()'
             self.python_for_insert_records[table] = template
             # print(template)
 
@@ -264,6 +267,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                 k = '"' * 3
                 parameters = []
                 for field, field_type, item in self.tables[table_name]:
+
                     if field_type == 'INT':
                         parameters.append(f'{field}={int(item)}')
                     elif field_type == 'REAL':
@@ -289,7 +293,9 @@ class DatabaseDownloader(Downloader, SQLExecutor):
                          "import django\n"
                          "django.setup()\n"
                          "from listings.models import Listing\n"
-                         "from realtors.models import Realtor\n"                       
+                         "from realtors.models import Realtor\n"    
+                         "from developers.models import Developer\n"
+                         "from loader.get_developer import developer_get_or_add\n"
                          "realtor_list = Realtor.objects.all()\n"
                          "realtors_ids = [realtor.id for realtor in realtor_list]\n"
                          f"listings = Listing.objects.filter(complex_id={complex_id})\n"
@@ -309,9 +315,11 @@ class DatabaseDownloader(Downloader, SQLExecutor):
 
                 code = self.python_for_insert_records[table_name]
                 command = 'code.format(' + ', '.join(parameters) + ')'
+                templ_end = '\nlisting.developer_id = developer_get_or_add(listing.developer_a_title_a_en, listing.developer_a_title_a_ru, listing.developer_a_title_a_ar, listing.developer_a_logo, Realtor, Developer).id\n'
+                templ_end += 'listing.save()\n'
                 # print(command)
 
-                code_for_exec = templ + eval(command, globals(), locals())
+                code_for_exec = templ + eval(command, globals(), locals()) + templ_end
                 # print(code_for_exec)
                 with open("python_add_record.py", "w", encoding='utf-8') as file:
                     file.write(code_for_exec.encode('utf-8', 'replace').decode())
@@ -326,23 +334,27 @@ class DatabaseDownloader(Downloader, SQLExecutor):
     async def load_data_into_db(self):
         say_my_name()
         for i, offer in enumerate(self.database_dict['realty-feed']['offers']):
-            # if i == 5:
-            #     break
+            if i == 5:
+                break
             print(f"{i}. work with offer complex-id {offer['complex-id']}")
             # if await self.offer_exist(offer['complex-id']):
             #     if await self.offer_updated_at(offer['complex-id']) == offer['updated_at']:
-            #         return
-            await self.get_tables(offer)
-            await self.make_python_for_insert_record()
-            await self.insert_record_python(offer)
-            # if await self.offer_exist(offer['complex-id']):
-            #     if await self.offer_updated_at(offer['complex-id']) != offer['updated_at']:
-            #         await self.delete_record(offer['complex-id'])
-            # if not await self.offer_exist(offer['complex-id']):
-            #     # await self.insert_record_sql(offer)
-            #     await self.get_tables(offer)
-            #     await self.make_python_for_insert_record()
-            #     await self.insert_record_python(offer)
+            #         continue
+            # await self.get_tables(offer)
+            # await self.make_python_for_insert_record()
+            # await self.insert_record_python(offer)
+            if await self.offer_exist(offer['complex-id']):
+                if await self.offer_updated_at(offer['complex-id']) != offer['updated_at']:
+                    await self.delete_record(offer['complex-id'])
+                    print(f"Offer with complex-id {offer['complex-id']} exist with the different updated_at, deleted")
+                else:
+                    print(f"Offer with complex-id {offer['complex-id']} exist with the same updated_at")
+            if not await self.offer_exist(offer['complex-id']):
+                # await self.insert_record_sql(offer)
+                await self.get_tables(offer)
+                await self.make_python_for_insert_record()
+                await self.insert_record_python(offer)
+                print(f"Offer with complex-id {offer['complex-id']} inserted")
 
     async def run(self):
         say_my_name()
@@ -351,7 +363,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
         # await self.make_sql_for_create_tables()
         # await self.create_tables()
         # await self.make_sql_for_insert_record()
-        await self.make_python_for_insert_record()
+        # await self.make_python_for_insert_record()
         # await self.make_python_for_create_tables()
         await self.load_data_into_db()
         await self.close_connection()
