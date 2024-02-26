@@ -17,6 +17,14 @@ def developer(request, slug):
     listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, developer=developer_item.pk)
     len_listings = listings.count()
 
+    # url для htmx подгрузки
+    request_get = request.GET.copy()
+    if 'page' in request_get:
+        request_get['page'] = str(int(request_get['page']) + 1)
+    else:
+        request_get['page'] = '2'  # следующая страница
+    htmx_url = request_get.urlencode()
+
     # разбиение обьектов на порции-страницы для отображения в виде списка
     page = request.GET.get('page')
     paginator = Paginator(listings, 8)
@@ -31,6 +39,7 @@ def developer(request, slug):
         'listings': paged_listings,
         'len_listings': len(listings),
         'realtor': realtor,
+        'htmx_url': htmx_url,
     }
     context.update(geo_context)
 
@@ -38,7 +47,8 @@ def developer(request, slug):
         return render(request,
                       "includes/buy/buy_loaded_block.html",
                       {"listings": paged_listings,
-                       'len_listings': len_listings
+                       'len_listings': len_listings,
+                       'htmx_url': htmx_url,
                        }
                       )
     return render(request, 'includes/content/zastroischik.html', context)

@@ -136,8 +136,17 @@ def buy(request):
     # точки на карте для всех отфильтрованных обьектов недвижимости для продажи
     geo_context = geomap_context(listings, auto_zoom="20")
 
+
+    # url для htmx подгрузки
+    request_get = request.GET.copy()
+    if 'page' in request_get:
+        request_get['page'] = str(int(request_get['page']) + 1)
+    else:
+        request_get['page'] = '2'  # следующая страница
+    htmx_url = request_get.urlencode()
+
     # разбиение обьектов на порции-страницы для отображения в виде списка
-    page = request.GET.get('page')
+    page = request_get['page']
     paginator = Paginator(listings, 8)
     paged_listings = paginator.get_page(page)
 
@@ -235,16 +244,16 @@ def buy(request):
         'districts_choices': districts_choices,
         'amenities_choices': amenities_choices,
         'vars_filter': vars_filter,
+        'htmx_url': htmx_url,
     }
 
     context.update(geo_context)
     if is_htmx(request):
-        current_url = resolve(request.path_info).url_name
-        print('current_url', current_url, request.GET)
         return render(request,
                       "includes/buy/buy_loaded_block.html",
                       {"listings": paged_listings,
-                       'len_listings': len(listings)
+                       'len_listings': len(listings),
+                       'htmx_url': htmx_url,
                        }
                       )
     return render(request, 'includes/content/buy.html', context)
