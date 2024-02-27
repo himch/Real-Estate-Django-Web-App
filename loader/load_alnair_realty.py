@@ -374,6 +374,7 @@ class DatabaseDownloader(Downloader, SQLExecutor):
         return f"Loaded {len(self.database_dict['realty-feed']['offers'])} records"
 
 
+
 async def main():
     say_my_name()
     loader = DatabaseDownloader()
