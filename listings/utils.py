@@ -26,6 +26,8 @@ def convert(value, currency1, currency2):
 def fix_description(text: str):
     run = True
     while run:
+        if text is None:
+            break
         len_old = len(text)
         text = text.replace('<p></p>', '')
         run = len_old != len(text)
