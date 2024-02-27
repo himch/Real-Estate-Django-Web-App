@@ -9,8 +9,8 @@ from realtors.models import Realtor
 class Developer(models.Model):
     slug = models.SlugField(verbose_name='URL', max_length=255, blank=False, unique=True)
     title_en = models.CharField(max_length=255, blank=False, null=False, unique=True)
-    title_ru = models.CharField(max_length=255, blank=False, null=False, unique=True)
-    title_ar = models.CharField(max_length=255, blank=False, null=False, unique=True)
+    title_ru = models.CharField(max_length=255, blank=False, null=False)
+    title_ar = models.CharField(max_length=255, blank=False, null=False)
     logo = models.CharField(max_length=1000, blank=True, null=True)
 
     year_of_foundation = models.CharField(max_length=4, blank=True, null=True)

@@ -20,6 +20,23 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 
+msgid "with the latest news from the world of Dubai"
+msgstr "مع آخر الأخبار من عالم دبي"
+
+msgid "Other articles"
+msgstr "مقالات أخرى"
+
+msgid "Go to channel"
+msgstr "اذهب إلى القناة"
+
+msgid "Go to Blog"
+msgstr "اذهب إلى المدونة"
+
+
+msgid "During the day, our manager will contact you by email or WhatsApp!"
+msgstr "خلال النهار، سيتصل بك مديرنا عبر البريد الإلكتروني أو الواتساب!"
+
+
 msgid "By submitting the form, you consent to"
 msgstr "من خلال تقديم النموذج، فإنك توافق على"
 
