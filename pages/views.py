@@ -230,6 +230,7 @@ def buy(request):
                              for amenity in amenities}
 
     print(vars_filter)
+    # // </h1><br>{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}<p><a href=\"\/{{ LANGUAGE_CODE }}\/listings/{{ listing.id|unlocalize }}\">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</a>
 
     context = {
         'our_company': our_company,
@@ -247,6 +248,7 @@ def buy(request):
         'htmx_url': htmx_url,
     }
 
+    print(geo_context)
     context.update(geo_context)
     if is_htmx(request):
         return render(request,

@@ -2,27 +2,39 @@
 {% load static %}
 {% load l10n %}
 {% get_current_language as LANGUAGE_CODE %}
-
-var point = new google.maps.LatLng({{ listing.latitude }},{{ listing.longitude }});
-    var image = 'https://mts.googleapis.com/vt/icon/name=icons/spotlight/spotlight-waypoint-a.png';
-    var marker = new google.maps.marker.AdvancedMarkerElement({
-    position: point,
-    map: map,
-    icon: image,
-    url: '/{{ LANGUAGE_CODE }}/listings/{{ listing.id|unlocalize }}',
-    title: '{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}',
-});
+    var point = new google.maps.LatLng({{ listing.latitude|unlocalize }},{{ listing.longitude|unlocalize }});
+    var image = '/img/spotlight-waypoint-a.png';
+    var marker = new google.maps.Marker({
+        position: point,
+        map: map,
+        icon: image,
+        url: '/{{ LANGUAGE_CODE }}/listings/{{ listing.id|unlocalize }}',
+        title: '{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}',
+    });
+    var contentString = '<a href="/{{ LANGUAGE_CODE }}/listings/{{ listing.id|unlocalize }}">\
+                            <div class="google_map_marker" style="width:200px; height:100%; overflow:hidden">\
+                                <div class="p-card__top-left text-c5">\
+                                    {% get_attr "listing" "title_a_"|add:LANGUAGE_CODE %}\
+                                </div>\
+                            </div>\
+                            <img src="{{ listing.photo_main_thumbnail_width_180.url }}" alt="" loading="lazy" />\
+                        </a>\
+                        {% if listing.sales_status_a_en %}<div class="p-card__price text-500">{% get_attr "listing" "sales_status_a_"|add:LANGUAGE_CODE %}</div>{% endif %}\
+                        {% if listing.price_a_min %}<div class="p-card__price text-500">{% trans "from" %} {{ listing.price_a_min }} {{ listing.price_a_currency }}</div>{% endif %}\
+                        {% if listing.status_a_en %}<div class="p-card__price text-500">{% get_attr "listing" "status_a_"|add:LANGUAGE_CODE %}</div>{% endif %}\
+                        ';
      marker['infowindow']  = new google.maps.InfoWindow({
-             content: "<h1>{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</h1><br>{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}<p><a href=\"\/{{ LANGUAGE_CODE }}\/listings/{{ listing.id|unlocalize }}\">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</a>",
-});
+                 content: contentString, maxWidth: 200
+    });
+
     google.maps.event.addListener(marker, 'click', function() {
         //window.location.href = this.url;
-         this['infowindow'].open(map, this);
+        this['infowindow'].open(map, this);
     });
-   google.maps.event.addListener(marker, 'mouseover', function() {
-        // this['infowindow'].open(map, this);
+    google.maps.event.addListener(marker, 'mouseover', function() {
+         this['infowindow'].open(map, this);
             });
-   google.maps.event.addListener(marker, 'mouseout', function() {
-        // this['infowindow'].close(map, this);
+    google.maps.event.addListener(marker, 'mouseout', function() {
+         this['infowindow'].close(map, this);
 
     });

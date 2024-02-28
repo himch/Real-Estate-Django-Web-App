@@ -174,9 +174,14 @@
 
       </div>
       <div class="filters__content-map" id="filters__content-map">
-        <div class="filters__content-map-item">
-          {% include "geomap/common.html" %}
+        <div class="filters__content-map-item" id="map-canvas">
+          <!-- google map here -->
         </div>
+        <style>
+          .filters__content-map-item {
+          height: 500px;
+          }
+        </style>
       </div>
     </div>
   </div>
@@ -540,4 +545,5 @@
 
   </div>
 </main>
+{% include 'includes/google_map/script.html' %}
 {% endblock %}

@@ -39,6 +39,14 @@ class Listing(models.Model, GeoItem):
                                                     processors=[ResizeToFill(width=750, height=450, upscale=False)],
                                                     format='WEBP',
                                                     options={'quality': 100})
+    photo_main_thumbnail_width_300 = ImageSpecField(source='photo_main',
+                                                    processors=[ResizeToFill(width=300, height=300, upscale=False)],
+                                                    format='WEBP',
+                                                    options={'quality': 100})
+    photo_main_thumbnail_width_180 = ImageSpecField(source='photo_main',
+                                                    processors=[ResizeToFill(width=180, height=180, upscale=False)],
+                                                    format='WEBP',
+                                                    options={'quality': 100})
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
     photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
     photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
