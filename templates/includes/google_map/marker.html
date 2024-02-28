@@ -5,7 +5,7 @@
 
 var point = new google.maps.LatLng({{ listing.latitude }},{{ listing.longitude }});
     var image = 'https://mts.googleapis.com/vt/icon/name=icons/spotlight/spotlight-waypoint-a.png';
-    var marker = new google.maps.Marker({
+    var marker = new google.maps.marker.AdvancedMarkerElement({
     position: point,
     map: map,
     icon: image,
