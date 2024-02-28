@@ -93,21 +93,6 @@
             <div class="filters__main-title">{% trans 'Filters' %}<!--Фильтры--></div>
           </div>
 
-          {% comment %}
-          <!--
-          <div class="modal modal_filter">
-            <div class="modal__content relative">
-              <div class="modal__close absolute">
-                        <picture>
-                          <source type="image/webp" srcset="img/rent/filters/close.webp"><img width="21" height="21" src="img/rent/filters/close.png" alt="" loading="lazy">
-                        </picture>
-              </div>
-              <div class="modal_filter__reset absolute text-underline cursor-pointer">Сбросить фильтры</div>
-            </div>
-          </div>
-          -->
-          {% endcomment %}
-
           {% include 'includes/filter/rent_big_modal_filter.html' %}
 
           {% comment %}
@@ -172,10 +157,12 @@
           </div>
           <div class="filters__map cursor-pointer" id="filters__map">
             <picture>
-              <source type="image/webp" srcset="/img/rent/filters/map.webp"/><img width="38" height="38" src="/img/rent/filters/map.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="/img/rent/filters/map.webp"/>
+              <img width="38" height="38" src="/img/rent/filters/map.png" alt="" loading="lazy"/>
             </picture>
             <picture>
-              <source type="image/webp" srcset="/img/rent/filters/map_active.webp"/><img width="38" height="38" src="/img/rent/filters/map_active.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="/img/rent/filters/map_active.webp"/>
+              <img width="38" height="38" src="/img/rent/filters/map_active.png" alt="" loading="lazy"/>
             </picture>
           </div>
         </div>
@@ -195,23 +182,26 @@
   </div>
   <div class="advs overflow-hidden">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3 relative">{% trans 'What are the advantages' %}<!--В чем преимущества--></div>
+      <div class="section__title font-tenor text-c3 relative p-animate p-animate__up p-animate__splitt">{% trans 'What are the advantages' %}<!--В чем преимущества--></div>
       <div class="advs__subtitle relative">{% trans 'rent apartments with hotel service' %}<!--аренды апартаментов с отельным сервисом--></div>
       <div class="advs__items flex flex-col">
         <div class="advs__item relative">
           <div class="advs__item-icon absolute top-0 left-0 bg-c5 flex flex-ai-center flex-j-center">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/star.webp"/><img class="lazy " width="29" height="29" src="" data-src="/img/rent/advs/star.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/star.webp"/>
+              <img class="lazy " width="29" height="29" src="" data-src="/img/rent/advs/star.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img relative img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/1.webp"/><img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/1.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/1.webp"/>
+              <img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/1.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img-r absolute bottom-0 right-0 img_br img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/2.webp"/><img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/2.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/2.webp"/>
+              <img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/2.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-text absolute">
@@ -222,17 +212,20 @@
         <div class="advs__item relative">
           <div class="advs__item-icon absolute top-0 left-0 bg-c5 flex flex-ai-center flex-j-center">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/car.webp"/><img class="lazy " width="31" height="31" src="" data-src="/img/rent/advs/car.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/car.webp"/>
+              <img class="lazy " width="31" height="31" src="" data-src="/img/rent/advs/car.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img relative img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/3.webp"/><img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/3.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/3.webp"/>
+              <img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/3.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img-r absolute bottom-0 right-0 img_br img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/4.webp"/><img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/4.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/4.webp"/>
+              <img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/4.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-text absolute">
@@ -243,17 +236,20 @@
         <div class="advs__item relative">
           <div class="advs__item-icon absolute top-0 left-0 bg-c5 flex flex-ai-center flex-j-center">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/clean.webp"/><img class="lazy " width="29" height="29" src="" data-src="/img/rent/advs/clean.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/clean.webp"/>
+              <img class="lazy " width="29" height="29" src="" data-src="/img/rent/advs/clean.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img relative img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/5.webp"/><img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/5.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/5.webp"/>
+              <img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/5.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img-r absolute bottom-0 right-0 img_br img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/6.webp"/><img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/6.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/6.webp"/>
+              <img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/6.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-text absolute">
@@ -264,17 +260,20 @@
         <div class="advs__item relative">
           <div class="advs__item-icon absolute top-0 left-0 bg-c5 flex flex-ai-center flex-j-center">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/telephone.webp"/><img class="lazy " width="28" height="28" src="" data-src="/img/rent/advs/telephone.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/telephone.webp"/>
+              <img class="lazy " width="28" height="28" src="" data-src="/img/rent/advs/telephone.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img relative img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/7.webp"/><img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/7.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/7.webp"/>
+              <img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/7.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img-r absolute bottom-0 right-0 img_br img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/8.webp"/><img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/8.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/8.webp"/>
+              <img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/8.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-text absolute">
@@ -285,17 +284,20 @@
         <div class="advs__item relative">
           <div class="advs__item-icon absolute top-0 left-0 bg-c5 flex flex-ai-center flex-j-center">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/car2.webp"/><img class="lazy " width="39" height="39" src="" data-src="/img/rent/advs/car2.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/car2.webp"/>
+              <img class="lazy " width="39" height="39" src="" data-src="/img/rent/advs/car2.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img relative img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/9.webp"/><img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/9.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/9.webp"/>
+              <img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/9.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img-r absolute bottom-0 right-0 img_br img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/10.webp"/><img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/10.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/10.webp"/>
+              <img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/10.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-text absolute">
@@ -306,17 +308,20 @@
         <div class="advs__item relative">
           <div class="advs__item-icon absolute top-0 left-0 bg-c5 flex flex-ai-center flex-j-center">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/monitor.webp"/><img class="lazy " width="30" height="30" src="" data-src="/img/rent/advs/monitor.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/monitor.webp"/>
+              <img class="lazy " width="30" height="30" src="" data-src="/img/rent/advs/monitor.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img relative img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/11.webp"/><img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/11.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/11.webp"/>
+              <img class="lazy " width="1162" height="589" src="" data-src="/img/rent/advs/11.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-img-r absolute bottom-0 right-0 img_br img_cover">
             <picture>
-              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/12.webp"/><img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/12.png" alt="" loading="lazy"/>
+              <source type="image/webp" srcset="" data-srcset="/img/rent/advs/12.webp"/>
+              <img class="lazy " width="242" height="93" src="" data-src="/img/rent/advs/12.png" alt="" loading="lazy"/>
             </picture>
           </div>
           <div class="advs__item-text absolute">
@@ -331,12 +336,13 @@
   <div class="addit">
     <div class="container margin-center">
       <div class="addit__item bg-c5 text-c2">
-        <div class="addit__item-title font-tenor">{% trans 'Additionally, we can offer:' %}<!--Дополнительно можем предложить:--></div>
+        <div class="addit__item-title font-tenor p-animate p-animate__up p-animate__splitt">{% trans 'Additionally, we can offer:' %}<!--Дополнительно можем предложить:--></div>
         <div class="addit__els flex">
           <div class="addit__el flex flex-ai-center">
             <div class="addit__el-img img_cover flex-shrink">
               <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/rent/addit/1.webp"/><img class="lazy " width="98" height="127" src="" data-src="/img/rent/addit/1.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="" data-srcset="/img/rent/addit/1.webp"/>
+                <img class="lazy " width="98" height="127" src="" data-src="/img/rent/addit/1.jpg" alt="" loading="lazy"/>
               </picture>
             </div>
             <div class="addit__el-text">
@@ -347,7 +353,8 @@
           <div class="addit__el flex flex-ai-center">
             <div class="addit__el-img img_cover flex-shrink">
               <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/rent/addit/2.webp"/><img class="lazy " width="98" height="127" src="" data-src="/img/rent/addit/2.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="" data-srcset="/img/rent/addit/2.webp"/>
+                <img class="lazy " width="98" height="127" src="" data-src="/img/rent/addit/2.jpg" alt="" loading="lazy"/>
               </picture>
             </div>
             <div class="addit__el-text">
@@ -361,7 +368,7 @@
   </div>
   <div class="appartments overflow-hidden">
     <div class="container margin-center">
-      <div class="why__desc">
+      <div class="why__desc p-animate p-animate__up p-animate__splitt">
         <p>
           {% trans 'Our apartments combine ' %}<!--Наши апартаменты сочетают в себе --><span class="text-c5">{% trans 'the comfort and convenience of the hotel' %}<!--комфорт и удобства отеля--></span>
           {% trans 'with the spaciousness and &nbsp;' %}<!--с простором и --><span class="text-c5">{% trans 'autonomy of your own home' %}<!--автономией собственного жилья,--></span>
@@ -373,62 +380,74 @@
     <div class="appartments__row flex">
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/3.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/3.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/3.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/3.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/4.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/4.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/4.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/4.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/5.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/5.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/5.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/5.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/6.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/6.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/6.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/6.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/7.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/7.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/7.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/7.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/8.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/8.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/8.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/8.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/3.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/3.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/3.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/3.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/4.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/4.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/4.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/4.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/5.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/5.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/5.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/5.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/6.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/6.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/6.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/6.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/7.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/7.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/7.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/7.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
       <div class="appartments__item flex-shrink">
         <picture>
-          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/8.webp"/><img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/8.jpg" alt="" loading="lazy"/>
+          <source type="image/webp" srcset="" data-srcset="/img/rent/appartments/8.webp"/>
+          <img class="lazy " width="234" height="239" src="" data-src="/img/rent/appartments/8.jpg" alt="" loading="lazy"/>
         </picture>
       </div>
     </div>
@@ -439,14 +458,15 @@
   </div>
   <div class="type type_second rent__type">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3 text-center">{% trans 'Services of DADI HOLIDAY' %}<!--Услуги DADI HOLIDAY--></div>
+      <div class="section__title font-tenor text-c3 text-center p-animate p-animate__up p-animate__splitt">{% trans 'Services of DADI HOLIDAY' %}<!--Услуги DADI HOLIDAY--></div>
       <div class="type__subtitle text-center">{% trans 'rent apartments in Dubai with hotel service' %}<!--аренда апартаментов в Дубае с отельным сервисом--></div>
       <div class="type__row grid">
         <div class="type__item flex flex-ai-center">
           <div class="type__item-left">
             <div class="type__item-img w-full img_cover img_br">
               <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/rent/type/3.webp"/><img class="lazy " width="316" height="230" src="" data-src="/img/rent/type/3.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="" data-srcset="/img/rent/type/3.webp"/>
+                <img class="lazy " width="316" height="230" src="" data-src="/img/rent/type/3.jpg" alt="" loading="lazy"/>
               </picture>
             </div>
           </div>
@@ -464,7 +484,8 @@
           <div class="type__item-left">
             <div class="type__item-img w-full img_cover img_br">
               <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/main/type/2.webp"/><img class="lazy " width="323" height="259" src="" data-src="/img/main/type/2.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="" data-srcset="/img/main/type/2.webp"/>
+                <img class="lazy " width="323" height="259" src="" data-src="/img/main/type/2.jpg" alt="" loading="lazy"/>
               </picture>
             </div>
           </div>
@@ -478,7 +499,8 @@
           <div class="type__item-left">
             <div class="type__item-img w-full img_cover img_br">
               <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/rent/type/1.webp"/><img class="lazy " width="294" height="135" src="" data-src="/img/rent/type/1.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="" data-srcset="/img/rent/type/1.webp"/>
+                <img class="lazy " width="294" height="135" src="" data-src="/img/rent/type/1.jpg" alt="" loading="lazy"/>
               </picture>
             </div>
           </div>
@@ -492,7 +514,8 @@
           <div class="type__item-left">
             <div class="type__item-img w-full img_cover img_br">
               <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/rent/type/2.webp"/><img class="lazy " width="294" height="174" src="" data-src="/img/rent/type/2.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="" data-srcset="/img/rent/type/2.webp"/>
+                <img class="lazy " width="294" height="174" src="" data-src="/img/rent/type/2.jpg" alt="" loading="lazy"/>
               </picture>
             </div>
           </div>
