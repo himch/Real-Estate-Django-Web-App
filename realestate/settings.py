@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'imagekit',
     'tinymce',
     'djmoney',
+    "geoposition",
     'django_admin_geomap',
     'rest_framework',
     'rest_framework.authtoken',
@@ -228,3 +229,5 @@ CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1"]
 
 
 CURRENCIES = ('USD', 'EUR', 'AED', 'RUB')
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBINNsjYUUuAGcQAaRIxKoHH15QJDMsS1w'

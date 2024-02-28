@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+var point = new google.maps.LatLng({{ listing.latitude }},{{ listing.longitude }});
+    var image = 'https://mts.googleapis.com/vt/icon/name=icons/spotlight/spotlight-waypoint-a.png';
+    var marker = new google.maps.Marker({
+    position: point,
+    map: map,
+    icon: image,
+    url: '/{{ LANGUAGE_CODE }}/listings/{{ listing.id|unlocalize }}',
+    title: '{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}',
+});
+     marker['infowindow']  = new google.maps.InfoWindow({
+             content: "<h1>{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</h1><br>{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}<p><a href=\"\/{{ LANGUAGE_CODE }}\/listings/{{ listing.id|unlocalize }}\">{% get_attr 'listing' 'title_a_'|add:LANGUAGE_CODE %}</a>",
+});
+    google.maps.event.addListener(marker, 'click', function() {
+        //window.location.href = this.url;
+         this['infowindow'].open(map, this);
+    });
+   google.maps.event.addListener(marker, 'mouseover', function() {
+        // this['infowindow'].open(map, this);
+            });
+   google.maps.event.addListener(marker, 'mouseout', function() {
+        // this['infowindow'].close(map, this);
+
+    });

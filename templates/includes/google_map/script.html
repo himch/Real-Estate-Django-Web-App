@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<script type="text/javascript">
+
+  var map;
+  function map_initialize() {
+    var mapDiv = document.getElementById('map-canvas');
+    map = new google.maps.Map(mapDiv, {
+      center: new google.maps.LatLng(25.2047548,55.1740223),
+      zoom: 12,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    google.maps.event.addListenerOnce(map, 'tilesloaded', addMarkers);
+
+  }
+  function addMarkers() {
+
+    {% if listings %}
+      {% for listing in listings %}
+        {% include 'includes/google_map/marker.html' %}
+      {% endfor %}
+    {% else %}
+      {% if listing %}
+            {% include 'includes/google_map/marker.html' %}
+      {% endif %}
+    {% endif %}
+  }
+
+  //google.maps.event.addDomListener(window, 'load', map_initialize);
+  //window.addEventListener('load', map_initialize);
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBINNsjYUUuAGcQAaRIxKoHH15QJDMsS1w&libraries=places&callback=map_initialize"></script>
