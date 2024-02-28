@@ -17,7 +17,7 @@ from datetime import datetime
 from django_admin_geomap import GeoItem
 
 from developers.models import Developer
-from listings.utils import fix_description
+from listings.utils import fix_description, json_equal
 from modules.services.utils import say_my_name
 from realtors.models import Realtor
 
@@ -70,6 +70,7 @@ class Listing(models.Model, GeoItem):
     special_price = models.IntegerField(blank=True, null=True, default=1)
 
     price_on_request = models.IntegerField(blank=True, null=True)
+    is_limited_publication = models.IntegerField(blank=True, null=True)
 
     status_a_ru = models.TextField(blank=True, null=True)
     status_a_en = models.TextField(blank=True, null=True)
@@ -239,7 +240,9 @@ class Listing(models.Model, GeoItem):
             self.save_image_from_url(self.photo, self.photo_main, save=False)
 
         if self.listing_album is not None:
-            if (self._my_updating and (self._loaded_values['listing_album'] != self.listing_album)) or self._my_adding:
+            if (self._my_adding or
+                    (self._my_updating and not json_equal(self._loaded_values['listing_album'],
+                                                          self.listing_album))):
                 try:
                     photo_urls = json.loads(self.listing_album)
                     # print(photo_urls)
@@ -256,11 +259,15 @@ class Listing(models.Model, GeoItem):
                         if not self.photo_4:
                             self.save_image_from_url(photo_urls[3], self.photo_4, save=False)
                 except json.decoder.JSONDecodeError:
-                    print('Error - Cant create photos')
+                    print('Error - json.loads, try to read as string and save listing_photo 1')
+                    if not self.photo_1:
+                        self.save_image_from_url(self.listing_album, self.photo_1, save=False)
 
     def save_main_album_images(self):
         say_my_name()
-        if (self._my_updating and (self._loaded_values['listing_album'] != self.listing_album)) or self._my_adding:
+        if (self._my_adding or
+                (self._my_updating and not json_equal(self._loaded_values['listing_album'],
+                                                      self.listing_album))):
             # delete old, if exist
             for obj in self.main_album_images.all():
                 obj.delete()
@@ -273,13 +280,16 @@ class Listing(models.Model, GeoItem):
                         new_image.save()
                         self.save_image_from_url(photo_url, new_image.photo)
                 except json.decoder.JSONDecodeError:
+                    print('Error - json.loads, try to read as string and save main_album_images')
                     new_image = self.main_album_images.create(photo=None)
                     new_image.save()
                     self.save_image_from_url(self.listing_album, new_image.photo)
 
     def save_prices(self):
         say_my_name()
-        if (self._my_updating and (self._loaded_values['listing_br_prices'] != self.listing_br_prices)) or self._my_adding:
+        if (self._my_adding or
+                (self._my_updating and not json_equal(self._loaded_values['listing_br_prices'],
+                                                      self.listing_br_prices))):
             # delete old, if exist
             for obj in self.prices.all():
                 obj.delete()
@@ -296,11 +306,13 @@ class Listing(models.Model, GeoItem):
                         price.pop('max_area', None)
                         self.prices.create(**price)
                 except json.decoder.JSONDecodeError:
-                    print('Error - Cant create prices')
+                    print('Error - json.loads. Cant create prices')
 
     def save_amenities(self):
         say_my_name()
-        if (self._my_updating and (self._loaded_values['listing_amenities'] != self.listing_amenities)) or self._my_adding:
+        if (self._my_adding or
+                (self._my_updating and not json_equal(self._loaded_values['listing_amenities'],
+                                                      self.listing_amenities))):
             # delete old, if exist
             for obj in self.amenities.all():
                 obj.delete()
@@ -311,11 +323,13 @@ class Listing(models.Model, GeoItem):
                     for amenity in amenities:
                         self.amenities.create(**amenity)
                 except json.decoder.JSONDecodeError:
-                    print('Error - Cant create amenities')
+                    print('Error - json.loads. Cant create amenities')
 
     def save_districts(self):
         say_my_name()
-        if (self._my_updating and (self._loaded_values['listing_districts'] != self.listing_districts)) or self._my_adding:
+        if (self._my_adding or
+                (self._my_updating and not json_equal(self._loaded_values['listing_districts'],
+                                                      self.listing_districts))):
             # delete old, if exist
             for obj in self.districts.all():
                 obj.delete()
@@ -326,17 +340,14 @@ class Listing(models.Model, GeoItem):
                     for district in districts:
                         self.districts.create(name=district)
                 except json.decoder.JSONDecodeError:
+                    print('Error - json.loads. Cant create districts. Try to load one')
                     self.districts.create(name=self.listing_districts)
 
     def save_albums(self):
         say_my_name()
-        print(self._loaded_values['listing_albums'])
-        print(self.listing_albums.encode('utf-8').decode())
-        if (self._my_updating and (self._loaded_values['listing_albums'] != self.listing_albums)) or self._my_adding:
-            if self._loaded_values['listing_albums'] != self.listing_albums:
-                print(f'Listing albums different')
-                print(self._loaded_values['listing_albums'])
-                print(self.listing_albums.encode('utf-8').decode())
+        if (self._my_adding or
+                (self._my_updating and not json_equal(self._loaded_values['listing_albums'],
+                                                      self.listing_albums))):
             # delete old, if exist
             for album in self.albums.all():
                 for obj in album.images.all():
@@ -361,11 +372,13 @@ class Listing(models.Model, GeoItem):
                                 new_image = new_album.images.create(photo=None)  # self.save_image_from_url(image)
                                 self.save_image_from_url(image_url, new_image.photo)
                 except json.decoder.JSONDecodeError:
-                    print('Error - Cant create albums')
+                    print('Error - json.loads. Cant create albums')
 
     def save_payment_plans(self):
         say_my_name()
-        if (self._my_updating and (self._loaded_values['listing_payment_plans'] != self.listing_payment_plans)) or self._my_adding:
+        if (self._my_adding or
+                (self._my_updating and not json_equal(self._loaded_values['listing_payment_plans'],
+                                                      self.listing_payment_plans))):
             # delete old, if exist
             for payment_plan in self.payment_plans.all():
                 for obj in payment_plan.additionals.all():
@@ -404,7 +417,7 @@ class Listing(models.Model, GeoItem):
                                 additional.pop('title', None)
                                 new_payment_plan.additionals.create(**additional)
                 except json.decoder.JSONDecodeError:
-                    print('Error - Cant create payment_plan')
+                    print('Error - json.loads. Cant create payment_plan')
 
     def save(self, **kwargs):
         say_my_name()

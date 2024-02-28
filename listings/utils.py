@@ -1,3 +1,6 @@
+import json
+
+
 def convert(value, currency1, currency2):
     courses = {'AEDRUB': 24.76,
                'AEDUSD': 0.27,
@@ -32,3 +35,25 @@ def fix_description(text: str):
         text = text.replace('<p></p>', '')
         run = len_old != len(text)
     return text
+
+
+def json_equal(a, b):
+    if a is None or b is None:
+        # print('a', a)
+        # print('b', b)
+        # print('a is None or b is None')
+        return a == b
+    try:
+        obj_a = json.loads(a)
+        obj_b = json.loads(b)
+        # print('obj_a', obj_a)
+        # print('obj_b', obj_b)
+        # print('obj_a == obj_b', obj_a == obj_b)
+    except json.decoder.JSONDecodeError:
+        # print('a', a)
+        # print('b', b)
+        # print('json.decoder.JSONDecodeError')
+        return a == b
+
+    return obj_a == obj_b
+

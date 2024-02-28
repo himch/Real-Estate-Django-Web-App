@@ -157,38 +157,45 @@ class DatabaseDownloader(Downloader):
     def make_dict_with_fields_info(self, defined_fields, table_name=TOP_TABLE_NAME):
         say_my_name()
         fields_dict = dict()
+        unknown_fields_list = set()
         for field, field_type, item in self.tables[table_name]:
             if field in defined_fields:
                 fields_dict[field] = item
             else:
+                unknown_fields_list.add(field)
                 logging.warning(f'Field [{field}] is not defined in model Listing')
         # print(fields_dict)
-        return fields_dict
+        return fields_dict, unknown_fields_list
 
     def load_data_into_db(self):
         say_my_name()
+        data = self.database_dict['realty-feed']['offers']
+        all_records = len(data)
+        updated_records = 0
+        added_records = 0
+        unknown_fields = set()
         listing_fields = [f.name for f in Listing._meta.get_fields()]
         realtor_list = Realtor.objects.all()
         realtors_ids = [realtor.id for realtor in realtor_list]
-        for i, offer in enumerate(self.database_dict['realty-feed']['offers']):
-            if i == 103:
-                break
+        for i, offer in enumerate(data):
             self.get_tables(offer)
-            validated_data = self.make_dict_with_fields_info(listing_fields)
-
+            validated_data, unknown_fields_list = self.make_dict_with_fields_info(listing_fields)
+            unknown_fields |= unknown_fields_list
             if Listing.objects.filter(complex_id=int(offer['complex-id'])).exists():
                 listing = Listing.objects.filter(complex_id=int(offer['complex-id'])).first()
                 offer_updated_at = listing.updated_at
                 if offer_updated_at != offer['updated_at']:
                     # update listing
+                    validated_data['special_price'] = False
                     validated_data['is_fully_loaded'] = False
-                    print(validated_data)
+                    # print(validated_data)
                     # listing.update(**validated_data)
                     for attr, value in validated_data.items():
                         setattr(listing, attr, value)
                     listing.save()
                     print(
                         f"Offer complex-id {offer['complex-id']} with id=[{listing.id}] exist with the different updated_at {offer_updated_at} != {offer['updated_at']}, updated")
+                    updated_records += 1
                 else:
                     # pass
                     print(
@@ -198,6 +205,7 @@ class DatabaseDownloader(Downloader):
                 validated_data['is_fully_loaded'] = False
                 validated_data['source'] = 'alnair'
                 validated_data['offer_type'] = 'sell'
+                validated_data['special_price'] = False
                 validated_data['realtor_id'] = choice(realtors_ids)
                 validated_data['developer_id'] = developer_get_or_add(validated_data['developer_a_title_a_en'],
                                                                       validated_data['developer_a_title_a_ru'],
@@ -208,22 +216,28 @@ class DatabaseDownloader(Downloader):
                 new_listing = Listing.objects.create(**validated_data)
 
                 print(f"New offer complex-id {offer['complex-id']} with id=[{new_listing.id}] inserted")
+                added_records += 1
+
+        return all_records, added_records, updated_records, unknown_fields
 
     def run(self):
         say_my_name()
         self.request_xml_db_file()
-        self.load_data_into_db()
+        all_records, added_records, updated_records, unknown_fields = self.load_data_into_db()
+        result = self.info(all_records, added_records, updated_records, unknown_fields)
+        print(result)
 
-    def info(self):
+    def info(self, all_records, added_records, updated_records, unknown_fields):
         say_my_name()
-        return f"Loaded {len(self.database_dict['realty-feed']['offers'])} records"
+        return (f"Loaded {all_records} records, added {added_records}, updated {updated_records}\n"
+                f"finded {len(unknown_fields)} unknown fields [{unknown_fields}]")
+
 
 
 def main():
     say_my_name()
     loader = DatabaseDownloader()
     loader.run()
-    print(loader.info())
 
 
 if __name__ == "__main__":
