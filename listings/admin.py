@@ -66,6 +66,9 @@ class ListingAdmin(admin.ModelAdmin):
 
         elif 'developers' in request.POST:
             # count = scan_developers()
+            for row in Listing.objects.all().reverse():
+                if Listing.objects.filter(complex_id=row.complex_id).count() > 1:
+                    row.delete()
             pass
 
         self.message_user(request, f"создано {count} новых записей")

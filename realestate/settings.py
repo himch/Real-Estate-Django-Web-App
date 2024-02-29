@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # print('BASE_DIR:', BASE_DIR)
@@ -65,6 +66,7 @@ INSTALLED_APPS = [
     'imagekit',
     'tinymce',
     'djmoney',
+    'django_apscheduler',
     "geoposition",
     'django_admin_geomap',
     'rest_framework',
@@ -233,3 +235,4 @@ CURRENCIES = ('USD', 'EUR', 'AED', 'RUB')
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBINNsjYUUuAGcQAaRIxKoHH15QJDMsS1w'
 
 # IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = 'imagekit.cachefiles.strategies.Optimistic'
+

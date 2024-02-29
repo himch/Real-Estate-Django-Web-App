@@ -6,6 +6,12 @@ from django.http import JsonResponse
 from django.utils.translation import gettext_lazy as _
 from .models import Contact
 from modules.services.utils import send_message_to_telegram_service_channel
+from excel_response import ExcelResponse
+
+
+def contacts_to_excel_view(request):
+    objs = Contact.objects.all()
+    return ExcelResponse(objs)
 
 
 def contact(request):
@@ -52,16 +58,16 @@ def contact(request):
                 # return JsonResponse({"result": 'You have already made an inquiry for this listing'})
                 # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-        contact = Contact(listing=listing,
-                          listing_id=listing_id,
-                          name=name, email=email,
-                          phone=phone,
-                          message=message,
-                          user_id=user_id,
-                          consent_processing_personal_data=consent_processing_personal_data,
-                          page=page,
-                          feedback_method=feedback_method)
-        contact.save()
+        new_contact = Contact(listing=listing,
+                              listing_id=listing_id,
+                              name=name, email=email,
+                              phone=phone,
+                              message=message,
+                              user_id=user_id,
+                              consent_processing_personal_data=consent_processing_personal_data,
+                              page=page,
+                              feedback_method=feedback_method)
+        new_contact.save()
 
         send_message_to_telegram_service_channel(request_text)
 

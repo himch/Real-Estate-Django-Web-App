@@ -3,20 +3,24 @@ from random import choice
 import urllib.request
 import logging
 import traceback
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'realestate.settings')
-
-import django
-
-django.setup()
-
-from listings.models import Listing
-from realtors.models import Realtor
-from developers.models import Developer
-
 import xmltodict as xmltodict
 import json
-from utils import is_int, is_float
+
+
+def is_float(s):
+    try:
+        float(s)
+        return True
+    except (ValueError, TypeError):
+        return False
+
+
+def is_int(s):
+    try:
+        int(s)
+        return True
+    except (ValueError, TypeError):
+        return False
 
 
 def developer_get_or_add(title_en, title_ru, title_ar, logo, Realtor, Developer):
@@ -169,6 +173,9 @@ class DatabaseDownloader(Downloader):
 
     def load_data_into_db(self):
         say_my_name()
+        from listings.models import Listing
+        from realtors.models import Realtor
+        from developers.models import Developer
         data = self.database_dict['realty-feed']['offers']
         all_records = len(data)
         updated_records = 0
@@ -180,7 +187,9 @@ class DatabaseDownloader(Downloader):
         for i, offer in enumerate(data):
             self.get_tables(offer)
             validated_data, unknown_fields_list = self.make_dict_with_fields_info(listing_fields)
-            unknown_fields |= unknown_fields_list
+            if len(unknown_fields_list) > 0:
+                print(f'offer with unknownfields {unknown_fields_list}:', offer)
+                unknown_fields |= unknown_fields_list
             if Listing.objects.filter(complex_id=int(offer['complex-id'])).exists():
                 listing = Listing.objects.filter(complex_id=int(offer['complex-id'])).first()
                 offer_updated_at = listing.updated_at
@@ -226,20 +235,18 @@ class DatabaseDownloader(Downloader):
         all_records, added_records, updated_records, unknown_fields = self.load_data_into_db()
         result = self.info(all_records, added_records, updated_records, unknown_fields)
         print(result)
+        return result
 
     def info(self, all_records, added_records, updated_records, unknown_fields):
         say_my_name()
         return (f"Loaded {all_records} records, added {added_records}, updated {updated_records}\n"
-                f"finded {len(unknown_fields)} unknown fields [{unknown_fields}]")
+                f"Finded {len(unknown_fields)} unknown fields {unknown_fields}")
 
 
-
-def main():
+def load_alnair_realty():
     say_my_name()
-    loader = DatabaseDownloader()
-    loader.run()
+    db_loader = DatabaseDownloader()
+    # result = db_loader.run()
+    print('load_alnair_realty complete')
+    # return result
 
-
-if __name__ == "__main__":
-    logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
-    main()

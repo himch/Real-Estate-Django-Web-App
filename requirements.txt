@@ -59,3 +59,6 @@ django-stubs
 pytils~=0.4.1
 django-phonenumber-field
 phonenumbers
+
+APScheduler~=3.10.4
+django-excel-response~=2.0.5

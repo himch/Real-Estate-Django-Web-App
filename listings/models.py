@@ -57,7 +57,7 @@ class Listing(models.Model, GeoItem):
 
     planned_completion = property(_get_planned_completion)
 
-    complex_id = models.IntegerField(null=True)
+    complex_id = models.IntegerField(null=True, unique=True)
     type = models.TextField(blank=True, null=True)
     logo = models.TextField(blank=True, null=True)
     photo = models.URLField(blank=True, null=True)

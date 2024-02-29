@@ -13,7 +13,8 @@
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center"><a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">{% trans 'Rent catalogue' %}<!--Каталог аренды--></a>
+    <div class="container margin-center relative">
+      <a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">{% trans 'Rent catalogue' %}<!--Каталог аренды--></a>
       <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
       {% include 'includes/bookmarks/favorites_module.html' %}
       <div class="rent-single__top flex flex-wrap">
@@ -204,6 +205,10 @@
               <style>
                 .contacts__item-iframe {
                 height: 500px;
+                }
+                .gm-style .gm-style-iw-d {
+                    overflow: hidden;
+                    padding-bottom: 20px;
                 }
               </style>
             </div>
