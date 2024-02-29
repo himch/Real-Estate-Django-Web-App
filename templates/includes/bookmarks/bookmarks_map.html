@@ -6,5 +6,12 @@
 {% get_current_language as LANGUAGE_CODE %}
 
 <div id="offers_map">
-    {% include "geomap/common.html" %}
+    <div class="map_item" id="map-canvas">
+        <!-- google map here -->
+    </div>
 </div>
+<style>
+  .map_item {
+  height: 500px;
+  }
+</style>

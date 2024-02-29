@@ -21,7 +21,6 @@ from listings.utils import fix_description, json_equal
 from modules.services.utils import say_my_name
 from realtors.models import Realtor
 
-
 User = get_user_model()
 
 
@@ -35,14 +34,10 @@ class Listing(models.Model, GeoItem):
     address = models.CharField(max_length=200)
 
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
-    photo_main_thumbnail_width_750 = ImageSpecField(source='photo_main',
-                                                    processors=[ResizeToFill(width=750, height=450, upscale=False)],
-                                                    format='WEBP',
-                                                    options={'quality': 100})
-    photo_main_thumbnail_width_300 = ImageSpecField(source='photo_main',
-                                                    processors=[ResizeToFill(width=300, height=300, upscale=False)],
-                                                    format='WEBP',
-                                                    options={'quality': 100})
+    photo_main_thumbnail_281_417 = ImageSpecField(source='photo_main',
+                                                  processors=[ResizeToFill(width=281, height=417, upscale=False)],
+                                                  format='WEBP',
+                                                  options={'quality': 100})
     photo_main_thumbnail_width_180 = ImageSpecField(source='photo_main',
                                                     processors=[ResizeToFill(width=180, height=180, upscale=False)],
                                                     format='WEBP',
@@ -213,7 +208,7 @@ class Listing(models.Model, GeoItem):
         # save original values, when model is loaded from database,
         # in a separate attribute on the model
         instance._loaded_values = dict(zip(field_names, values))
-        print('old Listing values saves')
+        # print('old Listing values saves')
         return instance
 
     def save_image_from_url(self, url, image_field, save=True):
@@ -429,17 +424,17 @@ class Listing(models.Model, GeoItem):
 
     def save(self, **kwargs):
         say_my_name()
-        print('save Listing...')
+        # print('save Listing...')
         self._my_updating = self._state.adding is False  # эта запись обновляется, а не добавляется
         self._my_adding = self._state.adding is True  # эта запись обновляется, а не добавляется
         self.description_a_en = fix_description(self.description_a_en)
         self.description_a_ru = fix_description(self.description_a_ru)
         self.description_a_ar = fix_description(self.description_a_ar)
         if self.is_fully_loaded:
-            print(f'save is_fully_loaded for complex-id = {self.complex_id}')
+            # print(f'save is_fully_loaded for complex-id = {self.complex_id}')
             super().save(**kwargs)  # Call the "real" save() method.
         else:
-            print(f'save listing for complex-id = {self.complex_id}')
+            # print(f'save listing for complex-id = {self.complex_id}')
             self.save_listing_photos()
             super().save(**kwargs)  # Call the "real" save() method.
             # do_something()

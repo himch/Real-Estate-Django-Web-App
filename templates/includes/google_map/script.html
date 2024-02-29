@@ -5,15 +5,27 @@
 
 <script type="text/javascript">
   var map;
+
   function map_initialize() {
     var mapDiv = document.getElementById('map-canvas');
     map = new google.maps.Map(mapDiv, {
-      center: new google.maps.LatLng(25.2047548,55.1740223),
+      // center: new google.maps.LatLng(25.2047548,55.1740223),
       zoom: 10,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
+    map.maxDefaultZoom = 15;
+    google.maps.event.addListenerOnce(map, "bounds_changed", function () {
+      this.setZoom(Math.min(this.getZoom(), this.maxDefaultZoom));
+    });
+
     google.maps.event.addListenerOnce(map, 'tilesloaded', addMarkers);
+    var bounds = new google.maps.LatLngBounds();
+    {% for listing in geomap_items %}
+        bounds.extend( new google.maps.LatLng({{ listing.latitude|unlocalize }},{{ listing.longitude|unlocalize }}) );
+      {% endfor %}
+    map.initialZoom = true;
+    map.fitBounds( bounds );
 
   }
   function addMarkers() {

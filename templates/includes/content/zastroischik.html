@@ -65,9 +65,14 @@
   <div class="rent-map">
     <div class="container margin-center">
       <div class="rent-map__title section__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'Location of complexes in the UAE' %}</div>
-      <div class="rent-map__item">
-        {% include "geomap/common.html" %}
+      <div class="rent-map__item" id="map-canvas">
+        <!-- google map here -->
       </div>
+      <style>
+        .rent-map__item {
+        height: 500px;
+        }
+      </style>
     </div>
   </div>
 
@@ -76,5 +81,5 @@
   {% include 'includes/developers/developers_module_2.html' %}
 
 </main>
-
+{% include 'includes/google_map/script.html' %}
 {% endblock %}

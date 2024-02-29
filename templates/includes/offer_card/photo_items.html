@@ -7,8 +7,8 @@
 <div class="swiper-slide img_cover img_full">
   {% if listing.photo_main %}
   <picture>
-    <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main.url }}"/>
-    <img class="lazy " width="281" height="417" src="" data-src="{{ listing.photo_main.url }}" alt="" loading="lazy"/>
+    <source type="image/webp" srcset="" data-srcset="{{ listing.photo_main_thumbnail_281_417.url }}"/>
+    <img class="lazy " width="281" height="417" src="" data-src="{{ listing.photo_main_thumbnail_281_417.url }}" alt="" loading="lazy"/>
   </picture>
   {% endif %}
 </div>

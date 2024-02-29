@@ -32,7 +32,7 @@ def send_message_to_telegram_service_channel(text):
 def say_my_name():
     stack = traceback.extract_stack()
     text = 'Исполняется функция {}'.format(stack[-2][2])
-    print(text)
+    # print(text)
     logging.info(text)
 
 
