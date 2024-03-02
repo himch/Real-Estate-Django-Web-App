@@ -1,17 +1,21 @@
 {% load i18n %}
 {% load static %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!-- Contacts -->
 <div class="contacts bg-c3 text-c2">
     <div class="container margin-center">
-      <div class="section__title font-tenor p-animate__up" data-add="active">{% trans 'Contacts' %}<!--Контакты--></div>
+      <div class="section__title font-tenor p-animate__up" data-add="active">{% trans 'Contacts' %}</div>
       <div class="contacts__block flex">
         <div class="contacts__left">
           <div class="contacts__items flex flex-col">
             <div class="contacts__item">
-              <div class="contacts__item-title">{% trans 'Customer service department' %}<!--Отдел клиентского сервиса--></div><a class="contacts__item-subtitle" href="tel:{{ our_company.phone }}">{{ our_company.phone }}</a>
+              <div class="contacts__item-title">{% trans 'Customer service department' %}</div>
+              <a class="contacts__item-subtitle" href="tel:{{ our_company.phone }}">{{ our_company.phone }}</a>
             </div>
             <div class="contacts__item">
-              <div class="contacts__item-title">{% trans 'E-mail' %}<!--Эл.почта--></div><a class="contacts__item-subtitle" href="mailto:{{ our_company.email }}">{{ our_company.email }}</a>
+              <div class="contacts__item-title">{% trans 'E-mail' %}</div>
+              <a class="contacts__item-subtitle" href="mailto:{{ our_company.email }}">{{ our_company.email }}</a>
             </div>
             <div class="contacts__item contacts__item_socials">
 
@@ -22,10 +26,13 @@
         </div>
         <div class="contacts__right">
           <div class="contacts__item">
-            <div class="contacts__item-title">{% trans 'Office' %}<!--Офис--></div>
-            <div class="contacts__item-subtitle">{% trans our_company.office_address %}<!--Al Gurg Tower 3, офис 3, этаж P Дубай, ОАЭ--></div>
-            <div class="contacts__item-iframe">
+            <div class="contacts__item-title">{% trans 'Office' %}</div>
+            <div class="contacts__item-subtitle">{% trans our_company.office_address %}</div>
+            <div class="contacts__item-iframe" id="our-office-map-canvas" style="height:300px;">
+              <!--
+              google map here
               <iframe class="lazy" width="697" height="252" src="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10206.085294199549!2d55.31710806150708!3d25.257258873607665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a71d6b2d%3A0xef3b0742be39f2a5!2zQWwgR3VyZyB0b3dlciAzLDEydGggZmxvb3IgLFZGUyBHbG9iYWwgLSA3IEJhbml5YXMgUmQgLSBEZWlyYSAtIEZsb29yIDUgLSBEdWJhaSAtINCe0LHRitC10LTQuNC90LXQvdC90YvQtSDQkNGA0LDQsdGB0LrQuNC1INCt0LzQuNGA0LDRgtGL!5e0!3m2!1sru!2sru!4v1703080678395!5m2!1sru!2sru" loading="lazy"></iframe>
+              -->
             </div>
           </div>
         </div>

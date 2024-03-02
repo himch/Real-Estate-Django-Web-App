@@ -4,39 +4,94 @@
 {% get_current_language as LANGUAGE_CODE %}
 
 <script type="text/javascript">
+
   var map;
+  var our_company_map;
 
-  function map_initialize() {
-    var mapDiv = document.getElementById('map-canvas');
-    map = new google.maps.Map(mapDiv, {
-      // center: new google.maps.LatLng(25.2047548,55.1740223),
-      zoom: 10,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+  {% if geomap_items %}
+    function map_initialize() {
+      var mapDiv = document.getElementById('map-canvas');
+      map = new google.maps.Map(mapDiv, {
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
 
-    map.maxDefaultZoom = 15;
-    google.maps.event.addListenerOnce(map, "bounds_changed", function () {
-      this.setZoom(Math.min(this.getZoom(), this.maxDefaultZoom));
-    });
+      map.maxDefaultZoom = 15;
+      google.maps.event.addListenerOnce(map, "bounds_changed", function () {
+        this.setZoom(Math.min(this.getZoom(), this.maxDefaultZoom));
+      });
 
-    google.maps.event.addListenerOnce(map, 'tilesloaded', addMarkers);
-    var bounds = new google.maps.LatLngBounds();
-    {% for listing in geomap_items %}
-        bounds.extend( new google.maps.LatLng({{ listing.latitude|unlocalize }},{{ listing.longitude|unlocalize }}) );
-      {% endfor %}
-    map.initialZoom = true;
-    map.fitBounds( bounds );
-
-  }
-  function addMarkers() {
-
+      google.maps.event.addListenerOnce(map, 'tilesloaded', addMarkers);
+      var bounds = new google.maps.LatLngBounds();
       {% for listing in geomap_items %}
-        {% include 'includes/google_map/marker.html' %}
+          bounds.extend( new google.maps.LatLng({{ listing.latitude|unlocalize }},{{ listing.longitude|unlocalize }}) );
       {% endfor %}
+      map.initialZoom = true;
+      map.fitBounds( bounds );
 
+    }
+
+    function addMarkers() {
+
+        {% for listing in geomap_items %}
+          {% include 'includes/google_map/marker.html' %}
+        {% endfor %}
+
+    }
+  {% endif %}
+
+  {% if our_company %}
+    function our_company_map_initialize() {
+      var mapDiv = document.getElementById('our-office-map-canvas');
+      our_company_map = new google.maps.Map(mapDiv, {
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      our_company_map.maxDefaultZoom = 15;
+      google.maps.event.addListenerOnce(our_company_map, "bounds_changed", function () {
+        this.setZoom(Math.min(this.getZoom(), this.maxDefaultZoom));
+      });
+
+      google.maps.event.addListenerOnce(our_company_map, 'tilesloaded', our_company_addMarkers);
+      var bounds = new google.maps.LatLngBounds();
+      bounds.extend( new google.maps.LatLng({{ our_company.office_coordinates_latitude|unlocalize }},{{ our_company.office_coordinates_longitude|unlocalize }}) );
+      our_company_map.initialZoom = true;
+      our_company_map.fitBounds( bounds );
+
+    }
+
+    function our_company_addMarkers() {
+
+        var point = new google.maps.LatLng({{ our_company.office_coordinates_latitude|unlocalize }},{{ our_company.office_coordinates_longitude|unlocalize }});
+        var image = '/img/spotlight-waypoint-a.png';
+
+        var marker = new google.maps.Marker({
+            position: point,
+            map: our_company_map,
+            icon: image,
+            url: '{% url "about" %}',
+            title: '{{ our_company.name }}',
+        });
+    }
+  {% endif %}
+
+  function map_init() {
+    {% if geomap_items %}
+      map_initialize();
+    {% endif %}
+    {% if our_company %}
+      our_company_map_initialize();
+    {% endif %}
   }
 
   //google.maps.event.addDomListener(window, 'load', map_initialize);
   //window.addEventListener('load', map_initialize);
 </script>
-<script async type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBINNsjYUUuAGcQAaRIxKoHH15QJDMsS1w&libraries=places&callback=map_initialize"></script>
+<style>
+  .gm-style .gm-style-iw-d {
+      overflow: hidden;
+      padding-bottom: 20px;
+  }
+</style>
+<script async type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBINNsjYUUuAGcQAaRIxKoHH15QJDMsS1w&libraries=places&callback=map_init"></script>

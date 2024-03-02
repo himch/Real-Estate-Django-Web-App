@@ -266,7 +266,7 @@ class EmailConfirmationFailedView(TemplateView):
 
 def logout_view(request):
     logout(request)
-    return redirect('index') # на главную страницу сайта
+    return redirect('index')  # на главную страницу сайта
 
 # class UserLogoutView(LogoutView):
 #     """

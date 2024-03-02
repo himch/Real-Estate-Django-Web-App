@@ -10,8 +10,17 @@
           <div class="footer__left">
             {% include 'includes/footer/footerLogo.html' %}
             <div class="footer__cabinet">
-              <div class="footer__cabinet-title">{% trans 'Client&quot;s personal account' %}<!--Личный кабинет клиента--></div>
-              <div class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500 modal__show" data-modal="register">{% trans 'Log in' %}<!--Войти--></div>
+              <div class="footer__cabinet-title">{% trans 'Client&quot;s personal account' %}</div>
+              {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}">
+                  <div class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500">{% trans 'Log out' %}</div>
+                </a>
+              {% else %}
+                <a href="{% url 'login' %}">
+                  <div class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500">{% trans 'Log in' %}</div>
+                </a>
+              {% endif %}
+
             </div>
           </div>
           <div class="footer__right">
@@ -73,109 +82,10 @@
 
 {% include 'includes/feedback_forms/thanks_catalog.html' %}
 
-<div class="modal modal_register modal_form">
-  <div class="modal__content relative margin-center">
-    <div class="modal__close absolute">
-      <picture>
-        <source type="image/webp" srcset="" data-srcset="/img/modal/type/close.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/modal/type/close.png" alt="" loading="lazy"/>
-      </picture>
-    </div>
-    <div class="modal_register__content relative">
-      <div class="modal_register__title text-center text-c5">{% trans 'Registration' %}<!--Регистрация--></div>
-      <form class="relative">
-        <div class="modal_register__inputs flex flex-col">
-          <div class="modal_register__inputs-item active">
-            <div class="modal_register__input form__input">
-              <div class="modal_register__input-subtitle text-500">{% trans 'Country/region' %}<!--Страна/регион--></div>
-              <div class="modal_register__input-title">Россия (+7)</div>
-            </div>
-            <div class="modal_register__input form__input">
-              <input type="tel" name="tel" placeholder="Номер телефона" required="required"/>
-            </div>
-            <div class="modal_register__input-text text-center">{% trans 'We will send you an SMS to confirm your number phone.' %}<!--Мы отправим вам SMS для подтверждения номера телефона.--></div>
-          </div>
-          <div class="modal_register__inputs-item">
-            <div class="modal_register__input form__input">
-              <div class="modal_register__input-subtitle text-500">Email</div>
-              <input type="email" name="email" placeholder="Ваш Email" required="required"/>
-            </div>
-            <div class="modal_register__input-text text-center">{% trans 'We will send you a verification code mail.' %}<!--Мы отправим вам код для подтверждения почты.--></div>
-          </div>
-        </div>
-        <div class="modal_register__end">
-          <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Continue' %}<!--Продолжить--></button>
-          <div class="modal_register__end-center text-center font-roboto">или</div>
-          <div class="modal_register__changes">
-            <div class="modal_register__change cursor-pointer flex flex-ai-center active">
-              <div class="modal_register__change-svg">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/modal/form/mail.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/modal/form/mail.png" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="modal_register__change-title">{% trans 'Via email' %}<!--С помощью e-mail--></div>
-            </div>
-            <div class="modal_register__change cursor-pointer flex flex-ai-center">
-              <div class="modal_register__change-svg">
-                <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/modal/form/tel.webp"/><img class="lazy " width="17" height="17" src="" data-src="/img/modal/form/tel.png" alt="" loading="lazy"/>
-                </picture>
-              </div>
-              <div class="modal_register__change-title">{% trans 'Using a phone number' %}<!--С помощью номера телефона--></div>
-            </div>
-          </div>
-          <div class="modal_register__acc flex flex-ai-center">
-            <div class="modal_register__acc-text">{% trans 'Already have an account?' %}<!--У вас уже есть аккаунт?--></div>
-            <div class="modal_register__acc-link text-underline text-500">{% trans 'Log in' %}<!--Войти--></div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="modal modal_conf modal_form">
-  <div class="modal__content relative margin-center">
-    <div class="modal__close absolute">
-      <picture>
-        <source type="image/webp" srcset="" data-srcset="/img/modal/type/close.webp"/><img class="lazy " width="14" height="14" src="" data-src="/img/modal/type/close.png" alt="" loading="lazy"/>
-      </picture>
-    </div>
-    <div class="modal_conf__content relative">
-      <form class="relative">
-        <div class="modal_conf__items">
-          <div class="modal_conf__item active">
-            <div class="modal_conf__title modal_register__title text-center text-c5">{% trans 'Confirm your number' %}<!--Подтвердите номер--></div>
-            <div class="modal_conf__item-title">{% trans 'Enter the code sent to the number +7 (9**) ***-**-**' %}<!--Введите код, высланный на номер +7 (9**) ***-**-**--></div>
-            <div class="modal_conf__item-inputs flex flex-ai-center">
-              <input class="modal_conf__item-input" type="text" name="code1"/>
-              <input class="modal_conf__item-input" type="text" name="code2"/>
-              <input class="modal_conf__item-input" type="text" name="code3"/>
-              <input class="modal_conf__item-input" type="text" name="code4"/>
-            </div>
-            <div class="modal_conf__request flex flex-ai-center">
-              <div class="modal_conf__request-left">{% trans 'Didn&quot;t receive the code?' %}<!--Не получили код?--></div>
-              <div class="modal_conf__request-right text-underline cursor-pointer">{% trans 'Send again' %}<!--Отправить ещё раз--></div>
-            </div>
-          </div>
-          <div class="modal_conf__item">
-            <div class="modal_conf__title modal_register__title text-center text-c5">{% trans 'Confirm your email' %}<!--Подтвердите почту--></div>
-            <div class="modal_conf__item-title">{% trans 'Enter the code sent to the address *******@gmail.com' %}<!--Введите код, высланный на адрес *******@gmail.com--></div>
-            <div class="modal_conf__item-inputs flex flex-ai-center">
-              <input class="modal_conf__item-input" type="text" name="code1"/>
-              <input class="modal_conf__item-input" type="text" name="code2"/>
-              <input class="modal_conf__item-input" type="text" name="code3"/>
-              <input class="modal_conf__item-input" type="text" name="code4"/>
-            </div>
-            <div class="modal_conf__request flex flex-ai-center">
-              <div class="modal_conf__request-left">{% trans 'Didn&quot;t receive the code?' %}<!--Не получили код?--></div>
-              <div class="modal_conf__request-right text-underline cursor-pointer">{% trans 'Send again' %}<!--Отправить ещё раз--></div>
-            </div>
-          </div>
-        </div>
-        <div class="modal_conf__end-link text-underline text-500 text-c3 cursor-pointer" data-index="2">{% trans 'Choose another way' %}<!--Выбрать другой способ--></div>
-      </form>
-    </div>
-  </div>
-</div>
+{% comment %}
+{% include 'accounts/registration/modal_user_register.html' %}
+{% include 'accounts/registration/modal_email_confirmed.html' %}
+{% endcomment %}
 
 <div class="btn-up btn-up_hide"></div>
 

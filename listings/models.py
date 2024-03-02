@@ -23,10 +23,36 @@ from realtors.models import Realtor
 
 User = get_user_model()
 
+RENT_OFFER_TYPE = "rent"
+SELL_OFFER_TYPE = "sell"
+
+OFFER_TYPE_CHOICES = (
+    (RENT_OFFER_TYPE, "Rent"),
+    (SELL_OFFER_TYPE, "Sell"),
+)
+
+
+class DisplayedSellListingManager(models.Manager):
+    def get_queryset(self):
+        return super(DisplayedSellListingManager, self).get_queryset().filter(is_published=True,
+                                                                              is_fully_loaded=True,
+                                                                              offer_type=SELL_OFFER_TYPE).order_by('-list_date')
+
+
+class DisplayedRentListingManager(models.Manager):
+    def get_queryset(self):
+        return super(DisplayedRentListingManager, self).get_queryset().filter(is_published=True,
+                                                                             is_fully_loaded=True,
+                                                                             offer_type=RENT_OFFER_TYPE).order_by('-list_date')
+
 
 class Listing(models.Model, GeoItem):
-    source = models.TextField(default='alnair')
-    offer_type = models.TextField(default='sell')
+    objects = models.Manager()
+    sell_objects = DisplayedSellListingManager()
+    rent_objects = DisplayedRentListingManager()
+
+    source = models.CharField(max_length=10, default='alnair')
+    offer_type = models.CharField(max_length=4, choices=OFFER_TYPE_CHOICES, default=SELL_OFFER_TYPE)
     url = models.URLField(blank=True, null=True)
     realtor = models.ForeignKey(Realtor, blank=True, null=True, on_delete=models.DO_NOTHING)
     developer = models.ForeignKey(Developer, on_delete=models.DO_NOTHING)
@@ -58,36 +84,36 @@ class Listing(models.Model, GeoItem):
     planned_completion = property(_get_planned_completion)
 
     complex_id = models.IntegerField(null=True, unique=True)
-    type = models.TextField(blank=True, null=True)
-    logo = models.TextField(blank=True, null=True)
+    type = models.CharField(max_length=200, blank=True, null=True)
+    logo = models.CharField(max_length=200, blank=True, null=True)
     photo = models.URLField(blank=True, null=True)
 
-    title_a_ru = models.TextField(blank=True, null=True)
-    title_a_en = models.TextField(blank=True, null=True)
-    title_a_ar = models.TextField(blank=True, null=True)
+    title_a_ru = models.CharField(max_length=200, blank=True, null=True)
+    title_a_en = models.CharField(max_length=200, blank=True, null=True)
+    title_a_ar = models.CharField(max_length=200, blank=True, null=True)
 
     description_a_ru = models.TextField(blank=True, null=True)
     description_a_en = models.TextField(blank=True, null=True)
     description_a_ar = models.TextField(blank=True, null=True)
 
-    special_price = models.IntegerField(blank=True, null=True, default=1)
+    special_price = models.IntegerField(blank=True, null=True, default=0)
 
     price_on_request = models.IntegerField(blank=True, null=True)
     is_limited_publication = models.IntegerField(blank=True, null=True)
 
-    status_a_ru = models.TextField(blank=True, null=True)
-    status_a_en = models.TextField(blank=True, null=True)
-    status_a_ar = models.TextField(blank=True, null=True)
+    status_a_ru = models.CharField(max_length=200, blank=True, null=True)
+    status_a_en = models.CharField(max_length=200, blank=True, null=True)
+    status_a_ar = models.CharField(max_length=200, blank=True, null=True)
 
-    construction_start_at = models.TextField(blank=True, null=True)
+    construction_start_at = models.CharField(max_length=200, blank=True, null=True)
     construction_progress = models.FloatField(null=True)
-    planned_completion_at = models.TextField(blank=True, null=True)
-    predicted_completion_at = models.TextField(blank=True, null=True)
+    planned_completion_at = models.CharField(max_length=200, blank=True, null=True)
+    predicted_completion_at = models.CharField(max_length=200, blank=True, null=True)
 
-    developer_a_title_a_ru = models.TextField(blank=True, null=True)
-    developer_a_title_a_en = models.TextField(blank=True, null=True)
-    developer_a_title_a_ar = models.TextField(blank=True, null=True)
-    developer_a_logo = models.TextField(blank=True, null=True)
+    developer_a_title_a_ru = models.CharField(max_length=200, blank=True, null=True)
+    developer_a_title_a_en = models.CharField(max_length=200, blank=True, null=True)
+    developer_a_title_a_ar = models.CharField(max_length=200, blank=True, null=True)
+    developer_a_logo = models.CharField(max_length=200, blank=True, null=True)
 
     listing_amenities = models.JSONField(blank=True, null=True)
     listing_districts = models.JSONField(blank=True, null=True)
@@ -180,25 +206,25 @@ class Listing(models.Model, GeoItem):
 
     price_a_min = models.IntegerField(null=True)
     price_a_max = models.IntegerField(null=True)
-    price_a_currency = models.TextField(blank=True, null=True)
+    price_a_currency = models.CharField(max_length=200, blank=True, null=True)
 
     listing_br_prices = models.JSONField(blank=True, null=True)
 
-    updated_at = models.TextField(blank=True, null=True)
+    updated_at = models.CharField(max_length=200, blank=True, null=True)
 
     is_sold_out = models.IntegerField(null=True)
     listing_payment_plans = models.JSONField(blank=True, null=True)
 
-    sales_status_a_ru = models.TextField(blank=True, null=True)
-    sales_status_a_en = models.TextField(blank=True, null=True)
-    sales_status_a_ar = models.TextField(blank=True, null=True)
+    sales_status_a_ru = models.CharField(max_length=200, blank=True, null=True)
+    sales_status_a_en = models.CharField(max_length=200, blank=True, null=True)
+    sales_status_a_ar = models.CharField(max_length=200, blank=True, null=True)
 
     listing_stocks = models.JSONField(blank=True, null=True)
 
-    eoi_a_is_eoi_return = models.TextField(blank=True, null=True)
+    eoi_a_is_eoi_return = models.CharField(max_length=200, blank=True, null=True)
     eoi_a_eoi_items = models.TextField(blank=True, null=True)
-    service_charge = models.TextField(blank=True, null=True)
-    assignment = models.TextField(blank=True, null=True)
+    service_charge = models.CharField(max_length=200, blank=True, null=True)
+    assignment = models.CharField(max_length=200, blank=True, null=True)
 
     @classmethod
     def from_db(cls, db, field_names, values):
@@ -472,13 +498,13 @@ class MainAlbumImage(models.Model):
 class Price(models.Model):
     listing = models.ForeignKey(Listing, related_name='prices', on_delete=models.CASCADE)
     # "[{\"key\": \"rooms_2\", \"count\": \"1\", \"min_price\": \"2300888\", \"max_price\": \"2300888\", \"min_price_m2\": \"22152\", \"max_price_m2\": \"22152\", \"currency\": \"AED\", \"min_area\": {\"m2\": \"103.87\", \"ft2\": \"1118.05\"}, \"max_area\": {\"m2\": \"103.87\", \"ft2\": \"1118.05\"}}, {\"key\": \"rooms_3\", \"count\": \"5\", \"min_price\": \"4662888\", \"max_price\": \"4687888\", \"min_price_m2\": \"18205\", \"max_price_m2\": \"18229\", \"currency\": \"AED\", \"min_area\": {\"m2\": \"256.04\", \"ft2\": \"2755.99\"}, \"max_area\": {\"m2\": \"257.25\", \"ft2\": \"2769.01\"}}]"
-    key = models.TextField(blank=True, null=True)
+    key = models.CharField(max_length=200, blank=True, null=True)
     count = models.IntegerField(null=True)
     min_price = models.FloatField(null=True)
     max_price = models.FloatField(null=True)
     min_price_m2 = models.FloatField(null=True)
     max_price_m2 = models.FloatField(null=True)
-    currency = models.TextField(blank=True, null=True)
+    currency = models.CharField(max_length=20, blank=True, null=True)
     min_area_m2 = models.FloatField(null=True)
     max_area_m2 = models.FloatField(null=True)
     min_area_ft2 = models.FloatField(null=True)
@@ -490,9 +516,9 @@ class Price(models.Model):
 
 class Amenity(models.Model):
     listing = models.ForeignKey(Listing, related_name='amenities', on_delete=models.CASCADE)
-    ru = models.TextField(blank=True, null=True)
-    en = models.TextField(blank=True, null=True)
-    ar = models.TextField(blank=True, null=True)
+    ru = models.CharField(max_length=200, blank=True, null=True)
+    en = models.CharField(max_length=200, blank=True, null=True)
+    ar = models.CharField(max_length=200, blank=True, null=True)
     amenity_svg = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -501,7 +527,7 @@ class Amenity(models.Model):
 
 class District(models.Model):
     listing = models.ForeignKey(Listing, related_name='districts', on_delete=models.CASCADE)
-    name = models.TextField(blank=True, null=True)
+    name = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -509,9 +535,9 @@ class District(models.Model):
 
 class Album(models.Model):
     listing = models.ForeignKey(Listing, related_name='albums', on_delete=models.CASCADE)
-    title_ru = models.TextField(blank=True, null=True)
-    title_en = models.TextField(blank=True, null=True)
-    title_ar = models.TextField(blank=True, null=True)
+    title_ru = models.CharField(max_length=200, blank=True, null=True)
+    title_en = models.CharField(max_length=200, blank=True, null=True)
+    title_ar = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.title_en
@@ -528,9 +554,9 @@ class Image(models.Model):
 class PaymentPlan(models.Model):
     listing = models.ForeignKey(Listing, related_name='payment_plans', on_delete=models.CASCADE)
     alnair_id = models.IntegerField(null=True)
-    title_ru = models.TextField(blank=True, null=True)
-    title_en = models.TextField(blank=True, null=True)
-    title_ar = models.TextField(blank=True, null=True)
+    title_ru = models.CharField(max_length=200, blank=True, null=True)
+    title_en = models.CharField(max_length=200, blank=True, null=True)
+    title_ar = models.CharField(max_length=200, blank=True, null=True)
     on_booking_percent = models.FloatField(null=True)
     on_booking_fix = models.FloatField(blank=True, null=True)
     on_construction_percent = models.FloatField(null=True)
@@ -547,13 +573,13 @@ class PaymentPlan(models.Model):
     roi_percent = models.FloatField(blank=True, null=True)
     roi_fix = models.FloatField(blank=True, null=True)
     roi_payments_count = models.IntegerField(null=True)
-    currency = models.TextField(blank=True, null=True)
-    period_after_handover_period = models.TextField(blank=True, null=True)
-    period_after_handover_count = models.TextField(blank=True, null=True)
-    period_after_handover_repeat_count = models.TextField(blank=True, null=True)
-    period_after_roi_period = models.TextField(blank=True, null=True)
-    period_after_roi_count = models.TextField(blank=True, null=True)
-    period_after_roi_repeat_count = models.TextField(blank=True, null=True)
+    currency = models.CharField(max_length=20, blank=True, null=True)
+    period_after_handover_period = models.CharField(max_length=200, blank=True, null=True)
+    period_after_handover_count = models.CharField(max_length=200, blank=True, null=True)
+    period_after_handover_repeat_count = models.CharField(max_length=200, blank=True, null=True)
+    period_after_roi_period = models.CharField(max_length=200, blank=True, null=True)
+    period_after_roi_count = models.CharField(max_length=200, blank=True, null=True)
+    period_after_roi_repeat_count = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.title_en
@@ -561,9 +587,9 @@ class PaymentPlan(models.Model):
 
 class Additional(models.Model):
     payment_plan = models.ForeignKey(PaymentPlan, related_name='additionals', on_delete=models.CASCADE)
-    title_ru = models.TextField(blank=True, null=True)
-    title_en = models.TextField(blank=True, null=True)
-    title_ar = models.TextField(blank=True, null=True)
+    title_ru = models.CharField(max_length=200, blank=True, null=True)
+    title_en = models.CharField(max_length=200, blank=True, null=True)
+    title_ar = models.CharField(max_length=200, blank=True, null=True)
     percent = models.FloatField(null=True)
     fix = models.FloatField(blank=True, null=True)
 

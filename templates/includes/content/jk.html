@@ -268,18 +268,9 @@
 
               <div class="contacts__item">
                 <div class="contacts__item-subtitle">{{ listing.address|safe }}</div>
-                <div class="contacts__item-iframe" id="map-canvas">
+                <div class="contacts__item-iframe" id="map-canvas" style="height:500px;">
                   <!-- google map here -->
                 </div>
-                <style>
-                  .contacts__item-iframe {
-                  height: 500px;
-                  }
-                  .gm-style .gm-style-iw-d {
-                      overflow: hidden;
-                      padding-bottom: 20px;
-                  }
-                </style>
               </div>
               <!--
               <div class="rent-single__location-desc">
@@ -345,5 +336,4 @@
     </div>
   </div>
 </main>
-{% include 'includes/google_map/script.html' %}
 {% endblock %}

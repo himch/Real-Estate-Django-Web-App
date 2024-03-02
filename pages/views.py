@@ -1,4 +1,5 @@
-import itertools
+import random
+from itertools import chain
 
 from django.core.paginator import Paginator
 from django.db.models import Min, Max
@@ -19,35 +20,44 @@ from realtors.models import Realtor
 from our_company.models import OurCompany
 
 
+OFFERS_IN_CAROUSEL = 6
+
+
 User = get_user_model()
 
 
-def index(request):
-    # print('request.LANGUAGE_CODE:', request.LANGUAGE_CODE)
-    page = request.GET.get('page')
+def get_random(objects, number):
+    try:
+        return random.sample(list(objects), number)
+    except ValueError:
+        return objects
 
+
+def index(request):
     our_company = OurCompany.objects.all().first()
 
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='sell')
-    paginator = Paginator(listings, 6)
-    paged_listings = paginator.get_page(page)
+    listings = Listing.sell_objects.filter(special_price=True)
+    if listings.count() < OFFERS_IN_CAROUSEL:
+        random_listings = get_random(Listing.sell_objects.filter(special_price=False), OFFERS_IN_CAROUSEL - listings.count())
+        listings = list(chain(listings, random_listings))
+    random_listings = get_random(listings, OFFERS_IN_CAROUSEL)
 
-    rent_listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
-    rent_paginator = Paginator(rent_listings, 6)
-    paged_rent_listings = rent_paginator.get_page(page)
+    rent_listings = Listing.rent_objects.filter(special_price=True)
+    if rent_listings.count() < OFFERS_IN_CAROUSEL:
+        random_rent_listings = get_random(Listing.rent_objects.filter(special_price=False), OFFERS_IN_CAROUSEL - rent_listings.count())
+        rent_listings = list(chain(rent_listings, random_rent_listings))
+    random_rent_listings = get_random(rent_listings, OFFERS_IN_CAROUSEL)
 
-    catalogs = Catalog.objects.all()
+    random_catalogs = get_random(Catalog.objects.all(), OFFERS_IN_CAROUSEL)
 
-    blog_articles = Article.objects.all()
-    blog_paginator = Paginator(blog_articles, 6)
-    paged_blog_articles = blog_paginator.get_page(1)
+    random_blog_articles = get_random(Article.objects.all(), OFFERS_IN_CAROUSEL)
 
     context = {
         'our_company': our_company,
-        'catalogs': catalogs,
-        'blog_articles': paged_blog_articles,
-        'rent_listings': paged_rent_listings,
-        'listings': paged_listings
+        'catalogs': random_catalogs,
+        'blog_articles': random_blog_articles,
+        'rent_listings': random_rent_listings,
+        'listings': random_listings
     }
 
     # return render(request, 'pages/index.html', context)
