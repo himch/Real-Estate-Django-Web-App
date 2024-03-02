@@ -87,6 +87,14 @@ class Listing(models.Model, GeoItem):
 
     suitable_for = models.IntegerField(choices=SUITABLE_FOR_CHOICES, default=4)  # for RENT
 
+    @property
+    def suitable_for_string(self):
+        for number, item in SUITABLE_FOR_CHOICES:
+            if number == self.suitable_for:
+                return item
+        number, item = SUITABLE_FOR_CHOICES[0]
+        return item
+
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(auto_now_add=True, blank=True)
 
