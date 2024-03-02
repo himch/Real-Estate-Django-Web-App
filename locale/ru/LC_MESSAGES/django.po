@@ -20,6 +20,9 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+msgid "Thanks for sending!"
+msgstr "Спасибо за запрос!"
+
 msgid "with the latest news from the world of Dubai"
 msgstr "с последними новостями из мира Дубая"
 
@@ -351,8 +354,8 @@ msgstr "Короткое описание каталога или проекта
 
 #: templates/includes/catalog/catalog_module.html:8
 #: templates/includes/content/index_rus.html:1322
-msgid "Dubai’s Best Property Catalogs 2023-2024"
-msgstr "Каталоги лучшей недвижимости Дубая 2023-2024"
+msgid "Dubai’s Best Property Catalogs"
+msgstr "Каталоги лучшей недвижимости Дубая"
 
 #: templates/includes/catalog/catalog_module.html:20
 msgid "No Catalogs Available"
@@ -1158,7 +1161,7 @@ msgstr "Отправляя форму, вы даёте согласие на о�
 
 #: templates/includes/content/buy.html:499
 msgid "of real estate purchase in Dubai"
-msgstr "покупки недвижимости в Дубае в 2023"
+msgstr "покупки недвижимости в Дубае"
 
 #: templates/includes/content/buy.html:508
 msgid "High return on investment."

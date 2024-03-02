@@ -197,7 +197,7 @@ msgstr ""
 
 #: templates/includes/catalog/catalog_module.html:8
 #: templates/includes/content/index_rus.html:1322
-msgid "Dubai’s Best Property Catalogs 2023-2024"
+msgid "Dubai’s Best Property Catalogs"
 msgstr ""
 
 #: templates/includes/catalog/catalog_module.html:20

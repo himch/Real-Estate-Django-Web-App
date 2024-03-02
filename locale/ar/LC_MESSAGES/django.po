@@ -19,6 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+msgid "Thanks for sending!"
+msgstr "شكرا لارسالك!"
 
 msgid "with the latest news from the world of Dubai"
 msgstr "مع آخر الأخبار من عالم دبي"
@@ -348,8 +350,8 @@ msgstr "وصف مختصر للكتالوج أو المشروع وما بداخل
 
 #: templates/includes/catalog/catalog_module.html:8
 #: templates/includes/content/index_rus.html:1322
-msgid "Dubai’s Best Property Catalogs 2023-2024"
-msgstr "كتالوجات أفضل العقارات في دبي 2023-2024"
+msgid "Dubai’s Best Property Catalogs"
+msgstr "كتالوجات أفضل العقارات في دبي"
 
 msgid "No Catalogs Available"
 msgstr "لا توجد كتالوجات متاحة"
@@ -1156,7 +1158,7 @@ msgid "By submitting the form, you consent to the processing of personal data"
 msgstr "عند تقديم الطلب، فإنك توافق على معالجة البيانات الشخصية"
 
 msgid "of real estate purchase in Dubai"
-msgstr "شراء العقارات في دبي عام 2023"
+msgstr "شراء العقارات في دبي عام"
 
 #: templates/includes/content/buy.html:508
 msgid "High return on investment."
