@@ -59,6 +59,12 @@ django-stubs
 pytils~=0.4.1
 django-phonenumber-field
 phonenumbers
-
+django-money
+django-tinymce
+django-geoposition
 APScheduler~=3.10.4
+django_apscheduler
 django-excel-response~=2.0.5
+drfpasswordless
+django_cleanup
+django_htmx
