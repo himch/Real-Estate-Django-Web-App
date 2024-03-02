@@ -12,7 +12,7 @@ from django.urls import resolve
 from blog.models import Article
 from catalogs.models import Catalog
 
-from listings.models import Listing, District, Amenity, Price, Favorite
+from listings.models import Listing, District, Amenity, Price, Favorite, SUITABLE_FOR_CHOICES
 from listings.utils import convert
 from pages.filters import buy_listing_filter
 from pages.utils import check_number_var, check_str_var, is_htmx
@@ -69,7 +69,7 @@ def buy(request):
     vars_filter = dict()
 
     # все обьекты недвижимости для продажи
-    all_listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+    all_listings = Listing.sell_objects.all()
 
     # информация о собственной компании
     our_company = OurCompany.objects.all().first()
@@ -78,9 +78,7 @@ def buy(request):
     catalogs = Catalog.objects.all()
 
     # блог
-    blog_articles = Article.objects.all()
-    blog_paginator = Paginator(blog_articles, 6)
-    paged_blog_articles = blog_paginator.get_page(1)
+    random_blog_articles = get_random(Article.objects.all(), OFFERS_IN_CAROUSEL)
 
     # типы валют
     currencies = [{'value': 'usd', 'title': '$'},
@@ -245,7 +243,7 @@ def buy(request):
     context = {
         'our_company': our_company,
         'catalogs': catalogs,
-        'blog_articles': paged_blog_articles,
+        'blog_articles': random_blog_articles,
         'len_listings': len(listings),
         # 'rent_listings': paged_rent_listings,
         'listings': paged_listings,
@@ -276,7 +274,7 @@ def arenda(request):
     vars_filter = dict()
 
     # все обьекты недвижимости для аренды
-    all_listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='rent')
+    all_listings = Listing.rent_objects.all()
 
     # информация о собственной компании
     our_company = OurCompany.objects.all().first()
@@ -285,9 +283,7 @@ def arenda(request):
     catalogs = Catalog.objects.all()
 
     # блог
-    blog_articles = Article.objects.all()
-    blog_paginator = Paginator(blog_articles, 6)
-    paged_blog_articles = blog_paginator.get_page(1)
+    random_blog_articles = get_random(Article.objects.all(), OFFERS_IN_CAROUSEL)
 
     # типы валют
     currencies = [{'value': 'usd', 'title': '$'},
@@ -300,6 +296,9 @@ def arenda(request):
 
     # множество типов недвижимости (например, residential_complex или village)
     estate_types = sorted(set(all_listings.values_list('type', flat=True).distinct()))
+
+    # множество Подходит_для (1, 2, 3, более гостей)
+    suitable_for = tuple(item for _, item in SUITABLE_FOR_CHOICES)
 
     # множество районов города
     districts = sorted(set(District.objects.filter(listing__in=all_listings).values_list('name', flat=True).distinct()))
@@ -367,6 +366,13 @@ def arenda(request):
     paged_listings = paginator.get_page(page)
 
     # переменные для отображения состояния фильтров в начале страницы
+    vars_filter['check_in'] = check_str_var(request.GET, 'check_in', ' ')
+    vars_filter['check_out'] = check_str_var(request.GET, 'check_out', ' ')
+    vars_filter['guest'] = check_str_var(request.GET, 'guest', suitable_for[0])
+
+
+    # переменные для отображения состояния фильтров в rent_big_modal_filter.html
+
     variables = {var: check_number_var(request.GET, var) for var in ['price_min', 'price_max']}
     vars_filter.update(variables)
 
@@ -379,8 +385,6 @@ def arenda(request):
                                     {'value': estate_type,
                                      'title': estate_type}
                                 for estate_type in estate_types}
-
-    # переменные для отображения состояния фильтров в rent_big_modal_filter.html
 
     variables = {var: check_number_var(request.GET, var) for var in ['Bedroom_studio', 'Bedroom_1', 'Bedroom_2', 'Bedroom_3', 'Bedroom_4plus']}
     vars_filter.update(variables)
@@ -409,19 +413,6 @@ def arenda(request):
                  'listings_max_rooms': listings_max_rooms}
     vars_filter.update(variables)
 
-    print(request.GET.get('currency'))
-    print(request.GET.get('area'))
-    print(request.GET.get('price_rub_min'))
-    print(request.GET.get('price_rub_max'))
-    print(request.GET.get('price_dollar_min'))
-    print(request.GET.get('price_dollar_max'))
-    print(request.GET.get('price_euro_min'))
-    print(request.GET.get('price_euro_max'))
-    print(request.GET.get('area_min'))
-    print(request.GET.get('area_max'))
-    print(request.GET.get('fut_min'))
-    print(request.GET.get('fut_max'))
-
     districts_choices = {'district_' + district:
                              {'value': request.GET.get('district_' + district),
                               'title': district}
@@ -442,11 +433,9 @@ def arenda(request):
                                   'title': amenity[request.LANGUAGE_CODE]}
                              for amenity in amenities}
 
-    print(vars_filter)
-
     context = {
         'our_company': our_company,
-        'blog_articles': paged_blog_articles,
+        'blog_articles': random_blog_articles,
         'len_listings': len(listings),
         'listings': paged_listings,
         'currencies': currencies,
@@ -456,6 +445,7 @@ def arenda(request):
         'amenities_choices': amenities_choices,
         'vars_filter': vars_filter,
         'htmx_url': htmx_url,
+        'suitable_for': suitable_for,
     }
 
     context.update(geo_context)
@@ -482,15 +472,13 @@ def izbrannoe(request):
 
     our_company = OurCompany.objects.all().first()
 
-    blog_articles = Article.objects.all()
-    blog_paginator = Paginator(blog_articles, 6)
-    paged_blog_articles = blog_paginator.get_page(1)
+    random_blog_articles = get_random(Article.objects.all(), OFFERS_IN_CAROUSEL)
 
     context = {
         'our_company': our_company,
         'listings': listings,
         'rent_listings': rent_listings,
-        'blog_articles': paged_blog_articles,
+        'blog_articles': random_blog_articles,
     }
     context.update(geo_context)
     # return render(request, 'pages/index.html', context)
@@ -507,15 +495,13 @@ def sravnenie(request):
     our_company = OurCompany.objects.all().first()
     catalogs = Catalog.objects.all()
 
-    blog_articles = Article.objects.all()
-    blog_paginator = Paginator(blog_articles, 6)
-    paged_blog_articles = blog_paginator.get_page(1)
+    random_blog_articles = get_random(Article.objects.all(), OFFERS_IN_CAROUSEL)
 
     context = {
         'our_company': our_company,
         'catalogs': catalogs,
         'listings': listings,
-        'blog_articles': paged_blog_articles,
+        'blog_articles': random_blog_articles,
     }
     context.update(geo_context)
     # return render(request, 'pages/index.html', context)

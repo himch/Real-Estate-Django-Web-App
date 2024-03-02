@@ -31,6 +31,18 @@ OFFER_TYPE_CHOICES = (
     (SELL_OFFER_TYPE, "Sell"),
 )
 
+SUITABLE_FOR_1 = "1 guest"
+SUITABLE_FOR_2 = "2 guests"
+SUITABLE_FOR_3 = "3 guests"
+SUITABLE_FOR_4 = "More than 3 guests"
+
+SUITABLE_FOR_CHOICES = (
+    (1, SUITABLE_FOR_1),
+    (2, SUITABLE_FOR_2),
+    (3, SUITABLE_FOR_3),
+    (4, SUITABLE_FOR_4),
+)
+
 
 class DisplayedSellListingManager(models.Manager):
     def get_queryset(self):
@@ -42,8 +54,8 @@ class DisplayedSellListingManager(models.Manager):
 class DisplayedRentListingManager(models.Manager):
     def get_queryset(self):
         return super(DisplayedRentListingManager, self).get_queryset().filter(is_published=True,
-                                                                             is_fully_loaded=True,
-                                                                             offer_type=RENT_OFFER_TYPE).order_by('-list_date')
+                                                                              is_fully_loaded=True,
+                                                                              offer_type=RENT_OFFER_TYPE).order_by('-list_date')
 
 
 class Listing(models.Model, GeoItem):
@@ -72,6 +84,9 @@ class Listing(models.Model, GeoItem):
     photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
     photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
     photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+
+    suitable_for = models.IntegerField(choices=SUITABLE_FOR_CHOICES, default=4)  # for RENT
+
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(auto_now_add=True, blank=True)
 

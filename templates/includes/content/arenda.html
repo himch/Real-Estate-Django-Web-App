@@ -31,7 +31,7 @@
             </div>
             <form class="rent__form flex relative">
                 <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
-                    <input type="text" name="start" placeholder="{% trans 'Check-in' %}" required>
+                    <input type="text" value="{{ vars_filter.check_in }}" name="check_in" placeholder="{% trans 'Check-in' %}" required>
                     <div class="rent__input-svg absolute cursor-pointer">
                         <svg width="22" height="23" viewBox="0 0 22 23" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="rent__input relative flex flex-ai-center flex-j-center rent__input_date">
-                    <input type="text" name="end" placeholder="{% trans 'Check-out' %}" required>
+                    <input type="text" value="{{ vars_filter.check_out }}" name="check_out" placeholder="{% trans 'Check-out' %}" required>
                     <div class="rent__input-svg absolute cursor-pointer">
                         <svg width="22" height="23" viewBox="0 0 22 23" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
                     <div class="p-select relative">
                         <div class="p-select__current flex flex-ai-center flex-j-between">
                             <input type="hidden" name="guest" value="{% trans '1 guest' %}">
-                            <div class="p-select__current-item">{% trans '1 guest' %}</div>
+                            <div class="p-select__current-item">{{ vars_filter.guest }}</div>
                             <div class="p-select__current-arrow">
                                 <svg width="13" height="10" viewBox="0 0 13 10" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -61,10 +61,9 @@
                             </div>
                         </div>
                         <div class="p-select__abs absolute flex flex-col">
-                            <div class="p-select__abs-item active" data-value="{% trans '1 guest' %}">{% trans '1 guest' %}</div>
-                            <div class="p-select__abs-item" data-value="{% trans '2 guests' %}">{% trans '2 guests' %}</div>
-                            <div class="p-select__abs-item" data-value="{% trans '3 guests' %}">{% trans '3 guests' %}</div>
-                            <div class="p-select__abs-item" data-value="{% trans 'More than 3 guests' %}">{% trans 'More than 3 guests' %}</div>
+                            {% for item in suitable_for %}
+                              <div class="p-select__abs-item active" data-value="{% trans item %}">{% trans item %}</div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
