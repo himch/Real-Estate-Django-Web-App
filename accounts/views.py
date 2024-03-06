@@ -341,7 +341,7 @@ def logout_view(request):
 #
 # def dashboard(request):
 #     user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
-#     listings = Listing.objects.order_by('-list_date').filter(is_published=True, offer_type='rent')
+#     listings = Listing.rent_objects.all()
 #     our_company = OurCompany.objects.all().first()
 #
 #     context = {

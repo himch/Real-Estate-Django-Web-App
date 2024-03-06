@@ -4,16 +4,16 @@ from itertools import chain
 from django.core.paginator import Paginator
 from django.db.models import Min, Max
 from django.shortcuts import render
-from django.http import HttpResponse
+
 from django.contrib.auth import get_user_model
 from django_admin_geomap import geomap_context
 from django.contrib import auth
-from django.urls import resolve
+
 from blog.models import Article
 from catalogs.models import Catalog
 
-from listings.models import Listing, District, Amenity, Price, Favorite, SUITABLE_FOR_CHOICES
-from listings.utils import convert
+from listings.models import Listing, District, Amenity, Price, SUITABLE_FOR_CHOICES
+
 from pages.filters import listing_filter
 from pages.utils import check_number_var, check_str_var, is_htmx, create_choices, get_min_max_listings_prices
 from realtors.models import Realtor
@@ -441,7 +441,7 @@ def katalogi(request):
     # Get MVP
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 
-    listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+    listings = Listing.sell_objects.all()
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
@@ -492,7 +492,7 @@ def lk(request):
 #     # Get MVP
 #     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 #
-#     listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True)
+#     listings = Listing.rent_objects.all()
 #
 #     paginator = Paginator(listings, 6)
 #     page = request.GET.get('page')

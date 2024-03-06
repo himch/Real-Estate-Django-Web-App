@@ -14,7 +14,7 @@ def developer(request, slug):
     developer_item = get_object_or_404(Developer, slug=slug)
     realtor = developer_item.realtor
 
-    listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, developer=developer_item.pk)
+    listings = Listing.sell_objects.filter(developer=developer_item.pk)
     len_listings = listings.count()
 
     # url для htmx подгрузки

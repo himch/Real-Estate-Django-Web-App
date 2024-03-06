@@ -49,7 +49,7 @@ def blog_article(request, slug):
     # # Get MVP
     # mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
     #
-    # listings = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+    # listings = Listing.sell_objects.all()
     #
     # paginator = Paginator(listings, 6)
     # page = request.GET.get('page')

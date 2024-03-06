@@ -46,12 +46,12 @@ class OffersBuyAPIView(generics.GenericAPIView):
 
             price_min = check_number_var(request.query_params, 'price_min', result_type_str=False)
             price_max = check_number_var(request.query_params, 'price_max', result_type_str=False)
-            estate_types = list(sorted(Listing.objects.values_list('type', flat=True).distinct()))
+            estate_types = list(sorted(Listing.sell_objects.values_list('type', flat=True).distinct()))
             filters = list(
                 Q(type=estate_type) for estate_type in estate_types if
                 'estate_type_' + estate_type in request.query_params)
 
-            queryset = Listing.objects.order_by('-list_date').filter(is_fully_loaded=True, offer_type='sell')
+            queryset = Listing.sell_objects.all()
             if filters:
                 q = reduce(operator.or_, filters)
                 queryset = queryset.filter(q)

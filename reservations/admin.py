@@ -14,7 +14,7 @@ class CustomReservationModelForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CustomReservationModelForm, self).__init__(*args, **kwargs)
-        self.fields['listing'].queryset = Listing.objects.order_by('title_a_en').filter(is_fully_loaded=True, offer_type='rent')
+        self.fields['listing'].queryset = Listing.rent_objects.order_by('title_a_en')
 
 
 class ReservationAdmin(admin.ModelAdmin):
@@ -30,7 +30,7 @@ class ReservationAdmin(admin.ModelAdmin):
     view_on_site = True
 
     def get_fields(self, request, obj=None):
-        fields = [field.name for field in self.model._meta.concrete_fields  if field.name != "id"]
+        fields = [field.name for field in self.model._meta.concrete_fields if field.name != "id"]
         return fields
 
     def str_reservation(self, instance):
