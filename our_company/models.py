@@ -18,6 +18,8 @@ class OurCompany(models.Model):
     dzen = models.CharField(blank=True, null=True, max_length=100)
     facebook = models.CharField(blank=True, null=True, max_length=100)
     linkedin = models.CharField(blank=True, null=True, max_length=100)
+    rent_cleaning_cost_usd = models.IntegerField(null=True)
+    rent_concierge_service_usd = models.IntegerField(null=True)
 
 
     def __str__(self):

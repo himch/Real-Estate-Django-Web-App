@@ -150,7 +150,14 @@ def rent(request, listing_id):
     else:
         amenities = None
 
-    print(amenities)
+    rent_cleaning_cost_usd = our_company.rent_cleaning_cost_usd
+    rent_cleaning_cost_eur = convert(rent_cleaning_cost_usd, 'USD', 'EUR')
+    rent_cleaning_cost_rub = convert(rent_cleaning_cost_usd, 'USD', 'RUB')
+    rent_concierge_service_usd = our_company.rent_concierge_service_usd
+    rent_concierge_service_eur = convert(rent_concierge_service_usd, 'USD', 'EUR')
+    rent_concierge_service_rub = convert(rent_concierge_service_usd, 'USD', 'RUB')
+
+    # print(amenities)
 
     context = {
         'our_company': our_company,
@@ -187,6 +194,14 @@ def rent(request, listing_id):
 
         'bookmark_bookmarked': listing_item in user.profile.bookmarks.all() if hasattr(user, 'profile') else False,
         'favorites_bookmarked': listing_item in user.profile.favorites.all() if hasattr(user, 'profile') else False,
+
+        'rent_cleaning_cost_usd': rent_cleaning_cost_usd,
+        'rent_cleaning_cost_eur': rent_cleaning_cost_eur,
+        'rent_cleaning_cost_rub': rent_cleaning_cost_rub,
+
+        'rent_concierge_service_usd': rent_concierge_service_usd,
+        'rent_concierge_service_eur': rent_concierge_service_eur,
+        'rent_concierge_service_rub': rent_concierge_service_rub,
     }
     context.update(geo_context)
     # return render(request, 'listings/listing.html', context)

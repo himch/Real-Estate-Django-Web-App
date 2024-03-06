@@ -15,18 +15,19 @@
   <div class="rent-single">
     <div class="container margin-center relative">
       <a class="rent-single__link text-underline flex" href="{% url 'arenda' %}">{% trans 'Rent catalogue' %}<!--Каталог аренды--></a>
-      <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
+      <div class="rent-single__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{{ listing_title }}</div>
       {% include 'includes/bookmarks/favorites_module.html' %}
       <div class="rent-single__top flex flex-wrap">
         <div class="rent-single__top-area text-c3 text-500 relative"><span>{{ listing.address }}</span>
-          <div class="rent-single__top-svg absolute w-full"><svg width="61" height="2" viewBox="0 0 61 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="rent-single__top-svg absolute w-full">
+            <svg width="61" height="2" viewBox="0 0 61 2" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 1H61" stroke="url(#paint0_linear_347_3834)"/>
             <defs>
-            <linearGradient id="paint0_linear_347_3834" x1="0" y1="1" x2="61" y2="1" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#4B97A1" stop-opacity="0"/>
-            <stop offset="0.5" stop-color="#156B7F"/>
-            <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
-            </linearGradient>
+              <linearGradient id="paint0_linear_347_3834" x1="0" y1="1" x2="61" y2="1" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#4B97A1" stop-opacity="0"/>
+                <stop offset="0.5" stop-color="#156B7F"/>
+                <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+              </linearGradient>
             </defs>
             </svg>
           </div>
@@ -39,25 +40,55 @@
           <div class="rent-single__images grid">
             <div class="rent-single__image img_cover img_full img_br">
               <picture>
-                <source type="image/webp" srcset="/media/{{ listing.photo_main }}"/><img width="474" height="312" src="/media/{{ listing.photo_main }}" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_main }}"/>
+                <img width="474" height="312" src="/media/{{ listing.photo_main }}" alt="" loading="lazy"/>
               </picture>
             </div>
             <div class="rent-single__image img_cover img_full img_br">
               <picture>
-                <source type="image/webp" srcset="/media/{{ listing.photo_1 }}"/><img width="474" height="312" src="/media/{{ listing.photo_1 }}" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_1 }}"/>
+                <img width="474" height="312" src="/media/{{ listing.photo_1 }}" alt="" loading="lazy"/>
               </picture>
             </div>
             <div class="rent-single__image img_cover img_full img_br">
               <picture>
-                <source type="image/webp" srcset="/media/{{ listing.photo_2 }}"/><img width="474" height="312" src="/media/{{ listing.photo_2 }}" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="/media/{{ listing.photo_2 }}"/>
+                <img width="474" height="312" src="/media/{{ listing.photo_2 }}" alt="" loading="lazy"/>
               </picture>
             </div>
           </div>
+
+          <form class="rent-single__mb hidden">
+            <div class="rent-single__mb-top flex flex-ai-center flex-j-between">
+              <div class="rent-single__mb-text font-roboto">
+                <div class="rent-single__mb-pric text-c5 text-500"><span>{{ min_price_rub|unlocalize }}₽</span> {% trans 'night' %}</div>
+                <div class="rent-single__mb-date text-500">23-23 окт.</div>
+              </div>
+              <div class="rent-single__mb-btn">
+                <input type="hidden" name="monthly" value="{{ min_price_month_rub|unlocalize }}">
+                <input type="hidden" name="monthly_count" value="1">
+                <input type="hidden" name="daily" value="{{ min_price_rub|unlocalize }}">
+                <input type="hidden" name="days" value="1">
+                <input type="hidden" name="currency" value="₽">
+                <input type="hidden" name="quest" value="1">
+                <input type="hidden" name="number_of_cleanings" value="2">
+                <input type="hidden" name="cleaning_cost" value="{{ rent_cleaning_cost_rub|unlocalize }}">
+                <input type="hidden" name="concierge_service" value="{{ rent_concierge_service_rub|unlocalize }}">
+                <input type="hidden" name="date_start" value="">
+                <input type="hidden" name="date_end" value="">
+                <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Оставить заявку</button>
+              </div>
+            </div>
+            <div class="rent-single__mb-bottom">
+              <div class="rent-single__mb-show text-c3" data-text-default="Посмотреть все фото" data-text-hide="Скрыть все фото">Посмотреть все фото</div>
+            </div>
+          </form>
+
           <div class="rent-single__tabs flex flex-col">
             <div class="rent-single__tab-tops flex overflow-hidden rent-single__tab-tops_price">
-              <div class="rent-single__tab-top active">₽</div>
-              <div class="rent-single__tab-top">$</div>
-              <div class="rent-single__tab-top">€</div>
+              <div class="rent-single__tab-top active" data-price-monthly="{{ min_price_month_rub|unlocalize }}" data-price-daily="{{ min_price_rub|unlocalize }}" data-cleaning-cost="{{ rent_cleaning_cost_rub|unlocalize }}" data-concierge-service="{{ rent_concierge_service_rub|unlocalize }}">₽</div>
+              <div class="rent-single__tab-top" data-price-monthly="{{ min_price_month_usd|unlocalize }}" data-price-daily="{{ min_price_usd|unlocalize }}" data-cleaning-cost="{{ rent_cleaning_cost_usd|unlocalize }}" data-concierge-service="{{ rent_concierge_service_usd|unlocalize }}">$</div>
+              <div class="rent-single__tab-top" data-price-monthly="{{ min_price_month_eur|unlocalize }}" data-price-daily="{{ min_price_eur|unlocalize }}" data-cleaning-cost="{{ rent_cleaning_cost_eur|unlocalize }}" data-concierge-service="{{ rent_concierge_service_eur|unlocalize }}">€</div>
             </div>
             <div class="rent-single__tab-contents">
               <div class="rent-single__tab-content active">
@@ -76,47 +107,50 @@
                   </div>
                 </div>
                 <div class="rent-single__desc">
-                  <span>{% trans 'Apartment type' %}: {% trans listing.apartment_type %}</<span>
+                  <span>{% trans 'Apartment type' %}: {% trans listing.apartment_type %}</span>
                   <br>
-                  <span>{% trans 'Who is it suitable for' %}: {% trans listing.suitable_for_string %}</<span>
+                  <span>{% trans 'Who is it suitable for' %}: {% trans listing.suitable_for_string %}</span>
                 </div>
                 {% autoescape off %}
                 <div class="rent-single__desc">{% if listing.description_a_en %}{{ listing_description|linebreaks|safe }}{% endif %}</div>
                 {% endautoescape %}
-                <ul class="rent-single__list flex flex-wrap" data-count="8" data-status="true">
+                <ul class="rent-single__list flex flex-wrap">
 
                   {% if amenities_ru %}
                     {% for amenity in amenities_ru %}
                       {% include 'includes/amenities/rent_amenity.html' %}
                     {% endfor %}
                   {% endif %}
-
-                  <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center rent-single__list-li_more text-c3 text-underline" data-text-show="{% trans 'more' %}" data-text-hide="{% trans 'hide' %}">{% trans 'more' %}</li>
+                  <li class="rent-single__list-li rent-single__list-li_third flex flex-ai-center rent-single__list-li_more text-c3 text-underline modal__show" data-modal="more">{% trans 'more' %}</li>
                 </ul>
                 <div class="rent-single__rules">
-                  <div class="rent-single__rules-title font-tenor text-c3">{% trans 'House rules' %}<!--Правила дома--></div>
+                  <div class="rent-single__rules-title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'House rules' %}<!--Правила дома--></div>
                   <div class="rent-single__rules-tabs flex">
-                    <div class="rent-single__rules-tab active"><span>{% trans 'Short-term lease (5 days to 3 months)' %}<!--Краткосрочная аренда (от 5 дн до 3 мес)--></span><svg width="393" height="2" viewBox="0 0 393 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 1H393" stroke="url(#paint0_linear_347_3835)"/>
-<defs>
-<linearGradient id="paint0_linear_347_3835" x1="0" y1="1" x2="393" y2="1" gradientUnits="userSpaceOnUse">
-<stop stop-color="#4B97A1" stop-opacity="0"/>
-<stop offset="0.5" stop-color="#156B7F"/>
-<stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
+                    <div class="rent-single__rules-tab active">
+                      <span>{% trans 'Short-term lease (5 days to 3 months)' %}<!--Краткосрочная аренда (от 5 дн до 3 мес)--></span>
+                      <svg width="393" height="2" viewBox="0 0 393 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 1H393" stroke="url(#paint0_linear_347_3835)"/>
+                        <defs>
+                          <linearGradient id="paint0_linear_347_3835" x1="0" y1="1" x2="393" y2="1" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#4B97A1" stop-opacity="0"/>
+                            <stop offset="0.5" stop-color="#156B7F"/>
+                            <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
                     </div>
-                    <div class="rent-single__rules-tab"><span>{% trans 'Long term lease (from 3 months)' %}<!--Долгосрочная аренда (от 3 мес)--></span><svg width="393" height="2" viewBox="0 0 393 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 1H393" stroke="url(#paint0_linear_347_3835)"/>
-<defs>
-<linearGradient id="paint0_linear_347_3835" x1="0" y1="1" x2="393" y2="1" gradientUnits="userSpaceOnUse">
-<stop stop-color="#4B97A1" stop-opacity="0"/>
-<stop offset="0.5" stop-color="#156B7F"/>
-<stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
+                    <div class="rent-single__rules-tab">
+                      <span>{% trans 'Long term lease (from 3 months)' %}<!--Долгосрочная аренда (от 3 мес)--></span>
+                      <svg width="393" height="2" viewBox="0 0 393 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 1H393" stroke="url(#paint0_linear_347_3835)"/>
+                      <defs>
+                        <linearGradient id="paint0_linear_347_3835" x1="0" y1="1" x2="393" y2="1" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#4B97A1" stop-opacity="0"/>
+                          <stop offset="0.5" stop-color="#156B7F"/>
+                          <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      </svg>
                     </div>
                   </div>
                   <div class="rent-single__rules-contents">
@@ -125,7 +159,8 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/clock.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/clock.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/clock.webp"/>
+                              <img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/clock.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Check in after 15:00' %}<!--Прибытие после 15:00--></div>
@@ -133,7 +168,8 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/profile-2user.webp"/><img class="lazy " width="21" height="21" src="" data-src="/img/rent/single/main/profile-2user.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/profile-2user.webp"/>
+                              <img class="lazy " width="21" height="21" src="" data-src="/img/rent/single/main/profile-2user.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Maximum 2 guests' %}<!--Максимум 2 гостя--></div>
@@ -141,7 +177,8 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/clock2.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/clock2.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/clock2.webp"/>
+                              <img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/clock2.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Check out before 11:00' %}<!--Выезд до 11:00--></div>
@@ -149,7 +186,8 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/paw.webp"/><img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/paw.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/paw.webp"/>
+                              <img class="lazy " width="19" height="19" src="" data-src="/img/rent/single/main/paw.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Pets are allowed' %}<!--Можно с питомцами--></div>
@@ -157,7 +195,8 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/door.webp"/><img class="lazy " width="22" height="22" src="" data-src="/img/rent/single/main/door.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/door.webp"/>
+                              <img class="lazy " width="22" height="22" src="" data-src="/img/rent/single/main/door.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Self-check-in (digital code)' %}<!--Самостоятельное прибытие (цифровой код)--></div>
@@ -165,7 +204,8 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/celebrate.webp"/><img class="lazy " width="23" height="23" src="" data-src="/img/rent/single/main/celebrate.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/celebrate.webp"/>
+                              <img class="lazy " width="23" height="23" src="" data-src="/img/rent/single/main/celebrate.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Parties and events aren’t allowed' %}<!--Без вечеринок и мероприятий--></div>
@@ -173,7 +213,8 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/dont-smoke.webp"/><img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/dont-smoke.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/dont-smoke.webp"/>
+                              <img class="lazy " width="24" height="24" src="" data-src="/img/rent/single/main/dont-smoke.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Smoking is prohibited' %}<!--Курение запрещено--></div>
@@ -181,12 +222,14 @@
                         <div class="rent-single__advs-item flex flex-ai-center bg-c5 text-c2">
                           <div class="rent-single__advs-svg flex flex-j-center flex-ai-center bg-c2">
                             <picture>
-                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/close.webp"/><img class="lazy " width="13" height="13" src="" data-src="/img/rent/single/main/close.png" alt="" loading="lazy"/>
+                              <source type="image/webp" srcset="" data-srcset="/img/rent/single/main/close.webp"/>
+                              <img class="lazy " width="13" height="13" src="" data-src="/img/rent/single/main/close.png" alt="" loading="lazy"/>
                             </picture>
                           </div>
                           <div class="rent-single__advs-title">{% trans 'Free cancellation before 19th of october' %}<!--Бесплатная отмена до 19 октября--></div>
                         </div>
-                      </div><a class="rent-single__rules-btn p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'otmena' %}">{% trans 'Cancellation policy' %}<!--Правила отмены--></a>
+                      </div>
+                      <a class="rent-single__rules-btn p-btn flex flex-ai-center flex-j-center text-500" target="_blank" href="{% url 'otmena' %}">{% trans 'Cancellation policy' %}<!--Правила отмены--></a>
                     </div>
                     <div class="rent-single__rules-content">
                       <form class="rent-single__form bg lazy" data-bg="/img/rent/single/form/1.webp">
@@ -200,7 +243,7 @@
             </div>
           </div>
           <div class="rent-single__map">
-            <div class="rent-single__map-title font-tenor section__title text-c3">{% trans 'Location' %}<!--Где находится--></div>
+            <div class="rent-single__map-title font-tenor section__title text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'Location' %}<!--Где находится--></div>
             <div class="rent-single__map-item" id="rent-single__map-item"></div>
             <div class="contacts__item">
               <div class="contacts__item-subtitle">{% if listing.address %}{{ listing.address|safe }}{% endif %}</div>
@@ -211,12 +254,13 @@
 
           </div>
           <div class="rent-single__service">
-            <div class="rent-single__service-title font-tenor section__title text-c3">{% trans 'Services of DADI' %}<!--Услуги DADI--></div>
+            <div class="rent-single__service-title font-tenor section__title text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'Services of DADI' %}<!--Услуги DADI--></div>
             <div class="rent-single__service-row grid">
               <div class="rent-single__service-item flex flex-col">
                 <div class="rent-single__service-img img_cover img_br">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/1.webp"/><img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/1.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/1.webp"/>
+                    <img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/1.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
@@ -227,7 +271,8 @@
               <div class="rent-single__service-item flex flex-col">
                 <div class="rent-single__service-img img_cover img_br">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/2.webp"/><img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/2.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/2.webp"/>
+                    <img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/2.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
@@ -238,7 +283,8 @@
               <div class="rent-single__service-item flex">
                 <div class="rent-single__service-img img_cover img_br">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/3.webp"/><img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/3.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/3.webp"/>
+                    <img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/3.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
@@ -249,7 +295,8 @@
               <div class="rent-single__service-item flex">
                 <div class="rent-single__service-img img_cover img_br">
                   <picture>
-                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/4.webp"/><img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/4.jpg" alt="" loading="lazy"/>
+                    <source type="image/webp" srcset="" data-srcset="/img/rent/single/service/4.webp"/>
+                    <img class="lazy " width="287" height="183" src="" data-src="/img/rent/single/service/4.jpg" alt="" loading="lazy"/>
                   </picture>
                 </div>
                 <div class="rent-single__service-text">
@@ -265,15 +312,31 @@
 
         </div>
         <form class="rent-single__right">
+          <input type="hidden" name="monthly" value="{{ min_price_month_rub|unlocalize }}">
+          <input type="hidden" name="monthly_count" value="1">
+          <input type="hidden" name="daily" value="{{ min_price_rub|unlocalize }}">
+          <input type="hidden" name="days" value="1">
+          <input type="hidden" name="currency" value="₽">
+          <input type="hidden" name="quest" value="1">
+          <input type="hidden" name="number_of_cleanings" value="2">
+          <input type="hidden" name="cleaning_cost" value="{{ rent_cleaning_cost_rub|unlocalize }}">
+          <input type="hidden" name="concierge_service" value="{{ rent_concierge_service_rub|unlocalize }}">
+          <input type="hidden" name="date_start" value="">
+          <input type="hidden" name="date_end" value="">
           <div class="rent-single__right-item">
-            <div class="rent-single__right-date flex flex-ai-center text-500"><span class="rent-single__right-date_start">27 декабря 2023 г.</span><span>&nbsp;-&nbsp;</span><span class="rent-single__right-date_end">27 декабря 2023 г.</span></div>
+            <div class="rent-single__right-date flex flex-ai-center text-500">
+              <span class="rent-single__right-date_start">27 декабря 2023 г.</span><span>&nbsp;-&nbsp;</span>
+              <span class="rent-single__right-date_end">27 декабря 2023 г.</span></div>
             <div class="rent-single__right-input">
               <input type="text" name="date" value=""/>
             </div>
           </div>
           <div class="rent-single__subitem sticky">
             <div class="rent-single__price font-roboto">
-              <del><span class="rent-single__price-old">₽{{ max_price_rub }}</span><span>₽</span></del><ins><span class="rent-single__price-new">₽{{ min_price_rub }}</span><span>₽</span>&nbsp;{% trans 'per night' %}</ins>
+              <ins>
+                <span class="rent-single__price-new">₽{{ max_price_rub }}</span>
+                <span class="rent-single__price-currency">₽</span> {% trans 'per night' %}
+              </ins>
             </div>
             <div class="rent-single__cols flex flex-col font-roboto">
               <div class="rent-single__col flex">
@@ -294,7 +357,8 @@
                       <div class="rent-single__select-title text-500">{% trans '1 guest' %}<!--1 гость--></div>
                       <div class="rent-single__select-arrow">
                         <picture>
-                          <source type="image/webp" srcset="/img/rent/single/main/arrow.webp"/><img width="16" height="16" src="/img/rent/single/main/arrow.png" alt="" loading="lazy"/>
+                          <source type="image/webp" srcset="/img/rent/single/main/arrow.webp"/>
+                          <img width="16" height="16" src="/img/rent/single/main/arrow.png" alt="" loading="lazy"/>
                         </picture>
                       </div>
                     </div>
@@ -307,11 +371,19 @@
                           </div>
                           <div class="rent-single__select-right">
                             <div class="rent-single__quantity flex flex-ai-center" data-texts="[&quot;{% trans 'guest' %}&quot;,&quot;{% trans 'guests' %}&quot;,&quot;{% trans 'guests' %}&quot;]">
-                              <div class="rent-single__quantity-item rent-single__quantity-minus flex flex-ai-center flex-j-center"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><path d="m.75 6.75h10.5v-1.5h-10.5z"></path></svg></div>
+                              <div class="rent-single__quantity-item rent-single__quantity-minus flex flex-ai-center flex-j-center">
+                                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
+                                  <path d="m.75 6.75h10.5v-1.5h-10.5z"></path>
+                                </svg>
+                              </div>
                               <div class="rent-single__quantity-input">
                                 <input type="text" name="adults" value="1" disabled="disabled"/>
                               </div>
-                              <div class="rent-single__quantity-item rent-single__quantity-plus flex flex-ai-center flex-j-center"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" ><path d="m6.75.75v4.5h4.5v1.5h-4.5v4.5h-1.5v-4.5h-4.5v-1.5h4.5v-4.5z"></path></svg></div>
+                              <div class="rent-single__quantity-item rent-single__quantity-plus flex flex-ai-center flex-j-center">
+                                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" >
+                                  <path d="m6.75.75v4.5h4.5v1.5h-4.5v4.5h-1.5v-4.5h-4.5v-1.5h4.5v-4.5z"></path>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -326,16 +398,25 @@
               <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Leave a request' %}<!--Оставить заявку--></button>
             </div>
             <div class="rent-single__end flex flex-col font-roboto">
-              <div class="rent-single__end-item flex flex-ai-center flex-j-between w-full">
-                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">₽{{ min_price_rub }}</span>₽<span class="rent-single__end-span">х {% trans '1 night' %}<!--1 ночь--></span></div>
-                <div class="rent-single__end-subprice text-500">₽<span>{{ min_price_rub }}</span></div>
+              <div class="rent-single__end-item flex flex-ai-center flex-j-between w-full rent-single__end_price" data-string="[&quot;ночь&quot;,&quot;ночи&quot;,&quot;ночей&quot;]">
+                <div class="rent-single__end-title text-500">
+                  <span class="rent-single__end-price">₽{{ min_price_rub }}</span>
+                  <span class="rent-single__end-span">х {% trans '1 night' %}<!--1 ночь--></span>
+                </div>
+                <div class="rent-single__end-subprice text-500">₽
+                  <span>{{ min_price_rub }}</span>
+                </div>
               </div>
-              <div class="rent-single__end-item flex flex-ai-center flex-j-between w-full">
-                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">{% trans 'Cleaning fee' %}<!--Плата за уборку--></span></div>
+              <div class="rent-single__end-item flex flex-ai-center flex-j-between w-full rent-single__end_cleanup">
+                <div class="rent-single__end-title text-500">
+                  <span class="rent-single__end-price">{% trans 'Cleaning fee' %}<!--Плата за уборку--></span>
+                </div>
                 <div class="rent-single__end-subprice text-500">₽<span>5,231</span></div>
               </div>
-              <div class="rent-single__end-item rent-single__end-item_last flex flex-ai-center flex-j-between w-full text-c3">
-                <div class="rent-single__end-title text-500"><span class="rent-single__end-price">{% trans 'Total (excluding tax)' %}<!--Всего (без учета налогов)--></span></div>
+              <div class="rent-single__end-item rent-single__end-item_last flex flex-ai-center flex-j-between w-full text-c3 rent-single__end_total">
+                <div class="rent-single__end-title text-500">
+                  <span class="rent-single__end-price">{% trans 'Total (excluding tax)' %}<!--Всего (без учета налогов)--></span>
+                </div>
                 <div class="rent-single__end-subprice text-500">₽<span>32,091</span></div>
               </div>
             </div>
@@ -346,7 +427,7 @@
   </div>
   <div class="estate overflow-hidden estate_second offers">
     <div class="container margin-center">
-      <div class="section__title font-tenor text-c3">{% trans 'More offers' %}<!--Другие предложения--></div>
+      <div class="section__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{% trans 'More offers' %}<!--Другие предложения--></div>
       <div class="estate__items flex flex-col">
         <div class="estate__item relative w-full">
           <div class="estate__swiper relative">
@@ -367,7 +448,9 @@
 
                 <div class="swiper-slide">
                   <div class="p-card p-card_back relative">
-                    <div class="p-card__abs absolute top-0 left-0 w-full h-full flex flex-ai-center flex-j-center bg-c3 text-c2"><a class="p-card__abs-link text-underline text-center text-500 margin-center" href="{% url 'arenda' %}">{% trans 'Back to the Rent page' %}<!--Вернуться на страницу Аренды--></a></div>
+                    <div class="p-card__abs absolute top-0 left-0 w-full h-full flex flex-ai-center flex-j-center bg-c3 text-c2">
+                      <a class="p-card__abs-link text-underline text-center text-500 margin-center" href="{% url 'arenda' %}">{% trans 'Back to the Rent page' %}<!--Вернуться на страницу Аренды--></a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -375,12 +458,14 @@
             <div class="main_swiper-arrows flex absolute">
               <div class="swiper-button swiper-button-prev flex flex-ai-center flex-j-center">
                 <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-left.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-left.png" alt="" loading="lazy"/>
+                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-left.webp"/>
+                  <img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-left.png" alt="" loading="lazy"/>
                 </picture>
               </div>
               <div class="swiper-button swiper-button-next flex flex-ai-center flex-j-center">
                 <picture>
-                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-right.webp"/><img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-right.png" alt="" loading="lazy"/>
+                  <source type="image/webp" srcset="" data-srcset="/img/main/estate/arrow-right.webp"/>
+                  <img class="lazy " width="18" height="18" src="" data-src="/img/main/estate/arrow-right.png" alt="" loading="lazy"/>
                 </picture>
               </div>
             </div>
