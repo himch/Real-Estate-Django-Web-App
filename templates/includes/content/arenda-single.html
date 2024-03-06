@@ -75,7 +75,11 @@
                     <div class="rent-single__day-right">€{{ min_price_eur }} {% trans 'per night' %}<!--в сутки--></div>
                   </div>
                 </div>
-                <div class="rent-single__desc">{% trans 'Who is it suitable for' %}: {% trans listing.suitable_for_string %}</div>
+                <div class="rent-single__desc">
+                  <span>{% trans 'Apartment type' %}: {% trans listing.apartment_type %}</<span>
+                  <br>
+                  <span>{% trans 'Who is it suitable for' %}: {% trans listing.suitable_for_string %}</<span>
+                </div>
                 {% autoescape off %}
                 <div class="rent-single__desc">{% if listing.description_a_en %}{{ listing_description|linebreaks|safe }}{% endif %}</div>
                 {% endautoescape %}

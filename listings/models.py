@@ -10,6 +10,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from django.db.models import F
 
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
@@ -17,11 +18,41 @@ from datetime import datetime
 from django_admin_geomap import GeoItem
 
 from developers.models import Developer
-from listings.utils import fix_description, json_equal
+from listings.utils import fix_description, json_equal, convert
 from modules.services.utils import say_my_name
 from realtors.models import Realtor
 
 User = get_user_model()
+
+APARTMENT_TYPE_STUDIO = 'STUDIO'
+APARTMENT_1BR = '1BR'
+APARTMENT_2BR = '2BR'
+APARTMENT_3BR = '3BR'
+APARTMENT_4BR = '4BR'
+APARTMENT_4_PLUS_BR = '4+BR'
+APARTMENT_TYPE_MICRO = 'MICRO'
+APARTMENT_TYPE_ALCOVE = 'ALCOVE'
+APARTMENT_TYPE_BASEMENT = 'BASEMENT'
+APARTMENT_TYPE_LOFT = 'LOFT'
+APARTMENT_TYPE_DUPLEX = 'DUPLEX'
+APARTMENT_TYPE_PENTHOUSE = 'PENTHOUSE'
+
+
+APARTMENT_TYPE_CHOICES = (
+    (APARTMENT_TYPE_STUDIO, "Studio"),
+    (APARTMENT_1BR, "1 Bedroom"),
+    (APARTMENT_2BR, "2 Bedroom"),
+    (APARTMENT_3BR, "3 Bedroom"),
+    (APARTMENT_4BR, "4 Bedroom"),
+    (APARTMENT_4_PLUS_BR, "4+ Bedroom"),
+    (APARTMENT_TYPE_MICRO, "Micro"),
+    (APARTMENT_TYPE_ALCOVE, "Alcove"),
+    (APARTMENT_TYPE_BASEMENT, "Basement"),
+    (APARTMENT_TYPE_LOFT, "Loft"),
+    (APARTMENT_TYPE_DUPLEX, "Duplex"),
+    (APARTMENT_TYPE_PENTHOUSE, "Penthouse"),
+)
+
 
 RENT_OFFER_TYPE = "rent"
 SELL_OFFER_TYPE = "sell"
@@ -86,6 +117,7 @@ class Listing(models.Model, GeoItem):
     photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
 
     suitable_for = models.IntegerField(choices=SUITABLE_FOR_CHOICES, default=4)  # for RENT
+    apartment_type = models.CharField(max_length=12, choices=APARTMENT_TYPE_CHOICES, default=APARTMENT_1BR)  # for RENT
 
     @property
     def suitable_for_string(self):
@@ -231,6 +263,8 @@ class Listing(models.Model, GeoItem):
     price_a_max = models.IntegerField(null=True)
     price_a_currency = models.CharField(max_length=200, blank=True, null=True)
 
+    price_min_usd = models.IntegerField(null=True)  # вычисляется при сохранении из price_a_min и price_a_currency
+
     listing_br_prices = models.JSONField(blank=True, null=True)
 
     updated_at = models.CharField(max_length=200, blank=True, null=True)
@@ -356,6 +390,7 @@ class Listing(models.Model, GeoItem):
                         price['max_area_ft2'] = price['max_area']['ft2']
                         price.pop('min_area', None)
                         price.pop('max_area', None)
+                        price['rooms'] = int(price['key'][-1]) if price['key'][-1].isdigit() else 0
                         self.prices.create(**price)
                 except json.decoder.JSONDecodeError:
                     print('Error - json.loads. Cant create prices')
@@ -479,6 +514,7 @@ class Listing(models.Model, GeoItem):
         self.description_a_en = fix_description(self.description_a_en)
         self.description_a_ru = fix_description(self.description_a_ru)
         self.description_a_ar = fix_description(self.description_a_ar)
+        self.price_min_usd = convert(self.price_a_min, self.price_a_currency, 'USD')
         if self.is_fully_loaded:
             # print(f'save is_fully_loaded for complex-id = {self.complex_id}')
             super().save(**kwargs)  # Call the "real" save() method.
@@ -522,6 +558,7 @@ class Price(models.Model):
     listing = models.ForeignKey(Listing, related_name='prices', on_delete=models.CASCADE)
     # "[{\"key\": \"rooms_2\", \"count\": \"1\", \"min_price\": \"2300888\", \"max_price\": \"2300888\", \"min_price_m2\": \"22152\", \"max_price_m2\": \"22152\", \"currency\": \"AED\", \"min_area\": {\"m2\": \"103.87\", \"ft2\": \"1118.05\"}, \"max_area\": {\"m2\": \"103.87\", \"ft2\": \"1118.05\"}}, {\"key\": \"rooms_3\", \"count\": \"5\", \"min_price\": \"4662888\", \"max_price\": \"4687888\", \"min_price_m2\": \"18205\", \"max_price_m2\": \"18229\", \"currency\": \"AED\", \"min_area\": {\"m2\": \"256.04\", \"ft2\": \"2755.99\"}, \"max_area\": {\"m2\": \"257.25\", \"ft2\": \"2769.01\"}}]"
     key = models.CharField(max_length=200, blank=True, null=True)
+    rooms = models.IntegerField(null=True)
     count = models.IntegerField(null=True)
     min_price = models.FloatField(null=True)
     max_price = models.FloatField(null=True)
@@ -646,3 +683,9 @@ class Favorite(models.Model):
 
     def __str__(self):
         return self.user.username
+
+#
+# class CurrencyRate(models.Model):
+#     currency_from = models.CharField(max_length=3)
+#     currency_to = models.CharField(max_length=3)
+#     exchange_rate = models.FloatField()

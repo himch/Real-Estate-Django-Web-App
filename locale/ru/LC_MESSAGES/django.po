@@ -20,6 +20,58 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+
+msgid "Square"
+msgstr "Площадь"
+
+msgid "Delivery"
+msgstr "Завершение строительства"
+
+msgid "Construction status"
+msgstr "Статус строительства"
+
+msgid "Sale status"
+msgstr "Статус продажи"
+
+msgid "STUDIO"
+msgstr "Студия"
+
+msgid "1BR"
+msgstr "1 спальня"
+
+msgid "2BR"
+msgstr "2 спальни"
+
+msgid "3BR"
+msgstr "3 спальни"
+
+msgid "4BR"
+msgstr "4 спальни"
+
+msgid "4+BR"
+msgstr "4+ спальни"
+
+msgid "MICRO"
+msgstr "Микро"
+
+msgid "ALCOVE"
+msgstr "Альков"
+
+msgid "BASEMENT"
+msgstr "Цоколь"
+
+msgid "LOFT"
+msgstr "Лофт"
+
+msgid "DUPLEX"
+msgstr "Дуплекс"
+
+msgid "PENTHOUSE"
+msgstr "Пентхаус"
+
+msgid "Apartment type"
+msgstr "Тип помещения"
+
 msgid "Who is it suitable for"
 msgstr "Для кого подходит"
 

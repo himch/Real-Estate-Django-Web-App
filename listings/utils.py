@@ -22,8 +22,8 @@ def convert(value, currency1, currency2):
                'EURRUB': 99.67,
                'EURAED': 3.96,
                }
-    print('convert', value, currency1 + currency2)
-    return int(round(value * courses[currency1 + currency2], -1))
+    # print('convert', value, currency1.upper() + currency2.upper())
+    return int(round((value if value else 0) * courses[currency1.upper() + currency2.upper()], -1))
 
 
 def fix_description(text: str):

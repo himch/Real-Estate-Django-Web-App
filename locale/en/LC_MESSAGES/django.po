@@ -18,6 +18,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "STUDIO"
+msgstr "Studio"
+
+msgid "1BR"
+msgstr "1 Bedroom"
+
+msgid "2BR"
+msgstr "2 Bedrooms"
+
+msgid "3BR"
+msgstr "3 Bedrooms"
+
+msgid "4BR"
+msgstr "4 Bedrooms"
+
+msgid "4+BR"
+msgstr "4+ Bedrooms"
+
+msgid "MICRO"
+msgstr "Micro"
+
+msgid "ALCOVE"
+msgstr "Alcove"
+
+msgid "BASEMENT"
+msgstr "Basement"
+
+msgid "LOFT"
+msgstr "Loft"
+
+msgid "DUPLEX"
+msgstr "Duplex"
+
+msgid "PENTHOUSE"
+msgstr "Penthouse"
+
 msgid "residential_complex"
 msgstr "Residential complex"
 

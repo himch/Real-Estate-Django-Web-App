@@ -59,14 +59,14 @@
 
             <div class="rent__input relative">
               <div class="rent__form-item">
-                <div class="rent__form-title">{% trans 'Price' %}, AED<!--Цена--></div>
+                <div class="rent__form-title">{% trans 'Price' %}, USD<!--Цена--></div>
                 <div class="rent__price flex">
                   <div class="rent__price-left"><span>{% trans 'min' %}<!--от--></span>
-                    <input type="number" name="price_min" value="{{ vars_filter.price_min }}"/>
+                    <input type="number" name="price_dollar_min" value="{{ vars_filter.price_dollar_min|unlocalize }}"/>
                   </div>
 
                   <div class="rent__price-right"><span>{% trans 'max' %}<!--до--></span>
-                    <input type="number" name="price_max" value="{{ vars_filter.price_max }}"/>
+                    <input type="number" name="price_dollar_max" value="{{ vars_filter.price_dollar_max|unlocalize }}"/>
                   </div>
 
                 </div>

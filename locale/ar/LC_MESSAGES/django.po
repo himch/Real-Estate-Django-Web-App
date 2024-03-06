@@ -19,6 +19,58 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+msgid "Square"
+msgstr "مربع"
+
+msgid "Delivery"
+msgstr "الانتهاء من البناء"
+
+msgid "Construction status"
+msgstr "حالة البناء"
+
+msgid "Sale status"
+msgstr "حالة البيع"
+
+msgid "STUDIO"
+msgstr "استوديو"
+
+msgid "1BR"
+msgstr "1 غرفة نوم"
+
+msgid "2BR"
+msgstr "2 غرف نوم"
+
+msgid "3BR"
+msgstr "3 غرف نوم"
+
+msgid "4BR"
+msgstr "4 غرف نوم"
+
+msgid "4+BR"
+msgstr "4+ غرف نوم"
+
+msgid "MICRO"
+msgstr "مجهري"
+
+msgid "ALCOVE"
+msgstr "الكوة"
+
+msgid "BASEMENT"
+msgstr "قبو"
+
+msgid "LOFT"
+msgstr "العلية"
+
+msgid "DUPLEX"
+msgstr "دوبلكس"
+
+msgid "PENTHOUSE"
+msgstr "كنة"
+
+msgid "Apartment type"
+msgstr "نوع الشقة"
+
+
 msgid "Who is it suitable for"
 msgstr "لمن تكون مناسبة:"
 

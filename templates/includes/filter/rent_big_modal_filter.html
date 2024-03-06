@@ -13,8 +13,6 @@
       <div class="modal_filter__reset absolute text-underline cursor-pointer">{% trans 'Remove filters' %}<!--Сбросить фильтры--></div>
       <div class="modal_filter__items flex relative flex-col">
 
-
-
         {% if estate_types_choices %}
           <div class="modal_filter__item">
             <div class="modal_filter__item-title text-500 text-c5">{% trans 'Property type' %}<!--Тип недвижимости--></div>
@@ -30,31 +28,19 @@
           </div>
         {% endif %}
 
-        <div class="modal_filter__item">
-          <div class="modal_filter__item-title text-500 text-c5">{% trans 'Bedroom' %}<!--Комнаты--></div>
-          <div class="p-checkboxes p-checkboxes_second flex flex-wrap">
-            <label class="p-checkboxes__item flex">
-              <input type="checkbox" name="Bedroom_studio" value="Студия" {% if vars_filter.Bedroom_studio %} checked="checked"{% endif %}/>
-              <span class="p-checkboxes__item-title">{% trans 'Studio' %}<!--Студия--></span>
-            </label>
-            <label class="p-checkboxes__item flex">
-              <input type="checkbox" name="Bedroom_1" value="1" {% if vars_filter.Bedroom_1 %} checked="checked"{% endif %}/>
-              <span class="p-checkboxes__item-title">1</span>
-            </label>
-            <label class="p-checkboxes__item flex">
-              <input type="checkbox" name="Bedroom_2" value="2" {% if vars_filter.Bedroom_2 %} checked="checked"{% endif %}/>
-              <span class="p-checkboxes__item-title">2</span>
-            </label>
-            <label class="p-checkboxes__item flex">
-              <input type="checkbox" name="Bedroom_3" value="3" {% if vars_filter.Bedroom_3 %} checked="checked"{% endif %}/>
-              <span class="p-checkboxes__item-title">3</span>
-            </label>
-            <label class="p-checkboxes__item flex">
-              <input type="checkbox" name="Bedroom_4plus" value="4+" {% if vars_filter.Bedroom_4plus %} checked="checked"{% endif %}/>
-              <span class="p-checkboxes__item-title">4+</span>
-            </label>
+        {% if apartment_types_choices %}
+          <div class="modal_filter__item">
+            <div class="modal_filter__item-title text-500 text-c5">{% trans 'Apartment type' %}<!--Комнаты--></div>
+            <div class="p-checkboxes p-checkboxes_second flex flex-wrap">
+              {% for key, value in apartment_types_choices.items %}
+                <label class="p-checkboxes__item flex">
+                  <input type="checkbox" name="{{ key }}" value="{{ value.value }}" {% if value.value %} checked="checked"{% endif %}/>
+                  <span class="p-checkboxes__item-title">{% trans value.title %}</span>
+                </label>
+              {% endfor %}
+            </div>
           </div>
-        </div>
+        {% endif %}
 
         <div class="modal_filter__item">
           <div class="modal_filter__price-row flex">

@@ -86,36 +86,26 @@
               </div>
               <div class="modal_filter__range modal_filter__bedrooms" data-min="1" data-max="{{ vars_filter.listings_max_rooms }}" data-type="int">
                 <div class="modal_filter__range-main"></div>
-                <input type="hidden" name="bedrooms_min"/>
-                <input type="hidden" name="bedrooms_max"/>
+                <input type="hidden" name="bedrooms_min" value="{{ vars_filter.bedrooms_min|unlocalize }}"/>
+                <input type="hidden" name="bedrooms_max" value="{{ vars_filter.bedrooms_max|unlocalize }}"/>
               </div>
             </div>
             <div class="modal_filter__price-item">
               <div class="modal_filter__price-top flex">
-                <div class="modal_filter__price-title text-500 text-c5">{% trans 'Lease period' %}<!--Срок сдачи--></div>
+                <div class="modal_filter__price-title text-500 text-c5">{% trans 'Sale status' %}</div>
               </div>
 
                 <div class="modal_filter__radio-btns flex flex-wrap">
-                  <div class="modal_filter__radio-btn flex flex-ai-center">
-                        <label class="p-radio__btn flex">
-                          <input type="checkbox" name="sales_status_presale" value="{% trans 'Presale (EOI)' %}" checked>
-                          <span class="p-radio__btn-title">{% trans 'Presale (EOI)' %}<!--Регистрация интереса (EOI)--></span>
-                        </label>
-                        <label class="p-radio__btn flex">
-                          <input type="checkbox" name="sales_status_announcement" value="{% trans 'Announcement' %}" checked>
-                          <span class="p-radio__btn-title">{% trans 'Announcement' %}<!--Анонс продаж--></span>
-                        </label>
-                  </div>
-                  <div class="modal_filter__radio-btn flex flex-ai-center">
-                        <label class="p-radio__btn flex">
-                          <input type="checkbox" name="sales_status_launch" value="{% trans 'Launch' %}" checked>
-                          <span class="p-radio__btn-title">{% trans 'Launch' %}<!--Старт продаж--></span>
-                        </label>
-                        <label class="p-radio__btn flex">
-                          <input type="checkbox" name="sales_status_on_sale" value="{% trans 'On Sale' %}" checked>
-                          <span class="p-radio__btn-title">{% trans 'On Sale' %}<!--Сейчас в продаже--></span>
-                        </label>
-                  </div>
+
+                    {% if sales_status_types_choices %}
+                        {% for key, value in sales_status_types_choices.items %}
+                            <label class="p-radio__btn flex">
+                              <input type="checkbox" name="{{ key }}" value="{{ value.value }}"  {% if value.value %} checked="checked"{% endif %}>
+                              <span class="p-radio__btn-title">{% trans value.title %}</span>
+                            </label>
+                        {% endfor %}
+                    {% endif %}
+
                 </div>
             </div>
           </div>

@@ -66,9 +66,9 @@ class ListingAdmin(admin.ModelAdmin):
 
         elif 'developers' in request.POST:
             # count = scan_developers()
-            for row in Listing.objects.all().reverse():
-                if Listing.objects.filter(complex_id=row.complex_id).count() > 1:
-                    row.delete()
+            for price in Price.objects.all():
+                price.rooms = int(price.key[-1]) if price.key[-1].isdigit() else 0
+                price.save()
             pass
 
         self.message_user(request, f"создано {count} новых записей")
