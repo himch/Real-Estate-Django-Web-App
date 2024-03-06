@@ -89,5 +89,11 @@ def listing_filter(request,
             queryset = queryset.filter(q)
 
     # фильтрация по общей площади
+    area_min = check_number_var(request.GET, 'area_min', result_type_str=False)
+    area_max = check_number_var(request.GET, 'area_max', result_type_str=False)
+    if area_min and area_max:
+        q = Q(prices__min_area_m2__gte=area_min) & Q(prices__min_area_m2__lte=area_max)
+        if q:
+            queryset = queryset.filter(q)
 
     return queryset.distinct()
