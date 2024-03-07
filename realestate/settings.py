@@ -37,8 +37,6 @@ PASSWORDLESS_AUTH = {
    'PASSWORDLESS_EMAIL_NOREPLY_ADDRESS': 'Info@dadi.ae',
 }
 
-
-
 # AUTH_USER_MODEL = 'listings.User'
 
 # Application definition
