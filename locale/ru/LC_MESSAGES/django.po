@@ -802,12 +802,12 @@ msgid "rent apartments with hotel service"
 msgstr "аренды апартаментов с отельным сервисом"
 
 #: templates/includes/content/arenda.html:300
-msgid "5* hotel hospitaluty"
+msgid "5* hotel hospitality"
 msgstr "Гостеприимство 5* отеля"
 
 #: templates/includes/content/arenda.html:301
 msgid ""
-"We welcome you as the as the most esteemed guest, with welcome drinks, fruit "
+"We welcome you as the most esteemed guest, with welcome drinks, fruit "
 "plate, as well as tea, coffee and shower accessories for your comfort."
 msgstr ""
 "Мы встречаем вас, как самого дорогого гостя, с&nbsp;приветственными "
@@ -862,7 +862,7 @@ msgstr "Парковочное место"
 
 #: templates/includes/content/arenda.html:385
 msgid ""
-"We provide parking near the house so you can leave your car comfortably, "
+"We provide parking near the house, so you can leave your car comfortably, "
 "with no worries."
 msgstr ""
 "Мы предоставляем паркинг неподалеку от дома, чтобы вы могли удобно и без "

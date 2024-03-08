@@ -28,34 +28,39 @@
       <div class="rent-single__images grid rent-single__images_2">
         <div class="rent-single__image img_cover img_full img_br">
           <picture>
-            <source type="image/webp" srcset="media/{{ listing.photo_main }}"/><img width="474" height="317" src="media/{{ listing.photo_main }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="/media/{{ listing.photo_main }}"/>
+            <img width="474" height="317" src="/media/{{ listing.photo_main }}" alt="" loading="lazy"/>
           </picture>
         </div>
         <div class="rent-single__image img_cover img_full img_br">
           {% if listing.photo_1 %}
           <picture>
-            <source type="image/webp" srcset="media/{{ listing.photo_1 }}"/><img width="230" height="151" src="media/{{ listing.photo_1 }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="/media/{{ listing.photo_1 }}"/>
+            <img width="230" height="151" src="/media/{{ listing.photo_1 }}" alt="" loading="lazy"/>
           </picture>
           {% endif %}
         </div>
         <div class="rent-single__image img_cover img_full img_br">
           {% if listing.photo_2 %}
           <picture>
-            <source type="image/webp" srcset="media/{{ listing.photo_2 }}"/><img width="230" height="151" src="media/{{ listing.photo_2 }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="/media/{{ listing.photo_2 }}"/>
+            <img width="230" height="151" src="/media/{{ listing.photo_2 }}" alt="" loading="lazy"/>
           </picture>
           {% endif %}
         </div>
         <div class="rent-single__image img_cover img_full img_br">
           {% if listing.photo_3 %}
           <picture>
-            <source type="image/webp" srcset="media/{{ listing.photo_3 }}"/><img width="230" height="151" src="media/{{ listing.photo_3 }}g" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="/media/{{ listing.photo_3 }}"/>
+            <img width="230" height="151" src="/media/{{ listing.photo_3 }}g" alt="" loading="lazy"/>
           </picture>
           {% endif %}
         </div>
         <div class="rent-single__image img_cover img_full img_br">
           {% if listing.photo_4 %}
           <picture>
-            <source type="image/webp" srcset="media/{{ listing.photo_4 }}"/><img width="230" height="151" src="media/{{ listing.photo_4 }}" alt="" loading="lazy"/>
+            <source type="image/webp" srcset="/media/{{ listing.photo_4 }}"/>
+            <img width="230" height="151" src="/media/{{ listing.photo_4 }}" alt="" loading="lazy"/>
           </picture>
           {% endif %}
         </div>

@@ -777,12 +777,12 @@ msgid "rent apartments with hotel service"
 msgstr "تأجير الشقق مع الخدمة الفندقية"
 
 #: templates/includes/content/arenda.html:300
-msgid "5* hotel hospitaluty"
+msgid "5* hotel hospitality"
 msgstr "ضيافة فندق 5 نجوم"
 
 #: templates/includes/content/arenda.html:301
 msgid ""
-"We welcome you as the as the most esteemed guest, with welcome drinks, fruit "
+"We welcome you as the most esteemed guest, with welcome drinks, fruit "
 "plate, as well as tea, coffee and shower accessories for your comfort."
 msgstr "نرحب بكم ضيوفنا الأكثر تميزا، مع مشروبات ترحيبية وطبق فاكهة، ونقدم لكم الشاي والقهوة و كافة وسائل الراحة."
 
@@ -825,7 +825,7 @@ msgstr "مواقف السيارات"
 
 #: templates/includes/content/arenda.html:385
 msgid ""
-"We provide parking near the house so you can leave your car comfortably, "
+"We provide parking near the house, so you can leave your car comfortably, "
 "with no worries."
 msgstr " نحن نقدم مواقف السيارات بالقرب من المنزل بحيث يمكنك أن تركن سيارتك بكل يسر و أمان."
 
