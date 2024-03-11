@@ -9,32 +9,36 @@
       <div class="section__title text-center font-tenor text-c3">{% trans 'Why choose DADI' %}<!--Почему выбирают DADI--></div>
       <div class="why__tabs flex">
         <div class="why__tab cursor-pointer active">
-          <div class="why__tab-title relative"><span class="relative">{% trans 'Rent' %}<!--Аренда--></span>
-            <div class="why__tab-svg absolute"><svg width="165" height="2" viewBox="0 0 165 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="why__tab-title relative">
+            <span class="relative">{% trans 'Rent' %}<!--Аренда--></span>
+            <div class="why__tab-svg absolute">
+              <svg width="165" height="2" viewBox="0 0 165 2" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 1H165" stroke="url(#paint0_linear_347_250)" stroke-width="2"/>
-              <defs>
-              <linearGradient id="paint0_linear_347_250" x1="0" y1="1" x2="165" y2="1" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#4B97A1" stop-opacity="0"/>
-              <stop offset="0.5" stop-color="#156B7F"/>
-              <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
-              </linearGradient>
-              </defs>
+                <defs>
+                  <linearGradient id="paint0_linear_347_250" x1="0" y1="1" x2="165" y2="1" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4B97A1" stop-opacity="0"/>
+                    <stop offset="0.5" stop-color="#156B7F"/>
+                    <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
               </svg>
             </div>
           </div>
           <div class="why__tab-subtitle text-500">{% trans 'Hotel accommodation options in apartments' %}<!--Отельный вариант размещения в апартаментах--></div>
         </div>
         <div class="why__tab cursor-pointer">
-          <div class="why__tab-title relative"><span class="relative">{% trans 'Purchase' %}<!--Покупка--></span>
-            <div class="why__tab-svg absolute"><svg width="165" height="2" viewBox="0 0 165 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 1H165" stroke="url(#paint0_linear_347_250)" stroke-width="2"/>
-              <defs>
-              <linearGradient id="paint0_linear_347_250" x1="0" y1="1" x2="165" y2="1" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#4B97A1" stop-opacity="0"/>
-              <stop offset="0.5" stop-color="#156B7F"/>
-              <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
-              </linearGradient>
-              </defs>
+          <div class="why__tab-title relative">
+            <span class="relative">{% trans 'Purchase' %}<!--Покупка--></span>
+            <div class="why__tab-svg absolute">
+              <svg width="165" height="2" viewBox="0 0 165 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 1H165" stroke="url(#paint0_linear_347_250)" stroke-width="2"/>
+                <defs>
+                  <linearGradient id="paint0_linear_347_250" x1="0" y1="1" x2="165" y2="1" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4B97A1" stop-opacity="0"/>
+                    <stop offset="0.5" stop-color="#156B7F"/>
+                    <stop offset="1" stop-color="#4B97A1" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
               </svg>
             </div>
           </div>
@@ -125,7 +129,8 @@
                   <div class="why__content-text-inner">{% trans 'advise you on proven places to visit and restaurants so you can enjoy your holiday' %}<!--расскажем, куда съездить и где вкусно поесть, чтобы вы могли спокойно насладиться отдыхом--></div>
                 </div>
               </div>
-            </div><a class="p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'arenda' %}">{% trans 'Rent an apartment in Dubai' %}<!--Снять квартиру в Дубае--></a>
+            </div>
+            <a class="p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'arenda' %}">{% trans 'Rent an apartment in Dubai' %}<!--Снять квартиру в Дубае--></a>
           </div>
           <div class="why__content-right">
             <div class="why__content-image img_cover">
@@ -246,7 +251,8 @@
                   <div class="why__content-text-inner">{% trans 'if apartments are unfurnished we will hire a team of professional designers and monitor the processes' %}<!--если квартира не меблирована, наймём команду дизайнеров и проконтролируем процессы--></div>
                 </div>
               </div>
-            </div><a class="p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'buy' %}">{% trans 'Purchase an apartment in Dubai' %}<!--Купить квартиру в Дубае--></a>
+            </div>
+            <a class="p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'buy' %}">{% trans 'Purchase an apartment in Dubai' %}<!--Купить квартиру в Дубае--></a>
           </div>
           <div class="why__content-right">
             <div class="why__content-image img_cover">
@@ -401,7 +407,7 @@
           </div>
           <div class="why__block-item"><a class="p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'arenda' %}">{% trans 'Rent an apartment in Dubai' %}<!--Снять квартиру в Дубае--></a></div>
         </div>
-        <div class="why__block">
+          <div class="why__block">
           <div class="why__block-item">
             <div class="why__block-top">
               <div class="why__content-tab cursor-pointer">
@@ -473,7 +479,8 @@
             </div>
             <div class="why__block-bottom img_cover">
               <picture>
-                <source type="image/webp" srcset="" data-srcset="/img/main/why/2/3.webp"/><img class="lazy " width="599" height="606" src="" data-src="/img/main/why/2/3.jpg" alt="" loading="lazy"/>
+                <source type="image/webp" srcset="" data-srcset="/img/main/why/2/3.webp"/>
+                <img class="lazy " width="599" height="606" src="" data-src="/img/main/why/2/3.jpg" alt="" loading="lazy"/>
               </picture>
             </div>
           </div>
@@ -557,11 +564,20 @@
             <a class="p-btn flex flex-ai-center flex-j-center text-500" href="{% url 'buy' %}">{% trans 'Purchase an apartment in Dubai' %}<!--Купить квартиру в Дубае--></a>
           </div>
         </div>
-      </div>
+        </div>
         <div class="why__desc">
-              <p>{% trans 'We love our work and ' %}<span class="why__desc-img bg lazy" data-bg="/img/main/why/desc1.webp"></span>{% trans ' are always working ' %}{% trans 'on quality to provide' %}{% trans 'the best service ' %}<span class="why__desc-img why__desc-img_2 bg lazy" data-bg="/img/main/why/desc2.webp"></span>{% trans ' on the Dubai real estate market' %}</p>
-            </div>
-        <div class="why__end font-inter">{% trans 'See for yourself by ' %}<!--Вы можете проверить, просто --><a href="tel:{{ our_company.phone }}" class="why__end-link text-c3">{% trans ' calling us' %}<!--позвонив нам--></a>{% trans ' or ' %}<!--или--><span class="why__end-link text-c3 modal__show" data-modal="type-first">{% trans 'simply submitting a request.' %}<!--оставив заявку--></span></div>
-    </div>
+              <p>{% trans 'We love our work and ' %}
+                <span class="why__desc-img bg lazy" data-bg="/img/main/why/desc1.webp"></span>
+                {% trans ' are always working ' %}{% trans 'on quality to provide' %}{% trans 'the best service ' %}
+                <span class="why__desc-img why__desc-img_2 bg lazy" data-bg="/img/main/why/desc2.webp"></span>
+                {% trans ' on the Dubai real estate market' %}
+              </p>
+        </div>
+        <div class="why__end font-inter">{% trans 'See for yourself by ' %}<!--Вы можете проверить, просто -->
+          <a href="tel:{{ our_company.phone }}" class="why__end-link text-c3">{% trans ' calling us' %}<!--позвонив нам--></a>
+          {% trans ' or ' %}<!--или-->
+          <span class="why__end-link text-c3 modal__show" data-modal="type-first">{% trans 'simply submitting a request.' %}<!--оставив заявку--></span>
+        </div>
+      </div>
     </div>
 </div>

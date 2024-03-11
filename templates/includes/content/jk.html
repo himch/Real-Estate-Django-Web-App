@@ -16,8 +16,9 @@
 <!-- Showcase -->
 <main>
   <div class="rent-single">
-    <div class="container margin-center relative"><a class="rent-single__link text-underline flex" href="{% url 'buy' %}">{% trans 'Catalog of residential complexes and developers' %}</a>
-      <div class="rent-single__title font-tenor text-c3">{{ listing_title }}</div>
+    <div class="container margin-center relative">
+      <a class="rent-single__link text-underline flex" href="{% url 'buy' %}">{% trans 'Catalog of residential complexes and developers' %}</a>
+      <div class="rent-single__title font-tenor text-c3 p-animate p-animate__up p-animate__splitt">{{ listing_title }}</div>
 
       {% include 'includes/bookmarks/bookmarks_favorites_module.html' %}
 
@@ -65,6 +66,18 @@
           {% endif %}
         </div>
       </div>
+
+      <div class="rent-single__mb hidden rent-single__mb_2">
+        {% if realtor %}
+          <div class="rent-single__mb-top flex flex-ai-center flex-j-between">
+           {% include 'includes/realtor/realtor_card.html' %}
+          </div>
+        {% endif %}
+        <div class="rent-single__mb-bottom">
+          <div class="rent-single__mb-show text-c3" data-text-default="{% trans 'Hide all photos' %}" data-text-hide="{% trans 'View all photos' %}">{% trans 'View all photos' %}</div>
+        </div>
+      </div>
+
       <div class="rent-single__row flex rent-single__row_2">
         <div class="rent-single__left">
           <div class="rent-single__tabs flex flex-col rent-single__tabs_2">
@@ -302,7 +315,9 @@
           {% endif %}
         </div>
         {% if realtor %}
+          <div class="rent-single__right sticky">
            {% include 'includes/realtor/realtor_card.html' %}
+          </div>
         {% endif %}
       </div>
     </div>

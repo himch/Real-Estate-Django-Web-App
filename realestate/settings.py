@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w6rm%l&xim0ivll-li$u6fg8)6k8-$7uar^f#33ht5sutw8e!#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['89.38.128.187', 'localhost', '127.0.0.1', 'dadi.ae']
 

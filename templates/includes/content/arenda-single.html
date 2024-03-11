@@ -76,11 +76,11 @@
                 <input type="hidden" name="concierge_service" value="{{ rent_concierge_service_rub|unlocalize }}">
                 <input type="hidden" name="date_start" value="">
                 <input type="hidden" name="date_end" value="">
-                <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">Оставить заявку</button>
+                <button class="p-btn flex flex-ai-center flex-j-center text-500" type="submit">{% trans 'Leave a request' %}</button>
               </div>
             </div>
             <div class="rent-single__mb-bottom">
-              <div class="rent-single__mb-show text-c3" data-text-default="Посмотреть все фото" data-text-hide="Скрыть все фото">Посмотреть все фото</div>
+              <div class="rent-single__mb-show text-c3" data-text-default="{% trans 'Hide all photos' %}" data-text-hide="{% trans 'View all photos' %}">{% trans 'View all photos' %}</div>
             </div>
           </form>
 
