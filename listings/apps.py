@@ -5,5 +5,6 @@ class ListingsConfig(AppConfig):
     name = 'listings'
 
     def ready(self):
-        from .scheduler import scheduler
-        scheduler.start()
+        pass
+        # from .scheduler import scheduler
+        # scheduler.start()

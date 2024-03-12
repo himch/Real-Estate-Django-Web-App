@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w6rm%l&xim0ivll-li$u6fg8)6k8-$7uar^f#33ht5sutw8e!#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['89.38.128.187', 'localhost', '127.0.0.1', 'dadi.ae']
 
@@ -65,13 +65,15 @@ INSTALLED_APPS = [
     'imagekit',
     'tinymce',
     'djmoney',
-    'django_apscheduler',
+    # 'django_apscheduler',
     "geoposition",
     'django_admin_geomap',
     'rest_framework',
     'rest_framework.authtoken',
     'drfpasswordless',
     "phonenumber_field",
+    'django_celery_beat',
+    'django_celery_results',
     'django_cleanup.apps.CleanupConfig',  # Add django_cleanup to the bottom of INSTALLED_APPS in settings.py
 ]
 
@@ -228,7 +230,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info@dadi.ae'
 EMAIL_HOST_PASSWORD = 'wxtt uysl qcjy xixc'
 
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ['https://dadi.ae', 'https://www.dadi.ae', "http://127.0.0.1"]
 
 
 CURRENCIES = ('USD', 'EUR', 'AED', 'RUB')
@@ -237,3 +239,27 @@ GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBINNsjYUUuAGcQAaRIxKoHH15QJDMsS1w'
 
 # IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = 'imagekit.cachefiles.strategies.Optimistic'
 
+# Celery Configuration Options
+CELERY_TIMEZONE = "Asia/Dubai"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_BACKEND = "redis://localhost:6379/0"
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_EXTENDED = True
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+
+CELERY_CACHE_BACKEND = 'default'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+    }
+}

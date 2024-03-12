@@ -76,5 +76,7 @@ class ListingAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Listing, ListingAdmin)
-admin.site.register(Bookmark)
-admin.site.register(Favorite)
+# admin.site.register(Listing.sell_objects.all(), ListingAdmin)
+# admin.site.register(Listing.rent_objects.all(), ListingAdmin)
+# admin.site.register(Bookmark)
+# admin.site.register(Favorite)
