@@ -24,6 +24,7 @@
   <!-- Load from unpkg -->
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 
+
   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'js/libs/lazyload.min.js' %}"></script>
   <link rel="stylesheet" href="{% static 'css/parts/swiper.css' %}">
@@ -161,6 +162,30 @@
   <!--
   <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   -->
+
+  <script src="https://unpkg.com/libphonenumber-js@1.10.58/bundle/libphonenumber-min.js"></script>
+  <script type="module">
+       $(".phone-format").keyup(function () {
+              var val_old = $(this).val();
+              var newString = new libphonenumber.AsYouType('AE').input(val_old);
+              $(this).focus().val('').val(newString);
+
+              try {
+                const phoneNumber = new libphonenumber.parsePhoneNumber(val_old, {
+                  defaultCountry: 'AE'
+                });
+                if (phoneNumber) {
+                  console.log(newString, 'is valid =', phoneNumber.isValid());
+                  console.log(phoneNumber);
+                }
+              } catch (error) {
+                  console.log(error.message)
+              }
+
+      });
+  </script>
+
+
 </body>
 
 </html>

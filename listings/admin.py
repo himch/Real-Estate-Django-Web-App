@@ -3,6 +3,11 @@ from rest_framework.authtoken.admin import TokenAdmin
 from django.http import HttpResponseRedirect
 from django.urls import path
 
+from django.db import models
+from django.http import HttpResponse
+
+from etc.admin import CustomModelPage, admins
+
 # from loader.scan_for_developers import scan_developers
 from .models import Listing, Bookmark, Favorite, Price
 
@@ -80,3 +85,41 @@ admin.site.register(Listing, ListingAdmin)
 # admin.site.register(Listing.rent_objects.all(), ListingAdmin)
 # admin.site.register(Bookmark)
 # admin.site.register(Favorite)
+
+
+class MyPageModelAdmin(admins.CustomPageModelAdmin):
+
+    fields = (
+        'airbnb_url',
+    )
+    # autocomplete_fields = (
+    #     'my_relation',
+    # )
+
+
+class MyPage(CustomModelPage):
+
+    title = 'Add offer from AirBNB'  # set page title
+
+    # Define some fields.
+    airbnb_url = models.CharField('AirBNB URL', max_length=500)
+    # my_relation = models.ForeignKey(MyChildModel1, null=True, on_delete=models.CASCADE)
+
+    admin_cls = MyPageModelAdmin  # set admin class for this page
+
+    def save(self):
+        ...  # Implement data handling from self attributes here.
+
+        # self.bound_admin has some useful methods.
+        # self.bound_request allows you to access current HTTP request.
+        self.bound_admin.message_success(self.bound_request, f'Hey, done!')
+
+        super().save()
+
+        # to return a custom response you can assign self.bound_response
+        # this can be useful, e.g. for file downloads
+        self.bound_response = HttpResponse(b'%)')
+
+
+# Register my page within Django admin.
+MyPage.register()

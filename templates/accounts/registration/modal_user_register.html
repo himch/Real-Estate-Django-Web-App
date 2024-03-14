@@ -19,7 +19,7 @@
               <div class="modal_register__input-title">Россия (+7)</div>
             </div>
             <div class="modal_register__input form__input">
-              <input type="tel" name="tel" placeholder="Номер телефона" required="required"/>
+              {% include 'includes/feedback_forms/phone_input.html' %}
             </div>
             <div class="modal_register__input-text text-center">{% trans 'We will send you an SMS to confirm your number phone.' %}<!--Мы отправим вам SMS для подтверждения номера телефона.--></div>
           </div>

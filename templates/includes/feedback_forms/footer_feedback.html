@@ -22,7 +22,7 @@
   <div class="footer__form">
     <div class="footer__form-title">{{ form_title }}</div>
     <div class="footer__form-input w-full">
-      <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
+      {% include 'includes/feedback_forms/phone_input.html' %}
     </div>
     <button class="p-btn p-btn_white flex flex-ai-center flex-j-center text-500" type="submit" value="Send">{% trans 'Get a consultation' %}<!--Получить консультацию--></button>
       {% include 'includes/feedback_forms/item_end.html' %}

@@ -566,17 +566,23 @@
         </div>
         </div>
         <div class="why__desc">
-              <p>{% trans 'We love our work and ' %}
-                <span class="why__desc-img bg lazy" data-bg="/img/main/why/desc1.webp"></span>
-                {% trans ' are always working ' %}{% trans 'on quality to provide' %}{% trans 'the best service ' %}
-                <span class="why__desc-img why__desc-img_2 bg lazy" data-bg="/img/main/why/desc2.webp"></span>
-                {% trans ' on the Dubai real estate market' %}
+              <p>
+                {% trans 'We love our work and' %} &ensp;
+                <span class="why__desc-img bg lazy" data-bg="/img/main/why/desc1.webp"> </span> &ensp;
+                {% trans 'are always working' %} &ensp;
+                {% trans 'on quality to provide' %} &ensp;
+                {% trans 'the best service' %} &ensp;
+                <span class="why__desc-img why__desc-img_2 bg lazy" data-bg="/img/main/why/desc2.webp"> </span> &ensp;
+                {% trans 'on the Dubai real estate market' %}
               </p>
         </div>
-        <div class="why__end font-inter">{% trans 'See for yourself by ' %}<!--Вы можете проверить, просто -->
-          <a href="tel:{{ our_company.phone }}" class="why__end-link text-c3">{% trans ' calling us' %}<!--позвонив нам--></a>
-          {% trans ' or ' %}<!--или-->
-          <span class="why__end-link text-c3 modal__show" data-modal="type-first">{% trans 'simply submitting a request.' %}<!--оставив заявку--></span>
+        <div class="why__end font-inter">
+          <p>
+            {% trans 'See for yourself by' %}&ensp;
+            <a href="tel:{{ our_company.phone }}" class="why__end-link text-c3">{% trans 'calling us' %}</a> &nbsp;
+            {% trans 'or' %}&ensp;
+            <span class="why__end-link text-c3 modal__show" data-modal="type-first">{% trans 'simply submitting a request.' %}</span>
+          </p>
         </div>
       </div>
     </div>

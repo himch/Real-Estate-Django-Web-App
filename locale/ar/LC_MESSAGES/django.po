@@ -878,7 +878,7 @@ msgstr "سنساعدك في تخطيط وحجز الرحلات في المنطق
 msgid "Purchase an apartment in Dubai"
 msgstr "شراء شقة في دبي"
 
-msgid "Our apartments combine "
+msgid "Our apartments combine"
 msgstr "تجمع شققنا بين راحة الفندق                     واستقلالية الشقة الخاصة بك، كما نحرص على تلبية كل احتياجاتك لجعل                     إقامتك لا تنسى."
 
 
@@ -887,7 +887,7 @@ msgid "the comfort and convenience of the hotel"
 msgstr "الراحة والملاءمة في الفندق"
 
 #: templates/includes/content/arenda.html:449
-msgid "with the spaciousness and &nbsp;"
+msgid "with the spaciousness and"
 msgstr "بالرحابة و&nbsp;"
 
 #: templates/includes/content/arenda.html:449
@@ -899,8 +899,8 @@ msgid "making your stay"
 msgstr "جعل إقامتك"
 
 #: templates/includes/content/arenda.html:451
-msgid "&nbsp;unforgettable and satisfying all your needs."
-msgstr "&nbsp;لا تنسى وتلبي جميع احتياجاتك."
+msgid "unforgettable and satisfying all your needs."
+msgstr "لا تنسى وتلبي جميع احتياجاتك."
 
 #: templates/includes/content/arenda.html:518
 #: templates/includes/content/index_rus.html:1307
@@ -1641,12 +1641,12 @@ msgstr ""
 
 #: templates/includes/content/index.html:621
 #: templates/includes/content/index_rus.html:617
-msgid "We love our work and "
+msgid "We love our work and"
 msgstr "نحن نحب عملنا، ونعمل كل يوم على الجودة ونقدم أفضل خدمة في سوق العقارات في دبي.  "
 
 #: templates/includes/content/index.html:622
 #: templates/includes/content/index_rus.html:618
-msgid " are always working "
+msgid "are always working"
 msgstr " يعملون دائما "
 
 #: templates/includes/content/index.html:625
@@ -1654,25 +1654,25 @@ msgid "on quality to provide"
 msgstr "على الجودة لتقديم"
 
 #: templates/includes/content/index.html:627
-msgid "the best service "
+msgid "the best service"
 msgstr " أفضل خدمة "
 
 #: templates/includes/content/index.html:629
 #: templates/includes/content/index_rus.html:625
-msgid " on the Dubai real estate market"
+msgid "on the Dubai real estate market"
 msgstr " في سوق العقارات في دبي "
 
 #: templates/includes/content/index.html:631
 #: templates/includes/content/index_rus.html:632
-msgid "See for yourself by "
+msgid "See for yourself by"
 msgstr "يمكنك التحقق ببساطة عن طريق "
 
 #: templates/includes/content/index.html:631
-msgid " calling us"
+msgid "calling us"
 msgstr " الاتصال بنا "
 
 #: templates/includes/content/index.html:631
-msgid " or "
+msgid "or"
 msgstr "أو"
 
 #: templates/includes/content/index.html:631

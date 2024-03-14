@@ -31,7 +31,7 @@
               <input type="text" name="name" placeholder="{% trans 'Your name' %}" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required="required"/>
             </div>
             <div class="get__item-input form__input">
-              <input type="tel" name="phone" placeholder="+9 999 999 99 99" required="required"/>
+              {% include 'includes/feedback_forms/phone_input.html' %}
             </div>
             <div class="get__item-input form__input">
               <input type="email" name="email" placeholder="{% trans 'Email' %}" {% if user.is_authenticated %} value="{{ user.email }}" {% else %} value=""{% endif %} required="required"/>
